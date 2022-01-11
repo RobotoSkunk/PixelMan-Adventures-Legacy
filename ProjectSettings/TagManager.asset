@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Trampoline
+  - GravitySwitch
+  - Switch
+  - Killzone
+  - Platform
+  - Ignore
+  - IceBlock
+  - Laser
+  - Bullet
+  - Rocket
+  - IntelligentRocket
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Solid
+  - Water
+  - UI
+  - Player
+  - Trigger
+  - Killzone
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: BG
+    uniqueID: 1961264225
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 180902985
+    locked: 0
+  - name: Cursor
+    uniqueID: 2740711369
+    locked: 0

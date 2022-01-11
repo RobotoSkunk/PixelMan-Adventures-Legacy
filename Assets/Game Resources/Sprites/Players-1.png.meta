@@ -1,0 +1,1372 @@
+fileFormatVersion: 2
+guid: 7fd017377abf2284ca95efd90bded325
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3338216053436577882
+    second: Player-0-idle
+  - first:
+      213: -4503862145695340547
+    second: Player-1-Run1
+  - first:
+      213: 7583092357178615167
+    second: Player-1-Run2
+  - first:
+      213: 4117395763959422713
+    second: Player-1-Run3
+  - first:
+      213: -8031929635503637224
+    second: Player-1-Run4
+  - first:
+      213: -3680699204365625023
+    second: Player-1-Run5
+  - first:
+      213: -6060049260329952154
+    second: Player-1-Run6
+  - first:
+      213: -6573582952273753545
+    second: Player-1-Run7
+  - first:
+      213: -2965723758780155366
+    second: Player-1-Run8
+  - first:
+      213: 3166727354514008706
+    second: Player-1-Jump1
+  - first:
+      213: 890827932459778700
+    second: Player-1-Jump2
+  - first:
+      213: 1730152579046263873
+    second: Player-1-Fall1
+  - first:
+      213: -4609368368903021556
+    second: Player-1-Fall2
+  - first:
+      213: -5306476637784955627
+    second: Player-1-Fall3
+  - first:
+      213: -2273262987894464175
+    second: Players-1_0
+  - first:
+      213: -8348016747007819476
+    second: Player-2-jumping-1
+  - first:
+      213: 8113368496836147963
+    second: Player-2-jumping-2
+  - first:
+      213: 3871034404151536601
+    second: Player-2-falling-1
+  - first:
+      213: -1410163375985073761
+    second: Player-2-falling-2
+  - first:
+      213: 4141560478706699254
+    second: Player-2-falling-3
+  - first:
+      213: -9109787565581802862
+    second: Player-3-idle
+  - first:
+      213: -2338228917321944555
+    second: Player-3-running-1
+  - first:
+      213: 4828674790627598971
+    second: Player-3-running-2
+  - first:
+      213: -4811918958777200042
+    second: Player-3-jumping-1
+  - first:
+      213: 6700423760998985612
+    second: Player-3-jumping-2
+  - first:
+      213: -8043958568527013971
+    second: Player-3-falling-1
+  - first:
+      213: 1669469482060702276
+    second: Player-3-falling-2
+  - first:
+      213: 1118642482974434133
+    second: Players-1_13
+  - first:
+      213: 7403079152156433754
+    second: Players-1_14
+  - first:
+      213: 724422300144628181
+    second: Players-1_15
+  - first:
+      213: -2743468169375247853
+    second: Players-1_16
+  - first:
+      213: 3906517477132223184
+    second: Players-1_17
+  - first:
+      213: 9168824694763364499
+    second: Players-1_18
+  - first:
+      213: -7933338735522678928
+    second: Players-1_19
+  - first:
+      213: -5149129607194351882
+    second: Players-1_20
+  - first:
+      213: 8427836745426372490
+    second: Players-1_21
+  - first:
+      213: 1751312006897510990
+    second: Players-1_22
+  - first:
+      213: -9073200009514084869
+    second: Players-1_23
+  - first:
+      213: -6664909847091331260
+    second: Player-2-jumping-1
+  - first:
+      213: -6757396697930955025
+    second: Player-2-jumping-2
+  - first:
+      213: -2014387119969696596
+    second: Player-2-falling-1
+  - first:
+      213: 1733767042348756833
+    second: Player-2-falling-2
+  - first:
+      213: -1773419051692969663
+    second: Player-2-falling-3
+  - first:
+      213: -1387550958091965011
+    second: Player-3-idle
+  - first:
+      213: -6638918545146072298
+    second: Player-3-running-1
+  - first:
+      213: -5905467840821675442
+    second: Player-3-running-2
+  - first:
+      213: 5421784193733637318
+    second: Player-3-jumping-1
+  - first:
+      213: -681071355055688473
+    second: Player-3-jumping-2
+  - first:
+      213: -6437481360130382888
+    second: Player-3-falling-1
+  - first:
+      213: -2903067016817197884
+    second: Player-3-falling-2
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 512
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 512
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Player-0-idle
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 495
+        width: 9
+        height: 17
+      alignment: 9
+      pivot: {x: 0.5555556, y: 0.47058824}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a58f79060d9b35e20800000000000000
+      internalID: 3338216053436577882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-0-running-1
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 495
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df72080bd311f71c0800000000000000
+      internalID: -4503862145695340547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-0-running-2
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 495
+        width: 9
+        height: 15
+      alignment: 9
+      pivot: {x: 0.44444445, y: 0.53333336}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f756c98625e8c3960800000000000000
+      internalID: 7583092357178615167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-0-running-3
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 495
+        width: 6
+        height: 15
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.53333336}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fedf76e1ade32930800000000000000
+      internalID: 4117395763959422713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-0-running-4
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 495
+        width: 10
+        height: 16
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81d7fde2d8ad88090800000000000000
+      internalID: -8031929635503637224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-0-running-5
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 495
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14959b623978becc0800000000000000
+      internalID: -3680699204365625023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-0-running-6
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 495
+        width: 8
+        height: 15
+      alignment: 9
+      pivot: {x: 0.5, y: 0.53333336}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66c1aa42e4166eba0800000000000000
+      internalID: -6060049260329952154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-0-running-7
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 495
+        width: 6
+        height: 15
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.53333336}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73ac82c1221f5c4a0800000000000000
+      internalID: -6573582952273753545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-0-running-8
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 495
+        width: 10
+        height: 16
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1af8f754f1a7d6d0800000000000000
+      internalID: -2965723758780155366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-0-jumping-1
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 496
+        width: 7
+        height: 16
+      alignment: 9
+      pivot: {x: 0.42857146, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28ae15a30c972fb20800000000000000
+      internalID: 3166727354514008706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-0-jumping-2
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 496
+        width: 11
+        height: 16
+      alignment: 9
+      pivot: {x: 0.54545456, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c82c246e84bdc5c00800000000000000
+      internalID: 890827932459778700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-0-falling-1
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 498
+        width: 7
+        height: 14
+      alignment: 9
+      pivot: {x: 0.5714286, y: 0.42857146}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14c47499a9cb20810800000000000000
+      internalID: 1730152579046263873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-0-falling-2
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 499
+        width: 8
+        height: 13
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3846154}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0c1d94d3eb3800c0800000000000000
+      internalID: -4609368368903021556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-0-falling-3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 498
+        width: 10
+        height: 14
+      alignment: 9
+      pivot: {x: 0.5, y: 0.42857146}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5152be3ec9b9b56b0800000000000000
+      internalID: -5306476637784955627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-1-idle
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 494
+        width: 9
+        height: 18
+      alignment: 9
+      pivot: {x: 0.44444445, y: 0.44444445}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 151e1855b5fb370e0800000000000000
+      internalID: -2273262987894464175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-1-running-1
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 494
+        width: 12
+        height: 17
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47058824}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c21469f8ff2e52c80800000000000000
+      internalID: -8348016747007819476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-1-running-2
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 494
+        width: 9
+        height: 16
+      alignment: 9
+      pivot: {x: 0.44444445, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfa73c159a9789070800000000000000
+      internalID: 8113368496836147963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-1-running-3
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 494
+        width: 6
+        height: 16
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dba4cce74da8b530800000000000000
+      internalID: 3871034404151536601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-1-running-4
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 494
+        width: 10
+        height: 17
+      alignment: 9
+      pivot: {x: 0.4, y: 0.47058824}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f91e42381e71e6ce0800000000000000
+      internalID: -1410163375985073761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-1-running-5
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 494
+        width: 11
+        height: 17
+      alignment: 9
+      pivot: {x: 0.36363637, y: 0.47058824}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fb0c1dff47c97930800000000000000
+      internalID: 4141560478706699254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-1-running-6
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 494
+        width: 12
+        height: 17
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47058824}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 292e93e8978839180800000000000000
+      internalID: -9109787565581802862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-1-running-7
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 494
+        width: 9
+        height: 16
+      alignment: 9
+      pivot: {x: 0.44444445, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 512ba7b2031fc8fd0800000000000000
+      internalID: -2338228917321944555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-1-running-8
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 494
+        width: 6
+        height: 16
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b72ed3f7326e20340800000000000000
+      internalID: 4828674790627598971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-1-running-9
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 494
+        width: 10
+        height: 17
+      alignment: 9
+      pivot: {x: 0.4, y: 0.47058824}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6521e1e9331a83db0800000000000000
+      internalID: -4811918958777200042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-1-jumping-1
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 495
+        width: 8
+        height: 17
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47058824}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8f6ee609efacfc50800000000000000
+      internalID: 6700423760998985612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-1-jumping-2
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 495
+        width: 12
+        height: 17
+      alignment: 9
+      pivot: {x: 0.5833334, y: 0.47058824}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da7dcf6fc4e1e5090800000000000000
+      internalID: -8043958568527013971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-1-falling-1
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 497
+        width: 8
+        height: 15
+      alignment: 9
+      pivot: {x: 0.5, y: 0.40000004}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 442659116a52b2710800000000000000
+      internalID: 1669469482060702276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-1-falling-2
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 497
+        width: 8
+        height: 15
+      alignment: 9
+      pivot: {x: 0.625, y: 0.40000004}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5532a545967368f00800000000000000
+      internalID: 1118642482974434133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-1-falling-3
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 497
+        width: 11
+        height: 15
+      alignment: 9
+      pivot: {x: 0.54545456, y: 0.40000004}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5d526404450db660800000000000000
+      internalID: 7403079152156433754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-2-idle
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 493
+        width: 13
+        height: 19
+      alignment: 9
+      pivot: {x: 0.6923077, y: 0.42105263}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d1fd7b6e3aad0a00800000000000000
+      internalID: 724422300144628181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-2-running-1
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 493
+        width: 16
+        height: 18
+      alignment: 9
+      pivot: {x: 0.625, y: 0.44444445}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3121cc74c3e3de9d0800000000000000
+      internalID: -2743468169375247853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-2-running-2
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 493
+        width: 13
+        height: 17
+      alignment: 9
+      pivot: {x: 0.61538464, y: 0.47058824}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d24255a2fcb63630800000000000000
+      internalID: 3906517477132223184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-2-running-3
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 493
+        width: 12
+        height: 17
+      alignment: 9
+      pivot: {x: 0.6666667, y: 0.47058824}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 390233b3b753e3f70800000000000000
+      internalID: 9168824694763364499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-2-running-4
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 493
+        width: 14
+        height: 18
+      alignment: 9
+      pivot: {x: 0.6428572, y: 0.44444445}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 077f252e37e17e190800000000000000
+      internalID: -7933338735522678928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-2-running-5
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 493
+        width: 16
+        height: 18
+      alignment: 9
+      pivot: {x: 0.625, y: 0.44444445}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f6ebbc47ed9a88b0800000000000000
+      internalID: -5149129607194351882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-2-running-6
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 493
+        width: 16
+        height: 18
+      alignment: 9
+      pivot: {x: 0.625, y: 0.44444445}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a878f1c0ed0b5f470800000000000000
+      internalID: 8427836745426372490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-2-running-7
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 493
+        width: 12
+        height: 17
+      alignment: 9
+      pivot: {x: 0.6666667, y: 0.47058824}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4aa00ecdf8ed4810800000000000000
+      internalID: 1751312006897510990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-2-running-8
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 493
+        width: 14
+        height: 18
+      alignment: 9
+      pivot: {x: 0.6428572, y: 0.44444445}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf597d8c9a4851280800000000000000
+      internalID: -9073200009514084869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-2-jumping-1
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 494
+        width: 13
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44f3e186ecb7183a0800000000000000
+      internalID: -1832268542713306585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-2-jumping-2
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 494
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe68d656187e832a0800000000000000
+      internalID: 4203859905116862949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-2-falling-1
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 496
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca4851a46957b04e0800000000000000
+      internalID: -9113660842511442812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-2-falling-2
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 497
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16f2a7a60f39f0810800000000000000
+      internalID: 2511610393406290258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-2-falling-3
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 496
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1413ee9b4cc8367e0800000000000000
+      internalID: -3235053678404287187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-3-idle
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 477
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dadec2351cd6ebce0800000000000000
+      internalID: 3887294847617938985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-3-running-1
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 477
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 613b0d7f1c2ddd3a0800000000000000
+      internalID: -6370166400476598352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-3-running-2
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 477
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4ab45b89409b0ea0800000000000000
+      internalID: -7475005975024702704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-3-jumping-1
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 477
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c432549ffb0e3b40800000000000000
+      internalID: -4512413154390051013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-3-jumping-2
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 477
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e4363706395c86f0800000000000000
+      internalID: -6023021223870983883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-3-falling-1
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 477
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d3ea396fc879a6a0800000000000000
+      internalID: -1585860858970481415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-3-falling-2
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 477
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cc3577edeb36b7d0800000000000000
+      internalID: -8282594477815014732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Player-0-running-5: -3680699204365625023
+      Player-3-idle: 3887294847617938985
+      Player-3-jumping-1: -4512413154390051013
+      Player-0-running-4: -8031929635503637224
+      Player-1-falling-2: 1118642482974434133
+      Player-1-jumping-2: -8043958568527013971
+      Player-2-falling-2: 2511610393406290258
+      Player-1-running-6: -9109787565581802862
+      Player-1-running-9: -4811918958777200042
+      Player-0-idle: 3338216053436577882
+      Player-0-running-6: -6060049260329952154
+      Player-2-running-5: -5149129607194351882
+      Player-1-running-4: -1410163375985073761
+      Player-2-jumping-2: 4203859905116862949
+      Player-3-falling-2: -8282594477815014732
+      Player-2-running-7: 1751312006897510990
+      Player-0-falling-1: 1730152579046263873
+      Player-2-running-4: -7933338735522678928
+      Player-0-falling-2: -4609368368903021556
+      Player-1-running-5: 4141560478706699254
+      Player-2-running-8: -9073200009514084869
+      Player-1-falling-3: 7403079152156433754
+      Player-3-running-1: -6370166400476598352
+      Player-1-running-2: 8113368496836147963
+      Player-3-jumping-2: -6023021223870983883
+      Player-1-running-7: -2338228917321944555
+      Player-0-running-3: 4117395763959422713
+      Player-3-falling-1: -1585860858970481415
+      Player-0-running-1: -4503862145695340547
+      Player-0-running-7: -6573582952273753545
+      Player-0-falling-3: -5306476637784955627
+      Player-2-running-6: 8427836745426372490
+      Player-2-jumping-1: -1832268542713306585
+      Player-1-idle: -2273262987894464175
+      Player-2-falling-3: -3235053678404287187
+      Player-2-running-2: 3906517477132223184
+      Player-2-idle: 724422300144628181
+      Player-0-jumping-2: 890827932459778700
+      Player-1-running-8: 4828674790627598971
+      Player-0-running-8: -2965723758780155366
+      Player-1-running-1: -8348016747007819476
+      Player-2-running-1: -2743468169375247853
+      Player-1-falling-1: 1669469482060702276
+      Player-2-running-3: 9168824694763364499
+      Player-2-falling-1: -9113660842511442812
+      Player-0-jumping-1: 3166727354514008706
+      Player-3-running-2: -7475005975024702704
+      Player-1-running-3: 3871034404151536601
+      Player-1-jumping-1: 6700423760998985612
+      Player-0-running-2: 7583092357178615167
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

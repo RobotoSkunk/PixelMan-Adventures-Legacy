@@ -1,0 +1,1714 @@
+fileFormatVersion: 2
+guid: 20389dd01a32da842bae8e10845b154f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1038194059361764831
+    second: Obj-trampoline
+  - first:
+      213: 6118266599247217843
+    second: Obj-magnet
+  - first:
+      213: -5282202464456017561
+    second: Obj-platform-3
+  - first:
+      213: -4688537935949528539
+    second: Obj-spike
+  - first:
+      213: 6397528744559725978
+    second: Obj-gravity-switch
+  - first:
+      213: -2032692991992021066
+    second: Obj-gravity-switch-particles
+  - first:
+      213: -3268829529888356909
+    second: Obj-ice
+  - first:
+      213: -3628955789918953988
+    second: Obj-saw
+  - first:
+      213: -7177038359938043184
+    second: Obj-saw-base
+  - first:
+      213: 7892106377978383869
+    second: Obj-killzone
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 512
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 512
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Obj-trampoline-0
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 496
+        width: 24
+        height: 16
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12a32dbe0089791f0800000000000000
+      internalID: -1038194059361764831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-magnet
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 496
+        width: 15
+        height: 15
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b484495e0378e450800000000000000
+      internalID: 6118266599247217843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-platform-3
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 386
+        width: 76
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 769f76a48d8d1b6b0800000000000000
+      internalID: -5282202464456017561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-spike
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 424
+        width: 16
+        height: 16
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52209c39697feeeb0800000000000000
+      internalID: -4688537935949528539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-gravity-switch
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 393
+        width: 20
+        height: 20
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9d45d36f7698c850800000000000000
+      internalID: 6397528744559725978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-gravity-switch-particles
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 385
+        width: 28
+        height: 28
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bfb3e25e7c6ac3e0800000000000000
+      internalID: -2032692991992021066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-ice
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 406
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d582bf8cd8c2a2d0800000000000000
+      internalID: -3268829529888356909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-saw
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 445
+        width: 44
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfd9844afeb53adc0800000000000000
+      internalID: -3628955789918953988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-saw-base
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 463
+        width: 34
+        height: 28
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3214286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d27a8023a9066c90800000000000000
+      internalID: -7177038359938043184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-killzone
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 496
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfd0ff4cfe4668d60800000000000000
+      internalID: 7892106377978383869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-finish-0
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 477
+        width: 23
+        height: 35
+      alignment: 9
+      pivot: {x: 0.47826087, y: 0.25714287}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69a794e0809044f40a58577173b2f58a
+      internalID: 2137086225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-finish-1
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 477
+        width: 23
+        height: 35
+      alignment: 9
+      pivot: {x: 0.47826087, y: 0.25714287}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2b23d94e815f6643a43a641304f63ce
+      internalID: -1579523275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-finish-2
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 477
+        width: 23
+        height: 35
+      alignment: 9
+      pivot: {x: 0.47826087, y: 0.25714287}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 624d92bc6f1e80944aaf9e46c291c4a4
+      internalID: 1681511104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-finish-3
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 477
+        width: 23
+        height: 35
+      alignment: 9
+      pivot: {x: 0.47826087, y: 0.25714287}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4ff024125dbf8844a8ed27b3b7590ef
+      internalID: -226197972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-finish-4
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 477
+        width: 23
+        height: 35
+      alignment: 9
+      pivot: {x: 0.47826087, y: 0.25714287}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 906257592b8191149ac936ebb3e91250
+      internalID: -2139162831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-finish-5
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 441
+        width: 23
+        height: 35
+      alignment: 9
+      pivot: {x: 0.47826087, y: 0.25714287}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 800c9eadd0896ea49809070cfecb4ed6
+      internalID: -1198828825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-finish-6
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 441
+        width: 23
+        height: 35
+      alignment: 9
+      pivot: {x: 0.47826087, y: 0.25714287}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5921cce1c36fd3948abec4ebc85c073d
+      internalID: -252673823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-finish-7
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 441
+        width: 23
+        height: 35
+      alignment: 9
+      pivot: {x: 0.47826087, y: 0.25714287}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d160c3b7331c2c545ae95f1f1ab33cf7
+      internalID: -2046627942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-finish-8
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 441
+        width: 23
+        height: 35
+      alignment: 9
+      pivot: {x: 0.47826087, y: 0.25714287}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13b52f4aceb63f44da91dcd39053b61b
+      internalID: 1879781177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-finish-9
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 441
+        width: 23
+        height: 35
+      alignment: 9
+      pivot: {x: 0.47826087, y: 0.25714287}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef873f385fc9ab549a747a436eb057ee
+      internalID: -172941664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-finish-10
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 405
+        width: 23
+        height: 35
+      alignment: 9
+      pivot: {x: 0.47826087, y: 0.25714287}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d978a38e1ce33d47b5eb60236d5971e
+      internalID: -1428930924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-switch-0
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 419
+        width: 14
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52380955}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f723c49fbaa251f43b318a253c4ec447
+      internalID: 1035999500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-switch-1
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 419
+        width: 14
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52380955}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d5dbc984637cf24b87874e53143b722
+      internalID: -595484752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-switch-2
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 419
+        width: 14
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52380955}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc1a6de8196e41f4faa759e480ba54ed
+      internalID: -1397556029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-switch-3
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 419
+        width: 14
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52380955}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d2780dc09b307e43aa97d6bb1d595d1
+      internalID: -1661163507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-switch-4
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 397
+        width: 14
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52380955}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98731e0b47d0dea4aad15929c92684c0
+      internalID: -1025910553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-switch-5
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 397
+        width: 14
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52380955}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7975ef3f20943044b4c3144425ba159
+      internalID: -609942487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-switch-6
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 397
+        width: 14
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52380955}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a2babac0d1e6af48a9b1c9079129999
+      internalID: -1401883316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-switch-7
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 397
+        width: 14
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52380955}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3afafe488933c2d45b34e4fc36a8615d
+      internalID: -2030122291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-special-1-0
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 427
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f739eb8bd8c09204d8fc8c61f46fa33a
+      internalID: 305123104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-special-1-1
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 427
+        width: 16
+        height: 16
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0514db6b3a0fe1a41acbced6c11ce0b1
+      internalID: 602742946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-directional-gun
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 422
+        width: 37
+        height: 23
+      alignment: 9
+      pivot: {x: 0.32432434, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1212574a9861e44391176b6d57cf501
+      internalID: -329119186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-bullet-0
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 437
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37b69769cb466724b98f5eb19fd75ad6
+      internalID: 249394845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-bullet-1
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 428
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 098e50a6f9d740645a6c003b7a6198e6
+      internalID: -1646459703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-fragile-platform
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 397
+        width: 16
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fdce84c1cba27d4d88a2c9bd9a74b31
+      internalID: 891212740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pointed-line-0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 12
+        width: 384
+        height: 1
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eda5c38202d3a7f4d93b3f62e617ddc0
+      internalID: 1534981881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pointed-line-1
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 10
+        width: 384
+        height: 1
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6455c44423bc87a4a92172a3ed3dcb30
+      internalID: 776891072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pointed-line-2
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 8
+        width: 384
+        height: 1
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6df9a02bea79d244fb6ad661bc5bfccb
+      internalID: -1448198520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pointed-line-3
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 6
+        width: 384
+        height: 1
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87589bfc81cdd394cad6bf830c6297dc
+      internalID: 1726025340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pointed-line-4
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 4
+        width: 384
+        height: 1
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b753be40f596224c9ef438795ab91b7
+      internalID: 2122876962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pointed-line-5
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2
+        width: 384
+        height: 1
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 429d80827f626ed47abdc00841bbe05a
+      internalID: -2027738764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pointed-line-6
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 0
+        width: 384
+        height: 1
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8e4a86b9bdde14488e64629e0b52e2f
+      internalID: -1939871824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-lasergun-0
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 484
+        width: 35
+        height: 28
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 613dc5a7831ca2c46855bc8029f36474
+      internalID: 709141466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-lasergun-2
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 484
+        width: 35
+        height: 28
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a923796479dce694486a3dccff10a3f4
+      internalID: -487177794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-lasergun-1
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 455
+        width: 35
+        height: 28
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2d78b8724ebf654db8bb163ee13206a
+      internalID: -405821941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-lasergun-4
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 484
+        width: 35
+        height: 28
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0afebf699d1d9de4299b90ed54718050
+      internalID: -2031918194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-lasergun-3
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 455
+        width: 35
+        height: 28
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20d23c4a9f98055498db5755420783e9
+      internalID: -1652066286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-lasergun-5
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 455
+        width: 35
+        height: 28
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0e9e547a470fda4f9e5034ef2ca739b
+      internalID: 747409560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-lasergun-6
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 484
+        width: 35
+        height: 28
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f574a819264b9b74b86c59f06e6dc065
+      internalID: -1573321960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-lasergun-7
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 455
+        width: 35
+        height: 28
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55b810c006b88be46aa5cbf9720488ca
+      internalID: -310625096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-lasergun-8
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 484
+        width: 35
+        height: 28
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7f192363890c6d4b8056abbbe7b0ba7
+      internalID: 2122093972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-lasergun-10
+      rect:
+        serializedVersion: 2
+        x: 477
+        y: 484
+        width: 35
+        height: 28
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b86e6b0df2027c34ba41ca2d78c97856
+      internalID: 957438984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-lasergun-9
+      rect:
+        serializedVersion: 2
+        x: 477
+        y: 455
+        width: 35
+        height: 28
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: deafbdcc1a60f0e4c8eebabedcf9f7a2
+      internalID: 62400633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-lasergun-outline
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 453
+        width: 37
+        height: 30
+      alignment: 9
+      pivot: {x: 0.4054054, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52de3454c1d80334d9ce1146812ed671
+      internalID: 506532716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-laser-0
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 420
+        width: 1
+        height: 7
+      alignment: 9
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abeb3231a28f4dd458dce3b1d0811b91
+      internalID: 1663440724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-laser-1
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 420
+        width: 1
+        height: 7
+      alignment: 9
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 350473073b96ee944ac29f11c956f3cd
+      internalID: 431378380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-trampoline-1
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 494
+        width: 24
+        height: 18
+      alignment: 9
+      pivot: {x: 0.5, y: 0.44444445}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82a4cb88959f05f4682ba738c3a62086
+      internalID: -1180068893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-trampoline-2
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 492
+        width: 24
+        height: 20
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c0884313e994a44bbffcab477a9943d
+      internalID: -1688769666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-trampoline-3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 490
+        width: 24
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36363637}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e211022cf92e2f443aa382028b920be5
+      internalID: -912999258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-checkpoint-0
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 387
+        width: 22
+        height: 31
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2580645}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acd0318111b8f474aa5395fd2a7272cc
+      internalID: 804760411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-checkpoint-1
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 360
+        width: 22
+        height: 26
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1b2c91dbf9cf21438775a9ff984e3a0
+      internalID: -768149808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-number-1
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 349
+        width: 8
+        height: 10
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94c753effc9d447488a8a375f4bd8121
+      internalID: -979334723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-number-2
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 349
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d470b3536b035bc438a2da0e0c1916d1
+      internalID: 717795536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-number-3
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 349
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04b2ed110eaa85743be73f100fd9a430
+      internalID: 1866114055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-number-4
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 338
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 028db43ba5a44e049a2f0d673e91151a
+      internalID: 1881724988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-number-5
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 338
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7800080e60d626a48b52a7bb86bfc8ea
+      internalID: -278800795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-number-6
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 338
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6f376eba5e307947b49fe5a34fca7c0
+      internalID: -1126405975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-number-7
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 327
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5804b6ef6a1ca0546ad2dbac8f5b6f9d
+      internalID: 1609224833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-number-8
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 327
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ad83092c20d2804bb520fa7b9e5e712
+      internalID: -1233329608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-number-9
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 327
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e925fb210594e4942a987d6d14fe508e
+      internalID: -1549858931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-number-0
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 360
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ca7aa57118b1cb49b87e30ed9ef8079
+      internalID: -806003791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Obj-directional-gun: -329119186
+      Obj-lasergun-9: 62400633
+      Obj-number-0: -806003791
+      Obj-trampoline-3: -912999258
+      Obj-finish-3: -226197972
+      Obj-lasergun-3: -1652066286
+      Obj-killzone: 7892106377978383869
+      Pointed-line-3: 1726025340
+      Obj-laser-1: 431378380
+      Obj-saw: -3628955789918953988
+      Obj-lasergun-0: 709141466
+      Obj-checkpoint-1: -768149808
+      Obj-bullet-0: 249394845
+      Obj-finish-8: 1879781177
+      Obj-lasergun-5: 747409560
+      Obj-number-4: 1881724988
+      Obj-finish-2: 1681511104
+      Obj-lasergun-outline: 506532716
+      Obj-switch-4: -1025910553
+      Obj-number-1: -979334723
+      Obj-switch-1: -595484752
+      Pointed-line-0: 1534981881
+      Obj-saw-base: -7177038359938043184
+      Obj-lasergun-2: -487177794
+      Obj-finish-7: -2046627942
+      Obj-lasergun-4: -2031918194
+      Obj-switch-3: -1661163507
+      Obj-lasergun-7: -310625096
+      Obj-special-1-0: 305123104
+      Obj-number-9: -1549858931
+      Obj-finish-6: -252673823
+      Obj-finish-5: -1198828825
+      Obj-finish-0: 2137086225
+      Obj-finish-4: -2139162831
+      Pointed-line-2: -1448198520
+      Obj-trampoline-0: -1038194059361764831
+      Obj-laser-0: 1663440724
+      Obj-magnet: 6118266599247217843
+      Obj-finish-9: -172941664
+      Obj-spike: -4688537935949528539
+      Obj-checkpoint-0: 804760411
+      Obj-number-3: 1866114055
+      Obj-lasergun-10: 957438984
+      Pointed-line-5: -2027738764
+      Obj-number-5: -278800795
+      Obj-switch-2: -1397556029
+      Pointed-line-4: 2122876962
+      Obj-lasergun-6: -1573321960
+      Obj-platform-3: -5282202464456017561
+      Obj-number-6: -1126405975
+      Obj-fragile-platform: 891212740
+      Obj-finish-1: -1579523275
+      Pointed-line-6: -1939871824
+      Obj-number-2: 717795536
+      Obj-bullet-1: -1646459703
+      Obj-number-7: 1609224833
+      Obj-finish-10: -1428930924
+      Obj-ice: -3268829529888356909
+      Obj-gravity-switch: 6397528744559725978
+      Obj-switch-0: 1035999500
+      Obj-switch-5: -609942487
+      Pointed-line-1: 776891072
+      Obj-switch-6: -1401883316
+      Obj-trampoline-1: -1180068893
+      Obj-special-1-1: 602742946
+      Obj-lasergun-8: 2122093972
+      Obj-number-8: -1233329608
+      Obj-gravity-switch-particles: -2032692991992021066
+      Obj-lasergun-1: -405821941
+      Obj-switch-7: -2030122291
+      Obj-trampoline-2: -1688769666
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
