@@ -2,19 +2,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace RobotoSkunk.PixelMan.Gameplay {
-	public class DirectionalGun : GameHandler {
+	public class RocketLauncher : GameHandler {
 		[Header("Components")]
 		public SpriteRenderer spriteRenderer;
 		public AudioSource audioSource;
 
 		[Header("Properties")]
 		public ContactFilter2D lineFilter;
-		public Bullet bullet;
+		public Rocket rocket;
 
 		[Header("Shared")]
 		public float reloadTime;
 
-		float time = 1f, ang;
+		float time = 1f, ang, newAng;
 		readonly List<RaycastHit2D> lineResults = new();
 		readonly List<GameObject> players = new();
 
@@ -26,7 +26,7 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 
 		protected override void OnGameResetObject() {
 			time = 1f;
-			ang = 0f;
+			ang = newAng = 0f;
 			transform.rotation = Quaternion.Euler(0f, 0f, 0f);
 		}
 
@@ -52,23 +52,20 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 					int lineBuffer = Physics2D.Linecast(transform.position, target.transform.position, lineFilter, lineResults);
 
 					if (lineBuffer == 0) {
-						float __z = RSMath.Direction(transform.position, target.transform.position) * Mathf.Rad2Deg;
-						ang += Mathf.Sin((__z - ang) * Mathf.Deg2Rad) * 10f;
-
-						transform.rotation = Quaternion.Euler(0f, 0f, ang);
+						newAng = RSMath.Direction(transform.position, target.transform.position) * Mathf.Rad2Deg;
 
 						onCount = true;
 
 						if (time > 0f) time -= Time.fixedDeltaTime;
 						else {
-							Bullet newObj = Instantiate(
-								bullet,
+							Rocket newObj = Instantiate(
+								rocket,
 								transform.position + RSMath.GetDirVector(ang * Mathf.Deg2Rad),
 								Quaternion.Euler(0f, 0f, ang)
 							);
 							newObj.transform.localScale = transform.localScale;
-							newObj.rb.velocity = 15f * transform.localScale.x * RSMath.GetDirVector(ang * Mathf.Deg2Rad);
 							newObj.spriteRenderer.sortingOrder = spriteRenderer.sortingOrder - 1;
+							newObj.target = target;
 
 							time = reloadTime;
 							audioSource.Play();
@@ -77,7 +74,13 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 				}
 			}
 
-			if (!onCount) time = 1f;
+			if (!onCount) {
+				time = 1f;
+				newAng++;
+			}
+			ang += Mathf.Sin((newAng - ang) * Mathf.Deg2Rad) * 5f;
+
+			transform.rotation = Quaternion.Euler(0f, 0f, ang);
 		}
 	}
 }

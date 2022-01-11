@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 using RobotoSkunk.PixelMan.Events;
@@ -11,8 +12,9 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 
 		[Header("Properties")]
 		public AudioClip audioClip;
-		public LayerMask layerMask;
+		public LayerMask layerMask, importantLayers;
 		public Sprite[] sprites;
+		public List<string> tags;
 
 		int index;
 		Vector2 speed;
@@ -30,12 +32,14 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 
 		private void OnTriggerEnter2D(Collider2D collision) {
 			if (explosionParticles && collision.gameObject.CompareLayers(layerMask)) {
-				explosionParticles.transform.parent = null;
-				explosionParticles.Play();
+				if (collision.gameObject.CompareLayers(importantLayers) || tags.Contains(collision.tag)) {
+					explosionParticles.transform.parent = null;
+					explosionParticles.Play();
 
-				GeneralEventsHandler.PlayOnBackground(audioClip);
+					GeneralEventsHandler.PlayOnBackground(audioClip);
 
-				DestroyMyself();
+					DestroyMyself();
+				}
 			}
 		}
 

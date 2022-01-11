@@ -4980,7 +4980,15 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: 18a2e6f5496a241469e45f492a668851, type: 3}
   layerMask:
     serializedVersion: 2
+    m_Bits: 328
+  importantLayers:
+    serializedVersion: 2
     m_Bits: 72
   sprites:
   - {fileID: 249394845, guid: 20389dd01a32da842bae8e10845b154f, type: 3}
   - {fileID: -1646459703, guid: 20389dd01a32da842bae8e10845b154f, type: 3}
+  tags:
+  - Rocket
+  - Bullet
+  - IntelligentRocket
+  - Laser

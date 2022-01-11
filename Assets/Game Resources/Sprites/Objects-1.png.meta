@@ -1612,7 +1612,7 @@ TextureImporter:
         width: 8
         height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1620,6 +1620,174 @@ TextureImporter:
       bones: []
       spriteID: 8ca7aa57118b1cb49b87e30ed9ef8079
       internalID: -806003791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-rocket-launcher
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 414
+        width: 41
+        height: 30
+      alignment: 9
+      pivot: {x: 0.36585364, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dc5518340b2b0b4f8adc55a725b0b24
+      internalID: -1400100824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-rocket-0
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 446
+        width: 30
+        height: 16
+      alignment: 9
+      pivot: {x: 0.70000005, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc8164920cd9a7d40a91943325ddc35a
+      internalID: 1611468489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-rocket-1
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 445
+        width: 31
+        height: 16
+      alignment: 9
+      pivot: {x: 0.7096774, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3f525c3abc4ae3409bacd2da37382f3
+      internalID: -700097054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-rocket-2
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 445
+        width: 31
+        height: 16
+      alignment: 9
+      pivot: {x: 0.7096774, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b05e6bae2e3da042bad56d2037bf140
+      internalID: 1313608394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-rocket-4
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 462
+        width: 31
+        height: 16
+      alignment: 9
+      pivot: {x: 0.7096774, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9146fc14b79cc524caf5e0f4510f5f29
+      internalID: 12695959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-rocket-6
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 479
+        width: 30
+        height: 16
+      alignment: 9
+      pivot: {x: 0.70000005, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72d3fbaf4172b614488544318daed545
+      internalID: -515231197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-rocket-5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 479
+        width: 31
+        height: 16
+      alignment: 9
+      pivot: {x: 0.7096774, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d7d69bd2c8224245909762cc87679a8
+      internalID: 564930306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-rocket-3
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 462
+        width: 29
+        height: 16
+      alignment: 9
+      pivot: {x: 0.6896552, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32bab352a4dd8e84289ff48ae3aa11eb
+      internalID: -723275759
       vertices: []
       indices: 
       edges: []
@@ -1640,14 +1808,18 @@ TextureImporter:
       Obj-number-0: -806003791
       Obj-trampoline-3: -912999258
       Obj-finish-3: -226197972
+      Obj-rocket-1: -700097054
       Obj-lasergun-3: -1652066286
       Obj-killzone: 7892106377978383869
       Pointed-line-3: 1726025340
       Obj-laser-1: 431378380
       Obj-saw: -3628955789918953988
+      Obj-rocket-6: -515231197
+      Obj-rocket-0: 1611468489
       Obj-lasergun-0: 709141466
       Obj-checkpoint-1: -768149808
       Obj-bullet-0: 249394845
+      Obj-rocket-5: 564930306
       Obj-finish-8: 1879781177
       Obj-lasergun-5: 747409560
       Obj-number-4: 1881724988
@@ -1655,6 +1827,7 @@ TextureImporter:
       Obj-lasergun-outline: 506532716
       Obj-switch-4: -1025910553
       Obj-number-1: -979334723
+      Obj-rocket-2: 1313608394
       Obj-switch-1: -595484752
       Pointed-line-0: 1534981881
       Obj-saw-base: -7177038359938043184
@@ -1665,13 +1838,14 @@ TextureImporter:
       Obj-lasergun-7: -310625096
       Obj-special-1-0: 305123104
       Obj-number-9: -1549858931
+      Obj-rocket-4: 12695959
       Obj-finish-6: -252673823
       Obj-finish-5: -1198828825
       Obj-finish-0: 2137086225
-      Obj-finish-4: -2139162831
+      Obj-laser-0: 1663440724
       Pointed-line-2: -1448198520
       Obj-trampoline-0: -1038194059361764831
-      Obj-laser-0: 1663440724
+      Obj-finish-4: -2139162831
       Obj-magnet: 6118266599247217843
       Obj-finish-9: -172941664
       Obj-spike: -4688537935949528539
@@ -1691,6 +1865,7 @@ TextureImporter:
       Obj-number-2: 717795536
       Obj-bullet-1: -1646459703
       Obj-number-7: 1609224833
+      Obj-rocket-launcher: -1400100824
       Obj-finish-10: -1428930924
       Obj-ice: -3268829529888356909
       Obj-gravity-switch: 6397528744559725978
@@ -1706,6 +1881,7 @@ TextureImporter:
       Obj-lasergun-1: -405821941
       Obj-switch-7: -2030122291
       Obj-trampoline-2: -1688769666
+      Obj-rocket-3: -723275759
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
