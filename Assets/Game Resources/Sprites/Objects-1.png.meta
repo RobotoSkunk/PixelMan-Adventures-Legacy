@@ -176,7 +176,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Obj-platform-3
+      name: Obj-platform-2
       rect:
         serializedVersion: 2
         x: 169
@@ -260,7 +260,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Obj-ice
+      name: Obj-block-ice
       rect:
         serializedVersion: 2
         x: 243
@@ -743,7 +743,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Obj-special-1-0
+      name: Obj-block-special-0
       rect:
         serializedVersion: 2
         x: 107
@@ -764,7 +764,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Obj-special-1-1
+      name: Obj-block-special-1
       rect:
         serializedVersion: 2
         x: 125
@@ -1792,6 +1792,258 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Obj-intelligent-rocket-1
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 379
+        width: 21
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55307a2ca9a4d794c9fdf065aa3fbc2d
+      internalID: -1248975459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-intelligent-rocket-0
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 379
+        width: 23
+        height: 11
+      alignment: 9
+      pivot: {x: 0.54347825, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed6c8e66a1468824591485d9dac0a2ca
+      internalID: -1481203256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-platform-1
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 391
+        width: 46
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 175c2d95d5e849c4fa9d054e8b8e3899
+      internalID: -1016043205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-platform-0
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 393
+        width: 16
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4d045e9cd4770f4b8dde64d75b19d1a
+      internalID: -546009425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-static-gun
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 426
+        width: 14
+        height: 18
+      alignment: 9
+      pivot: {x: 0.6428572, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 589e35894df9a57479d9244d7aef3098
+      internalID: 1578965865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-block-toggle-2
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 354
+        width: 16
+        height: 16
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0584d7d19cb12b46af30a303864077b
+      internalID: -1033014114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-block-toggle-3
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 354
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ce86a3af7857324980ce607e0078f3a
+      internalID: -1542064260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-block-toggle-0
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 372
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 171ef160b8a75104bbb4aaf192301eeb
+      internalID: -1083771288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-block-toggle-1
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 372
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b89f641eda7c96c47bbb5cbc4768c816
+      internalID: -1946027427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-button-0
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 348
+        width: 16
+        height: 11
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8181819}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0c6674f0e0e35343a2491a29ee51245
+      internalID: 582035530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-button-1
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 337
+        width: 16
+        height: 10
+      alignment: 9
+      pivot: {x: 0.5, y: 0.90000004}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b0d12901efd7524ebd2d1c2add7f55d
+      internalID: 1161002461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-button-2
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 328
+        width: 16
+        height: 8
+      alignment: 9
+      pivot: {x: 0.5, y: 1.125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6c0cc90e9cb85c4b9e473fadb5334a3
+      internalID: -604190890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -1803,84 +2055,96 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Obj-directional-gun: -329119186
       Obj-lasergun-9: 62400633
-      Obj-number-0: -806003791
       Obj-trampoline-3: -912999258
-      Obj-finish-3: -226197972
       Obj-rocket-1: -700097054
-      Obj-lasergun-3: -1652066286
-      Obj-killzone: 7892106377978383869
+      Obj-block-toggle-1: -1946027427
       Pointed-line-3: 1726025340
-      Obj-laser-1: 431378380
       Obj-saw: -3628955789918953988
-      Obj-rocket-6: -515231197
-      Obj-rocket-0: 1611468489
-      Obj-lasergun-0: 709141466
-      Obj-checkpoint-1: -768149808
-      Obj-bullet-0: 249394845
+      Obj-static-gun: 1578965865
       Obj-rocket-5: 564930306
-      Obj-finish-8: 1879781177
       Obj-lasergun-5: 747409560
       Obj-number-4: 1881724988
       Obj-finish-2: 1681511104
       Obj-lasergun-outline: 506532716
-      Obj-switch-4: -1025910553
-      Obj-number-1: -979334723
+      Obj-block-ice: -3268829529888356909
       Obj-rocket-2: 1313608394
-      Obj-switch-1: -595484752
       Pointed-line-0: 1534981881
       Obj-saw-base: -7177038359938043184
       Obj-lasergun-2: -487177794
-      Obj-finish-7: -2046627942
       Obj-lasergun-4: -2031918194
-      Obj-switch-3: -1661163507
-      Obj-lasergun-7: -310625096
-      Obj-special-1-0: 305123104
-      Obj-number-9: -1549858931
       Obj-rocket-4: 12695959
+      Obj-number-9: -1549858931
+      Obj-button-0: 582035530
+      Obj-block-toggle-0: -1083771288
+      Obj-block-special-0: 305123104
+      Obj-laser-0: 1663440724
+      Obj-finish-4: -2139162831
+      Obj-number-3: 1866114055
+      Obj-switch-2: -1397556029
+      Pointed-line-5: -2027738764
+      Obj-rocket-launcher: -1400100824
+      Pointed-line-6: -1939871824
+      Pointed-line-4: 2122876962
+      Obj-lasergun-6: -1573321960
+      Obj-number-2: 717795536
+      Obj-number-7: 1609224833
+      Obj-finish-10: -1428930924
+      Obj-switch-6: -1401883316
+      Obj-switch-0: 1035999500
+      Obj-lasergun-1: -405821941
+      Obj-lasergun-8: 2122093972
+      Obj-gravity-switch-particles: -2032692991992021066
+      Obj-block-toggle-2: -1033014114
+      Obj-trampoline-2: -1688769666
+      Obj-directional-gun: -329119186
+      Obj-number-0: -806003791
+      Obj-finish-3: -226197972
+      Obj-lasergun-3: -1652066286
+      Obj-killzone: 7892106377978383869
+      Obj-rocket-0: 1611468489
+      Obj-laser-1: 431378380
+      Obj-rocket-6: -515231197
+      Obj-block-toggle-3: -1542064260
+      Obj-lasergun-0: 709141466
+      Obj-checkpoint-1: -768149808
+      Obj-platform-2: -5282202464456017561
+      Obj-bullet-0: 249394845
+      Obj-finish-8: 1879781177
+      Obj-switch-4: -1025910553
+      Obj-number-1: -979334723
+      Obj-switch-1: -595484752
+      Obj-lasergun-7: -310625096
+      Obj-finish-7: -2046627942
+      Obj-switch-3: -1661163507
       Obj-finish-6: -252673823
       Obj-finish-5: -1198828825
       Obj-finish-0: 2137086225
-      Obj-laser-0: 1663440724
       Pointed-line-2: -1448198520
       Obj-trampoline-0: -1038194059361764831
-      Obj-finish-4: -2139162831
       Obj-magnet: 6118266599247217843
       Obj-finish-9: -172941664
+      Obj-button-1: 1161002461
       Obj-spike: -4688537935949528539
       Obj-checkpoint-0: 804760411
-      Obj-number-3: 1866114055
       Obj-lasergun-10: 957438984
-      Pointed-line-5: -2027738764
+      Obj-intelligent-rocket-0: -1481203256
       Obj-number-5: -278800795
-      Obj-switch-2: -1397556029
-      Pointed-line-4: 2122876962
-      Obj-lasergun-6: -1573321960
-      Obj-platform-3: -5282202464456017561
+      Obj-finish-1: -1579523275
+      Obj-platform-1: -1016043205
       Obj-number-6: -1126405975
       Obj-fragile-platform: 891212740
-      Obj-finish-1: -1579523275
-      Pointed-line-6: -1939871824
-      Obj-number-2: 717795536
       Obj-bullet-1: -1646459703
-      Obj-number-7: 1609224833
-      Obj-rocket-launcher: -1400100824
-      Obj-finish-10: -1428930924
-      Obj-ice: -3268829529888356909
+      Obj-button-2: -604190890
+      Obj-block-special-1: 602742946
       Obj-gravity-switch: 6397528744559725978
-      Obj-switch-0: 1035999500
       Obj-switch-5: -609942487
       Pointed-line-1: 776891072
-      Obj-switch-6: -1401883316
       Obj-trampoline-1: -1180068893
-      Obj-special-1-1: 602742946
-      Obj-lasergun-8: 2122093972
       Obj-number-8: -1233329608
-      Obj-gravity-switch-particles: -2032692991992021066
-      Obj-lasergun-1: -405821941
+      Obj-intelligent-rocket-1: -1248975459
+      Obj-platform-0: -546009425
       Obj-switch-7: -2030122291
-      Obj-trampoline-2: -1688769666
       Obj-rocket-3: -723275759
   spritePackingTag: 
   pSDRemoveMatte: 0

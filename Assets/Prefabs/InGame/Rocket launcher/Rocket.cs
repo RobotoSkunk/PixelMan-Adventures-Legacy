@@ -59,7 +59,7 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 					Destroy(particles.gameObject, 1f);
 
 					GeneralEventsHandler.PlayOnBackground(audioClip);
-					GeneralEventsHandler.SetShake(0.5f, 0.2f);
+					GeneralEventsHandler.SetShake(0.75f, 0.2f);
 
 					DestroyMyself();
 				}
