@@ -32,8 +32,8 @@ namespace RobotoSkunk.PixelMan {
 	[System.Serializable]
 	public struct InGameObject {
 		public string name;
-		public GameObject gameObject;
-		public Sprite preview;
+		public InGameObjectBehaviour gameObject;
+		public GameObject preview;
 		public Category category;
 		public InGameObjectProperties defaultProperties;
 		public Options options;

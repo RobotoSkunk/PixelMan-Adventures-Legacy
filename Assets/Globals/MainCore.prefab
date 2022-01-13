@@ -83,7 +83,8 @@ MonoBehaviour:
   settings:
     general:
       enableShake: 1
-      enableControllerShake: 1
+      enableDeviceVibration: 1
+      enableControllerVibration: 1
       enableParticles: 1
       lang: en
     volume:
@@ -106,8 +107,8 @@ MonoBehaviour:
     controller: {fileID: 9100000, guid: 6855b228aed06e3468ac534e795d3d36, type: 2}
   objects:
   - name: Mrrrrrr
-    gameObject: {fileID: 1630688041729426592, guid: c948d7796ff06594e8a34e4476db98f2, type: 3}
-    preview: {fileID: 8229598875086543445, guid: d2a114b1be56ebe4a92b18b4001732f8, type: 3}
+    gameObject: {fileID: 8956469483171973529, guid: c948d7796ff06594e8a34e4476db98f2, type: 3}
+    preview: {fileID: 1630688041729426592, guid: c948d7796ff06594e8a34e4476db98f2, type: 3}
     category: 0
     defaultProperties:
       id: 0

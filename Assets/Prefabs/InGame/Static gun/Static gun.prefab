@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6248492080504041466}
   - component: {fileID: 6248492080504041467}
   - component: {fileID: 9093957345132585867}
+  - component: {fileID: 8243989049210252129}
   - component: {fileID: -8316735461421561303}
   m_Layer: 0
   m_Name: Static gun
@@ -182,6 +183,30 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8243989049210252129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6248492080504041412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 793afdc305c85ca4f92dd9157d3e5791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  properties:
+    id: 0
+    position: {x: 0, y: 0}
+    scale: {x: 0, y: 0}
+    rotation: 0
+    renderOrder: 0
+    skinIndex: 0
+    speed: 0
+    startupTime: 0
+    reloadTime: 0
+  scripts:
+  - {fileID: -8316735461421561303}
 --- !u!114 &-8316735461421561303
 MonoBehaviour:
   m_ObjectHideFlags: 0
