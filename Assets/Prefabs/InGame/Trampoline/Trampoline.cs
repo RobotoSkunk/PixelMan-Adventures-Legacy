@@ -12,7 +12,7 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 		[Header("Properties")]
 		public LayerMask layerMask;
 
-		private void FixedUpdate() => animator.speed = Globals.onPause ? 0 : 1;
+		private void Update() => animator.speed = Globals.onPause ? 0 : 1;
 
 		private void OnTriggerEnter2D(Collider2D collision) {
 			if (collision.gameObject.CompareLayers(layerMask)) Impulse();

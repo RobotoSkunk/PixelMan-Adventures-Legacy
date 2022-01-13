@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -26,7 +27,7 @@ namespace RobotoSkunk.PixelMan {
 	}
 
 	public static class Globals {
-		public static bool inputActive = true, onPause = false;
+		public static bool inputActive = true, onPause = true;
 		public static uint attempts = 0u, respawnAttempts = 0u;
 		public static PlayerCharacters[] playerCharacters;
 		public static Settings settings = new();
@@ -230,8 +231,10 @@ namespace RobotoSkunk.PixelMan {
 			}
 		}
 
-		private void Start() {
+		private async void Start() {
+			await Task.Delay(500);
 			GameEventsHandler.InvokeLevelReady();
+			Globals.onPause = false;
 			t.Start();
 		}
 
