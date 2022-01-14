@@ -5,5 +5,6 @@ namespace RobotoSkunk {
 		namespace Physics { }
 		namespace Gameplay { }
 		namespace Events { }
+		namespace LevelEditor { }
 	}
 }

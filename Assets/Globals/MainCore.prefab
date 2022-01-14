@@ -108,6 +108,7 @@ MonoBehaviour:
   objects:
   - name: Mrrrrrr
     gameObject: {fileID: 8956469483171973529, guid: c948d7796ff06594e8a34e4476db98f2, type: 3}
+    staticGameObject: {fileID: 0}
     preview: {fileID: 1630688041729426592, guid: c948d7796ff06594e8a34e4476db98f2, type: 3}
     category: 0
     defaultProperties:
@@ -177,7 +178,7 @@ MonoBehaviour:
         value: "Vers\xE3o do jogo: {0}"
   bgAudio: {fileID: 3355192530202362898}
   musicAudio: {fileID: 1931014126442553692}
-  musicType: 2
+  musicType: 0
 --- !u!81 &3355192528981997733
 AudioListener:
   m_ObjectHideFlags: 0

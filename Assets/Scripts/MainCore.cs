@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+
 using XInputDotNetPure;
 
 using RobotoSkunk.PixelMan.Events;
@@ -36,6 +37,10 @@ namespace RobotoSkunk.PixelMan {
 		public static float gmVolume = 1f, shakeForce = 0f;
 		public static Vector2 respawnPoint;
 		public static int checkpointId = 0;
+
+		public static class Editor {
+			public static Vector2 cursorPos;
+		}
 
 		static bool __isDead = false;
 		static MainCore.MusicClips.Type __musicType = MainCore.MusicClips.Type.NONE;
@@ -166,9 +171,6 @@ namespace RobotoSkunk.PixelMan {
 		public AudioSource bgAudio;
 		public AudioSource musicAudio;
 
-		[Header("Tests")]
-		public MusicClips.Type musicType;
-
 		bool onMusicFade = false;
 		int fps;
 		readonly Timer t = new();
@@ -249,8 +251,6 @@ namespace RobotoSkunk.PixelMan {
 
 			if (Keyboard.current.tKey.wasPressedThisFrame)
 				Globals.onPause = !Globals.onPause;
-
-			Globals.musicType = musicType;
 
 			fps = RSTime.fps;
 		}
