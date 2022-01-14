@@ -443,7 +443,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: button-settings
+      name: Editor-button-settings
       rect:
         serializedVersion: 2
         x: 181
@@ -505,6 +505,363 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Cur-default
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 416
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c84b55b36b79a284da5f764a233d8ccc
+      internalID: -756887439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Editor-button-pause
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 415
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0893135814253174d87271e05d5e9ee9
+      internalID: 1321980181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Editor-button-hidePanel
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 481
+        width: 46
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2c0c5a3fead15648b42f15db760f6b8
+      internalID: 1731858915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Editor-button-showPanel
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 481
+        width: 46
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdbefaeea3e66de4ba438dfa36a66ee1
+      internalID: 1057841057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Editor-button-run
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 351
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5f075a4fd2ac1445b69c19c73ff8cf1
+      internalID: 243878023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Editor-button-redo
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 351
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1223e639d0828a4a9598a9ef7a2eecd
+      internalID: -1727614579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Editor-button-undo
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 351
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c2d16837fe387f42a81e44957030594
+      internalID: 531908384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Editor-button-zoomAdd
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 388
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcd1eee20c74dad40bf567e9f81b4615
+      internalID: -1436274194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Editor-button-zoomRemove
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 388
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 366f37ac8b660b84e978a34a8ce4eff5
+      internalID: -780712959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Editor-button-zoomReset
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 388
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7c6a1dc032fefa40834fd1ef1fde7a6
+      internalID: -1004530483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Editor-button-save
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 380
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f1087ee2e91e3c44a3c84d5ff323f0c
+      internalID: -1491967587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Editor-button-help
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 436
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d4148efc95b8dc44bb516353790febe
+      internalID: 815706927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Editor-button-container
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 413
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 889c74f409d5d1041a5017ec7fac2e73
+      internalID: 746526994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Editor-button-stop
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 363
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae5c4e228cdf75843a8747086f725af5
+      internalID: 1953064187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Editor-button-objects
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 365
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f597880813a151946bc99955c66dfd78
+      internalID: -952989520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Editor-button-options
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 316
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0888e68ed9a303c45b609a8dc938df8c
+      internalID: 1123823680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Editor-button-properties
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 316
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27ca2d1f1a720ca4299efd485f2d1b72
+      internalID: -676435924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -516,30 +873,47 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Editor-button-pause: 1321980181
       blank: 2054124001041304269
       bar-color-palette: 5438888047807879708
       bar-gradiant-palette: 213274684569274308
-      button-settings: 3816540026819079933
+      Editor-button-zoomAdd: -1436274194
+      slider-border-1: 2211136918358296430
       game-title: -7010831734835879382
+      base-rect-border-3: 6931351593359424303
       Button-container: -1312120766
+      Editor-button-showPanel: 1057841057
       slider-border-2: 5224690882252275055
+      Editor-button-undo: 531908384
       Alex Skunk: -6377995968244068863
+      Editor-button-hidePanel: 1731858915
       color-picker: 7786610187498457116
+      Editor-button-objects: -952989520
       bar-hue-palette: -4019474977474178137
+      Editor-button-container: 746526994
       Slider-container: -2051916891
       palette-sv-white: -1605685468875770678
       bar-alpha-palette: -574547697581011041
+      Editor-button-redo: -1727614579
+      Editor-button-help: 815706927
       bar-color-container: 7713757842985170668
+      Editor-button-stop: 1953064187
+      Editor-button-options: 1123823680
+      Editor-button-properties: -676435924
       base-rect-border-2: -634390419545406517
       base-rect-border-4: -280262383310750262
+      Editor-button-zoomReset: -1004530483
       rulette-hue: 325564063192308738
-      base-rect-border-1: 9010152221549391988
       console-controller: 1293517014411768107
+      Editor-button-run: 243878023
+      Editor-button-zoomRemove: -780712959
+      Cur-default: -756887439
       button-pause: -6294512886237695265
       base-rect-corner: 8267307703009234630
-      slider-border-1: 2211136918358296430
+      base-rect-border-1: 9010152221549391988
+      Editor-button-settings: 3816540026819079933
       palette-sv: 3191599451653250520
-      base-rect-border-3: 6931351593359424303
+      Editor-button-save: -1491967587
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

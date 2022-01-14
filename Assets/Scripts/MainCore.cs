@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 using XInputDotNetPure;
 
@@ -259,14 +260,14 @@ namespace RobotoSkunk.PixelMan {
 			if (!onMusicFade) musicAudio.volume = Globals.musicVolume;
 		}
 
-		private void OnGUI() {
-			GUI.Box(guiRect, "");
-			GUI.Label(guiRect, 
-				$"<b>Default frame rate:</b> {RSTime.fixedFrameRate}\n" +
-				$"<b>FPS:</b> {fps}\n" +
-				$"<b>Real FPS:</b> {RSTime.realFps}\n" +
-				$"<b>Timer</b>: {t.time}");
-		}
+		// private void OnGUI() {
+		// 	GUI.Box(guiRect, "");
+		// 	GUI.Label(guiRect, 
+		// 		$"<b>Default frame rate:</b> {RSTime.fixedFrameRate}\n" +
+		// 		$"<b>FPS:</b> {fps}\n" +
+		// 		$"<b>Real FPS:</b> {RSTime.realFps}\n" +
+		// 		$"<b>Timer</b>: {t.time}");
+		// }
 
 		void OnPlayerDeath() {
 			t.Stop();

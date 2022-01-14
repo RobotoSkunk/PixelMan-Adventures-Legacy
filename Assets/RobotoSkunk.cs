@@ -411,4 +411,10 @@ namespace RobotoSkunk {
 
 		public void Reset() => time = 0d;
 	}
+
+	public enum InputType {
+		Gamepad,
+		KeyboardAndMouse,
+		Touch
+	}
 }

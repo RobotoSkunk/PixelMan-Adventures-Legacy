@@ -272,13 +272,7 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 		public void LookUp(InputAction.CallbackContext context) => cam.look = context.ReadValue<Vector2>();
 		#endregion
 
-		// private void OnGUI() {
-		// 	Rect rct = new Rect(250, 65, 200, 100);
-		// 
-		// 	GUI.Box(rct, "");
-		// 	GUI.Label(rct, $"Are particles alive? {deathParticles.IsAlive()}\nAre particles paused? {deathParticles.isPaused}\nAre particles playing? {deathParticles.isPlaying}");
-		// }
-
+		#region Custom events
 		void DefaultReset(bool trigger) {
 			boxCol.enabled = spr.enabled = pmrb.enabled = trigger;
 			rb.velocity = lastVelocity = Vector2.zero;
@@ -294,7 +288,6 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 			}
 		}
 
-		#region Custom events
 		protected override void OnGameReady() {
 			GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Platform");
 
