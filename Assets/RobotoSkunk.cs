@@ -1,5 +1,7 @@
 using UnityEngine;
+using UnityEngine.UI;
 
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Text;
@@ -335,6 +337,17 @@ namespace RobotoSkunk {
 		public static float SafeDivision(float numerator, float denominator) => denominator == 0f ? 0f : numerator / denominator;
 
 		public static float Direction(Vector2 from, Vector2 to) => Mathf.Atan2(to.y - from.y, to.x - from.x);
+
+		public static Vector2 Clamp(Vector2 vector, Vector2 min, Vector2 max) => new(
+			Mathf.Clamp(vector.x, min.x, max.x),
+			Mathf.Clamp(vector.y, min.y, max.y)
+		);
+
+		public static Vector3 Clamp(Vector3 vector, Vector3 min, Vector3 max) => new(
+			Mathf.Clamp(vector.x, min.x, max.x),
+			Mathf.Clamp(vector.y, min.y, max.y),
+			Mathf.Clamp(vector.z, min.z, max.z)
+		);
 	}
 
 	public static class RSRandom {
@@ -365,6 +378,16 @@ namespace RobotoSkunk {
 		public static bool CompareLayers(this GameObject gameObject, LayerMask layerMask) => layerMask == (layerMask | (1 << gameObject.layer));
 		
 		public static T ClampIndex<T>(this T[] array, int x) => array[x < 0 ? 0 : (x >= array.Length ? array.Length : x)];
+
+		public static void SetInteractable(this List<Button> list, bool enabled) {
+			foreach (var button in list)
+				button.interactable = enabled;
+		}
+
+		public static void SetInteractable(this Button[] array, bool enabled) {
+			foreach (var button in array)
+				button.interactable = enabled;
+		}
 	}
 
 

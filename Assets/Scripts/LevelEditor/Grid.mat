@@ -82,25 +82,25 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _Scale: 1
-    - _SecondaryFadeInSpeed: 1
+    - _SecondaryFadeInSpeed: 3.12
     - _SelectCell: 0
     - _SelectedCellX: 0
     - _SelectedCellY: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Thickness: 0.00572
+    - _Thickness: 0.01
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _BackgroundColor: {r: 0, g: 0, b: 0, a: 0}
+    - _BackgroundColor: {r: 1, g: 1, b: 1, a: 0}
     - _CellColor: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _LineColor: {r: 1, g: 1, b: 1, a: 1}
-    - _MainColor: {r: 1, g: 1, b: 1, a: 0.5019608}
+    - _MainColor: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-    - _SecondaryColor: {r: 1, g: 1, b: 1, a: 0.10039216}
+    - _SecondaryColor: {r: 1, g: 1, b: 1, a: 0.2}
     - _SelectedColor: {r: 1, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

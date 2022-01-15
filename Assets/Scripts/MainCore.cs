@@ -75,6 +75,10 @@ namespace RobotoSkunk.PixelMan {
 			get { return settings.volume.fx * settings.volume.master; }
 		}
 
+		public static Vector2 screen {
+			get { return new(Screen.width, Screen.height); }
+		}
+
 		[Serializable]
 		public class Settings {
 			public General general;
