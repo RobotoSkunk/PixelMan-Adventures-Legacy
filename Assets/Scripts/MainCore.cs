@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using UnityEngine.Events;
 
 using XInputDotNetPure;
 
@@ -29,7 +29,7 @@ namespace RobotoSkunk.PixelMan {
 	}
 
 	public static class Globals {
-		public static bool inputActive = true, onPause = true;
+		public static bool onPause = true;
 		public static uint attempts = 0u, respawnAttempts = 0u;
 		public static PlayerCharacters[] playerCharacters;
 		public static Settings settings = new();
@@ -38,9 +38,11 @@ namespace RobotoSkunk.PixelMan {
 		public static float gmVolume = 1f, shakeForce = 0f;
 		public static Vector2 respawnPoint;
 		public static int checkpointId = 0;
+		public static InputType inputType;
 
 		public static class Editor {
 			public static Vector2 cursorPos;
+			public static bool hoverUI;
 		}
 
 		static bool __isDead = false;
@@ -216,10 +218,27 @@ namespace RobotoSkunk.PixelMan {
 			languagesWrapper = null;
 
 			// Suscribe events
-			GameEventsHandler.PlayerDeath += OnPlayerDeath;
-			GeneralEventsHandler.PlayOnBG += PlayOnBackground;
-			GeneralEventsHandler.ChgMusic += OnMusicChange;
-			GeneralEventsHandler.ShakeFx += DoShakeEffect;
+			GameEventsHandler.PlayerDeath += () => {
+				t.Stop();
+
+				StartCoroutine(ResetObjects());
+			};
+
+			GeneralEventsHandler.PlayOnBG += (AudioClip clip) => bgAudio.PlayOneShot(clip);
+
+			GeneralEventsHandler.ChgMusic += (MusicClips.Type type) => {
+				MusicClips mc = musicClips.Find(m => m.type == type);
+
+				if (mc != null) {
+					if (musicRoutine != null) StopCoroutine(musicRoutine);
+					musicRoutine = StartCoroutine(ChangeMusic(mc.GetClip()));
+				}
+			};
+
+			GeneralEventsHandler.ShakeFx += (float __force, float __time) => {
+				if (shakeRoutine != null) StopCoroutine(shakeRoutine);
+			shakeRoutine = StartCoroutine(ShakeEffect(__force, __time));
+			};
 
 			// Avoid destroy on scenes load
 			DontDestroyOnLoad(gameObject);
@@ -246,8 +265,6 @@ namespace RobotoSkunk.PixelMan {
 		}
 
 		private void Update() {
-			if (Globals.inputActive) InputSystem.Update();
-
 			if (Keyboard.current.rKey.wasPressedThisFrame)
 				GameEventsHandler.InvokeResetObject();
 
@@ -273,26 +290,6 @@ namespace RobotoSkunk.PixelMan {
 		// 		$"<b>Timer</b>: {t.time}");
 		// }
 
-		void OnPlayerDeath() {
-			t.Stop();
-
-			StartCoroutine(ResetObjects());
-		}
-
-		void OnMusicChange(MusicClips.Type type) {
-			MusicClips mc = musicClips.Find(m => m.type == type);
-
-			if (mc != null) {
-				if (musicRoutine != null) StopCoroutine(musicRoutine);
-				musicRoutine = StartCoroutine(ChangeMusic(mc.GetClip()));
-			}
-		}
-
-		void DoShakeEffect(float __force, float __time) {
-			if (shakeRoutine != null) StopCoroutine(shakeRoutine);
-			shakeRoutine = StartCoroutine(ShakeEffect(__force, __time));
-		}
-
 		void SetVibration(float leftMotor, float rightMotor) {
 			if (Globals.settings.general.enableDeviceVibration && leftMotor + rightMotor != 0f) Device.Vibrate(150);
 
@@ -304,6 +301,7 @@ namespace RobotoSkunk.PixelMan {
 			}
 		}
 
+		#region Coroutines
 		IEnumerator ShakeEffect(float __force, float __time) {
 			if (Globals.settings.general.enableShake) Globals.shakeForce = Mathf.Clamp01(__force);
 			SetVibration(__force, __force);
@@ -358,7 +356,17 @@ namespace RobotoSkunk.PixelMan {
 
 			onMusicFade = false;
 		}
+		#endregion
 
-		private void PlayOnBackground(AudioClip clip) => bgAudio.PlayOneShot(clip);
+		public void OnControlsChanged(PlayerInput obj) {
+			Globals.inputType = obj.currentControlScheme switch {
+				"Gamepad" => InputType.Gamepad,
+				"Keyboard&Mouse" => InputType.KeyboardAndMouse,
+				"Touch" => InputType.Touch,
+				_ => InputType.KeyboardAndMouse,
+			};
+
+			Debug.Log(Globals.inputType);
+		}
 	}
 }

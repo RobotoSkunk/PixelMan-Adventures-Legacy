@@ -178,7 +178,6 @@ MonoBehaviour:
         value: "Vers\xE3o do jogo: {0}"
   bgAudio: {fileID: 3355192530202362898}
   musicAudio: {fileID: 1931014126442553692}
-  musicType: 0
 --- !u!81 &3355192528981997733
 AudioListener:
   m_ObjectHideFlags: 0

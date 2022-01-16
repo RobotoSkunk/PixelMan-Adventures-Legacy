@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 
 using System.Collections.Generic;
 
@@ -15,20 +16,24 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		public Vector2 zoomLimits;
 		public float defaultOrtho, navigationSpeed, cursorSpeed;
 		[Range(0f, 1f)] public float zoomSpeedGamepad, zoomSpeedKeyboard;
+		public ContactFilter2D guiFilter;
+		public Sprite[] panelSwitchSprite = new Sprite[2];
 
 		[Header("Panels")]
-		public RectTransform menuLeft;
-		public RectTransform menuRight;
-		public GameObject leftContainer, rightContainer;
-		public float menuLeftSize, menuRightSize;
+		public RectTransform[] panels = new RectTransform[2];
+		public GameObject[] panelsContainer = new GameObject[2];
+		public float[] panelsSize = new float[2];
+		public Image[] panelsSwitches;
 		public List<Button> leftButtons, rightButtons;
 
 
 		Material g_Material;
 		Vector2 navSpeed, dragOrigin, mousePosition;
-		InputType inputType;
-		float zoom = 1f, newZoom = 1f, zoomSpeed, mL, nmL, mR, nmR;
-		bool leftButtonsEnabled, rightButtonsEnabled, onDragNavigation;
+		float zoom = 1f, newZoom = 1f, zoomSpeed;
+		bool onDragNavigation;
+		float[] panelPos = { 0f, 0f }, newPanelPos = { 0f, 0f }, deltaPanelPos = { 0f, 0f };
+		bool[] panelEnabled = { false, false };
+		List<RaycastResult> guiResults = new();
 
 		Vector2 cameraSize {
 			get {
@@ -41,23 +46,28 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		private void Start() {
 			g_Material = grids.material;
 			Globals.Editor.cursorPos = Globals.screen / 2f;
-			// Globals.musicType = MainCore.MusicClips.Type.EDITOR;
+			//Globals.musicType = MainCore.MusicClips.Type.EDITOR;
 		}
 
 		private void Update() {
 			Vector2 trnsSpd = navSpeed;
 
-			if (inputType == InputType.Gamepad) {
-				Globals.Editor.cursorPos += cursorSpeed * RSTime.delta * navSpeed;
-				Globals.Editor.cursorPos = RSMath.Clamp(Globals.Editor.cursorPos, Vector2.zero, Globals.screen);
+			switch (Globals.inputType) {
+				case InputType.Gamepad:
+					Globals.Editor.cursorPos += cursorSpeed * RSTime.delta * navSpeed;
+					Globals.Editor.cursorPos = RSMath.Clamp(Globals.Editor.cursorPos, Vector2.zero, Globals.screen);
 
-				if (Globals.Editor.cursorPos.x > 0f && Globals.Editor.cursorPos.x < Screen.width) trnsSpd.x = 0f;
-				if (Globals.Editor.cursorPos.y > 0f && Globals.Editor.cursorPos.y < Screen.height) trnsSpd.y = 0f;
+					if (Globals.Editor.cursorPos.x > 0f && Globals.Editor.cursorPos.x < Screen.width) trnsSpd.x = 0f;
+					if (Globals.Editor.cursorPos.y > 0f && Globals.Editor.cursorPos.y < Screen.height) trnsSpd.y = 0f;
 
-				virtualCursor.rectTransform.position = Globals.Editor.cursorPos;
+					virtualCursor.rectTransform.position = Globals.Editor.cursorPos;
+					break;
+				case InputType.KeyboardAndMouse:
+					Globals.Editor.cursorPos = mousePosition;
+					break;
 			}
 
-			virtualCursor.enabled = inputType == InputType.Gamepad;
+			virtualCursor.enabled = Globals.inputType == InputType.Gamepad;
 
 			transform.position += navigationSpeed * zoom * RSTime.delta * (Vector3)trnsSpd;
 
@@ -71,14 +81,17 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			#endregion
 
 			#region Panels controller
-			mL = Mathf.Lerp(mL, nmL, 0.5f * RSTime.delta);
-			mR = Mathf.Lerp(mR, nmR, 0.5f * RSTime.delta);
+			panelPos[0] = Mathf.Lerp(panelPos[0], newPanelPos[0] + deltaPanelPos[0], 0.5f * RSTime.delta);
+			panelPos[1] = Mathf.Lerp(panelPos[1], newPanelPos[1] + deltaPanelPos[1], 0.5f * RSTime.delta);
 
-			menuLeft.anchoredPosition = new(-menuLeftSize + mL * menuLeftSize, menuLeft.anchoredPosition.y);
-			menuRight.anchoredPosition = new(-menuRightSize + mR * menuRightSize, menuLeft.anchoredPosition.y);
+			panels[0].anchoredPosition = new(-panelsSize[0] + panelPos[0] * panelsSize[0], panels[0].anchoredPosition.y);
+			panels[1].anchoredPosition = new(-panelsSize[1] + panelPos[1] * panelsSize[1], panels[1].anchoredPosition.y);
 
-			leftButtonsEnabled = mL > 0.5f;
-			rightButtonsEnabled = mR > 0.5f;
+			panelEnabled[0] = panelPos[0] > 0.5f;
+			panelEnabled[1] = panelPos[1] > 0.5f;
+
+			panelsSwitches[0].sprite = panelSwitchSprite[(!panelEnabled[0]).ToInt()];
+			panelsSwitches[1].sprite = panelSwitchSprite[(!panelEnabled[1]).ToInt()];
 			#endregion
 		}
 
@@ -91,17 +104,29 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			g_Material.SetColor("_SecondaryColor", new Color(1, 1, 1, 0.2f));
 		}
 
+		private void OnGUI() {
+			PointerEventData evData = new(EventSystem.current) {
+				position = Globals.Editor.cursorPos
+			};
+			EventSystem.current.RaycastAll(evData, guiResults);
+
+			Globals.Editor.hoverUI = guiResults.Count > 0;
+		}
 
 		#region Buttons
 		public void ButtonResetZoom() => newZoom = 1f;
 		public void ButtonChangeZoom(float x) => newZoom += x;
+		public void SwitchPanel(int index) => newPanelPos[index] = (!panelEnabled[index]).ToInt();
+
+		public void SwitchPointerEnter(int index) => deltaPanelPos[index] = panelEnabled[index] ? -0.1f : 0.1f;
+		public void SwitchPointerExit (int index) => deltaPanelPos[index] = 0f;
 		#endregion
 
 		#region Input System
 		public void OnMousePosition(InputAction.CallbackContext context) {
 			Vector2 val = context.ReadValue<Vector2>();
 
-			switch (inputType) {
+			switch (Globals.inputType) {
 				case InputType.Gamepad: navSpeed = val; break;
 				case InputType.KeyboardAndMouse:
 					mousePosition = val;
@@ -116,9 +141,11 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		}
 
 		public void OnDragNavigation(InputAction.CallbackContext context) {
-			onDragNavigation = context.ReadValue<float>() != 0f;
+			if (!Globals.Editor.hoverUI) {
+				onDragNavigation = context.ReadValue<float>() != 0f;
 
-			if (onDragNavigation) dragOrigin = cam.ScreenToWorldPoint(mousePosition);
+				if (onDragNavigation) dragOrigin = cam.ScreenToWorldPoint(mousePosition);
+			}
 		}
 
 		public void OnZoom(InputAction.CallbackContext context) {
@@ -126,37 +153,39 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 			zoomSpeed = val > 0f ? 1f : (val < 0f ? -1f : 0f);
 
-			switch (inputType) {
+			switch (Globals.inputType) {
 				case InputType.Gamepad: zoomSpeed *= zoomSpeedGamepad; break;
 				case InputType.KeyboardAndMouse: zoomSpeed *= zoomSpeedKeyboard; break;
 			}
 		}
 
 		public void OnShowLeftPanel(InputAction.CallbackContext context) {
-			nmL = context.ReadValue<float>();
+			newPanelPos[0] = context.ReadValue<float>();
 		}
 		public void OnShowRightPanel(InputAction.CallbackContext context) {
-			nmR = context.ReadValue<float>();
+			newPanelPos[1] = context.ReadValue<float>();
 		}
 
 
 		public void OnControlsChanged(PlayerInput input) {
-			inputType = input.currentControlScheme switch {
+			Globals.inputType = input.currentControlScheme switch {
 				"Gamepad" => InputType.Gamepad,
 				"Keyboard&Mouse" => InputType.KeyboardAndMouse,
 				"Touch" => InputType.Touch,
 				_ => InputType.KeyboardAndMouse,
 			};
 
-			Cursor.visible = inputType == InputType.KeyboardAndMouse;
 
-			if (inputType != InputType.Gamepad) {
-				nmL = leftButtonsEnabled ? 1f : 0f;
-				nmR = rightButtonsEnabled ? 1f : 0f;
+			Cursor.visible = Globals.inputType == InputType.KeyboardAndMouse;
+
+			if (Globals.inputType != InputType.Gamepad) {
+				newPanelPos[0] = panelEnabled[0].ToInt();
+				newPanelPos[1] = panelEnabled[1].ToInt();
 			}
 
-			if (inputType != InputType.KeyboardAndMouse) {
+			if (Globals.inputType != InputType.KeyboardAndMouse) {
 				if (onDragNavigation) onDragNavigation = false;
+				deltaPanelPos[0] = deltaPanelPos[1] = 0f;
 			}
 		}
 		#endregion

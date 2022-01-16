@@ -175,6 +175,7 @@ GameObject:
   - component: {fileID: 130395813}
   - component: {fileID: 130395812}
   - component: {fileID: 130395814}
+  - component: {fileID: 130395815}
   m_Layer: 0
   m_Name: Button pause
   m_TagString: Untagged
@@ -284,6 +285,29 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &130395815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130395810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d470b9b54f0c1a44c9471522a9fbbcfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.5
+  pressed:
+    position: {x: 0, y: 0}
+    scale: {x: 1.2, y: 1.2}
+    color: {r: 1, g: 1, b: 1, a: 1}
+  disabled:
+    position: {x: 0, y: 0}
+    scale: {x: 1, y: 1}
+    color: {r: 1, g: 1, b: 1, a: 1}
+  target: {fileID: 130395812}
+  button: {fileID: 130395814}
 --- !u!1 &148509441
 GameObject:
   m_ObjectHideFlags: 0
@@ -514,6 +538,7 @@ GameObject:
   - component: {fileID: 486869999}
   - component: {fileID: 486869998}
   - component: {fileID: 486870000}
+  - component: {fileID: 486870001}
   m_Layer: 0
   m_Name: Button help
   m_TagString: Untagged
@@ -623,6 +648,29 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &486870001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 486869996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d470b9b54f0c1a44c9471522a9fbbcfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.5
+  pressed:
+    position: {x: 0, y: 0}
+    scale: {x: 1.2, y: 1.2}
+    color: {r: 1, g: 1, b: 1, a: 1}
+  disabled:
+    position: {x: 0, y: 0}
+    scale: {x: 1, y: 1}
+    color: {r: 1, g: 1, b: 1, a: 1}
+  target: {fileID: 486869998}
+  button: {fileID: 486870000}
 --- !u!1 &525997180
 GameObject:
   m_ObjectHideFlags: 0
@@ -671,6 +719,7 @@ GameObject:
   - component: {fileID: 561347629}
   - component: {fileID: 561347628}
   - component: {fileID: 561347630}
+  - component: {fileID: 561347631}
   m_Layer: 0
   m_Name: Button settings
   m_TagString: Untagged
@@ -780,6 +829,29 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &561347631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561347626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d470b9b54f0c1a44c9471522a9fbbcfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.5
+  pressed:
+    position: {x: 0, y: 0}
+    scale: {x: 1.2, y: 1.2}
+    color: {r: 1, g: 1, b: 1, a: 1}
+  disabled:
+    position: {x: 0, y: 0}
+    scale: {x: 1, y: 1}
+    color: {r: 1, g: 1, b: 1, a: 1}
+  target: {fileID: 561347628}
+  button: {fileID: 561347630}
 --- !u!1 &697966220
 GameObject:
   m_ObjectHideFlags: 0
@@ -1109,6 +1181,7 @@ GameObject:
   - component: {fileID: 893862005}
   - component: {fileID: 893862004}
   - component: {fileID: 893862006}
+  - component: {fileID: 893862007}
   m_Layer: 0
   m_Name: Button switch panel
   m_TagString: Untagged
@@ -1217,7 +1290,66 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 893862004}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2097089062}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
+        m_MethodName: SwitchPanel
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &893862007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893862002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2097089062}
+          m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor,
+            Assembly-CSharp
+          m_MethodName: SwitchPointerEnter
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2097089062}
+          m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor,
+            Assembly-CSharp
+          m_MethodName: SwitchPointerExit
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &935117315
 GameObject:
   m_ObjectHideFlags: 0
@@ -1305,6 +1437,8 @@ GameObject:
   - component: {fileID: 1048733653}
   - component: {fileID: 1048733655}
   - component: {fileID: 1048733654}
+  - component: {fileID: 1048733656}
+  - component: {fileID: 1048733657}
   m_Layer: 0
   m_Name: Button switch panel
   m_TagString: Untagged
@@ -1370,6 +1504,109 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1048733652}
   m_CullTransparentMesh: 1
+--- !u!114 &1048733656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048733652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 0
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 0
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1048733654}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2097089062}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
+        m_MethodName: SwitchPanel
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1048733657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048733652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2097089062}
+          m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor,
+            Assembly-CSharp
+          m_MethodName: SwitchPointerEnter
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2097089062}
+          m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor,
+            Assembly-CSharp
+          m_MethodName: SwitchPointerExit
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1170787055
 GameObject:
   m_ObjectHideFlags: 0
@@ -1784,7 +2021,7 @@ RectTransform:
   m_GameObject: {fileID: 1365372464}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.498046, y: 2.498046, z: 1.665364}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 697966221}
@@ -1809,7 +2046,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1845,6 +2082,7 @@ GameObject:
   - component: {fileID: 1405707549}
   - component: {fileID: 1405707548}
   - component: {fileID: 1405707550}
+  - component: {fileID: 1405707551}
   m_Layer: 0
   m_Name: Button save
   m_TagString: Untagged
@@ -1954,6 +2192,29 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1405707551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405707546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d470b9b54f0c1a44c9471522a9fbbcfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.5
+  pressed:
+    position: {x: 0, y: 0}
+    scale: {x: 1.2, y: 1.2}
+    color: {r: 1, g: 1, b: 1, a: 1}
+  disabled:
+    position: {x: 0, y: 0}
+    scale: {x: 1, y: 1}
+    color: {r: 1, g: 1, b: 1, a: 1}
+  target: {fileID: 1405707548}
+  button: {fileID: 1405707550}
 --- !u!1 &1437775079
 GameObject:
   m_ObjectHideFlags: 0
@@ -2857,12 +3118,35 @@ MonoBehaviour:
   cursorSpeed: 15
   zoomSpeedGamepad: 0.05
   zoomSpeedKeyboard: 0.2
-  menuLeft: {fileID: 1471569970}
-  menuRight: {fileID: 96988149}
-  leftContainer: {fileID: 823431204}
-  rightContainer: {fileID: 525997180}
-  menuLeftSize: 43
-  menuRightSize: -111
+  guiFilter:
+    useTriggers: 0
+    useLayerMask: 0
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
+  panelSwitchSprite:
+  - {fileID: 1731858915, guid: c9a941e71eff10d458d5413e27ee60f6, type: 3}
+  - {fileID: 1057841057, guid: c9a941e71eff10d458d5413e27ee60f6, type: 3}
+  panels:
+  - {fileID: 1471569970}
+  - {fileID: 96988149}
+  panelsContainer:
+  - {fileID: 823431204}
+  - {fileID: 525997180}
+  panelsSize:
+  - 43
+  - -111
+  panelsSwitches:
+  - {fileID: 893862004}
+  - {fileID: 1048733654}
   leftButtons:
   - {fileID: 130395814}
   - {fileID: 1405707550}
