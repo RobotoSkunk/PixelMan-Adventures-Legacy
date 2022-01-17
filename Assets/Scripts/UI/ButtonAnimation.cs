@@ -6,23 +6,18 @@ using UnityEngine.EventSystems;
 namespace RobotoSkunk.PixelMan.UI {
 
 	[RequireComponent(typeof(Button))][RequireComponent(typeof(Image))]
-	public class ButtonAnimation : MonoBehaviour, ISelectHandler, IDeselectHandler, IPointerEnterHandler, IPointerExitHandler {
+	public class ButtonAnimation : MonoBehaviour, ISelectHandler, IDeselectHandler, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler {
 		public float speed = 0.5f;
-		public ButtonStyle pressed = new() {
-			scale = Vector2.one,
-			color = Color.white
-		}, disabled = new() {
-			scale = Vector2.one,
-			color = Color.white
-		};
+		public ButtonStyle pressed = new() { scale = 1.2f * Vector2.one, color = Color.white },
+			disabled = new() { scale = Vector2.one, color = Color.white };
 
 		[Header("Requires")]
-		public Image target;
-		public Button button;
+		[SerializeField] Image target;
+		[SerializeField] Button button;
 
 		ButtonStyle defaultStyle, currentStyle;
 		Vector2 startPos;
-		bool hover;
+		bool isSelected, isPressed, pointerDown;
 
 
 		[System.Serializable]
@@ -31,7 +26,12 @@ namespace RobotoSkunk.PixelMan.UI {
 			public Color color;
 		}
 
-		private void Start() {
+		private void Awake() {
+			if (!target) target = GetComponent<Image>();
+			if (!button) button = GetComponent<Button>();
+		}
+
+		void Start() {
 			startPos = target.rectTransform.anchoredPosition;
 
 			defaultStyle = new() {
@@ -43,30 +43,23 @@ namespace RobotoSkunk.PixelMan.UI {
 		}
 
 		private void Update() {
-			if (!button.interactable) currentStyle = disabled;
-			else {
-				switch (Globals.inputType) {
-					case InputType.KeyboardAndMouse:
-						currentStyle = (Mouse.current.leftButton.isPressed && hover) ? pressed : defaultStyle;
-						break;
+			bool onSubmit = (Gamepad.current?.aButton.isPressed ?? false) || (Keyboard.current?.enterKey.isPressed ?? false);
 
-					case InputType.Gamepad:
-						currentStyle = (!Gamepad.current.aButton.isPressed && hover) ? pressed : defaultStyle;
-						break;
-				}
-			}
+			if (!button.interactable) currentStyle = disabled;
+			else if (isPressed && !onSubmit) currentStyle = pressed;
+			else currentStyle = defaultStyle;
 
 			target.rectTransform.anchoredPosition = Vector2.Lerp(target.rectTransform.anchoredPosition, startPos + currentStyle.position, speed * RSTime.delta);
 			target.rectTransform.localScale = Vector3.Lerp(target.rectTransform.localScale, (Vector3)currentStyle.scale + Vector3.forward, speed * RSTime.delta);
 			target.color = Color.Lerp(target.color, currentStyle.color, speed * RSTime.delta);
 		}
 
-		public void OnSelect(BaseEventData ev) => hover = true;
-		public void OnPointerEnter(PointerEventData ev) => hover = true;
-		private void OnMouseDown() => hover = true;
+		public void OnSelect(BaseEventData ev) => isSelected = isPressed = true;
+		public void OnPointerEnter(PointerEventData ev) => isPressed = isSelected && pointerDown;
+		public void OnPointerDown(PointerEventData ev) => pointerDown = isPressed = true;
 
-		public void OnDeselect(BaseEventData ev) => hover = false;
-		public void OnPointerExit(PointerEventData ev) => hover = false;
-		private void OnMouseUpAsButton() => hover = false;
+		public void OnDeselect(BaseEventData ev) => isSelected = isPressed = false;
+		public void OnPointerExit(PointerEventData ev) => isPressed = false;
+		public void OnPointerUp(PointerEventData ev) => pointerDown = isPressed = false;
 	}
 }

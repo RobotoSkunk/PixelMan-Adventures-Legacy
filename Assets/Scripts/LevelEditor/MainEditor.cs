@@ -34,6 +34,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		float[] panelPos = { 0f, 0f }, newPanelPos = { 0f, 0f }, deltaPanelPos = { 0f, 0f };
 		bool[] panelEnabled = { false, false };
 		List<RaycastResult> guiResults = new();
+		InputType inputType = InputType.KeyboardAndMouse;
 
 		Vector2 cameraSize {
 			get {
@@ -52,34 +53,6 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		private void Update() {
 			Vector2 trnsSpd = navSpeed;
 
-			switch (Globals.inputType) {
-				case InputType.Gamepad:
-					Globals.Editor.cursorPos += cursorSpeed * RSTime.delta * navSpeed;
-					Globals.Editor.cursorPos = RSMath.Clamp(Globals.Editor.cursorPos, Vector2.zero, Globals.screen);
-
-					if (Globals.Editor.cursorPos.x > 0f && Globals.Editor.cursorPos.x < Screen.width) trnsSpd.x = 0f;
-					if (Globals.Editor.cursorPos.y > 0f && Globals.Editor.cursorPos.y < Screen.height) trnsSpd.y = 0f;
-
-					virtualCursor.rectTransform.position = Globals.Editor.cursorPos;
-					break;
-				case InputType.KeyboardAndMouse:
-					Globals.Editor.cursorPos = mousePosition;
-					break;
-			}
-
-			virtualCursor.enabled = Globals.inputType == InputType.Gamepad;
-
-			transform.position += navigationSpeed * zoom * RSTime.delta * (Vector3)trnsSpd;
-
-			#region Zoom
-			newZoom += zoomSpeed * RSTime.delta;
-
-			newZoom = Mathf.Clamp(newZoom, zoomLimits.x, zoomLimits.y);
-			zoom = Mathf.Lerp(zoom, newZoom, 0.3f * RSTime.delta);
-
-			cam.orthographicSize = zoom * defaultOrtho;
-			#endregion
-
 			#region Panels controller
 			panelPos[0] = Mathf.Lerp(panelPos[0], newPanelPos[0] + deltaPanelPos[0], 0.5f * RSTime.delta);
 			panelPos[1] = Mathf.Lerp(panelPos[1], newPanelPos[1] + deltaPanelPos[1], 0.5f * RSTime.delta);
@@ -93,6 +66,39 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			panelsSwitches[0].sprite = panelSwitchSprite[(!panelEnabled[0]).ToInt()];
 			panelsSwitches[1].sprite = panelSwitchSprite[(!panelEnabled[1]).ToInt()];
 			#endregion
+
+			#region Zoom
+			newZoom += zoomSpeed * RSTime.delta;
+
+			newZoom = Mathf.Clamp(newZoom, zoomLimits.x, zoomLimits.y);
+			zoom = Mathf.Lerp(zoom, newZoom, 0.3f * RSTime.delta);
+
+			cam.orthographicSize = zoom * defaultOrtho;
+			#endregion
+
+			#region Controls processor
+			switch (inputType) {
+				case InputType.Gamepad:
+					Globals.Editor.hoverUI = panelEnabled[0] || panelEnabled[1];
+					if (Globals.Editor.hoverUI) navSpeed = Vector2.zero;
+
+					Globals.Editor.cursorPos += cursorSpeed * RSTime.delta * navSpeed;
+					Globals.Editor.cursorPos = RSMath.Clamp(Globals.Editor.cursorPos, Vector2.zero, Globals.screen);
+
+					if (Globals.Editor.cursorPos.x > 0f && Globals.Editor.cursorPos.x < Screen.width) trnsSpd.x = 0f;
+					if (Globals.Editor.cursorPos.y > 0f && Globals.Editor.cursorPos.y < Screen.height) trnsSpd.y = 0f;
+
+					virtualCursor.rectTransform.position = Globals.Editor.cursorPos;
+					virtualCursor.enabled = !Globals.Editor.hoverUI;
+					break;
+				case InputType.KeyboardAndMouse:
+					Globals.Editor.cursorPos = mousePosition;
+					virtualCursor.enabled = false;
+					break;
+			}
+			#endregion
+
+			transform.position += navigationSpeed * zoom * RSTime.delta * (Vector3)trnsSpd;
 		}
 
 		private void LateUpdate() {
@@ -105,29 +111,34 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		}
 
 		private void OnGUI() {
-			PointerEventData evData = new(EventSystem.current) {
-				position = Globals.Editor.cursorPos
-			};
-			EventSystem.current.RaycastAll(evData, guiResults);
+			if (inputType != InputType.Gamepad) {
+				PointerEventData evData = new(EventSystem.current) {
+					position = Globals.Editor.cursorPos
+				};
+				EventSystem.current.RaycastAll(evData, guiResults);
 
-			Globals.Editor.hoverUI = guiResults.Count > 0;
+				Globals.Editor.hoverUI = guiResults.Count > 0;
+			}
 		}
 
 		#region Buttons
 		public void ButtonResetZoom() => newZoom = 1f;
 		public void ButtonChangeZoom(float x) => newZoom += x;
 		public void SwitchPanel(int index) => newPanelPos[index] = (!panelEnabled[index]).ToInt();
+		public void OpenRightPanel() => newPanelPos[1] = 1f;
 
 		public void SwitchPointerEnter(int index) => deltaPanelPos[index] = panelEnabled[index] ? -0.1f : 0.1f;
-		public void SwitchPointerExit (int index) => deltaPanelPos[index] = 0f;
+		public void SwitchPointerExit(int index) { if (inputType != InputType.Gamepad) deltaPanelPos[index] = 0f; }
+
+		public void TestButton(string text) => Debug.Log(text);
 		#endregion
 
 		#region Input System
 		public void OnMousePosition(InputAction.CallbackContext context) {
 			Vector2 val = context.ReadValue<Vector2>();
 
-			switch (Globals.inputType) {
-				case InputType.Gamepad: navSpeed = val; break;
+			switch (inputType) {
+				case InputType.Gamepad: if (!Globals.Editor.hoverUI) navSpeed = val; break;
 				case InputType.KeyboardAndMouse:
 					mousePosition = val;
 
@@ -153,7 +164,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 			zoomSpeed = val > 0f ? 1f : (val < 0f ? -1f : 0f);
 
-			switch (Globals.inputType) {
+			switch (inputType) {
 				case InputType.Gamepad: zoomSpeed *= zoomSpeedGamepad; break;
 				case InputType.KeyboardAndMouse: zoomSpeed *= zoomSpeedKeyboard; break;
 			}
@@ -168,7 +179,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 
 		public void OnControlsChanged(PlayerInput input) {
-			Globals.inputType = input.currentControlScheme switch {
+			inputType = input.currentControlScheme switch {
 				"Gamepad" => InputType.Gamepad,
 				"Keyboard&Mouse" => InputType.KeyboardAndMouse,
 				"Touch" => InputType.Touch,
@@ -176,14 +187,14 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			};
 
 
-			Cursor.visible = Globals.inputType == InputType.KeyboardAndMouse;
+			Cursor.visible = inputType == InputType.KeyboardAndMouse;
 
-			if (Globals.inputType != InputType.Gamepad) {
+			if (inputType != InputType.Gamepad) {
 				newPanelPos[0] = panelEnabled[0].ToInt();
 				newPanelPos[1] = panelEnabled[1].ToInt();
 			}
 
-			if (Globals.inputType != InputType.KeyboardAndMouse) {
+			if (inputType != InputType.KeyboardAndMouse) {
 				if (onDragNavigation) onDragNavigation = false;
 				deltaPanelPos[0] = deltaPanelPos[1] = 0f;
 			}

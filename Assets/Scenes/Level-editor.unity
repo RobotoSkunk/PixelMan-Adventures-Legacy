@@ -284,7 +284,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 130395812}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2097089062}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
+        m_MethodName: TestButton
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Pause
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &130395815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -647,7 +659,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 486869998}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2097089062}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
+        m_MethodName: TestButton
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Help
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &486870001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -828,7 +852,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 561347628}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2097089062}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
+        m_MethodName: TestButton
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Settings
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &561347631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1048,6 +1084,7 @@ GameObject:
   - component: {fileID: 875064268}
   - component: {fileID: 875064267}
   - component: {fileID: 875064269}
+  - component: {fileID: 875064270}
   m_Layer: 0
   m_Name: Button zoom add
   m_TagString: Untagged
@@ -1131,7 +1168,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 1335368531}
     m_SelectOnDown: {fileID: 1170787059}
     m_SelectOnLeft: {fileID: 561347630}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnRight: {fileID: 1437775083}
   m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -1169,6 +1206,29 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &875064270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875064265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d470b9b54f0c1a44c9471522a9fbbcfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.5
+  pressed:
+    position: {x: 0, y: 0}
+    scale: {x: 1.1, y: 1.1}
+    color: {r: 1, g: 1, b: 1, a: 1}
+  disabled:
+    position: {x: 0, y: 0}
+    scale: {x: 1, y: 1}
+    color: {r: 1, g: 1, b: 1, a: 1}
+  target: {fileID: 0}
+  button: {fileID: 0}
 --- !u!1 &893862002
 GameObject:
   m_ObjectHideFlags: 0
@@ -1361,6 +1421,8 @@ GameObject:
   - component: {fileID: 935117316}
   - component: {fileID: 935117318}
   - component: {fileID: 935117317}
+  - component: {fileID: 935117319}
+  - component: {fileID: 935117320}
   m_Layer: 0
   m_Name: Button options
   m_TagString: Untagged
@@ -1385,8 +1447,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -89}
-  m_SizeDelta: {x: 29, y: 22}
+  m_AnchoredPosition: {x: 2, y: -89}
+  m_SizeDelta: {x: 32, y: 22}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &935117317
 MonoBehaviour:
@@ -1426,6 +1488,85 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 935117315}
   m_CullTransparentMesh: 1
+--- !u!114 &935117319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 935117315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 4
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 1834205546}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 2008843873}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 0
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 935117317}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2097089062}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
+        m_MethodName: OpenRightPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &935117320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 935117315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d470b9b54f0c1a44c9471522a9fbbcfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.5
+  pressed:
+    position: {x: -5, y: 0}
+    scale: {x: 1, y: 1}
+    color: {r: 1, g: 1, b: 1, a: 1}
+  disabled:
+    position: {x: 0, y: 0}
+    scale: {x: 1, y: 1}
+    color: {r: 1, g: 1, b: 1, a: 1}
+  target: {fileID: 0}
+  button: {fileID: 0}
 --- !u!1 &1048733652
 GameObject:
   m_ObjectHideFlags: 0
@@ -1619,6 +1760,7 @@ GameObject:
   - component: {fileID: 1170787058}
   - component: {fileID: 1170787057}
   - component: {fileID: 1170787059}
+  - component: {fileID: 1170787060}
   m_Layer: 0
   m_Name: Button zoom reset
   m_TagString: Untagged
@@ -1702,7 +1844,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 875064269}
     m_SelectOnDown: {fileID: 1227265906}
     m_SelectOnLeft: {fileID: 561347630}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnRight: {fileID: 1437775083}
   m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -1740,6 +1882,29 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1170787060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170787055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d470b9b54f0c1a44c9471522a9fbbcfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.5
+  pressed:
+    position: {x: 0, y: 0}
+    scale: {x: 1.1, y: 1.1}
+    color: {r: 1, g: 1, b: 1, a: 1}
+  disabled:
+    position: {x: 0, y: 0}
+    scale: {x: 1, y: 1}
+    color: {r: 1, g: 1, b: 1, a: 1}
+  target: {fileID: 0}
+  button: {fileID: 0}
 --- !u!1 &1227265902
 GameObject:
   m_ObjectHideFlags: 0
@@ -1752,6 +1917,7 @@ GameObject:
   - component: {fileID: 1227265905}
   - component: {fileID: 1227265904}
   - component: {fileID: 1227265906}
+  - component: {fileID: 1227265907}
   m_Layer: 0
   m_Name: Button zoom remove
   m_TagString: Untagged
@@ -1835,7 +2001,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 1170787059}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 486870000}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnRight: {fileID: 1437775083}
   m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -1873,6 +2039,29 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1227265907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227265902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d470b9b54f0c1a44c9471522a9fbbcfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.5
+  pressed:
+    position: {x: 0, y: 0}
+    scale: {x: 1.1, y: 1.1}
+    color: {r: 1, g: 1, b: 1, a: 1}
+  disabled:
+    position: {x: 0, y: 0}
+    scale: {x: 1, y: 1}
+    color: {r: 1, g: 1, b: 1, a: 1}
+  target: {fileID: 0}
+  button: {fileID: 0}
 --- !u!1 &1335368527
 GameObject:
   m_ObjectHideFlags: 0
@@ -1885,6 +2074,7 @@ GameObject:
   - component: {fileID: 1335368530}
   - component: {fileID: 1335368529}
   - component: {fileID: 1335368531}
+  - component: {fileID: 1335368532}
   m_Layer: 0
   m_Name: Button test
   m_TagString: Untagged
@@ -1994,6 +2184,29 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1335368532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335368527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d470b9b54f0c1a44c9471522a9fbbcfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.5
+  pressed:
+    position: {x: 0, y: 0}
+    scale: {x: 1.1, y: 1.1}
+    color: {r: 1, g: 1, b: 1, a: 1}
+  disabled:
+    position: {x: 0, y: 0}
+    scale: {x: 1, y: 1}
+    color: {r: 1, g: 1, b: 1, a: 1}
+  target: {fileID: 0}
+  button: {fileID: 0}
 --- !u!1 &1365372464
 GameObject:
   m_ObjectHideFlags: 0
@@ -2191,7 +2404,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1405707548}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2097089062}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
+        m_MethodName: TestButton
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Save
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1405707551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2226,6 +2451,8 @@ GameObject:
   - component: {fileID: 1437775080}
   - component: {fileID: 1437775082}
   - component: {fileID: 1437775081}
+  - component: {fileID: 1437775083}
+  - component: {fileID: 1437775084}
   m_Layer: 0
   m_Name: Button objects
   m_TagString: Untagged
@@ -2250,8 +2477,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -39}
-  m_SizeDelta: {x: 29, y: 22}
+  m_AnchoredPosition: {x: 2, y: -39}
+  m_SizeDelta: {x: 32, y: 22}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1437775081
 MonoBehaviour:
@@ -2291,6 +2518,85 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1437775079}
   m_CullTransparentMesh: 1
+--- !u!114 &1437775083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437775079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 4
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 1834205546}
+    m_SelectOnLeft: {fileID: 2008843873}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 0
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1437775081}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2097089062}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
+        m_MethodName: OpenRightPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1437775084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437775079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d470b9b54f0c1a44c9471522a9fbbcfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.5
+  pressed:
+    position: {x: -5, y: 0}
+    scale: {x: 1, y: 1}
+    color: {r: 1, g: 1, b: 1, a: 1}
+  disabled:
+    position: {x: 0, y: 0}
+    scale: {x: 1, y: 1}
+    color: {r: 1, g: 1, b: 1, a: 1}
+  target: {fileID: 0}
+  button: {fileID: 0}
 --- !u!1 &1471569969
 GameObject:
   m_ObjectHideFlags: 0
@@ -2571,6 +2877,7 @@ GameObject:
   - component: {fileID: 1814505214}
   - component: {fileID: 1814505213}
   - component: {fileID: 1814505215}
+  - component: {fileID: 1814505216}
   m_Layer: 0
   m_Name: Button undo
   m_TagString: Untagged
@@ -2680,6 +2987,29 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1814505216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814505211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d470b9b54f0c1a44c9471522a9fbbcfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.5
+  pressed:
+    position: {x: 0, y: 0}
+    scale: {x: 1.1, y: 1.1}
+    color: {r: 1, g: 1, b: 1, a: 1}
+  disabled:
+    position: {x: 0, y: 0}
+    scale: {x: 1, y: 1}
+    color: {r: 1, g: 1, b: 1, a: 1}
+  target: {fileID: 0}
+  button: {fileID: 0}
 --- !u!1 &1834205542
 GameObject:
   m_ObjectHideFlags: 0
@@ -2691,6 +3021,8 @@ GameObject:
   - component: {fileID: 1834205543}
   - component: {fileID: 1834205545}
   - component: {fileID: 1834205544}
+  - component: {fileID: 1834205546}
+  - component: {fileID: 1834205547}
   m_Layer: 0
   m_Name: Button properties
   m_TagString: Untagged
@@ -2715,8 +3047,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -64}
-  m_SizeDelta: {x: 29, y: 22}
+  m_AnchoredPosition: {x: 2, y: -64}
+  m_SizeDelta: {x: 32, y: 22}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1834205544
 MonoBehaviour:
@@ -2756,6 +3088,85 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1834205542}
   m_CullTransparentMesh: 1
+--- !u!114 &1834205546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834205542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 4
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 1437775083}
+    m_SelectOnDown: {fileID: 935117319}
+    m_SelectOnLeft: {fileID: 2008843873}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 0
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1834205544}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2097089062}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
+        m_MethodName: OpenRightPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1834205547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834205542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d470b9b54f0c1a44c9471522a9fbbcfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.5
+  pressed:
+    position: {x: -5, y: 0}
+    scale: {x: 1, y: 1}
+    color: {r: 1, g: 1, b: 1, a: 1}
+  disabled:
+    position: {x: 0, y: 0}
+    scale: {x: 1, y: 1}
+    color: {r: 1, g: 1, b: 1, a: 1}
+  target: {fileID: 0}
+  button: {fileID: 0}
 --- !u!1001 &1845940959
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2908,6 +3319,7 @@ GameObject:
   - component: {fileID: 2008843872}
   - component: {fileID: 2008843871}
   - component: {fileID: 2008843873}
+  - component: {fileID: 2008843874}
   m_Layer: 0
   m_Name: Button redo
   m_TagString: Untagged
@@ -2991,7 +3403,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 875064269}
     m_SelectOnLeft: {fileID: 1814505215}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnRight: {fileID: 1437775083}
   m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -3017,6 +3429,29 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2008843874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008843869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d470b9b54f0c1a44c9471522a9fbbcfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.5
+  pressed:
+    position: {x: 0, y: 0}
+    scale: {x: 1.1, y: 1.1}
+    color: {r: 1, g: 1, b: 1, a: 1}
+  disabled:
+    position: {x: 0, y: 0}
+    scale: {x: 1, y: 1}
+    color: {r: 1, g: 1, b: 1, a: 1}
+  target: {fileID: 0}
+  button: {fileID: 0}
 --- !u!1 &2097089058
 GameObject:
   m_ObjectHideFlags: 0
