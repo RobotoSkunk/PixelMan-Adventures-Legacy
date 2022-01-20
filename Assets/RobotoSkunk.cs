@@ -381,14 +381,21 @@ namespace RobotoSkunk {
 		
 		public static T ClampIndex<T>(this T[] array, int x) => array[x < 0 ? 0 : (x >= array.Length ? array.Length : x)];
 
-		public static void SetInteractable(this List<Button> list, bool enabled) {
-			foreach (var button in list)
-				button.interactable = enabled;
+		public static void SetInteractable(this List<Selectable> list, bool enabled) {
+			foreach (Selectable button in list)
+				if (button)
+					button.interactable = enabled;
 		}
 
-		public static void SetInteractable(this Button[] array, bool enabled) {
-			foreach (var button in array)
-				button.interactable = enabled;
+		public static void SetNavigation(this List<Selectable> list, Navigation.Mode mode) {
+			foreach (Selectable button in list) {
+				if (button) {
+					Navigation navigation = button.navigation;
+					navigation.mode = mode;
+
+					button.navigation = navigation;
+				}
+			}
 		}
 	}
 

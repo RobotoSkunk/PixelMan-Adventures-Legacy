@@ -310,6 +310,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
+  usePosition: 0
+  useScale: 1
+  useColor: 0
   pressed:
     position: {x: 0, y: 0}
     scale: {x: 1.2, y: 1.2}
@@ -685,6 +688,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
+  usePosition: 0
+  useScale: 1
+  useColor: 0
   pressed:
     position: {x: 0, y: 0}
     scale: {x: 1.2, y: 1.2}
@@ -878,6 +884,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
+  usePosition: 0
+  useScale: 1
+  useColor: 0
   pressed:
     position: {x: 0, y: 0}
     scale: {x: 1.2, y: 1.2}
@@ -1219,6 +1228,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
+  usePosition: 0
+  useScale: 1
+  useColor: 0
   pressed:
     position: {x: 0, y: 0}
     scale: {x: 1.1, y: 1.1}
@@ -1557,6 +1569,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
+  usePosition: 1
+  useScale: 0
+  useColor: 0
   pressed:
     position: {x: -5, y: 0}
     scale: {x: 1, y: 1}
@@ -1895,6 +1910,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
+  usePosition: 0
+  useScale: 1
+  useColor: 0
   pressed:
     position: {x: 0, y: 0}
     scale: {x: 1.1, y: 1.1}
@@ -2052,6 +2070,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
+  usePosition: 0
+  useScale: 1
+  useColor: 0
   pressed:
     position: {x: 0, y: 0}
     scale: {x: 1.1, y: 1.1}
@@ -2197,6 +2218,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
+  usePosition: 0
+  useScale: 1
+  useColor: 0
   pressed:
     position: {x: 0, y: 0}
     scale: {x: 1.1, y: 1.1}
@@ -2430,6 +2454,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
+  usePosition: 0
+  useScale: 1
+  useColor: 0
   pressed:
     position: {x: 0, y: 0}
     scale: {x: 1.2, y: 1.2}
@@ -2587,6 +2614,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
+  usePosition: 1
+  useScale: 0
+  useColor: 0
   pressed:
     position: {x: -5, y: 0}
     scale: {x: 1, y: 1}
@@ -2713,6 +2743,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1541628794}
   m_CullTransparentMesh: 1
+--- !u!4 &1578483457 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7338674681615354144, guid: 382224b9678134b449a4e7402fcb6267, type: 3}
+  m_PrefabInstance: {fileID: 7338674682721449505}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1630832544
 GameObject:
   m_ObjectHideFlags: 0
@@ -3000,6 +3035,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
+  usePosition: 0
+  useScale: 1
+  useColor: 0
   pressed:
     position: {x: 0, y: 0}
     scale: {x: 1.1, y: 1.1}
@@ -3157,6 +3195,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
+  usePosition: 1
+  useScale: 0
+  useColor: 0
   pressed:
     position: {x: -5, y: 0}
     scale: {x: 1, y: 1}
@@ -3442,6 +3483,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
+  usePosition: 0
+  useScale: 1
+  useColor: 0
   pressed:
     position: {x: 0, y: 0}
     scale: {x: 1.1, y: 1.1}
@@ -3529,6 +3573,7 @@ Transform:
   - {fileID: 1956316221}
   - {fileID: 428423289}
   - {fileID: 697966221}
+  - {fileID: 1578483457}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3547,6 +3592,7 @@ MonoBehaviour:
   cam: {fileID: 2097089060}
   grids: {fileID: 1956316223}
   virtualCursor: {fileID: 1365372466}
+  inputModule: {fileID: 0}
   zoomLimits: {x: 0.25, y: 5}
   defaultOrtho: 5
   navigationSpeed: 0.25
@@ -3571,29 +3617,47 @@ MonoBehaviour:
   - {fileID: 1731858915, guid: c9a941e71eff10d458d5413e27ee60f6, type: 3}
   - {fileID: 1057841057, guid: c9a941e71eff10d458d5413e27ee60f6, type: 3}
   panels:
-  - {fileID: 1471569970}
-  - {fileID: 96988149}
-  panelsContainer:
-  - {fileID: 823431204}
-  - {fileID: 525997180}
-  panelsSize:
-  - 43
-  - -111
-  panelsSwitches:
-  - {fileID: 893862004}
-  - {fileID: 1048733654}
-  leftButtons:
-  - {fileID: 130395814}
-  - {fileID: 1405707550}
-  - {fileID: 561347630}
-  - {fileID: 486870000}
-  - {fileID: 1335368531}
-  - {fileID: 1814505215}
-  - {fileID: 2008843873}
-  - {fileID: 875064269}
-  - {fileID: 1170787059}
-  - {fileID: 1227265906}
-  rightButtons: []
+  - rectTransforms: {fileID: 1471569970}
+    switchImage: {fileID: 893862004}
+    defaultSelected: {fileID: 130395814}
+    buttons:
+    - {fileID: 1335368531}
+    - {fileID: 1814505215}
+    - {fileID: 2008843873}
+    - {fileID: 875064269}
+    - {fileID: 1170787059}
+    - {fileID: 1227265906}
+    content:
+    - {fileID: 130395814}
+    - {fileID: 1405707550}
+    - {fileID: 561347630}
+    - {fileID: 486870000}
+    container: {fileID: 823431204}
+    size: 43
+    internals:
+      position: 0
+      nextPosition: 0
+      deltaPosition: 0
+      enabled: 0
+      wasEnabled: 0
+      wasOpen: 0
+  - rectTransforms: {fileID: 96988149}
+    switchImage: {fileID: 1048733654}
+    defaultSelected: {fileID: 1437775083}
+    buttons:
+    - {fileID: 1437775083}
+    - {fileID: 1834205546}
+    - {fileID: 935117319}
+    content: []
+    container: {fileID: 525997180}
+    size: -111
+    internals:
+      position: 0
+      nextPosition: 0
+      deltaPosition: 0
+      enabled: 0
+      wasEnabled: 0
+      wasOpen: 0
 --- !u!114 &2097089063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3784,3 +3848,64 @@ MonoBehaviour:
   m_DefaultActionMap: LevelEditor
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!1001 &7338674682721449505
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2097089061}
+    m_Modifications:
+    - target: {fileID: 7338674681615354144, guid: 382224b9678134b449a4e7402fcb6267, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338674681615354144, guid: 382224b9678134b449a4e7402fcb6267, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338674681615354144, guid: 382224b9678134b449a4e7402fcb6267, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338674681615354144, guid: 382224b9678134b449a4e7402fcb6267, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338674681615354144, guid: 382224b9678134b449a4e7402fcb6267, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338674681615354144, guid: 382224b9678134b449a4e7402fcb6267, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338674681615354144, guid: 382224b9678134b449a4e7402fcb6267, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338674681615354144, guid: 382224b9678134b449a4e7402fcb6267, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338674681615354144, guid: 382224b9678134b449a4e7402fcb6267, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338674681615354144, guid: 382224b9678134b449a4e7402fcb6267, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338674681615354144, guid: 382224b9678134b449a4e7402fcb6267, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338674681615354145, guid: 382224b9678134b449a4e7402fcb6267, type: 3}
+      propertyPath: m_Name
+      value: Input System UI Input Module
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338674681615354146, guid: 382224b9678134b449a4e7402fcb6267, type: 3}
+      propertyPath: m_FirstSelected
+      value: 
+      objectReference: {fileID: 130395810}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 382224b9678134b449a4e7402fcb6267, type: 3}

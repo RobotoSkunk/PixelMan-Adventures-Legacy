@@ -2,15 +2,34 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem.UI;
 
 using System.Collections.Generic;
 
 namespace RobotoSkunk.PixelMan.LevelEditor {
+	[System.Serializable]
+	public class PanelStruct {
+		public RectTransform rectTransforms;
+		public Image switchImage;
+		public Selectable defaultSelected;
+		public List<Selectable> buttons, content;
+		public GameObject container;
+		public float size;
+		public Internal internals;
+
+		[System.Serializable]
+		public struct Internal {
+			public float position, nextPosition, deltaPosition;
+			public bool enabled, wasEnabled, wasOpen;
+		}
+	}
+
 	public class MainEditor : MonoBehaviour {
 		[Header("Components")]
 		public Camera cam;
 		public MeshRenderer grids;
 		public Image virtualCursor;
+		public InputSystemUIInputModule inputModule;
 
 		[Header("Properties")]
 		public Vector2 zoomLimits;
@@ -19,21 +38,19 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		public ContactFilter2D guiFilter;
 		public Sprite[] panelSwitchSprite = new Sprite[2];
 
-		[Header("Panels")]
-		public RectTransform[] panels = new RectTransform[2];
-		public GameObject[] panelsContainer = new GameObject[2];
-		public float[] panelsSize = new float[2];
-		public Image[] panelsSwitches;
-		public List<Button> leftButtons, rightButtons;
+		[Space(25)]
+		public PanelStruct[] panels;
+
+
+		const float panelLimit = 0.9f;
+
+		readonly List<RaycastResult> guiResults = new();
 
 
 		Material g_Material;
 		Vector2 navSpeed, dragOrigin, mousePosition;
 		float zoom = 1f, newZoom = 1f, zoomSpeed;
-		bool onDragNavigation;
-		float[] panelPos = { 0f, 0f }, newPanelPos = { 0f, 0f }, deltaPanelPos = { 0f, 0f };
-		bool[] panelEnabled = { false, false };
-		List<RaycastResult> guiResults = new();
+		bool onDragNavigation, somePanelEnabled;
 		InputType inputType = InputType.KeyboardAndMouse;
 
 		Vector2 cameraSize {
@@ -54,17 +71,15 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			Vector2 trnsSpd = navSpeed;
 
 			#region Panels controller
-			panelPos[0] = Mathf.Lerp(panelPos[0], newPanelPos[0] + deltaPanelPos[0], 0.5f * RSTime.delta);
-			panelPos[1] = Mathf.Lerp(panelPos[1], newPanelPos[1] + deltaPanelPos[1], 0.5f * RSTime.delta);
+			for (int i = 0; i < panels.Length; i++) {
+				panels[i].internals.position = Mathf.Lerp(panels[i].internals.position, panels[i].internals.nextPosition + panels[i].internals.deltaPosition, 0.5f * RSTime.delta);
 
-			panels[0].anchoredPosition = new(-panelsSize[0] + panelPos[0] * panelsSize[0], panels[0].anchoredPosition.y);
-			panels[1].anchoredPosition = new(-panelsSize[1] + panelPos[1] * panelsSize[1], panels[1].anchoredPosition.y);
+				panels[i].rectTransforms.anchoredPosition = new(-panels[i].size + panels[i].internals.position * panels[i].size, panels[i].rectTransforms.anchoredPosition.y);
 
-			panelEnabled[0] = panelPos[0] > 0.5f;
-			panelEnabled[1] = panelPos[1] > 0.5f;
+				panels[i].internals.enabled = panels[i].internals.position > panelLimit;
 
-			panelsSwitches[0].sprite = panelSwitchSprite[(!panelEnabled[0]).ToInt()];
-			panelsSwitches[1].sprite = panelSwitchSprite[(!panelEnabled[1]).ToInt()];
+				panels[i].switchImage.sprite = panelSwitchSprite[(!panels[i].internals.enabled).ToInt()];
+			}
 			#endregion
 
 			#region Zoom
@@ -79,7 +94,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			#region Controls processor
 			switch (inputType) {
 				case InputType.Gamepad:
-					Globals.Editor.hoverUI = panelEnabled[0] || panelEnabled[1];
+					Globals.Editor.hoverUI = panels[0].internals.enabled || panels[1].internals.enabled;
 					if (Globals.Editor.hoverUI) navSpeed = Vector2.zero;
 
 					Globals.Editor.cursorPos += cursorSpeed * RSTime.delta * navSpeed;
@@ -90,12 +105,37 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 					virtualCursor.rectTransform.position = Globals.Editor.cursorPos;
 					virtualCursor.enabled = !Globals.Editor.hoverUI;
+
+
+					foreach (PanelStruct panel in panels) {
+						ButtonPanelTrigger(panel, panel.internals.enabled);
+
+						if (!panel.container.activeSelf) panel.container.SetActive(true);
+
+						if (panel.container.activeSelf && !somePanelEnabled) {
+							panel.buttons[0].Select();
+							somePanelEnabled = true;
+
+						} else if (!panel.container.activeSelf)
+							somePanelEnabled = false;
+					}
 					break;
 				case InputType.KeyboardAndMouse:
 					Globals.Editor.cursorPos = mousePosition;
 					virtualCursor.enabled = false;
+
+
+					foreach (PanelStruct panel in panels) {
+						ButtonPanelTrigger(panel, true);
+
+						if (panel.internals.enabled != panel.container.activeSelf)
+							panel.container.SetActive(panel.internals.enabled);
+					}
 					break;
 			}
+
+			foreach (PanelStruct panel in panels)
+				panel.buttons.SetInteractable(panel.internals.enabled);
 			#endregion
 
 			transform.position += navigationSpeed * zoom * RSTime.delta * (Vector3)trnsSpd;
@@ -121,14 +161,35 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			}
 		}
 
+		void PanelsTrigger(float val, int i) {
+			if (val > panelLimit && !panels[i].internals.wasEnabled) {
+				panels[i].internals.wasEnabled = true;
+				panels[i].internals.nextPosition = !panels[i].internals.enabled ? 1f : panelLimit - 0.01f;
+
+			} else if (val <= panelLimit) {
+				panels[i].internals.wasEnabled = false;
+
+				if (!panels[i].internals.enabled) panels[i].internals.nextPosition = val;
+			}
+		}
+		void ButtonPanelTrigger(PanelStruct panel, bool trigger) {
+			if (panel.buttons.Count == 0) return;
+
+			if (panel.buttons[0].interactable != trigger) {
+				panel.buttons.SetInteractable(trigger);
+
+				if (trigger) panel.buttons[0].Select();
+			}
+		}
+
 		#region Buttons
 		public void ButtonResetZoom() => newZoom = 1f;
 		public void ButtonChangeZoom(float x) => newZoom += x;
-		public void SwitchPanel(int index) => newPanelPos[index] = (!panelEnabled[index]).ToInt();
-		public void OpenRightPanel() => newPanelPos[1] = 1f;
+		public void SwitchPanel(int i) => panels[i].internals.nextPosition = (!panels[i].internals.enabled).ToInt();
+		public void OpenRightPanel() => panels[1].internals.nextPosition = 1f;
 
-		public void SwitchPointerEnter(int index) => deltaPanelPos[index] = panelEnabled[index] ? -0.1f : 0.1f;
-		public void SwitchPointerExit(int index) { if (inputType != InputType.Gamepad) deltaPanelPos[index] = 0f; }
+		public void SwitchPointerEnter(int i) { if (inputType != InputType.Gamepad) panels[i].internals.deltaPosition = panels[i].internals.enabled ? -0.05f : 0.05f; }
+		public void SwitchPointerExit(int i) => panels[i].internals.deltaPosition = 0f;
 
 		public void TestButton(string text) => Debug.Log(text);
 		#endregion
@@ -147,9 +208,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			}
 		}
 
-		public void OnNavigation(InputAction.CallbackContext context) {
-			navSpeed = context.ReadValue<Vector2>();
-		}
+		public void OnNavigation(InputAction.CallbackContext context) => navSpeed = context.ReadValue<Vector2>();
 
 		public void OnDragNavigation(InputAction.CallbackContext context) {
 			if (!Globals.Editor.hoverUI) {
@@ -170,12 +229,8 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			}
 		}
 
-		public void OnShowLeftPanel(InputAction.CallbackContext context) {
-			newPanelPos[0] = context.ReadValue<float>();
-		}
-		public void OnShowRightPanel(InputAction.CallbackContext context) {
-			newPanelPos[1] = context.ReadValue<float>();
-		}
+		public void OnShowLeftPanel(InputAction.CallbackContext context) => PanelsTrigger(context.ReadValue<float>(), 0);
+		public void OnShowRightPanel(InputAction.CallbackContext context) => PanelsTrigger(context.ReadValue<float>(), 1);
 
 
 		public void OnControlsChanged(PlayerInput input) {
@@ -190,13 +245,13 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			Cursor.visible = inputType == InputType.KeyboardAndMouse;
 
 			if (inputType != InputType.Gamepad) {
-				newPanelPos[0] = panelEnabled[0].ToInt();
-				newPanelPos[1] = panelEnabled[1].ToInt();
+				panels[0].internals.nextPosition = panels[0].internals.enabled.ToInt();
+				panels[1].internals.nextPosition = panels[1].internals.enabled.ToInt();
 			}
 
 			if (inputType != InputType.KeyboardAndMouse) {
 				if (onDragNavigation) onDragNavigation = false;
-				deltaPanelPos[0] = deltaPanelPos[1] = 0f;
+				panels[0].internals.deltaPosition = panels[1].internals.deltaPosition = 0f;
 			}
 		}
 		#endregion

@@ -8,6 +8,7 @@ namespace RobotoSkunk.PixelMan.UI {
 	[RequireComponent(typeof(Button))][RequireComponent(typeof(Image))]
 	public class ButtonAnimation : MonoBehaviour, ISelectHandler, IDeselectHandler, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler {
 		public float speed = 0.5f;
+		public bool usePosition = true, useScale = true, useColor = true;
 		public ButtonStyle pressed = new() { scale = 1.2f * Vector2.one, color = Color.white },
 			disabled = new() { scale = Vector2.one, color = Color.white };
 
@@ -49,9 +50,9 @@ namespace RobotoSkunk.PixelMan.UI {
 			else if (isPressed && !onSubmit) currentStyle = pressed;
 			else currentStyle = defaultStyle;
 
-			target.rectTransform.anchoredPosition = Vector2.Lerp(target.rectTransform.anchoredPosition, startPos + currentStyle.position, speed * RSTime.delta);
-			target.rectTransform.localScale = Vector3.Lerp(target.rectTransform.localScale, (Vector3)currentStyle.scale + Vector3.forward, speed * RSTime.delta);
-			target.color = Color.Lerp(target.color, currentStyle.color, speed * RSTime.delta);
+			if (usePosition) target.rectTransform.anchoredPosition = Vector2.Lerp(target.rectTransform.anchoredPosition, startPos + currentStyle.position, speed * RSTime.delta);
+			if (useScale) target.rectTransform.localScale = Vector3.Lerp(target.rectTransform.localScale, (Vector3)currentStyle.scale + Vector3.forward, speed * RSTime.delta);
+			if (useColor) target.color = Color.Lerp(target.color, currentStyle.color, speed * RSTime.delta);
 		}
 
 		public void OnSelect(BaseEventData ev) => isSelected = isPressed = true;

@@ -15,6 +15,7 @@ TagManager:
   - Bullet
   - Rocket
   - IntelligentRocket
+  - InputEventSystem
   layers:
   - Default
   - TransparentFX
