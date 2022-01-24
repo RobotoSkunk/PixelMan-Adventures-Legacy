@@ -37,12 +37,12 @@ namespace RobotoSkunk.PixelMan {
 		public static Settings.LangWrapper langWrapper;
 		public static float gmVolume = 1f, shakeForce = 0f;
 		public static Vector2 respawnPoint;
-		public static int checkpointId = 0;
+		public static int checkpointId = 0, buttonSelected;
 		public static InputType inputType;
 
 		public static class Editor {
 			public static Vector2 cursorPos;
-			public static bool hoverUI;
+			public static bool hoverUI, snap = true;
 		}
 
 		static bool __isDead = false;

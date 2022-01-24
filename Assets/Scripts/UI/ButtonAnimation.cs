@@ -55,7 +55,10 @@ namespace RobotoSkunk.PixelMan.UI {
 			if (useColor) target.color = Color.Lerp(target.color, currentStyle.color, speed * RSTime.delta);
 		}
 
-		public void OnSelect(BaseEventData ev) => isSelected = isPressed = true;
+		public void OnSelect(BaseEventData ev) {
+			isSelected = isPressed = true;
+			Globals.buttonSelected = button.GetInstanceID();
+		}
 		public void OnPointerEnter(PointerEventData ev) => isPressed = isSelected && pointerDown;
 		public void OnPointerDown(PointerEventData ev) => pointerDown = isPressed = true;
 

@@ -11,8 +11,8 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 	public class PanelStruct {
 		public RectTransform rectTransforms;
 		public Image switchImage;
-		public Selectable defaultSelected;
-		public List<Selectable> buttons, content;
+		public Selectable defaultSelected, outSelected;
+		public List<Selectable> content;
 		public GameObject container;
 		public float size;
 		public Internal internals;
@@ -30,6 +30,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		public MeshRenderer grids;
 		public Image virtualCursor;
 		public InputSystemUIInputModule inputModule;
+		public SpriteRenderer objectPreview;
 
 		[Header("Properties")]
 		public Vector2 zoomLimits;
@@ -37,9 +38,15 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		[Range(0f, 1f)] public float zoomSpeedGamepad, zoomSpeedKeyboard;
 		public ContactFilter2D guiFilter;
 		public Sprite[] panelSwitchSprite = new Sprite[2];
+		public Button[] buttons;
+		public Image[] gamepadIndications;
 
 		[Space(25)]
 		public PanelStruct[] panels;
+
+		[Header("Game inspector")]
+		public ScrollRect inspector;
+		public RectTransform[] inspectorSections;
 
 
 		const float panelLimit = 0.9f;
@@ -65,6 +72,12 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			g_Material = grids.material;
 			Globals.Editor.cursorPos = Globals.screen / 2f;
 			//Globals.musicType = MainCore.MusicClips.Type.EDITOR;
+
+			foreach (PanelStruct panel in panels) {
+				panel.internals.wasOpen = true;
+			}
+
+			ChangeInspectorSection(0);
 		}
 
 		private void Update() {
@@ -106,42 +119,69 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 					virtualCursor.rectTransform.position = Globals.Editor.cursorPos;
 					virtualCursor.enabled = !Globals.Editor.hoverUI;
 
+					#region Panels buttons
+					if (buttons[0].navigation.mode != Navigation.Mode.Explicit)
+						buttons.SetNavigation(Navigation.Mode.Explicit);
+
+					if (buttons[0].interactable != Globals.Editor.hoverUI)
+						buttons.SetInteractable(Globals.Editor.hoverUI);
 
 					foreach (PanelStruct panel in panels) {
-						ButtonPanelTrigger(panel, panel.internals.enabled);
-
-						if (!panel.container.activeSelf) panel.container.SetActive(true);
-
-						if (panel.container.activeSelf && !somePanelEnabled) {
-							panel.buttons[0].Select();
+						if (!somePanelEnabled && panel.internals.enabled) {
 							somePanelEnabled = true;
 
-						} else if (!panel.container.activeSelf)
-							somePanelEnabled = false;
+							panel.defaultSelected.Select();
+						}
+						
+						if (Globals.Editor.hoverUI && panel.internals.wasOpen != panel.internals.enabled && !panel.internals.enabled) {
+							for (int i = 0; i < panel.content.Count; i++) {
+								if (panel.content[i].GetInstanceID() == Globals.buttonSelected) {
+									panel.outSelected.Select();
+									break;
+								}
+							}
+						}
+
+						if (panel.content[0].navigation.mode != Navigation.Mode.Explicit)
+							panel.content.SetNavigation(Navigation.Mode.Explicit);
 					}
+
+					if (somePanelEnabled && !Globals.Editor.hoverUI) somePanelEnabled = false;
+					#endregion
 					break;
 				case InputType.KeyboardAndMouse:
 					Globals.Editor.cursorPos = mousePosition;
 					virtualCursor.enabled = false;
 
+					if (!buttons[0].interactable)
+						buttons.SetInteractable(true);
+
+					if (buttons[0].navigation.mode != Navigation.Mode.None)
+						buttons.SetNavigation(Navigation.Mode.None);
 
 					foreach (PanelStruct panel in panels) {
-						ButtonPanelTrigger(panel, true);
-
-						if (panel.internals.enabled != panel.container.activeSelf)
-							panel.container.SetActive(panel.internals.enabled);
+						if (panel.content[0].navigation.mode != Navigation.Mode.None)
+							panel.content.SetNavigation(Navigation.Mode.None);
 					}
 					break;
 			}
 
-			foreach (PanelStruct panel in panels)
-				panel.buttons.SetInteractable(panel.internals.enabled);
+			foreach (PanelStruct panel in panels) {
+				if (panel.internals.wasOpen != panel.internals.enabled) {
+					panel.internals.wasOpen = panel.internals.enabled;
+
+					panel.content.SetInteractable(panel.internals.enabled);
+				}
+			}
 			#endregion
 
 			transform.position += navigationSpeed * zoom * RSTime.delta * (Vector3)trnsSpd;
 		}
 
 		private void LateUpdate() {
+			objectPreview.transform.position = Snapping.Snap(cam.ScreenToWorldPoint(Globals.Editor.cursorPos), (Globals.Editor.snap ? 1f : Constants.pixelToUnit) * Vector2.one);
+			objectPreview.enabled = !Globals.Editor.hoverUI;
+
 			Vector2 gridScale = cameraSize / 10f;
 
 			grids.transform.localScale = new(gridScale.x, 1f, gridScale.y);
@@ -172,24 +212,23 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				if (!panels[i].internals.enabled) panels[i].internals.nextPosition = val;
 			}
 		}
-		void ButtonPanelTrigger(PanelStruct panel, bool trigger) {
-			if (panel.buttons.Count == 0) return;
-
-			if (panel.buttons[0].interactable != trigger) {
-				panel.buttons.SetInteractable(trigger);
-
-				if (trigger) panel.buttons[0].Select();
-			}
-		}
 
 		#region Buttons
 		public void ButtonResetZoom() => newZoom = 1f;
 		public void ButtonChangeZoom(float x) => newZoom += x;
-		public void SwitchPanel(int i) => panels[i].internals.nextPosition = (!panels[i].internals.enabled).ToInt();
-		public void OpenRightPanel() => panels[1].internals.nextPosition = 1f;
+		public void SwitchPanel(int i) { panels[i].internals.nextPosition = (!panels[i].internals.enabled).ToInt(); panels[i].internals.deltaPosition = 0f; }
+		public void OpenPanel(int i) => panels[i].internals.nextPosition = 1f;
 
 		public void SwitchPointerEnter(int i) { if (inputType != InputType.Gamepad) panels[i].internals.deltaPosition = panels[i].internals.enabled ? -0.05f : 0.05f; }
 		public void SwitchPointerExit(int i) => panels[i].internals.deltaPosition = 0f;
+
+		public void ChangeInspectorSection(int i) {
+			for (int a = 0; a < inspectorSections.Length; a++) {
+				inspectorSections[a].gameObject.SetActive(a == i);
+
+				if (a == i) inspector.content = inspectorSections[a];
+			}
+		}
 
 		public void TestButton(string text) => Debug.Log(text);
 		#endregion
@@ -219,6 +258,8 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		}
 
 		public void OnZoom(InputAction.CallbackContext context) {
+			if (Globals.Editor.hoverUI) return;
+
 			float val = -context.ReadValue<Vector2>().y;
 
 			zoomSpeed = val > 0f ? 1f : (val < 0f ? -1f : 0f);
@@ -252,6 +293,12 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			if (inputType != InputType.KeyboardAndMouse) {
 				if (onDragNavigation) onDragNavigation = false;
 				panels[0].internals.deltaPosition = panels[1].internals.deltaPosition = 0f;
+			}
+
+			if (gamepadIndications[0].enabled != (inputType == InputType.Gamepad)) {
+				foreach (Image image in gamepadIndications) {
+					image.enabled = inputType == InputType.Gamepad;
+				}
 			}
 		}
 		#endregion

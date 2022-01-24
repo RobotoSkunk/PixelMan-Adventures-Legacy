@@ -386,9 +386,24 @@ namespace RobotoSkunk {
 				if (button)
 					button.interactable = enabled;
 		}
+		public static void SetInteractable(this Selectable[] array, bool enabled) {
+			foreach (Selectable button in array)
+				if (button)
+					button.interactable = enabled;
+		}
 
 		public static void SetNavigation(this List<Selectable> list, Navigation.Mode mode) {
 			foreach (Selectable button in list) {
+				if (button) {
+					Navigation navigation = button.navigation;
+					navigation.mode = mode;
+
+					button.navigation = navigation;
+				}
+			}
+		}
+		public static void SetNavigation(this Selectable[] array, Navigation.Mode mode) {
+			foreach (Selectable button in array) {
 				if (button) {
 					Navigation navigation = button.navigation;
 					navigation.mode = mode;

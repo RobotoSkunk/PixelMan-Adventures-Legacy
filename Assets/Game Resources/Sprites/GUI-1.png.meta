@@ -862,6 +862,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Gamepad-LT
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 413
+        width: 21
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b63c3d3f94bbb14aabd08aa3361c0c1
+      internalID: -72771803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad-RT
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 386
+        width: 21
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34d69e4ffa7d86942b5473dcf4f8fbc9
+      internalID: 1683522589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -873,47 +915,49 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Editor-button-run: 243878023
-      blank: 2054124001041304269
       bar-color-palette: 5438888047807879708
-      bar-gradiant-palette: 213274684569274308
-      palette-sv: 3191599451653250520
-      Editor-button-save: -1491967587
-      game-title: -7010831734835879382
+      Editor-button-objects: -952989520
+      bar-hue-palette: -4019474977474178137
+      Editor-button-container: 746526994
+      palette-sv-white: -1605685468875770678
+      Editor-button-stop: 1953064187
+      base-rect-border-2: -634390419545406517
+      base-rect-border-4: -280262383310750262
+      rulette-hue: 325564063192308738
       base-rect-border-3: 6931351593359424303
-      Button-container: -1312120766
+      button-pause: -6294512886237695265
+      Editor-button-pause: 1321980181
+      slider-border-1: 2211136918358296430
+      Editor-button-showPanel: 1057841057
       Editor-button-settings: 3816540026819079933
+      Editor-button-save: -1491967587
+      blank: 2054124001041304269
+      Gamepad-RT: 1683522589
+      bar-gradiant-palette: 213274684569274308
+      Gamepad-LT: -72771803
+      game-title: -7010831734835879382
+      Button-container: -1312120766
       slider-border-2: 5224690882252275055
       Editor-button-undo: 531908384
       Alex Skunk: -6377995968244068863
       Editor-button-hidePanel: 1731858915
       color-picker: 7786610187498457116
-      Editor-button-objects: -952989520
-      bar-hue-palette: -4019474977474178137
-      Editor-button-container: 746526994
       Slider-container: -2051916891
-      palette-sv-white: -1605685468875770678
       bar-alpha-palette: -574547697581011041
-      Editor-button-redo: -1727614579
       Editor-button-help: 815706927
+      Editor-button-redo: -1727614579
       bar-color-container: 7713757842985170668
-      Editor-button-stop: 1953064187
       Editor-button-options: 1123823680
       Editor-button-properties: -676435924
-      base-rect-border-2: -634390419545406517
-      base-rect-border-4: -280262383310750262
       Editor-button-zoomReset: -1004530483
-      rulette-hue: 325564063192308738
-      base-rect-border-1: 9010152221549391988
       console-controller: 1293517014411768107
+      Editor-button-run: 243878023
       Editor-button-zoomRemove: -780712959
       Cur-default: -756887439
       base-rect-corner: 8267307703009234630
-      Editor-button-pause: 1321980181
-      slider-border-1: 2211136918358296430
-      Editor-button-showPanel: 1057841057
+      base-rect-border-1: 9010152221549391988
       Editor-button-zoomAdd: -1436274194
-      button-pause: -6294512886237695265
+      palette-sv: 3191599451653250520
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
