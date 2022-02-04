@@ -13,10 +13,9 @@ MonoBehaviour:
   m_Name: InputSystem.inputsettings
   m_EditorClassIdentifier: 
   m_SupportedDevices:
-  - Gamepad
   - Keyboard
   - Mouse
-  - Pen
+  - Gamepad
   - Touchscreen
   m_UpdateMode: 1
   m_MaxEventBytesPerUpdate: 5242880

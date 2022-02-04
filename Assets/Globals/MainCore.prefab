@@ -90,6 +90,8 @@ MonoBehaviour:
       music: 1
       fx: 1
       master: 1
+    editor:
+      undoLimit: 250
   playerData:
     displayName: Player
     accessToken: 
@@ -105,11 +107,32 @@ MonoBehaviour:
     display: {fileID: -2273262987894464175, guid: 7fd017377abf2284ca95efd90bded325, type: 3}
     controller: {fileID: 9100000, guid: 6855b228aed06e3468ac534e795d3d36, type: 2}
   objects:
-  - name: Mrrrrrr
+  - name: Default block
     gameObject: {fileID: 8956469483171973529, guid: c948d7796ff06594e8a34e4476db98f2, type: 3}
     staticGameObject: {fileID: 0}
     preview: {fileID: 1630688041729426592, guid: c948d7796ff06594e8a34e4476db98f2, type: 3}
     category: 0
+    defaultProperties:
+      id: 0
+      position: {x: 0, y: 0}
+      scale: {x: 1, y: 1}
+      rotation: 0
+      renderOrder: 3
+      skinIndex: 0
+      speed: 0
+      startupTime: 0
+      reloadTime: 0
+    options:
+      allowRenderOrder: 1
+      allowSkinIndex: 1
+      allowSpeed: 0
+      allowStartupTime: 0
+      allowReloadTime: 0
+  - name: Saw
+    gameObject: {fileID: 5718692535105146582, guid: 0a7e03d053de7b8488e54fc3a01cbd5f, type: 3}
+    staticGameObject: {fileID: 0}
+    preview: {fileID: 1630688041729426592, guid: c948d7796ff06594e8a34e4476db98f2, type: 3}
+    category: 3
     defaultProperties:
       id: 0
       position: {x: 0, y: 0}
@@ -122,7 +145,7 @@ MonoBehaviour:
       reloadTime: 0
     options:
       allowRenderOrder: 1
-      allowSkinIndex: 1
+      allowSkinIndex: 0
       allowSpeed: 0
       allowStartupTime: 0
       allowReloadTime: 0

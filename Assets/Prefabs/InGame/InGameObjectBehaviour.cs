@@ -3,9 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace RobotoSkunk.PixelMan {
-	public class InGameObjectBehaviour : GameHandler {
+	public class InGameObjectBehaviour : EditorHandler {
 		public InGameObjectProperties properties;
 		public MonoBehaviour[] scripts;
+
+		string __tag;
+		int __layer;
+
+		private void Awake() {
+			__tag = gameObject.tag;
+			__layer = gameObject.layer;
+		}
+
+		protected override void OnStartTest() => Prepare4Editor(true);
+		protected override void OnEndTest() => Prepare4Editor(false);
+
+		void EnableScripts(bool trigger) {
+			foreach (var script in scripts)
+				script.enabled = trigger;
+		}
+
+		public void Prepare4Editor(bool trigger) {
+			gameObject.tag = trigger ? "EditorObject" : __tag;
+			gameObject.layer = trigger ? 9 : __layer;
+
+			EnableScripts(!trigger);
+		}
 	}
 
 	[System.Serializable]

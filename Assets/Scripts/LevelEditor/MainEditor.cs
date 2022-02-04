@@ -24,19 +24,39 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		}
 	}
 
+	public struct UndoRedo {
+		public Type type;
+		public List<InGameObjectBehaviour> objects;
+
+		public enum Type {
+			Add,
+			Remove,
+			Position,
+			Properties
+		}
+
+		public UndoRedo(Type type, List<InGameObjectBehaviour> objects) {
+			this.type = type;
+			this.objects = objects;
+		}
+	}
+
 	public class MainEditor : MonoBehaviour {
 		[Header("Components")]
 		public Camera cam;
 		public MeshRenderer grids;
-		public Image virtualCursor;
 		public InputSystemUIInputModule inputModule;
 		public SpriteRenderer objectPreview;
+
+		[Header("UI components")]
+		public Image virtualCursor;
+		public Image undoImg, redoImg;
 
 		[Header("Properties")]
 		public Vector2 zoomLimits;
 		public float defaultOrtho, navigationSpeed, cursorSpeed;
 		[Range(0f, 1f)] public float zoomSpeedGamepad, zoomSpeedKeyboard;
-		public ContactFilter2D guiFilter;
+		public ContactFilter2D contactFilter;
 		public Sprite[] panelSwitchSprite = new Sprite[2];
 		public Button[] buttons;
 		public Image[] gamepadIndications;
@@ -52,13 +72,18 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		const float panelLimit = 0.9f;
 
 		readonly List<RaycastResult> guiResults = new();
+		readonly List<RaycastHit2D> raycastHits = new();
+		readonly List<UndoRedo> undoRedo = new();
 
 
+		Rect guiRect = new(15, 15, 250, 150);
+		InputType inputType = InputType.KeyboardAndMouse;
 		Material g_Material;
 		Vector2 navSpeed, dragOrigin, mousePosition;
 		float zoom = 1f, newZoom = 1f, zoomSpeed;
 		bool onDragNavigation, somePanelEnabled;
-		InputType inputType = InputType.KeyboardAndMouse;
+		uint undoIndex, undoLimit;
+		int sid;
 
 		Vector2 cameraSize {
 			get {
@@ -66,18 +91,31 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				return new(w, h);
 			}
 		}
+		int undoDiff {
+			get {
+				return undoRedo.Count - (int)undoIndex;
+			}
+		}
+		int selectedId {
+			get => sid;
+			set => sid = Mathf.Clamp(value, 0, Globals.objects.Count - 1);
+		}
 
 
+		#region Public methods
 		private void Start() {
 			g_Material = grids.material;
 			Globals.Editor.cursorPos = Globals.screen / 2f;
-			//Globals.musicType = MainCore.MusicClips.Type.EDITOR;
+			// Globals.musicType = MainCore.MusicClips.Type.EDITOR;
 
 			foreach (PanelStruct panel in panels) {
 				panel.internals.wasOpen = true;
 			}
 
+			undoLimit = Globals.settings.editor.undoLimit;
+			undoIndex = 0;
 			ChangeInspectorSection(0);
+			UpdateButtons();
 		}
 
 		private void Update() {
@@ -179,7 +217,9 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		}
 
 		private void LateUpdate() {
-			objectPreview.transform.position = Snapping.Snap(cam.ScreenToWorldPoint(Globals.Editor.cursorPos), (Globals.Editor.snap ? 1f : Constants.pixelToUnit) * Vector2.one);
+			Globals.Editor.virtualCursor = Snapping.Snap(cam.ScreenToWorldPoint(Globals.Editor.cursorPos), (Globals.Editor.snap ? 1f : Constants.pixelToUnit) * Vector2.one);
+
+			objectPreview.transform.position = Globals.Editor.virtualCursor;
 			objectPreview.enabled = !Globals.Editor.hoverUI;
 
 			Vector2 gridScale = cameraSize / 10f;
@@ -188,6 +228,30 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			g_Material.SetFloat("_Thickness", zoom * (defaultOrtho * 2f / Screen.height) * 0.1f);
 			g_Material.SetColor("_MainColor", Color.white);
 			g_Material.SetColor("_SecondaryColor", new Color(1, 1, 1, 0.2f));
+		}
+
+		private void FixedUpdate() {
+			if (!Globals.Editor.hoverUI) {
+				int nmb = Physics2D.Raycast(Globals.Editor.virtualCursor, Vector2.zero, contactFilter, raycastHits, 1f);
+
+				if (nmb == 0 && Globals.Editor.onSubmit) {
+					InGameObjectBehaviour newObj = Instantiate(Globals.objects[selectedId].gameObject, Globals.Editor.virtualCursor, Quaternion.Euler(0f, 0f, 0f));
+					newObj.Prepare4Editor(true);
+
+					UpdateUndoRedo(UndoRedo.Type.Add, new List<InGameObjectBehaviour>() { newObj });
+				} else if (nmb > 0 && Globals.Editor.onDelete) {
+					List<InGameObjectBehaviour> listBuffer = new();
+
+					foreach (RaycastHit2D ray in raycastHits) {
+						GameObject obj = ray.collider.gameObject;
+
+						listBuffer.Add(obj.GetComponent<InGameObjectBehaviour>());
+						obj.SetActive(false);
+					}
+
+					UpdateUndoRedo(UndoRedo.Type.Remove, listBuffer);
+				}
+			}
 		}
 
 		private void OnGUI() {
@@ -199,8 +263,13 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 				Globals.Editor.hoverUI = guiResults.Count > 0;
 			}
-		}
 
+			GUI.Box(guiRect, "");
+			GUI.Label(guiRect, $"Current ID: {sid}");
+		}
+		#endregion
+
+		#region Private methods
 		void PanelsTrigger(float val, int i) {
 			if (val > panelLimit && !panels[i].internals.wasEnabled) {
 				panels[i].internals.wasEnabled = true;
@@ -213,11 +282,57 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			}
 		}
 
+		void UpdateButtons() {
+			undoImg.color = undoRedo.Count == undoIndex ? Color.grey : Color.white;
+			redoImg.color = undoIndex == 0 ? Color.grey : Color.white;
+		}
+
+		List<InGameObjectBehaviour> GetAllFromHistorial() {
+			List<InGameObjectBehaviour> undoOutter = new();
+
+			for (int i = 0; i < undoRedo.Count; i++) {
+				for (int j = 0; j < undoRedo[i].objects.Count; j++) {
+					if (undoRedo[i].objects[j].gameObject.activeSelf) {
+						undoOutter.Add(undoRedo[i].objects[j]);
+					}
+				}
+			}
+
+			return undoOutter;
+		}
+
+		void UpdateUndoRedo(UndoRedo.Type type, List<InGameObjectBehaviour> objects) {
+			UndoRedo undoBuffer = new(type, objects);
+
+			if (undoIndex > 0) {
+				List<UndoRedo> rangeBuffer = undoRedo.GetRange(undoDiff, (int)undoIndex);
+				
+				for (int i = 0; i < rangeBuffer.Count; i++) {
+				
+					if (rangeBuffer[i].type == UndoRedo.Type.Add) {
+						for (int j = 0; j < rangeBuffer[i].objects.Count; j++) {
+							Destroy(rangeBuffer[i].objects[j].gameObject);
+						}
+					}
+
+				}
+
+				undoRedo.RemoveRange(undoDiff, (int)undoIndex);
+
+				undoIndex = 0;
+			} else if (undoRedo.Count == undoLimit) undoRedo.RemoveAt(0);
+
+			undoRedo.Add(undoBuffer);
+			UpdateButtons();
+		}
+		#endregion
+
 		#region Buttons
 		public void ButtonResetZoom() => newZoom = 1f;
 		public void ButtonChangeZoom(float x) => newZoom += x;
 		public void SwitchPanel(int i) { panels[i].internals.nextPosition = (!panels[i].internals.enabled).ToInt(); panels[i].internals.deltaPosition = 0f; }
 		public void OpenPanel(int i) => panels[i].internals.nextPosition = 1f;
+		public void SetObjectId(int i) => selectedId = i;
 
 		public void SwitchPointerEnter(int i) { if (inputType != InputType.Gamepad) panels[i].internals.deltaPosition = panels[i].internals.enabled ? -0.05f : 0.05f; }
 		public void SwitchPointerExit(int i) => panels[i].internals.deltaPosition = 0f;
@@ -228,6 +343,36 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 				if (a == i) inspector.content = inspectorSections[a];
 			}
+		}
+
+
+		public void Undo() {
+			if (undoRedo.Count == undoIndex) return;
+			UndoRedo undoBuffer = undoRedo[undoDiff - 1];
+
+			foreach (InGameObjectBehaviour obj in undoBuffer.objects) {
+				switch (undoBuffer.type) {
+					case UndoRedo.Type.Add: obj.gameObject.SetActive(false); break;
+					case UndoRedo.Type.Remove: obj.gameObject.SetActive(true); break;
+				}
+			}
+
+			undoIndex++;
+			UpdateButtons();
+		}
+		public void Redo() {
+			if (undoIndex == 0) return;
+			UndoRedo undoBuffer = undoRedo[undoDiff];
+
+			foreach (InGameObjectBehaviour obj in undoBuffer.objects) {
+				switch (undoBuffer.type) {
+					case UndoRedo.Type.Add: obj.gameObject.SetActive(true); break;
+					case UndoRedo.Type.Remove: obj.gameObject.SetActive(false); break;
+				}
+			}
+
+			undoIndex--;
+			UpdateButtons();
 		}
 
 		public void TestButton(string text) => Debug.Log(text);
@@ -272,6 +417,10 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 		public void OnShowLeftPanel(InputAction.CallbackContext context) => PanelsTrigger(context.ReadValue<float>(), 0);
 		public void OnShowRightPanel(InputAction.CallbackContext context) => PanelsTrigger(context.ReadValue<float>(), 1);
+
+		public void SubmitEditor(InputAction.CallbackContext context) => Globals.Editor.onSubmit = context.ReadValue<float>() > 0.5f;
+		public void DeleteEditor(InputAction.CallbackContext context) => Globals.Editor.onDelete = context.ReadValue<float>() > 0.5f;
+ 
 
 
 		public void OnControlsChanged(PlayerInput input) {

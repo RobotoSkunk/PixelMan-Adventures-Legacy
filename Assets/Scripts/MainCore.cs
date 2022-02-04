@@ -39,10 +39,11 @@ namespace RobotoSkunk.PixelMan {
 		public static Vector2 respawnPoint;
 		public static int checkpointId = 0, buttonSelected;
 		public static InputType inputType;
+		public static List<InGameObject> objects;
 
 		public static class Editor {
-			public static Vector2 cursorPos;
-			public static bool hoverUI, snap = true;
+			public static Vector2 cursorPos, virtualCursor;
+			public static bool hoverUI, snap = true, onSubmit, onDelete;
 		}
 
 		static bool __isDead = false;
@@ -85,6 +86,7 @@ namespace RobotoSkunk.PixelMan {
 		public class Settings {
 			public General general;
 			public Volume volume;
+			public Editor editor;
 
 			[Serializable]
 			public class Volume {
@@ -94,6 +96,10 @@ namespace RobotoSkunk.PixelMan {
 			public class General {
 				public bool enableShake = true, enableDeviceVibration = true, enableControllerVibration = true, enableParticles = true;
 				public string lang = "en";
+			}
+			[Serializable]
+			public class Editor {
+				public uint undoLimit;
 			}
 
 			[Serializable]
@@ -205,6 +211,7 @@ namespace RobotoSkunk.PixelMan {
 
 		private async void Awake() {
 			// Set values
+			Globals.objects = objects;
 			Globals.playerCharacters = playerCharacters;
 			Globals.settings = settings;
 			Globals.playerData = playerData;

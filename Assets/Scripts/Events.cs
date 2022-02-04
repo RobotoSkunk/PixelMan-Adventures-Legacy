@@ -20,6 +20,18 @@ namespace RobotoSkunk.PixelMan {
 			public static void InvokeBackToCheckpoint() => BackToCheckpoint();
 		}
 
+		public static class EditorEventsHandler {
+			public delegate void EditorEvent();
+
+			public static event EditorEvent StartTesting = delegate { };
+			public static event EditorEvent EndTesting = delegate { };
+			public static event EditorEvent OnReady = delegate { };
+
+			public static void InvokeStartTesting() => StartTesting();
+			public static void InvokeEndTesting() => EndTesting();
+			public static void InvokeOnReady() => OnReady();
+		}
+
 		public static class GeneralEventsHandler {
 			public delegate void AudioEvent(AudioClip clip);
 			public delegate void MusicEvent(MainCore.MusicClips.Type type);
@@ -87,5 +99,38 @@ namespace RobotoSkunk.PixelMan {
 		/// Is called when the player dies and can back to some checkpoint.
 		/// </summary>
 		protected virtual void OnGameCheckpointRespawn() { }
+	}
+
+	public class EditorHandler : MonoBehaviour {
+		private void OnEnable() => EnableEvents(true);
+		private void OnDisable() => EnableEvents(false);
+		private void OnDestroy() => EnableEvents(false);
+
+		private void EnableEvents(bool enable) {
+			if (enable) {
+				Events.EditorEventsHandler.StartTesting += OnStartTest;
+				Events.EditorEventsHandler.EndTesting += OnEndTest;
+				Events.EditorEventsHandler.OnReady += OnEditorReady;
+			} else {
+				Events.EditorEventsHandler.StartTesting -= OnStartTest;
+				Events.EditorEventsHandler.EndTesting -= OnEndTest;
+				Events.EditorEventsHandler.OnReady += OnEditorReady;
+			}
+		}
+
+		/// <summary>
+		/// Is called when the editor starts testing a level.
+		/// </summary>
+		protected virtual void OnStartTest() { }
+
+		/// <summary>
+		/// Is called when the editor ends testing a level.
+		/// </summary>
+		protected virtual void OnEndTest() { }
+
+		/// <summary>
+		/// Is called when the editor loaded a level.
+		/// </summary>
+		protected virtual void OnEditorReady() { }
 	}
 }
