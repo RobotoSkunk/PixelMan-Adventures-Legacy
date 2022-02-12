@@ -123,7 +123,7 @@ MonoBehaviour:
       startupTime: 0
       reloadTime: 0
     options:
-      allowRenderOrder: 1
+      allowRenderOrder: 0
       allowSkinIndex: 1
       allowSpeed: 0
       allowStartupTime: 0
@@ -145,6 +145,27 @@ MonoBehaviour:
       reloadTime: 0
     options:
       allowRenderOrder: 1
+      allowSkinIndex: 0
+      allowSpeed: 0
+      allowStartupTime: 0
+      allowReloadTime: 0
+  - name: Player
+    gameObject: {fileID: 2795602898338667627, guid: e58f917291fbca84eb2f131834ee9d20, type: 3}
+    staticGameObject: {fileID: 0}
+    preview: {fileID: 1630688041729426592, guid: c948d7796ff06594e8a34e4476db98f2, type: 3}
+    category: 2
+    defaultProperties:
+      id: 0
+      position: {x: 0, y: 0}
+      scale: {x: 1, y: 1}
+      rotation: 0
+      renderOrder: 1
+      skinIndex: 0
+      speed: 0
+      startupTime: 0
+      reloadTime: 0
+    options:
+      allowRenderOrder: 0
       allowSkinIndex: 0
       allowSpeed: 0
       allowStartupTime: 0

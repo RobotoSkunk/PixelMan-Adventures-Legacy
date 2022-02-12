@@ -1,14 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace RobotoSkunk.PixelMan {
 	public class InGameObjectBehaviour : EditorHandler {
-		public InGameObjectProperties properties;
+		[System.Serializable]
+		public class IGOEvent : UnityEvent { }
+
+		public InGameObjectProperties properties {
+			set => __prop = value;
+			get {
+				InGameObjectProperties tmp = __prop;
+
+				tmp.position = transform.position;
+				tmp.scale = transform.localScale;
+				tmp.rotation = transform.rotation.eulerAngles.z;
+
+				return tmp;
+			}
+		}
 		public MonoBehaviour[] scripts;
+
+		[SerializeField]
+		IGOEvent onEditorCallback = new(), onNotEditorCallback = new();
 
 		string __tag;
 		int __layer;
+		InGameObjectProperties __prop;
 
 		private void Awake() {
 			__tag = gameObject.tag;
@@ -28,6 +45,9 @@ namespace RobotoSkunk.PixelMan {
 			gameObject.layer = trigger ? 9 : __layer;
 
 			EnableScripts(!trigger);
+
+			if (trigger) onEditorCallback.Invoke();
+			else onNotEditorCallback.Invoke();
 		}
 	}
 

@@ -9732,6 +9732,7 @@ GameObject:
   - component: {fileID: 1995670383407584719}
   - component: {fileID: 665508272187798439}
   - component: {fileID: 1386140349391247303}
+  - component: {fileID: 2795602898338667627}
   - component: {fileID: 8861255068588313322}
   m_Layer: 6
   m_Name: Player
@@ -10029,6 +10030,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 3fa12b5a-b83e-472d-a6b0-0782e364ecd4
     m_ActionName: Player/Jump[/XInputControllerWindows/buttonSouth,/Keyboard/upArrow,/Keyboard/w]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5f620efa-88f0-4a2d-a4f4-8b7102650296
+    m_ActionName: LevelEditor/MousePosition[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 829ac1d2-e61e-4e29-8b8b-4b8c700c8211
+    m_ActionName: LevelEditor/Navigation[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a85ef0b1-646e-455a-a025-7424e3fa2c78
+    m_ActionName: LevelEditor/DragNavigation[/Mouse/middleButton,/Keyboard/space,/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 89122cc5-0477-4d64-b774-0c67b1feb271
+    m_ActionName: LevelEditor/Zoom[/Mouse/scroll,/Keyboard/numpadPlus,/Keyboard/numpadMinus]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: dd062698-9fb4-4c9c-9bd1-66260feaffb1
+    m_ActionName: LevelEditor/ShowLeftPanel
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7872aaba-ee7e-4aca-8d2f-0a8b7b5c467a
+    m_ActionName: LevelEditor/ShowRightPanel
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7982e825-cc9b-42c0-bd44-7abe18643aad
+    m_ActionName: LevelEditor/SubmitAction[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 35fb3f9c-cbe8-4624-8a85-bfd1cfc80731
+    m_ActionName: LevelEditor/DeleteAction[/Mouse/rightButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -10086,6 +10119,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2795602898338667627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8009474488916196639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 793afdc305c85ca4f92dd9157d3e5791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scripts:
+  - {fileID: 8861255068588313322}
+  onEditorCallback:
+    m_PersistentCalls:
+      m_Calls: []
+  onNotEditorCallback:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &8861255068588313322
 MonoBehaviour:
   m_ObjectHideFlags: 0

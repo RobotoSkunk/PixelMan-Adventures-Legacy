@@ -26,7 +26,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 	public struct UndoRedo {
 		public Type type;
-		public List<InGameObjectBehaviour> objects;
+		public List<GOHandler> objects;
 
 		public enum Type {
 			Add,
@@ -37,7 +37,23 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 		public UndoRedo(Type type, List<InGameObjectBehaviour> objects) {
 			this.type = type;
-			this.objects = objects;
+			List<GOHandler> _tmp = new();
+
+			for (int i = 0; i < objects.Count; i++) {
+				_tmp.Add(GOHandler.GetGOHandler(objects[i]));
+			}
+
+			this.objects = _tmp;
+		}
+
+		public struct GOHandler {
+			public InGameObjectBehaviour reference;
+			public InGameObjectProperties properties;
+
+			public static GOHandler GetGOHandler(InGameObjectBehaviour obj) => new() {
+				reference = obj,
+				properties = obj.properties
+			};
 		}
 	}
 
@@ -74,6 +90,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		readonly List<RaycastResult> guiResults = new();
 		readonly List<RaycastHit2D> raycastHits = new();
 		readonly List<UndoRedo> undoRedo = new();
+		readonly List<InGameObjectBehaviour> objects = new();
 
 
 		Rect guiRect = new(15, 15, 250, 150);
@@ -116,6 +133,8 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			undoIndex = 0;
 			ChangeInspectorSection(0);
 			UpdateButtons();
+
+			Globals.onPause = true;
 		}
 
 		private void Update() {
@@ -289,15 +308,15 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 		List<InGameObjectBehaviour> GetAllFromHistorial() {
 			List<InGameObjectBehaviour> undoOutter = new();
-
+		
 			for (int i = 0; i < undoRedo.Count; i++) {
 				for (int j = 0; j < undoRedo[i].objects.Count; j++) {
-					if (undoRedo[i].objects[j].gameObject.activeSelf) {
-						undoOutter.Add(undoRedo[i].objects[j]);
+					if (undoRedo[i].objects[j].reference.gameObject.activeSelf) {
+						undoOutter.Add(undoRedo[i].objects[j].reference);
 					}
 				}
 			}
-
+		
 			return undoOutter;
 		}
 
@@ -311,7 +330,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				
 					if (rangeBuffer[i].type == UndoRedo.Type.Add) {
 						for (int j = 0; j < rangeBuffer[i].objects.Count; j++) {
-							Destroy(rangeBuffer[i].objects[j].gameObject);
+							Destroy(rangeBuffer[i].objects[j].reference.gameObject);
 						}
 					}
 
@@ -350,10 +369,10 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			if (undoRedo.Count == undoIndex) return;
 			UndoRedo undoBuffer = undoRedo[undoDiff - 1];
 
-			foreach (InGameObjectBehaviour obj in undoBuffer.objects) {
+			foreach (UndoRedo.GOHandler obj in undoBuffer.objects) {
 				switch (undoBuffer.type) {
-					case UndoRedo.Type.Add: obj.gameObject.SetActive(false); break;
-					case UndoRedo.Type.Remove: obj.gameObject.SetActive(true); break;
+					case UndoRedo.Type.Add: obj.reference.gameObject.SetActive(false); break;
+					case UndoRedo.Type.Remove: obj.reference.gameObject.SetActive(true); break;
 				}
 			}
 
@@ -364,10 +383,10 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			if (undoIndex == 0) return;
 			UndoRedo undoBuffer = undoRedo[undoDiff];
 
-			foreach (InGameObjectBehaviour obj in undoBuffer.objects) {
+			foreach (UndoRedo.GOHandler obj in undoBuffer.objects) {
 				switch (undoBuffer.type) {
-					case UndoRedo.Type.Add: obj.gameObject.SetActive(true); break;
-					case UndoRedo.Type.Remove: obj.gameObject.SetActive(false); break;
+					case UndoRedo.Type.Add: obj.reference.gameObject.SetActive(true); break;
+					case UndoRedo.Type.Remove: obj.reference.gameObject.SetActive(false); break;
 				}
 			}
 
