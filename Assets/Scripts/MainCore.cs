@@ -43,7 +43,7 @@ namespace RobotoSkunk.PixelMan {
 
 		public static class Editor {
 			public static Vector2 cursorPos, virtualCursor;
-			public static bool hoverUI, snap = true, onSubmit, onDelete;
+			public static bool hoverUI, curInWindow, snap = true, onSubmit, onDelete;
 		}
 
 		static bool __isDead = false;
@@ -71,16 +71,11 @@ namespace RobotoSkunk.PixelMan {
 		}
 
 
-		public static float musicVolume {
-			get { return settings.volume.music * settings.volume.master * gmVolume; }
-		}
-		public static float fxVolume {
-			get { return settings.volume.fx * settings.volume.master; }
-		}
+		public static float musicVolume { get => settings.volume.music * settings.volume.master * gmVolume; }
+		public static float fxVolume { get => settings.volume.fx * settings.volume.master; }
 
-		public static Vector2 screen {
-			get { return new(Screen.width, Screen.height); }
-		}
+		public static Vector2 screen { get => new(Screen.width, Screen.height); }
+		public static Rect screenRect { get => new(Vector2.zero, screen); }
 
 		[Serializable]
 		public class Settings {

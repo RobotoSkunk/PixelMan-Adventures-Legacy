@@ -205,6 +205,8 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 					if (somePanelEnabled && !Globals.Editor.hoverUI) somePanelEnabled = false;
 					#endregion
+
+					if (!Globals.Editor.curInWindow) Globals.Editor.curInWindow = true;
 					break;
 				case InputType.KeyboardAndMouse:
 					Globals.Editor.cursorPos = mousePosition;
@@ -220,8 +222,11 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 						if (panel.content[0].navigation.mode != Navigation.Mode.None)
 							panel.content.SetNavigation(Navigation.Mode.None);
 					}
+
+					Globals.Editor.curInWindow = Globals.screenRect.Contains(Globals.Editor.cursorPos);
 					break;
 			}
+
 
 			foreach (PanelStruct panel in panels) {
 				if (panel.internals.wasOpen != panel.internals.enabled) {
@@ -250,7 +255,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		}
 
 		private void FixedUpdate() {
-			if (!Globals.Editor.hoverUI) {
+			if (!Globals.Editor.hoverUI && Globals.Editor.curInWindow) {
 				int nmb = Physics2D.Raycast(Globals.Editor.virtualCursor, Vector2.zero, contactFilter, raycastHits, 1f);
 
 				if (nmb == 0 && Globals.Editor.onSubmit) {

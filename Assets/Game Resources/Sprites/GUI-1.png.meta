@@ -871,7 +871,7 @@ TextureImporter:
         width: 21
         height: 26
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -892,7 +892,7 @@ TextureImporter:
         width: 21
         height: 26
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -900,6 +900,132 @@ TextureImporter:
       bones: []
       spriteID: 34d69e4ffa7d86942b5473dcf4f8fbc9
       internalID: 1683522589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button-left
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 421
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cafe0c1012cf08e4582d73b7f4f09c2b
+      internalID: 1793650563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button-right
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 421
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91b5b4d62c24ae644a79a4cf04b595f2
+      internalID: 252892595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button-switch-on
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 400
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b852825da37f3146b1b86dbe2314577
+      internalID: -1735754346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button-switch-off
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 385
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 046cc4ca98bc13447a335a9dda002759
+      internalID: 85650759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button-plus
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 406
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a66a5273acdab5f42994bdceea9a2f7d
+      internalID: -2027476996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button-minus
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 406
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6cc707a00436234e99369453df818d5
+      internalID: -1134415044
       vertices: []
       indices: 
       edges: []
@@ -916,9 +1042,12 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       bar-color-palette: 5438888047807879708
+      Button-right: 252892595
       Editor-button-objects: -952989520
       bar-hue-palette: -4019474977474178137
       Editor-button-container: 746526994
+      Button-left: 1793650563
+      Button-switch-off: 85650759
       palette-sv-white: -1605685468875770678
       Editor-button-stop: 1953064187
       base-rect-border-2: -634390419545406517
@@ -936,6 +1065,7 @@ TextureImporter:
       bar-gradiant-palette: 213274684569274308
       Gamepad-LT: -72771803
       game-title: -7010831734835879382
+      Button-plus: -2027476996
       Button-container: -1312120766
       slider-border-2: 5224690882252275055
       Editor-button-undo: 531908384
@@ -943,9 +1073,11 @@ TextureImporter:
       Editor-button-hidePanel: 1731858915
       color-picker: 7786610187498457116
       Slider-container: -2051916891
+      Button-switch-on: -1735754346
       bar-alpha-palette: -574547697581011041
       Editor-button-help: 815706927
       Editor-button-redo: -1727614579
+      Button-minus: -1134415044
       bar-color-container: 7713757842985170668
       Editor-button-options: 1123823680
       Editor-button-properties: -676435924

@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 namespace RobotoSkunk.PixelMan.UI {
 
-	[RequireComponent(typeof(Button))][RequireComponent(typeof(Image))]
+	[RequireComponent(typeof(Selectable))][RequireComponent(typeof(Image))]
 	public class ButtonAnimation : MonoBehaviour, ISelectHandler, IDeselectHandler, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler {
 		public float speed = 0.5f;
 		public bool usePosition = true, useScale = true, useColor = true;
@@ -14,7 +14,7 @@ namespace RobotoSkunk.PixelMan.UI {
 
 		[Header("Requires")]
 		[SerializeField] Image target;
-		[SerializeField] Button button;
+		[SerializeField] Selectable button;
 
 		ButtonStyle defaultStyle, currentStyle;
 		Vector2 startPos;
