@@ -76,6 +76,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		public Sprite[] panelSwitchSprite = new Sprite[2];
 		public Button[] buttons;
 		public Image[] gamepadIndications;
+		public Toggle[] optionsToggles;
 
 		[Space(25)]
 		public PanelStruct[] panels;
@@ -135,6 +136,12 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			UpdateButtons();
 
 			Globals.onPause = true;
+
+			bool[] vals = { Globals.Editor.snap };
+
+			for (int i = 0; i < vals.Length; i++) {
+				if (i < optionsToggles.Length) optionsToggles[i].SetIsOnWithoutNotify(vals[i]);
+			}
 		}
 
 		private void Update() {
@@ -419,7 +426,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		public void OnNavigation(InputAction.CallbackContext context) => navSpeed = context.ReadValue<Vector2>();
 
 		public void OnDragNavigation(InputAction.CallbackContext context) {
-			if (!Globals.Editor.hoverUI) {
+			if (onDragNavigation || (!Globals.Editor.hoverUI && !onDragNavigation)) {
 				onDragNavigation = context.ReadValue<float>() != 0f;
 
 				if (onDragNavigation) dragOrigin = cam.ScreenToWorldPoint(mousePosition);
@@ -444,7 +451,19 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 		public void SubmitEditor(InputAction.CallbackContext context) => Globals.Editor.onSubmit = context.ReadValue<float>() > 0.5f;
 		public void DeleteEditor(InputAction.CallbackContext context) => Globals.Editor.onDelete = context.ReadValue<float>() > 0.5f;
- 
+
+		public void UndoAction(InputAction.CallbackContext context) {
+			if (context.ReadValue<float>() == 0f) return;
+
+			Undo();
+		}
+		public void RedoAction(InputAction.CallbackContext context) {
+			if (context.ReadValue<float>() == 0f) return;
+
+			Redo();
+		}
+		public void SetSnap(bool value) => Globals.Editor.snap = value;
+
 
 
 		public void OnControlsChanged(PlayerInput input) {

@@ -6358,6 +6358,8 @@ MonoBehaviour:
   gamepadIndications:
   - {fileID: 69044195}
   - {fileID: 264495308}
+  optionsToggles:
+  - {fileID: 195293620424292643}
   panels:
   - rectTransforms: {fileID: 1471569970}
     switchImage: {fileID: 893862004}
@@ -6616,6 +6618,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 35fb3f9c-cbe8-4624-8a85-bfd1cfc80731
     m_ActionName: LevelEditor/DeleteAction[/Mouse/rightButton,/XInputControllerWindows/buttonEast]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2097089062}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
+        m_MethodName: UndoAction
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: fad5fac0-c1eb-407a-be6a-8576ea13bd77
+    m_ActionName: LevelEditor/Undo[/Keyboard/ctrl,/Keyboard/z]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2097089062}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
+        m_MethodName: RedoAction
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 84c57f27-f04b-4d7f-9c0b-7e47b96595f9
+    m_ActionName: LevelEditor/Redo[/Keyboard/ctrl,/Keyboard/y]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: LevelEditor
@@ -6763,6 +6797,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1112878449}
     m_Modifications:
+    - target: {fileID: 1189527695597351254, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189527695597351254, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189527695597351254, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2097089062}
+    - target: {fileID: 1189527695597351254, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189527695597351254, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetSnap
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189527695597351254, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189527695597351254, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1631104592883507404, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6858,6 +6920,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1631104592883507404, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
   m_PrefabInstance: {fileID: 195293620424292640}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &195293620424292643 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1189527695597351254, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
+  m_PrefabInstance: {fileID: 195293620424292640}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7338674682721449505
 PrefabInstance:
   m_ObjectHideFlags: 0
