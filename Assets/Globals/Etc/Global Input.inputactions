@@ -1127,7 +1127,7 @@
                     "path": "<Keyboard>/ctrl",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard&Mouse",
                     "action": "Undo",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -1138,7 +1138,7 @@
                     "path": "<Keyboard>/z",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard&Mouse",
                     "action": "Undo",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -1160,7 +1160,7 @@
                     "path": "<Keyboard>/ctrl",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard&Mouse",
                     "action": "Redo",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -1171,7 +1171,7 @@
                     "path": "<Keyboard>/y",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard&Mouse",
                     "action": "Redo",
                     "isComposite": false,
                     "isPartOfComposite": true

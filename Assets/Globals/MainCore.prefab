@@ -110,7 +110,7 @@ MonoBehaviour:
   - name: Default block
     gameObject: {fileID: 8956469483171973529, guid: c948d7796ff06594e8a34e4476db98f2, type: 3}
     staticGameObject: {fileID: 0}
-    preview: {fileID: 1630688041729426592, guid: c948d7796ff06594e8a34e4476db98f2, type: 3}
+    preview: {fileID: 8229598875086543445, guid: d2a114b1be56ebe4a92b18b4001732f8, type: 3}
     category: 0
     defaultProperties:
       id: 0
@@ -131,7 +131,7 @@ MonoBehaviour:
   - name: Saw
     gameObject: {fileID: 5718692535105146582, guid: 0a7e03d053de7b8488e54fc3a01cbd5f, type: 3}
     staticGameObject: {fileID: 0}
-    preview: {fileID: 1630688041729426592, guid: c948d7796ff06594e8a34e4476db98f2, type: 3}
+    preview: {fileID: -3628955789918953988, guid: 20389dd01a32da842bae8e10845b154f, type: 3}
     category: 3
     defaultProperties:
       id: 0
@@ -152,7 +152,7 @@ MonoBehaviour:
   - name: Player
     gameObject: {fileID: 2795602898338667627, guid: e58f917291fbca84eb2f131834ee9d20, type: 3}
     staticGameObject: {fileID: 0}
-    preview: {fileID: 1630688041729426592, guid: c948d7796ff06594e8a34e4476db98f2, type: 3}
+    preview: {fileID: 3338216053436577882, guid: 7fd017377abf2284ca95efd90bded325, type: 3}
     category: 2
     defaultProperties:
       id: 0

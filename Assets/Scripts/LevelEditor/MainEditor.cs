@@ -118,6 +118,9 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			get => sid;
 			set => sid = Mathf.Clamp(value, 0, Globals.objects.Count - 1);
 		}
+		InGameObject selectedObject {
+			get => Globals.objects[selectedId];
+		}
 
 
 		#region Public methods
@@ -252,6 +255,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 			objectPreview.transform.position = Globals.Editor.virtualCursor;
 			objectPreview.enabled = !Globals.Editor.hoverUI;
+			objectPreview.sprite = selectedObject.preview;
 
 			Vector2 gridScale = cameraSize / 10f;
 
@@ -262,7 +266,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		}
 
 		private void FixedUpdate() {
-			if (!Globals.Editor.hoverUI && Globals.Editor.curInWindow) {
+			if (!Globals.Editor.hoverUI && Globals.Editor.curInWindow && !onDragNavigation) {
 				int nmb = Physics2D.Raycast(Globals.Editor.virtualCursor, Vector2.zero, contactFilter, raycastHits, 1f);
 
 				if (nmb == 0 && Globals.Editor.onSubmit) {
@@ -453,12 +457,12 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		public void DeleteEditor(InputAction.CallbackContext context) => Globals.Editor.onDelete = context.ReadValue<float>() > 0.5f;
 
 		public void UndoAction(InputAction.CallbackContext context) {
-			if (context.ReadValue<float>() == 0f) return;
+			if (context.action.phase != InputActionPhase.Started) return;
 
 			Undo();
 		}
 		public void RedoAction(InputAction.CallbackContext context) {
-			if (context.ReadValue<float>() == 0f) return;
+			if (context.action.phase != InputActionPhase.Started) return;
 
 			Redo();
 		}
