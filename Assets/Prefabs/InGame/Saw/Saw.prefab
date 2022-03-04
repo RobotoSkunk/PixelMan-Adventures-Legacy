@@ -147,18 +147,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 793afdc305c85ca4f92dd9157d3e5791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  properties:
-    id: 0
-    position: {x: 0, y: 0}
-    scale: {x: 0, y: 0}
-    rotation: 0
-    renderOrder: 0
-    skinIndex: 0
-    speed: 0
-    startupTime: 0
-    reloadTime: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
   scripts:
   - {fileID: 332758527843395059}
+  renderers:
+  - {fileID: 1351965420970289578}
+  onEditorCallback:
+    m_PersistentCalls:
+      m_Calls: []
+  onNotEditorCallback:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &332758527843395059
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -350,6 +350,17 @@ namespace RobotoSkunk {
 			Mathf.Clamp(vector.y, min.y, max.y),
 			Mathf.Clamp(vector.z, min.z, max.z)
 		);
+
+		public static Vector2 Abs(Vector2 vector) => new(
+			Mathf.Abs(vector.x),
+			Mathf.Abs(vector.y)
+		);
+
+		public static Vector3 Abs(Vector3 vector) => new(
+			Mathf.Abs(vector.x),
+			Mathf.Abs(vector.y),
+			Mathf.Abs(vector.z)
+		);
 	}
 
 	public static class RSRandom {

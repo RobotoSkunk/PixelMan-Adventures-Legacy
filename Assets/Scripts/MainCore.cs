@@ -26,6 +26,13 @@ namespace RobotoSkunk.PixelMan {
 				return Mathf.Sqrt(ww * 2f);
 			}
 		}
+
+		public static class InternalIDs {
+			public const uint player = 1;
+		}
+		public static class Colors {
+			public static Color green = new(0.32f, 0.96f, 0.25f);
+		}
 	}
 
 	public static class Globals {

@@ -17,7 +17,6 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 		float velocity, zoom;
 
 		private void Start() {
-			transform.parent = null;
 			camPos = startPos = transform.position;
 		}
 

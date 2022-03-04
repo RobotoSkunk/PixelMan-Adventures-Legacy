@@ -128,27 +128,6 @@ MonoBehaviour:
       allowSpeed: 0
       allowStartupTime: 0
       allowReloadTime: 0
-  - name: Saw
-    gameObject: {fileID: 5718692535105146582, guid: 0a7e03d053de7b8488e54fc3a01cbd5f, type: 3}
-    staticGameObject: {fileID: 0}
-    preview: {fileID: -3628955789918953988, guid: 20389dd01a32da842bae8e10845b154f, type: 3}
-    category: 3
-    defaultProperties:
-      id: 0
-      position: {x: 0, y: 0}
-      scale: {x: 1, y: 1}
-      rotation: 0
-      renderOrder: 1
-      skinIndex: 0
-      speed: 0
-      startupTime: 0
-      reloadTime: 0
-    options:
-      allowRenderOrder: 1
-      allowSkinIndex: 0
-      allowSpeed: 0
-      allowStartupTime: 0
-      allowReloadTime: 0
   - name: Player
     gameObject: {fileID: 2795602898338667627, guid: e58f917291fbca84eb2f131834ee9d20, type: 3}
     staticGameObject: {fileID: 0}
@@ -166,6 +145,27 @@ MonoBehaviour:
       reloadTime: 0
     options:
       allowRenderOrder: 0
+      allowSkinIndex: 0
+      allowSpeed: 0
+      allowStartupTime: 0
+      allowReloadTime: 0
+  - name: Saw
+    gameObject: {fileID: 5718692535105146582, guid: 0a7e03d053de7b8488e54fc3a01cbd5f, type: 3}
+    staticGameObject: {fileID: 0}
+    preview: {fileID: -3628955789918953988, guid: 20389dd01a32da842bae8e10845b154f, type: 3}
+    category: 3
+    defaultProperties:
+      id: 0
+      position: {x: 0, y: 0}
+      scale: {x: 1, y: 1}
+      rotation: 0
+      renderOrder: 1
+      skinIndex: 0
+      speed: 0
+      startupTime: 0
+      reloadTime: 0
+    options:
+      allowRenderOrder: 1
       allowSkinIndex: 0
       allowSpeed: 0
       allowStartupTime: 0

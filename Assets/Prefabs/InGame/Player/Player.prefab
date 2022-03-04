@@ -9664,7 +9664,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7475308876641653269}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 2
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
@@ -10062,6 +10062,14 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 35fb3f9c-cbe8-4624-8a85-bfd1cfc80731
     m_ActionName: LevelEditor/DeleteAction[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: fad5fac0-c1eb-407a-be6a-8576ea13bd77
+    m_ActionName: LevelEditor/Undo[/Keyboard/ctrl,/Keyboard/z]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 84c57f27-f04b-4d7f-9c0b-7e47b96595f9
+    m_ActionName: LevelEditor/Redo[/Keyboard/ctrl,/Keyboard/y]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -10131,8 +10139,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 793afdc305c85ca4f92dd9157d3e5791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 0, g: 0, b: 0, a: 0}
   scripts:
   - {fileID: 8861255068588313322}
+  - {fileID: 1995670383407584719}
+  - {fileID: 2810474812816257224}
+  - {fileID: 665508272187798439}
+  renderers:
+  - {fileID: 1386140349391247303}
   onEditorCallback:
     m_PersistentCalls:
       m_Calls: []

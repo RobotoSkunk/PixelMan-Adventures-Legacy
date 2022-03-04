@@ -821,6 +821,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "MultiselectAction",
+                    "type": "Button",
+                    "id": "a16770c2-904d-46e4-98ff-3606cc1dec2c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1144,6 +1153,17 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "",
+                    "id": "69130547-c7a9-4122-b68b-e17c2eeadb4b",
+                    "path": "<Mouse>/backButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Undo",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "Keyboard",
                     "id": "d249ad26-2982-4fde-930c-9dac132a0b8d",
                     "path": "OneModifier",
@@ -1175,6 +1195,61 @@
                     "action": "Redo",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "063b1c95-eab2-4e16-ad21-67df5fafc1fe",
+                    "path": "<Mouse>/forwardButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Redo",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Keyboard",
+                    "id": "491897f9-443c-4f31-b1d9-db4fc8509fad",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MultiselectAction",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "371195db-5eb0-426b-ba25-9d5951601ac4",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "MultiselectAction",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "d2f3e4da-3dac-4358-bb94-067d98c39747",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "MultiselectAction",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "89603662-32e6-4f8a-acf3-753c5f500853",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "MultiselectAction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

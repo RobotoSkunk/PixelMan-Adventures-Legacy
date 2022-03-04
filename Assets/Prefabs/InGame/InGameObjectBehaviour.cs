@@ -3,14 +3,24 @@ using UnityEngine.Events;
 
 namespace RobotoSkunk.PixelMan {
 	public class InGameObjectBehaviour : EditorHandler {
-		[System.Serializable]
-		public class IGOEvent : UnityEvent { }
+		[System.Serializable] public class IGOEvent : UnityEvent { }
 
+		public MonoBehaviour[] scripts;
+		public SpriteRenderer[] renderers;
+
+		public Color color {
+			set {
+				if (value == Color.clear) __color = Color.white;
+				else __color = value;
+			}
+			get => __color;
+		}
 		public InGameObjectProperties properties {
 			set => __prop = value;
 			get {
 				InGameObjectProperties tmp = __prop;
 
+				tmp.id = __id;
 				tmp.position = transform.position;
 				tmp.scale = transform.localScale;
 				tmp.rotation = transform.rotation.eulerAngles.z;
@@ -18,18 +28,26 @@ namespace RobotoSkunk.PixelMan {
 				return tmp;
 			}
 		}
-		public MonoBehaviour[] scripts;
 
 		[SerializeField]
 		IGOEvent onEditorCallback = new(), onNotEditorCallback = new();
 
 		string __tag;
 		int __layer;
+		uint __id;
+		Color __color = Color.white;
 		InGameObjectProperties __prop;
 
 		private void Awake() {
 			__tag = gameObject.tag;
 			__layer = gameObject.layer;
+		}
+
+		private void Update() {
+			for (int i = 0; i < renderers.Length; i++) {
+				renderers[i].color = color;
+				renderers[i].sortingOrder = properties.orderInLayer - i;
+			}
 		}
 
 		protected override void OnStartTest() => Prepare4Editor(true);
@@ -49,6 +67,8 @@ namespace RobotoSkunk.PixelMan {
 			if (trigger) onEditorCallback.Invoke();
 			else onNotEditorCallback.Invoke();
 		}
+
+		public void SetInternalId(uint id) => __id = id;
 	}
 
 	[System.Serializable]

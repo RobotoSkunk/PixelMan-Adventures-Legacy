@@ -42,6 +42,11 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 
 		private enum State { IDLE, RUNNING, JUMPING, FALLING }
 
+		private void Awake() {
+			rb.velocity = Vector2.zero;
+			rb.gravityScale = 0f;
+		}
+
 		private void Start() {
 			uint ps = Globals.playerData.skinIndex;
 			Globals.playerData.color.a = 1f;
