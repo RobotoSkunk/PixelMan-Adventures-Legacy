@@ -11,13 +11,20 @@ namespace RobotoSkunk.PixelMan {
 
 		public Color color {
 			set {
-				/*if (value == Color.clear) __color = Color.white;
-				else __color = value;*/
-
 				for (int i = 0; i < renderers.Length; i++)
 					renderers[i].color = value;
 			}
-			// get => __color;
+		}
+		public Bounds bounds {
+			get {
+				if (renderers.Length == 0) return new Bounds();
+				Bounds tmp = renderers[0].bounds;
+
+				for (int i = 1; i < renderers.Length; i++)
+					tmp.Encapsulate(renderers[i].bounds);
+
+				return tmp;
+			}
 		}
 		public InGameObjectProperties properties {
 			set {
@@ -53,16 +60,6 @@ namespace RobotoSkunk.PixelMan {
 			for (int i = 0; i < renderers.Length; i++)
 				renderers[i].sortingOrder = __prop.orderInLayer - i;
 		}
-
-		/*private void Update() {
-			if (renderers.Length == 0) return;
-			if (!renderers[0].isVisible) return;
-
-			for (int i = 0; i < renderers.Length; i++) {
-				renderers[i].color = color;
-				renderers[i].sortingOrder = properties.orderInLayer - i;
-			}
-		}*/
 
 		protected override void OnStartTest() => Prepare4Editor(true);
 		protected override void OnEndTest() => Prepare4Editor(false);

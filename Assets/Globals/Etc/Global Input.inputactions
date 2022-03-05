@@ -839,6 +839,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "DeleteSelected",
+                    "type": "Button",
+                    "id": "6a4aff3a-e9a8-4f09-adb0-3aaa4abf66a2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1292,6 +1301,28 @@
                     "action": "DeselectAll",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "23ab4322-e00f-4810-9436-8989e615fb50",
+                    "path": "<Keyboard>/delete",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "DeleteSelected",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2ddfa503-3820-4e28-a0f9-2616c321f909",
+                    "path": "<Keyboard>/backspace",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "DeleteSelected",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

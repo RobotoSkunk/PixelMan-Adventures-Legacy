@@ -109,7 +109,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		Material g_Material;
 		Vector2 navSpeed, dragNavOrigin, mousePosition, dragOrigin;
 		float zoom = 1f, newZoom = 1f, zoomSpeed, msAlpha;
-		bool onDragNavigation, onMultiselection, somePanelEnabled, onDrag;
+		bool onDragNavigation, onMultiselection, somePanelEnabled, onDrag, hoverAnObject;
 		uint undoIndex, undoLimit;
 		int sid;
 
@@ -288,8 +288,10 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			objectPreview.sprite = selectedObject.preview;
 
 			selectionArea.transform.position = msDrag.position;
-			selectionArea.size = msDrag.size;
+			selectionArea.transform.localScale = (Vector3)(zoom * Vector2.one) + Vector3.forward;
+			selectionArea.size = msDrag.size / zoom;
 			selectionArea.color = new Color(0.23f, 0.35f, 1f, msAlpha);
+			selectionArea.enabled = msAlpha > 0.05f;
 
 			Vector2 gridScale = cameraSize / 10f;
 
@@ -361,8 +363,9 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 					case > 0:
 						InGameObjectBehaviour pointedObject = raycastHits[0].collider.GetComponent<InGameObjectBehaviour>();
 
-						if (selected.Contains(pointedObject) && Globals.Editor.onSubmit && dragOrigin != point && !onDrag) {
+						if (hoverAnObject && selected.Contains(pointedObject) && Globals.Editor.onSubmit && dragOrigin != point && !onDrag) {
 							onDrag = true;
+							hoverAnObject = false;
 							draggedObject = pointedObject;
 
 
@@ -503,6 +506,19 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 			return analysis;
 		}
+
+		Bounds GetSelectionBounds() {
+			if (selected.Count > 0) {
+				Bounds bounds = selected[0].bounds;
+
+				for (int i = 1; i < selected.Count; i++)
+					bounds.Encapsulate(selected[i].bounds);
+
+				return bounds;
+			}
+
+			return new Bounds();
+		}
 		#endregion
 
 		#region Buttons
@@ -554,6 +570,22 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		}
 
 		public void DeselectAll() => selected.Clear();
+		public void DeleteSelected() {
+			List<InGameObjectBehaviour> listBuffer = new();
+
+			for (int i = 0; i < selected.Count; i++) {
+				if (!selected[i]) continue;
+				if (!selected[i].gameObject.activeInHierarchy) continue;
+
+				listBuffer.Add(selected[i]);
+				selected[i].gameObject.SetActive(false);
+			}
+
+			selected.Clear();
+
+			analysis = AnalizeObjects();
+			UpdateUndoRedo(UndoRedo.Type.Remove, listBuffer);
+		}
 
 		public void TestButton(string text) => Debug.Log(text);
 		#endregion
@@ -606,6 +638,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			if (isTrue && context.action.phase == InputActionPhase.Started && raycastHits.Count > 0) {
 				selected.Add(raycastHits[0].collider.GetComponent<InGameObjectBehaviour>());
 				dragOrigin = cam.ScreenToWorldPoint(Globals.Editor.cursorPos);
+				hoverAnObject = true;
 			}
 
 			if (!isTrue && onDrag) onDrag = false;
@@ -634,6 +667,11 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			if (context.action.phase != InputActionPhase.Started) return;
 
 			DeselectAll();
+		}
+		public void DeleteSelectedAction(InputAction.CallbackContext context) {
+			if (context.action.phase != InputActionPhase.Started) return;
+
+			DeleteSelected();
 		}
 		public void SetSnap(bool value) => Globals.Editor.snap = value;
 
