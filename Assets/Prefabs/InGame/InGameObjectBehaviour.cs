@@ -7,16 +7,25 @@ namespace RobotoSkunk.PixelMan {
 
 		public MonoBehaviour[] scripts;
 		public SpriteRenderer[] renderers;
+		[System.NonSerialized] public Vector2 dist2Dragged, dragOrigin;
 
 		public Color color {
 			set {
-				if (value == Color.clear) __color = Color.white;
-				else __color = value;
+				/*if (value == Color.clear) __color = Color.white;
+				else __color = value;*/
+
+				for (int i = 0; i < renderers.Length; i++)
+					renderers[i].color = value;
 			}
-			get => __color;
+			// get => __color;
 		}
 		public InGameObjectProperties properties {
-			set => __prop = value;
+			set {
+				__prop = value;
+
+				for (int i = 0; i < renderers.Length; i++)
+					renderers[i].sortingOrder = __prop.orderInLayer - i;
+			}
 			get {
 				InGameObjectProperties tmp = __prop;
 
@@ -35,20 +44,25 @@ namespace RobotoSkunk.PixelMan {
 		string __tag;
 		int __layer;
 		uint __id;
-		Color __color = Color.white;
 		InGameObjectProperties __prop;
 
 		private void Awake() {
 			__tag = gameObject.tag;
 			__layer = gameObject.layer;
+
+			for (int i = 0; i < renderers.Length; i++)
+				renderers[i].sortingOrder = __prop.orderInLayer - i;
 		}
 
-		private void Update() {
+		/*private void Update() {
+			if (renderers.Length == 0) return;
+			if (!renderers[0].isVisible) return;
+
 			for (int i = 0; i < renderers.Length; i++) {
 				renderers[i].color = color;
 				renderers[i].sortingOrder = properties.orderInLayer - i;
 			}
-		}
+		}*/
 
 		protected override void OnStartTest() => Prepare4Editor(true);
 		protected override void OnEndTest() => Prepare4Editor(false);
