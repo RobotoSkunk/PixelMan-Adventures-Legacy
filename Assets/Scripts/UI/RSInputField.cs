@@ -4,9 +4,12 @@ using UnityEngine.UI;
 using UnityEditor;
 using UnityEditor.UI;
 
+using TMPro;
+using TMPro.EditorUtilities;
+
 namespace RobotoSkunk.PixelMan.UI {
-	[AddComponentMenu("UI/RobotoSkunk - Button")]
-	public class RSButton : Button {
+	[AddComponentMenu("UI/RobotoSkunk - Input Field")]
+	public class RSInputField : TMP_InputField {
 		public IntelliNav selectOnUp, selectOnDown, selectOnLeft, selectOnRight;
 
 		public override Selectable FindSelectableOnUp() {
@@ -14,7 +17,7 @@ namespace RobotoSkunk.PixelMan.UI {
 
 			if (!selectOnUp.useAutomatic) return selectOnUp.selectable;
 
-			return FindSelectable(transform.rotation * Vector3.up);
+			return FindSelectable(Quaternion.Euler(transform.eulerAngles + selectOnUp.addRotation) * Vector3.up);
 		}
 
 		public override Selectable FindSelectableOnDown() {
@@ -22,7 +25,7 @@ namespace RobotoSkunk.PixelMan.UI {
 
 			if (!selectOnDown.useAutomatic) return selectOnDown.selectable;
 
-			return FindSelectable(transform.rotation * Vector3.down);
+			return FindSelectable(Quaternion.Euler(transform.eulerAngles + selectOnDown.addRotation) * Vector3.down);
 		}
 
 		public override Selectable FindSelectableOnLeft() {
@@ -30,7 +33,7 @@ namespace RobotoSkunk.PixelMan.UI {
 
 			if (!selectOnLeft.useAutomatic) return selectOnLeft.selectable;
 
-			return FindSelectable(transform.rotation * Vector3.left);
+			return FindSelectable(Quaternion.Euler(transform.eulerAngles + selectOnLeft.addRotation) * Vector3.left);
 		}
 
 		public override Selectable FindSelectableOnRight() {
@@ -38,13 +41,13 @@ namespace RobotoSkunk.PixelMan.UI {
 
 			if (!selectOnRight.useAutomatic) return selectOnRight.selectable;
 
-			return FindSelectable(transform.rotation * Vector3.right);
+			return FindSelectable(Quaternion.Euler(transform.eulerAngles + selectOnRight.addRotation) * Vector3.right);
 		}
 	}
 
-	[CustomEditor(typeof(RSButton), true)]
+	[CustomEditor(typeof(RSInputField), true)]
 	[CanEditMultipleObjects]
-	public class RSButtonEditor : ButtonEditor {
+	public class RSInputFieldEditor : TMP_InputFieldEditor {
 		SerializedProperty m_selectOnUp, m_selectOnDown, m_selectOnLeft, m_selectOnRight;
 
 		protected override void OnEnable() {

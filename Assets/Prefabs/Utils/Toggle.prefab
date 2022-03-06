@@ -87,8 +87,8 @@ GameObject:
   - component: {fileID: 1631104592883507404}
   - component: {fileID: 8815593991735836490}
   - component: {fileID: 5268696588063436878}
-  - component: {fileID: 1189527695597351254}
-  - component: {fileID: 7078589470088903902}
+  - component: {fileID: 2321145770132717279}
+  - component: {fileID: 8275092909591719159}
   m_Layer: 0
   m_Name: Toggle
   m_TagString: Untagged
@@ -155,7 +155,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1189527695597351254
+--- !u!114 &2321145770132717279
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -164,11 +164,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4963112395768739760}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Script: {fileID: 11500000, guid: cd2096cd3c5230b45b56a9a5092c2cbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 3
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -203,7 +203,19 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 0
---- !u!114 &7078589470088903902
+  selectOnUp:
+    useAutomatic: 1
+    selectable: {fileID: 0}
+  selectOnDown:
+    useAutomatic: 1
+    selectable: {fileID: 0}
+  selectOnLeft:
+    useAutomatic: 1
+    selectable: {fileID: 0}
+  selectOnRight:
+    useAutomatic: 1
+    selectable: {fileID: 0}
+--- !u!114 &8275092909591719159
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -228,4 +240,4 @@ MonoBehaviour:
     scale: {x: 1, y: 1}
     color: {r: 1, g: 1, b: 1, a: 1}
   target: {fileID: 5268696588063436878}
-  button: {fileID: 1189527695597351254}
+  button: {fileID: 2321145770132717279}

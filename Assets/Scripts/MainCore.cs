@@ -4,15 +4,26 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 
 using UnityEngine;
-using UnityEngine.Events;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 
 using XInputDotNetPure;
 
 using RobotoSkunk.PixelMan.Events;
 
+
+
 namespace RobotoSkunk.PixelMan {
+	namespace UI {
+		[Serializable]
+		public struct IntelliNav {
+			[Tooltip("When enabled, the script will find automatically some available selectable if selectable field is null.")]
+			public bool useAutomatic;
+			public Selectable selectable;
+			public Vector3 addRotation;
+		}
+	}
+
 	public static class Constants {
 		public const float worldLimit = 1000f,
 			trampolineForce = 25f,

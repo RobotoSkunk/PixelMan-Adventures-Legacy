@@ -204,8 +204,8 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 					virtualCursor.enabled = !Globals.Editor.hoverUI;
 
 					#region Panels buttons
-					if (buttons[0].navigation.mode != Navigation.Mode.Explicit)
-						buttons.SetNavigation(Navigation.Mode.Explicit);
+					if (buttons[0].navigation.mode != Navigation.Mode.Automatic)
+						buttons.SetNavigation(Navigation.Mode.Automatic);
 
 					if (buttons[0].interactable != Globals.Editor.hoverUI)
 						buttons.SetInteractable(Globals.Editor.hoverUI);
@@ -226,8 +226,8 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 							}
 						}
 
-						if (panel.content[0].navigation.mode != Navigation.Mode.Explicit)
-							panel.content.SetNavigation(Navigation.Mode.Explicit);
+						if (panel.content[0].navigation.mode != Navigation.Mode.Automatic)
+							panel.content.SetNavigation(Navigation.Mode.Automatic);
 					}
 
 					if (somePanelEnabled && !Globals.Editor.hoverUI) somePanelEnabled = false;
@@ -396,6 +396,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 							InGameObjectBehaviour newObj = Instantiate(Globals.objects[selectedId].gameObject, Globals.Editor.virtualCursor, Quaternion.Euler(0f, 0f, 0f));
 							newObj.Prepare4Editor(true);
+							newObj.properties = Globals.objects[selectedId].defaultProperties;
 							newObj.SetInternalId((uint)selectedId);
 
 							objCache.Add(newObj);
@@ -416,8 +417,8 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				Globals.Editor.hoverUI = guiResults.Count > 0;
 			}
 
-			GUI.Box(guiRect, "");
-			GUI.Label(guiRect, $"Instances number: {analysis.objectsNumber}\nCurrent ID: {sid}");
+			// GUI.Box(guiRect, "");
+			// GUI.Label(guiRect, $"Instances number: {analysis.objectsNumber}\nCurrent ID: {sid}");
 		}
 		#endregion
 
@@ -569,8 +570,14 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			UpdateButtons();
 		}
 
-		public void DeselectAll() => selected.Clear();
+		public void DeselectAll() {
+			if (selected.Count == 0) return;
+
+			selected.Clear();
+		}
 		public void DeleteSelected() {
+			if (selected.Count == 0) return;
+
 			List<InGameObjectBehaviour> listBuffer = new();
 
 			for (int i = 0; i < selected.Count; i++) {
@@ -635,7 +642,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 			Globals.Editor.onSubmit = isTrue && context.action.phase == InputActionPhase.Performed;
 
-			if (isTrue && context.action.phase == InputActionPhase.Started && raycastHits.Count > 0) {
+			if (isTrue && !Globals.Editor.hoverUI && context.action.phase == InputActionPhase.Started && raycastHits.Count > 0) {
 				selected.Add(raycastHits[0].collider.GetComponent<InGameObjectBehaviour>());
 				dragOrigin = cam.ScreenToWorldPoint(Globals.Editor.cursorPos);
 				hoverAnObject = true;
