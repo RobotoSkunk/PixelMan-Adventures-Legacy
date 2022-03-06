@@ -63,7 +63,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		public Camera cam;
 		public MeshRenderer grids;
 		public InputSystemUIInputModule inputModule;
-		public SpriteRenderer objectPreview, selectionArea;
+		public SpriteRenderer objectPreview, selectionArea, dragArea;
 
 		[Header("UI components")]
 		public Image virtualCursor;
@@ -108,6 +108,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		InputType inputType = InputType.KeyboardAndMouse;
 		Material g_Material;
 		Vector2 navSpeed, dragNavOrigin, mousePosition, dragOrigin;
+		Bounds selectionBounds;
 		float zoom = 1f, newZoom = 1f, zoomSpeed, msAlpha;
 		bool onDragNavigation, onMultiselection, somePanelEnabled, onDrag, hoverAnObject;
 		uint undoIndex, undoLimit;
@@ -311,6 +312,8 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				
 
 				lastSelBuffer = selected.ToArray();
+
+				selectionBounds = GetSelectionBounds();
 			}
 
 			if (!onMultiselection) {
@@ -318,15 +321,23 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				if (lastMS.Length > 0) lastMS = new InGameObjectBehaviour[0];
 			}
 
-
 			if (onDrag) {
 				Vector2 newPos = Snapping.Snap(point + draggedObject.dragOrigin, (Globals.Editor.snap ? 1f : Constants.pixelToUnit) * Vector2.one);
-
 				draggedObject.transform.position = newPos;
+
+				selectionBounds = GetSelectionBounds();
 
 				for (int i = 0; i < selected.Count; i++)
 					if (selected[i] != draggedObject)
 						selected[i].transform.position = newPos - selected[i].dist2Dragged;
+			}
+
+			if ((Vector2)selectionBounds.size == Vector2.zero)
+				dragArea.enabled = false;
+			else {
+				dragArea.enabled = true;
+				dragArea.transform.position = selectionBounds.center;
+				dragArea.transform.localScale = selectionBounds.size + new Vector3(1f, 1f, 0f);
 			}
 		}
 		
