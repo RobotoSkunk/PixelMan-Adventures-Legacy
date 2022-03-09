@@ -61,7 +61,7 @@ namespace RobotoSkunk.PixelMan {
 
 		public static class Editor {
 			public static Vector2 cursorPos, virtualCursor;
-			public static bool hoverUI, curInWindow, snap = true, onSubmit, onDelete;
+			public static bool hoverUI, allowScroll, curInWindow, snap = true, onSubmit, onDelete;
 		}
 
 		static bool __isDead = false;

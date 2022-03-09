@@ -17,6 +17,7 @@ TagManager:
   - IntelligentRocket
   - InputEventSystem
   - EditorObject
+  - EnableScroll
   layers:
   - Default
   - TransparentFX

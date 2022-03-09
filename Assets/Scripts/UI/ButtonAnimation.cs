@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 
 namespace RobotoSkunk.PixelMan.UI {
 
+	[AddComponentMenu("UI/RobotoSkunk - Button Animation")]
 	[RequireComponent(typeof(Selectable))][RequireComponent(typeof(Image))]
 	public class ButtonAnimation : MonoBehaviour, ISelectHandler, IDeselectHandler, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler {
 		public float speed = 0.5f;

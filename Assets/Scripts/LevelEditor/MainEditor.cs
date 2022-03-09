@@ -63,7 +63,9 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		public Camera cam;
 		public MeshRenderer grids;
 		public InputSystemUIInputModule inputModule;
-		public SpriteRenderer objectPreview, selectionArea, dragArea;
+		public SpriteRenderer objectPreview, selectionArea;
+		public Canvas dragArea;
+		public RectTransform dragAreaRect;
 
 		[Header("UI components")]
 		public Image virtualCursor;
@@ -336,8 +338,8 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				dragArea.enabled = false;
 			else {
 				dragArea.enabled = true;
-				dragArea.transform.position = selectionBounds.center;
-				dragArea.transform.localScale = selectionBounds.size + new Vector3(1f, 1f, 0f);
+				dragAreaRect.transform.position = selectionBounds.center;
+				dragAreaRect.sizeDelta = selectionBounds.size + new Vector3(1f, 1f, 0f);
 			}
 		}
 		
@@ -426,6 +428,17 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				EventSystem.current.RaycastAll(evData, guiResults);
 
 				Globals.Editor.hoverUI = guiResults.Count > 0;
+
+				Globals.Editor.allowScroll = !Globals.Editor.hoverUI;
+
+				if (!Globals.Editor.allowScroll) {
+					for (int i = 0; i < guiResults.Count; i++) {
+						if (guiResults[i].gameObject.CompareTag("EnableScroll")) {
+							Globals.Editor.allowScroll = true;
+							break;
+						}
+					}
+				}
 			}
 
 			// GUI.Box(guiRect, "");
@@ -633,7 +646,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		}
 
 		public void OnZoom(InputAction.CallbackContext context) {
-			if (Globals.Editor.hoverUI) return;
+			if (!Globals.Editor.allowScroll) return;
 
 			float val = -context.ReadValue<Vector2>().y;
 
