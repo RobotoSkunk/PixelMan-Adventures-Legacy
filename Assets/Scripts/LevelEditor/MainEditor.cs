@@ -25,6 +25,9 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		}
 	}
 
+	[System.Serializable]
+	public enum ResizePoints { TOP, BOTTOM, LEFT, RIGHT, TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT }
+
 	public struct UndoRedo {
 		public Type type;
 		public List<GOHandler> objCache;
@@ -115,6 +118,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		bool onDragNavigation, onMultiselection, somePanelEnabled, onDrag, hoverAnObject;
 		uint undoIndex, undoLimit;
 		int sid;
+		ResizePoints resPnt;
 
 		AnalysisData analysis = new();
 
@@ -138,11 +142,11 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		}
 
 
-		#region Public methods
+		#region Unity methods
 		private void Start() {
 			g_Material = grids.material;
 			Globals.Editor.cursorPos = Globals.screen / 2f;
-			// Globals.musicType = MainCore.MusicClips.Type.EDITOR;
+			Globals.musicType = MainCore.MusicClips.Type.EDITOR;
 
 			foreach (PanelStruct panel in panels) {
 				panel.internals.wasOpen = true;
@@ -619,6 +623,8 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		}
 
 		public void TestButton(string text) => Debug.Log(text);
+
+		public void SetResizePoint(EnumResizeHandler point) => resPnt = point.value;
 		#endregion
 
 		#region Input System
