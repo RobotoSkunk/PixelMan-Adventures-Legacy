@@ -109,7 +109,7 @@ MonoBehaviour:
   objects:
   - name: Default block
     gameObject: {fileID: 8956469483171973529, guid: c948d7796ff06594e8a34e4476db98f2, type: 3}
-    staticGameObject: {fileID: 0}
+    staticGameObject: {fileID: 8956469483171973529, guid: 3c30d859c80def246ae4e692f984aa13, type: 3}
     preview: {fileID: 8229598875086543445, guid: d2a114b1be56ebe4a92b18b4001732f8, type: 3}
     category: 0
     defaultProperties:

@@ -60,8 +60,7 @@ namespace RobotoSkunk.PixelMan {
 		public static List<InGameObject> objects;
 
 		public static class Editor {
-			public static Vector2 cursorPos, virtualCursor;
-			public static bool hoverUI, allowScroll, curInWindow, snap = true, onSubmit, onDelete;
+			public static bool snap = true;
 		}
 
 		static bool __isDead = false;

@@ -117,23 +117,20 @@ namespace RobotoSkunk {
 		private static double __lastTime;
 		private static int __currFps, __fpsFactor;
 
+		public const float defaultFPS = 60f;
+		public const float wantedFrameRate = 1f / defaultFPS;
+
 		public static int fixedFrameCount {
-			get => Mathf.RoundToInt(Time.fixedTime / Time.fixedDeltaTime);
+			get => Mathf.RoundToInt(Time.fixedTime / wantedFrameRate);
 		}
 
 		public static float delta {
-			get => Time.deltaTime / Time.fixedDeltaTime;
-		}
-
-		public static float fixedFrameRate {
-			get {
-				return 1f / Time.fixedDeltaTime;
-			}
+			get => Time.deltaTime / wantedFrameRate;
 		}
 
 		public static int fps {
 			get {
-				double currTime = Time.realtimeSinceStartupAsDouble,
+				double currTime = Time.realtimeSinceStartup,
 					timeDiff = currTime - __lastTime;
 
 
@@ -152,7 +149,7 @@ namespace RobotoSkunk {
 
 		public static double realFps {
 			get {
-				return fixedFrameRate / delta;
+				return defaultFPS / delta;
 			}
 		}
 	}
@@ -423,6 +420,8 @@ namespace RobotoSkunk {
 				}
 			}
 		}
+
+		public static Vector4 MinMaxToVec4(this Rect rect) => new(rect.xMin, rect.yMin, rect.xMax, rect.yMax);
 	}
 
 
@@ -433,13 +432,13 @@ namespace RobotoSkunk {
 
 		public double time {
 			get {
-				if (isActive) __timer = __timerBuffer + Time.realtimeSinceStartupAsDouble - __lastTime;
+				if (isActive) __timer = __timerBuffer + Time.time - __lastTime;
 
 				return __timer;
 			}
 			set {
 				__timerBuffer = value;
-				__lastTime = Time.realtimeSinceStartupAsDouble;
+				__lastTime = Time.time;
 			}
 		}
 		public bool isActive {
@@ -455,7 +454,7 @@ namespace RobotoSkunk {
 
 		public void Start() {
 			if (!__onTick) {
-				__lastTime = Time.realtimeSinceStartupAsDouble;
+				__lastTime = Time.time;
 				__onTick = true;
 			}
 		}

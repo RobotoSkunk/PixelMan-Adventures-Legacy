@@ -1222,6 +1222,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 272564240}
   m_CullTransparentMesh: 1
+--- !u!4 &307837989 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7018632645382713937, guid: 6c27357b8fa542148967e7eca4522b7f, type: 3}
+  m_PrefabInstance: {fileID: 1734740476}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &337941871
 GameObject:
   m_ObjectHideFlags: 0
@@ -1234,7 +1239,6 @@ GameObject:
   - component: {fileID: 337941874}
   - component: {fileID: 337941873}
   - component: {fileID: 337941875}
-  - component: {fileID: 337941876}
   m_Layer: 5
   m_Name: Bottom Right
   m_TagString: EnableScroll
@@ -1275,7 +1279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.062591076, b: 1, a: 1}
+  m_Color: {r: 0.9019608, g: 0.54901963, b: 0.2, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1309,7 +1313,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 337941871}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7441a9d8abd89346afb02a0e6286018, type: 3}
+  m_Script: {fileID: 11500000, guid: 39a7c85f3f29d504599a8a9a668e653e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   onDragBegin:
@@ -1317,24 +1321,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2097089062}
         m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
-        m_MethodName: SetResizePoint
+        m_MethodName: StartResizing
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 337941876}
-          m_ObjectArgumentAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.EnumResizeHandler,
+          m_ObjectArgument: {fileID: 337941875}
+          m_ObjectArgumentAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.ResizeDragArea,
             Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2097089058}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1342,23 +1334,37 @@ MonoBehaviour:
         m_CallState: 2
   onDrag:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2097089062}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
+        m_MethodName: UpdateResizing
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 337941875}
+          m_ObjectArgumentAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.ResizeDragArea,
+            Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onDragEnd:
     m_PersistentCalls:
-      m_Calls: []
---- !u!114 &337941876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 337941871}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e58e882f6f7bf4948bdeca5bbf865f2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  value: 7
+      m_Calls:
+      - m_Target: {fileID: 2097089062}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
+        m_MethodName: EndResizing
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  resizePoint: 7
+  rectTransform: {fileID: 1534143618}
 --- !u!1 &362926269
 GameObject:
   m_ObjectHideFlags: 0
@@ -2445,7 +2451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.062591076, b: 1, a: 1}
+  m_Color: {r: 0.9, g: 0.2, b: 0.2, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2689,7 +2695,6 @@ GameObject:
   - component: {fileID: 577478258}
   - component: {fileID: 577478257}
   - component: {fileID: 577478259}
-  - component: {fileID: 577478260}
   m_Layer: 5
   m_Name: Top Left
   m_TagString: EnableScroll
@@ -2730,7 +2735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.062591076, b: 1, a: 1}
+  m_Color: {r: 0.9019608, g: 0.54901963, b: 0.2, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2764,7 +2769,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 577478255}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7441a9d8abd89346afb02a0e6286018, type: 3}
+  m_Script: {fileID: 11500000, guid: 39a7c85f3f29d504599a8a9a668e653e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   onDragBegin:
@@ -2772,24 +2777,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2097089062}
         m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
-        m_MethodName: SetResizePoint
+        m_MethodName: StartResizing
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 577478260}
-          m_ObjectArgumentAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.EnumResizeHandler,
+          m_ObjectArgument: {fileID: 577478259}
+          m_ObjectArgumentAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.ResizeDragArea,
             Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2097089058}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2797,23 +2790,37 @@ MonoBehaviour:
         m_CallState: 2
   onDrag:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2097089062}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
+        m_MethodName: UpdateResizing
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 577478259}
+          m_ObjectArgumentAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.ResizeDragArea,
+            Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onDragEnd:
     m_PersistentCalls:
-      m_Calls: []
---- !u!114 &577478260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 577478255}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e58e882f6f7bf4948bdeca5bbf865f2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  value: 4
+      m_Calls:
+      - m_Target: {fileID: 2097089062}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
+        m_MethodName: EndResizing
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  resizePoint: 4
+  rectTransform: {fileID: 1534143618}
 --- !u!1 &599064065
 GameObject:
   m_ObjectHideFlags: 0
@@ -3494,7 +3501,6 @@ GameObject:
   - component: {fileID: 832288324}
   - component: {fileID: 832288323}
   - component: {fileID: 832288325}
-  - component: {fileID: 832288326}
   m_Layer: 5
   m_Name: Left
   m_TagString: EnableScroll
@@ -3536,7 +3542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.062591076, b: 1, a: 1}
+  m_Color: {r: 0.9, g: 0.2, b: 0.2, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3570,7 +3576,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 832288321}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7441a9d8abd89346afb02a0e6286018, type: 3}
+  m_Script: {fileID: 11500000, guid: 39a7c85f3f29d504599a8a9a668e653e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   onDragBegin:
@@ -3578,11 +3584,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2097089062}
         m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
-        m_MethodName: SetResizePoint
+        m_MethodName: StartResizing
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 832288326}
-          m_ObjectArgumentAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.EnumResizeHandler,
+          m_ObjectArgument: {fileID: 832288325}
+          m_ObjectArgumentAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.ResizeDragArea,
             Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -3591,23 +3597,37 @@ MonoBehaviour:
         m_CallState: 2
   onDrag:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2097089062}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
+        m_MethodName: UpdateResizing
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 832288325}
+          m_ObjectArgumentAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.ResizeDragArea,
+            Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onDragEnd:
     m_PersistentCalls:
-      m_Calls: []
---- !u!114 &832288326
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 832288321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e58e882f6f7bf4948bdeca5bbf865f2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  value: 2
+      m_Calls:
+      - m_Target: {fileID: 2097089062}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
+        m_MethodName: EndResizing
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  resizePoint: 2
+  rectTransform: {fileID: 1534143618}
 --- !u!1 &875064265
 GameObject:
   m_ObjectHideFlags: 0
@@ -4464,7 +4484,6 @@ GameObject:
   - component: {fileID: 1016082121}
   - component: {fileID: 1016082120}
   - component: {fileID: 1016082122}
-  - component: {fileID: 1016082123}
   m_Layer: 5
   m_Name: Top Right
   m_TagString: EnableScroll
@@ -4505,7 +4524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.062591076, b: 1, a: 1}
+  m_Color: {r: 0.9019608, g: 0.54901963, b: 0.2, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4539,7 +4558,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1016082118}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7441a9d8abd89346afb02a0e6286018, type: 3}
+  m_Script: {fileID: 11500000, guid: 39a7c85f3f29d504599a8a9a668e653e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   onDragBegin:
@@ -4547,24 +4566,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2097089062}
         m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
-        m_MethodName: SetResizePoint
+        m_MethodName: StartResizing
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1016082123}
-          m_ObjectArgumentAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.EnumResizeHandler,
+          m_ObjectArgument: {fileID: 1016082122}
+          m_ObjectArgumentAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.ResizeDragArea,
             Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2097089058}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4572,23 +4579,37 @@ MonoBehaviour:
         m_CallState: 2
   onDrag:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2097089062}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
+        m_MethodName: UpdateResizing
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1016082122}
+          m_ObjectArgumentAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.ResizeDragArea,
+            Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onDragEnd:
     m_PersistentCalls:
-      m_Calls: []
---- !u!114 &1016082123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1016082118}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e58e882f6f7bf4948bdeca5bbf865f2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  value: 5
+      m_Calls:
+      - m_Target: {fileID: 2097089062}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
+        m_MethodName: EndResizing
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  resizePoint: 5
+  rectTransform: {fileID: 1534143618}
 --- !u!1 &1048733652
 GameObject:
   m_ObjectHideFlags: 0
@@ -5025,6 +5046,11 @@ MonoBehaviour:
     useAutomatic: 0
     selectable: {fileID: 1437775083}
     addRotation: {x: 0, y: 0, z: 0}
+--- !u!4 &1198428406 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8843909321631042319, guid: 6c27357b8fa542148967e7eca4522b7f, type: 3}
+  m_PrefabInstance: {fileID: 1734740476}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1206568603
 GameObject:
   m_ObjectHideFlags: 0
@@ -5405,7 +5431,6 @@ GameObject:
   - component: {fileID: 1270521113}
   - component: {fileID: 1270521112}
   - component: {fileID: 1270521114}
-  - component: {fileID: 1270521115}
   m_Layer: 5
   m_Name: Right
   m_TagString: EnableScroll
@@ -5447,7 +5472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.062591076, b: 1, a: 1}
+  m_Color: {r: 0.9, g: 0.2, b: 0.2, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5481,7 +5506,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1270521110}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7441a9d8abd89346afb02a0e6286018, type: 3}
+  m_Script: {fileID: 11500000, guid: 39a7c85f3f29d504599a8a9a668e653e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   onDragBegin:
@@ -5489,24 +5514,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2097089062}
         m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
-        m_MethodName: SetResizePoint
+        m_MethodName: StartResizing
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1270521115}
-          m_ObjectArgumentAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.EnumResizeHandler,
+          m_ObjectArgument: {fileID: 1270521114}
+          m_ObjectArgumentAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.ResizeDragArea,
             Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2097089058}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5514,23 +5527,37 @@ MonoBehaviour:
         m_CallState: 2
   onDrag:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2097089062}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
+        m_MethodName: UpdateResizing
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1270521114}
+          m_ObjectArgumentAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.ResizeDragArea,
+            Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onDragEnd:
     m_PersistentCalls:
-      m_Calls: []
---- !u!114 &1270521115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1270521110}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e58e882f6f7bf4948bdeca5bbf865f2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  value: 3
+      m_Calls:
+      - m_Target: {fileID: 2097089062}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
+        m_MethodName: EndResizing
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  resizePoint: 3
+  rectTransform: {fileID: 1534143618}
 --- !u!1 &1303583893
 GameObject:
   m_ObjectHideFlags: 0
@@ -5607,6 +5634,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1303583893}
   m_CullTransparentMesh: 1
+--- !u!66 &1328240251 stripped
+CompositeCollider2D:
+  m_CorrespondingSourceObject: {fileID: 1245177559034210106, guid: 6c27357b8fa542148967e7eca4522b7f, type: 3}
+  m_PrefabInstance: {fileID: 1734740476}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1335368527
 GameObject:
   m_ObjectHideFlags: 0
@@ -7065,7 +7097,6 @@ GameObject:
   - component: {fileID: 1637401112}
   - component: {fileID: 1637401111}
   - component: {fileID: 1637401113}
-  - component: {fileID: 1637401114}
   m_Layer: 5
   m_Name: Bottom Left
   m_TagString: EnableScroll
@@ -7106,7 +7137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.062591076, b: 1, a: 1}
+  m_Color: {r: 0.9019608, g: 0.54901963, b: 0.2, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7140,7 +7171,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1637401109}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7441a9d8abd89346afb02a0e6286018, type: 3}
+  m_Script: {fileID: 11500000, guid: 39a7c85f3f29d504599a8a9a668e653e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   onDragBegin:
@@ -7148,24 +7179,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2097089062}
         m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
-        m_MethodName: SetResizePoint
+        m_MethodName: StartResizing
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1637401114}
-          m_ObjectArgumentAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.EnumResizeHandler,
+          m_ObjectArgument: {fileID: 1637401113}
+          m_ObjectArgumentAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.ResizeDragArea,
             Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2097089058}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -7173,23 +7192,37 @@ MonoBehaviour:
         m_CallState: 2
   onDrag:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2097089062}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
+        m_MethodName: UpdateResizing
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1637401113}
+          m_ObjectArgumentAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.ResizeDragArea,
+            Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onDragEnd:
     m_PersistentCalls:
-      m_Calls: []
---- !u!114 &1637401114
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1637401109}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e58e882f6f7bf4948bdeca5bbf865f2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  value: 6
+      m_Calls:
+      - m_Target: {fileID: 2097089062}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
+        m_MethodName: EndResizing
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  resizePoint: 6
+  rectTransform: {fileID: 1534143618}
 --- !u!1 &1666937992
 GameObject:
   m_ObjectHideFlags: 0
@@ -7202,7 +7235,6 @@ GameObject:
   - component: {fileID: 1666937995}
   - component: {fileID: 1666937994}
   - component: {fileID: 1666937996}
-  - component: {fileID: 1666937997}
   m_Layer: 5
   m_Name: Top
   m_TagString: EnableScroll
@@ -7244,7 +7276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.062591076, b: 1, a: 1}
+  m_Color: {r: 0.9, g: 0.2, b: 0.2, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7278,7 +7310,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1666937992}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7441a9d8abd89346afb02a0e6286018, type: 3}
+  m_Script: {fileID: 11500000, guid: 39a7c85f3f29d504599a8a9a668e653e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   onDragBegin:
@@ -7286,24 +7318,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2097089062}
         m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
-        m_MethodName: SetResizePoint
+        m_MethodName: StartResizing
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1666937997}
-          m_ObjectArgumentAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.EnumResizeHandler,
+          m_ObjectArgument: {fileID: 1666937996}
+          m_ObjectArgumentAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.ResizeDragArea,
             Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2097089058}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -7311,23 +7331,37 @@ MonoBehaviour:
         m_CallState: 2
   onDrag:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2097089062}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
+        m_MethodName: UpdateResizing
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1666937996}
+          m_ObjectArgumentAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.ResizeDragArea,
+            Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onDragEnd:
     m_PersistentCalls:
-      m_Calls: []
---- !u!114 &1666937997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1666937992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e58e882f6f7bf4948bdeca5bbf865f2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  value: 0
+      m_Calls:
+      - m_Target: {fileID: 2097089062}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
+        m_MethodName: EndResizing
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  resizePoint: 0
+  rectTransform: {fileID: 1534143618}
 --- !u!1 &1682712051
 GameObject:
   m_ObjectHideFlags: 0
@@ -7487,6 +7521,68 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 2
+--- !u!1001 &1734740476
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2063365112}
+    m_Modifications:
+    - target: {fileID: 6396014017321481120, guid: 6c27357b8fa542148967e7eca4522b7f, type: 3}
+      propertyPath: m_Name
+      value: Solid blocks container
+      objectReference: {fileID: 0}
+    - target: {fileID: 6396014017321481125, guid: 6c27357b8fa542148967e7eca4522b7f, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6396014017321481125, guid: 6c27357b8fa542148967e7eca4522b7f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6396014017321481125, guid: 6c27357b8fa542148967e7eca4522b7f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6396014017321481125, guid: 6c27357b8fa542148967e7eca4522b7f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6396014017321481125, guid: 6c27357b8fa542148967e7eca4522b7f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6396014017321481125, guid: 6c27357b8fa542148967e7eca4522b7f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6396014017321481125, guid: 6c27357b8fa542148967e7eca4522b7f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6396014017321481125, guid: 6c27357b8fa542148967e7eca4522b7f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6396014017321481125, guid: 6c27357b8fa542148967e7eca4522b7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6396014017321481125, guid: 6c27357b8fa542148967e7eca4522b7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6396014017321481125, guid: 6c27357b8fa542148967e7eca4522b7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6c27357b8fa542148967e7eca4522b7f, type: 3}
+--- !u!4 &1734740477 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6396014017321481125, guid: 6c27357b8fa542148967e7eca4522b7f, type: 3}
+  m_PrefabInstance: {fileID: 1734740476}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1741208526
 GameObject:
   m_ObjectHideFlags: 0
@@ -7622,6 +7718,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1741208526}
   m_CullTransparentMesh: 1
+--- !u!66 &1759963302 stripped
+CompositeCollider2D:
+  m_CorrespondingSourceObject: {fileID: 8610096062358160595, guid: 6c27357b8fa542148967e7eca4522b7f, type: 3}
+  m_PrefabInstance: {fileID: 1734740476}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1764666993
 GameObject:
   m_ObjectHideFlags: 0
@@ -7673,7 +7774,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.062591076, b: 1, a: 1}
+  m_Color: {r: 0.9, g: 0.2, b: 0.2, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8170,7 +8271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.062591076, b: 1, a: 1}
+  m_Color: {r: 0.9, g: 0.2, b: 0.2, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8423,7 +8524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.062591076, b: 1, a: 1}
+  m_Color: {r: 0.9, g: 0.2, b: 0.2, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8955,6 +9056,38 @@ MonoBehaviour:
     useAutomatic: 0
     selectable: {fileID: 1437775083}
     addRotation: {x: 0, y: 0, z: 0}
+--- !u!1 &2063365111
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2063365112}
+  m_Layer: 0
+  m_Name: GameObjects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2063365112
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063365111}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1734740477}
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2097089058
 GameObject:
   m_ObjectHideFlags: 0
@@ -9055,7 +9188,7 @@ MonoBehaviour:
   selectionArea: {fileID: 1504661932}
   dragArea: {fileID: 1534143617}
   dragAreaRect: {fileID: 1534143618}
-  virtualCursor: {fileID: 1365372466}
+  virtualCursorImg: {fileID: 1365372466}
   undoImg: {fileID: 1814505213}
   redoImg: {fileID: 2008843871}
   zoomLimits: {x: 0.25, y: 5}
@@ -9108,13 +9241,6 @@ MonoBehaviour:
     - {fileID: 486870003}
     container: {fileID: 823431204}
     size: 43
-    internals:
-      position: 0
-      nextPosition: 0
-      deltaPosition: 0
-      enabled: 0
-      wasEnabled: 0
-      wasOpen: 0
   - rectTransforms: {fileID: 96988149}
     switchImage: {fileID: 1048733654}
     defaultSelected: {fileID: 1437775083}
@@ -9128,13 +9254,12 @@ MonoBehaviour:
     - {fileID: 362926275}
     container: {fileID: 525997180}
     size: -121
-    internals:
-      position: 0
-      nextPosition: 0
-      deltaPosition: 0
-      enabled: 0
-      wasEnabled: 0
-      wasOpen: 0
+  composites:
+  - {fileID: 1328240251}
+  - {fileID: 1759963302}
+  contGeneric: {fileID: 2063365112}
+  contBlockUntagged: {fileID: 307837989}
+  contBlockIce: {fileID: 1198428406}
   inspector: {fileID: 525997182}
   inspectorSections:
   - {fileID: 1150721609}
@@ -9589,7 +9714,6 @@ GameObject:
   - component: {fileID: 2114542173}
   - component: {fileID: 2114542172}
   - component: {fileID: 2114542174}
-  - component: {fileID: 2114542175}
   m_Layer: 5
   m_Name: Bottom
   m_TagString: EnableScroll
@@ -9631,7 +9755,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.062591076, b: 1, a: 1}
+  m_Color: {r: 0.9, g: 0.2, b: 0.2, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9665,7 +9789,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2114542170}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7441a9d8abd89346afb02a0e6286018, type: 3}
+  m_Script: {fileID: 11500000, guid: 39a7c85f3f29d504599a8a9a668e653e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   onDragBegin:
@@ -9673,24 +9797,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2097089062}
         m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
-        m_MethodName: SetResizePoint
+        m_MethodName: StartResizing
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2114542175}
-          m_ObjectArgumentAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.EnumResizeHandler,
+          m_ObjectArgument: {fileID: 2114542174}
+          m_ObjectArgumentAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.ResizeDragArea,
             Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2097089058}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -9698,23 +9810,37 @@ MonoBehaviour:
         m_CallState: 2
   onDrag:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2097089062}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
+        m_MethodName: UpdateResizing
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2114542174}
+          m_ObjectArgumentAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.ResizeDragArea,
+            Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onDragEnd:
     m_PersistentCalls:
-      m_Calls: []
---- !u!114 &2114542175
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2114542170}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e58e882f6f7bf4948bdeca5bbf865f2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  value: 1
+      m_Calls:
+      - m_Target: {fileID: 2097089062}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
+        m_MethodName: EndResizing
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  resizePoint: 1
+  rectTransform: {fileID: 1534143618}
 --- !u!1001 &195293620424292640
 PrefabInstance:
   m_ObjectHideFlags: 0

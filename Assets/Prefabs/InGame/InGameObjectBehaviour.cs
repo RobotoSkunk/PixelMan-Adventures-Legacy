@@ -7,7 +7,9 @@ namespace RobotoSkunk.PixelMan {
 
 		public MonoBehaviour[] scripts;
 		public SpriteRenderer[] renderers;
-		[System.NonSerialized] public Vector2 dist2Dragged, dragOrigin;
+		[System.NonSerialized] public Vector2 dist2Dragged, dragOrigin, resPos, resSca, resRelSca;
+
+		readonly Vector2 limit = Constants.worldLimit * Vector2.one;
 
 		public Color color {
 			set {
@@ -28,10 +30,14 @@ namespace RobotoSkunk.PixelMan {
 		}
 		public InGameObjectProperties properties {
 			set {
-				__prop = value;
+				if (value.renderOrder != __prop.renderOrder)
+					for (int i = 0; i < renderers.Length; i++)
+						renderers[i].sortingOrder = __prop.orderInLayer - i;
 
-				for (int i = 0; i < renderers.Length; i++)
-					renderers[i].sortingOrder = __prop.orderInLayer - i;
+				SetPosition(value.position);
+				SetScale(value.scale);
+
+				__prop = value;
 			}
 			get {
 				InGameObjectProperties tmp = __prop;
@@ -79,7 +85,19 @@ namespace RobotoSkunk.PixelMan {
 			else onNotEditorCallback.Invoke();
 		}
 
+		public string GetDefaultTag() => __tag;
+		public int GetDefaultLayer() => __layer;
+
 		public void SetInternalId(uint id) => __id = id;
+
+		public void SetPosition(Vector2 value) => transform.position = RSMath.Clamp(value, -limit, limit);
+		public void SetScale(Vector2 value) {
+			if (value.x < 0f) value.x = 0f;
+			if (value.y < 0f) value.y = 0f;
+
+			transform.localScale = value;
+		}
+		public void SetRotation(float value) => transform.localEulerAngles = new Vector3(0f, 0f, value);
 	}
 
 	[System.Serializable]
@@ -127,6 +145,16 @@ namespace RobotoSkunk.PixelMan {
 			DECORATION,
 			GAMEPLAY, 
 			OBSTACLES
+		}
+
+		public InGameObjectBehaviour Instantiate(Vector2 position, Vector2 scale, float rotation, bool doStatic = true) {
+			InGameObjectBehaviour newObj = Object.Instantiate(doStatic && staticGameObject != null ? staticGameObject : gameObject);
+			newObj.properties = defaultProperties;
+			newObj.SetPosition(position);
+			newObj.SetScale(scale);
+			newObj.SetRotation(rotation);
+
+			return newObj;
 		}
 	}
 }
