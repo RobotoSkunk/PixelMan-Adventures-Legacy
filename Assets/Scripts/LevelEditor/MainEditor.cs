@@ -34,7 +34,6 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		public enum Type {
 			Add,
 			Remove,
-			Position,
 			Properties
 		}
 
@@ -51,11 +50,12 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 		public struct GOHandler {
 			public InGameObjectBehaviour reference;
-			public InGameObjectProperties properties;
+			public InGameObjectProperties properties, lastProperties;
 
 			public static GOHandler GetGOHandler(InGameObjectBehaviour obj) => new() {
 				reference = obj,
-				properties = obj.properties
+				properties = obj.properties,
+				lastProperties = obj.lastProperties
 			};
 		}
 	}
@@ -134,6 +134,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		AnalysisData analysis = new();
 		#endregion
 
+		#region Hotdog
 		Vector2 cameraSize {
 			get {
 				float h = cam.orthographicSize * 2f, w = h * cam.aspect;
@@ -156,7 +157,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		bool userIsDragging {
 			get => onRotate || onResize || onDrag || onMultiselection || onDragNavigation;
 		}
-
+		#endregion
 
 		#region Unity methods
 		private void Start() {
@@ -419,9 +420,10 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 							draggedObject.dragOrigin = (Vector2)draggedObject.transform.position - dragOrigin;
 
-							for (int i = 0; i < selected.Count; i++)
+							for (int i = 0; i < selected.Count; i++) {
+								selected[i].lastProperties = selected[i].properties;
 								selected[i].dist2Dragged = draggedObject.transform.position - selected[i].transform.position;
-
+							}
 						} else if (onDelete) {
 							List<InGameObjectBehaviour> listBuffer = new();
 
@@ -524,6 +526,18 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 			undoRedo.Add(undoBuffer);
 			UpdateButtons();
+		}
+		void StoreSelectedInHistorial() {
+			List<InGameObjectBehaviour> tmp = new();
+
+			for (int i = 0; i < selected.Count; i++) {
+				if (!selected[i]) continue;
+				if (!selected[i].gameObject.activeInHierarchy) continue;
+
+				tmp.Add(selected[i]);
+			}
+
+			UpdateUndoRedo(UndoRedo.Type.Properties, tmp);
 		}
 
 		AnalysisData AnalizeObjects() {
@@ -632,6 +646,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				switch (undoBuffer.type) {
 					case UndoRedo.Type.Add: obj.reference.gameObject.SetActive(false); break;
 					case UndoRedo.Type.Remove: obj.reference.gameObject.SetActive(true); break;
+					case UndoRedo.Type.Properties: obj.reference.properties = obj.lastProperties; break;
 				}
 			}
 
@@ -646,6 +661,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				switch (undoBuffer.type) {
 					case UndoRedo.Type.Add: obj.reference.gameObject.SetActive(true); break;
 					case UndoRedo.Type.Remove: obj.reference.gameObject.SetActive(false); break;
+					case UndoRedo.Type.Properties: obj.reference.properties = obj.properties; break;
 				}
 			}
 
@@ -687,7 +703,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				ResizePoints.TOP          => new(0f, lastResArea.yMin),
 				ResizePoints.RIGHT        => new(lastResArea.xMin, 0f),
 				ResizePoints.BOTTOM       => new(0f, lastResArea.yMax),
-				ResizePoints.LEFT         => new(lastResArea.yMax, 0f),
+				ResizePoints.LEFT         => new(lastResArea.xMax, 0f),
 
 				ResizePoints.TOP_LEFT     => new(lastResArea.xMax, lastResArea.yMin),
 				ResizePoints.TOP_RIGHT    => new(lastResArea.xMin, lastResArea.yMin),
@@ -699,9 +715,10 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 			for (int i = 0; i < selected.Count; i++) {
 				if (!selected[i]) continue;
+				if (!selected[i].gameObject.activeInHierarchy) continue;
 
-				selected[i].resSca = selected[i].transform.localScale;
-				selected[i].resPos = newResArea.center - (Vector2)selected[i].transform.position;
+				selected[i].lastProperties = selected[i].properties;
+				selected[i].dist2Dragged = newResArea.center - (Vector2)selected[i].transform.position;
 			}
 		}
 		public void UpdateResizing(EditorDragArea handler) {
@@ -710,9 +727,6 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				Mathf.Abs(virtualCursor.x - resRefPnt.x) <= 0.5f ? resRefPnt.x : (virtualCursor.x < resRefPnt.x ? 0.5f : -0.5f),
 				Mathf.Abs(virtualCursor.y - resRefPnt.y) <= 0.5f ? resRefPnt.y : (virtualCursor.y < resRefPnt.y ? 0.5f : -0.5f)
 			);
-
-			// if (Mathf.Abs(virtualCursor.x - resRefPnt.x) <= 0.5f) B.x = resRefPnt.x;
-			// if (Mathf.Abs(virtualCursor.y - resRefPnt.y) <= 0.5f) B.y = resRefPnt.y;
 
 			Vector4 newData = handler.resizePoint switch {
 				ResizePoints.TOP          => new(a.x, a.y, a.z, B.y),
@@ -729,21 +743,30 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			};
 
 			newResArea = Rect.MinMaxRect(newData.x, newData.y, newData.z, newData.w);
+			selectionBounds.SetMinMax(new Vector2(newData.x, newData.y), new Vector2(newData.z, newData.w));
 
-			Vector2 fixedScale = newResArea.size / lastResArea.size;
+			selectionBounds.extents = RSMath.Abs(selectionBounds.extents);
+
+			Vector2 fixedScale = new(
+				lastResArea.size.x <= Mathf.Epsilon ? 0f : newResArea.size.x / lastResArea.size.x,
+				lastResArea.size.y <= Mathf.Epsilon ? 0f : newResArea.size.y / lastResArea.size.y
+			);
 
 			for (int i = 0; i < selected.Count; i++) {
 				if (!selected[i]) continue;
+				if (!selected[i].gameObject.activeInHierarchy) continue;
 
-				selected[i].SetScale(RSMath.Abs(RSMath.Rotate(selected[i].resSca * fixedScale, selected[i].transform.eulerAngles.z * Mathf.Deg2Rad)));
-				selected[i].SetPosition(newResArea.center - selected[i].resPos * fixedScale);
+				selected[i].SetScale(RSMath.Abs(selected[i].lastProperties.scale * fixedScale));
+				selected[i].SetPosition(newResArea.center - selected[i].dist2Dragged * fixedScale);
 			}
-
-			selectionBounds = GetSelectionBounds();
 		}
 		public void EndResizing() {
 			onResize = false;
 			rotRectArea.gameObject.SetActive(true);
+
+			StoreSelectedInHistorial();
+
+			selectionBounds = GetSelectionBounds();
 			UpdateColliders();
 		}
 
@@ -757,9 +780,10 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 			for (int i = 0; i < selected.Count; i++) {
 				if (!selected[i]) continue;
+				if (!selected[i].gameObject.activeInHierarchy) continue;
 
-				selected[i].resPos = rotArea.center - (Vector2)selected[i].transform.position;
-				selected[i].rot = selected[i].transform.localEulerAngles.z;
+				selected[i].lastProperties = selected[i].properties;
+				selected[i].dist2Dragged = rotArea.center - (Vector2)selected[i].transform.position;
 			}
 		}
 		public void UpdateRotating() {
@@ -768,9 +792,10 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 			for (int i = 0; i < selected.Count; i++) {
 				if (!selected[i]) continue;
+				if (!selected[i].gameObject.activeInHierarchy) continue;
 
-				selected[i].SetRotation(selected[i].rot - newRot);
-				selected[i].SetPosition(rotArea.center - RSMath.Rotate(selected[i].resPos, alpha));
+				selected[i].SetRotation(selected[i].lastProperties.rotation - newRot);
+				selected[i].SetPosition(rotArea.center - RSMath.Rotate(selected[i].dist2Dragged, alpha));
 			}
 
 			rotRectArea.transform.eulerAngles = new Vector3(0f, 0f, -newRot);
@@ -779,9 +804,10 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			resRectArea.gameObject.SetActive(true);
 			rotRectArea.transform.eulerAngles = Vector3.zero;
 
-			selectionBounds = GetSelectionBounds();
-
 			onRotate = false;
+			StoreSelectedInHistorial();
+
+			selectionBounds = GetSelectionBounds();
 			UpdateColliders();
 		}
 
@@ -841,6 +867,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 			if (!isTrue && onDrag) {
 				onDrag = false;
+				StoreSelectedInHistorial();
 				UpdateColliders();
 			}
 		}

@@ -7,8 +7,7 @@ namespace RobotoSkunk.PixelMan {
 
 		public MonoBehaviour[] scripts;
 		public SpriteRenderer[] renderers;
-		[System.NonSerialized] public Vector2 dist2Dragged, dragOrigin, resPos, resSca, resRelSca;
-		[System.NonSerialized] public float rot;
+		[System.NonSerialized] public Vector2 dist2Dragged, dragOrigin;
 
 		readonly Vector2 limit = Constants.worldLimit * Vector2.one;
 
@@ -31,6 +30,8 @@ namespace RobotoSkunk.PixelMan {
 		}
 		public InGameObjectProperties properties {
 			set {
+				__lastProp = properties;
+
 				if (value.renderOrder != __prop.renderOrder)
 					for (int i = 0; i < renderers.Length; i++)
 						renderers[i].sortingOrder = __prop.orderInLayer - i;
@@ -39,6 +40,7 @@ namespace RobotoSkunk.PixelMan {
 
 				SetPosition(value.position);
 				SetScale(value.scale);
+				SetRotation(value.rotation);
 			}
 			get {
 				InGameObjectProperties tmp = __prop;
@@ -51,6 +53,7 @@ namespace RobotoSkunk.PixelMan {
 				return tmp;
 			}
 		}
+		public InGameObjectProperties lastProperties { get => __lastProp; set => __lastProp = value; }
 
 		[SerializeField]
 		IGOEvent onEditorCallback = new(), onNotEditorCallback = new();
@@ -58,7 +61,7 @@ namespace RobotoSkunk.PixelMan {
 		string __tag;
 		int __layer;
 		uint __id;
-		InGameObjectProperties __prop;
+		InGameObjectProperties __prop, __lastProp;
 		InGameObject.Options __opt;
 
 		private void Awake() {
@@ -101,7 +104,7 @@ namespace RobotoSkunk.PixelMan {
 			if (value.y < 0f) value.y = 0f;
 
 			if (!__opt.allowFreeScale)
-				value = (value.x + value.y) / 2f * Vector2.one;
+				value = Mathf.Min(value.x + value.y) / 2f * Vector2.one;
 
 			transform.localScale = (Vector3)value + Vector3.forward;
 		}

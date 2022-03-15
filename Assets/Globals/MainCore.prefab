@@ -128,7 +128,7 @@ MonoBehaviour:
       allowSpeed: 0
       allowStartupTime: 0
       allowReloadTime: 0
-      allowRotation: 1
+      allowRotation: 0
       allowScale: 1
       allowFreeScale: 1
   - name: Player
