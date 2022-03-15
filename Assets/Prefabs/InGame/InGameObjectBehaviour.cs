@@ -35,10 +35,10 @@ namespace RobotoSkunk.PixelMan {
 					for (int i = 0; i < renderers.Length; i++)
 						renderers[i].sortingOrder = __prop.orderInLayer - i;
 
+				__prop = value;
+
 				SetPosition(value.position);
 				SetScale(value.scale);
-
-				__prop = value;
 			}
 			get {
 				InGameObjectProperties tmp = __prop;
@@ -59,6 +59,7 @@ namespace RobotoSkunk.PixelMan {
 		int __layer;
 		uint __id;
 		InGameObjectProperties __prop;
+		InGameObject.Options __opt;
 
 		private void Awake() {
 			__tag = gameObject.tag;
@@ -90,15 +91,25 @@ namespace RobotoSkunk.PixelMan {
 		public int GetDefaultLayer() => __layer;
 
 		public void SetInternalId(uint id) => __id = id;
+		public void SetInternalOptions(InGameObject.Options options) => __opt = options;
 
 		public void SetPosition(Vector2 value) => transform.position = RSMath.Clamp(value, -limit, limit);
 		public void SetScale(Vector2 value) {
+			if (!__opt.allowScale) return;
+
 			if (value.x < 0f) value.x = 0f;
 			if (value.y < 0f) value.y = 0f;
 
-			transform.localScale = value;
+			if (!__opt.allowFreeScale)
+				value = (value.x + value.y) / 2f * Vector2.one;
+
+			transform.localScale = (Vector3)value + Vector3.forward;
 		}
-		public void SetRotation(float value) => transform.localEulerAngles = new Vector3(0f, 0f, value);
+		public void SetRotation(float value) {
+			if (!__opt.allowRotation) return;
+
+			transform.localEulerAngles = new Vector3(0f, 0f, value);
+		}
 	}
 
 	[System.Serializable]
@@ -138,7 +149,10 @@ namespace RobotoSkunk.PixelMan {
 				allowSkinIndex,
 				allowSpeed,
 				allowStartupTime,
-				allowReloadTime;
+				allowReloadTime,
+				allowRotation,
+				allowScale,
+				allowFreeScale;
 		}
 
 		public enum Category {
@@ -150,6 +164,8 @@ namespace RobotoSkunk.PixelMan {
 
 		public InGameObjectBehaviour Instantiate(Vector2 position, Vector2 scale, float rotation, bool doStatic = true) {
 			InGameObjectBehaviour newObj = Object.Instantiate(doStatic && staticGameObject != null ? staticGameObject : gameObject);
+			newObj.SetInternalOptions(options);
+
 			newObj.properties = defaultProperties;
 			newObj.SetPosition(position);
 			newObj.SetScale(scale);

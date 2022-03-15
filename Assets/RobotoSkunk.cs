@@ -337,6 +337,11 @@ namespace RobotoSkunk {
 
 		public static int ToInt(this bool b) => b ? 1 : 0;
 
+		public static Vector2 Rotate(Vector2 vector, float angle) => new(
+			vector.x * Mathf.Cos(angle) - vector.y * Mathf.Sin(angle),
+			vector.x * Mathf.Sin(angle) + vector.y * Mathf.Cos(angle)
+		);
+
 		public static Vector2 Clamp(Vector2 vector, Vector2 min, Vector2 max) => new(
 			Mathf.Clamp(vector.x, min.x, max.x),
 			Mathf.Clamp(vector.y, min.y, max.y)

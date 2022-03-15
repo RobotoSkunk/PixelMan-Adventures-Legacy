@@ -128,6 +128,9 @@ MonoBehaviour:
       allowSpeed: 0
       allowStartupTime: 0
       allowReloadTime: 0
+      allowRotation: 1
+      allowScale: 1
+      allowFreeScale: 1
   - name: Player
     gameObject: {fileID: 2795602898338667627, guid: e58f917291fbca84eb2f131834ee9d20, type: 3}
     staticGameObject: {fileID: 0}
@@ -149,6 +152,9 @@ MonoBehaviour:
       allowSpeed: 0
       allowStartupTime: 0
       allowReloadTime: 0
+      allowRotation: 0
+      allowScale: 0
+      allowFreeScale: 0
   - name: Saw
     gameObject: {fileID: 5718692535105146582, guid: 0a7e03d053de7b8488e54fc3a01cbd5f, type: 3}
     staticGameObject: {fileID: 0}
@@ -170,6 +176,9 @@ MonoBehaviour:
       allowSpeed: 0
       allowStartupTime: 0
       allowReloadTime: 0
+      allowRotation: 1
+      allowScale: 1
+      allowFreeScale: 0
   musicClips:
   - name: None
     type: 0

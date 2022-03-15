@@ -373,7 +373,8 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			else {
 				dragArea.enabled = true;
 				dragAreaRect.transform.position = selectionBounds.center;
-				dragAreaRect.sizeDelta = selectionBounds.size + new Vector3(1f, 1f, 0f);
+				dragAreaRect.transform.localScale = (Vector3)(zoom * Vector2.one) + Vector3.forward;
+				dragAreaRect.sizeDelta = (selectionBounds.size + new Vector3(1f, 1f, 0f)) / zoom;
 			}
 			#endregion
 		}
@@ -734,7 +735,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			for (int i = 0; i < selected.Count; i++) {
 				if (!selected[i]) continue;
 
-				selected[i].SetScale(RSMath.Abs(selected[i].resSca * fixedScale));
+				selected[i].SetScale(RSMath.Abs(RSMath.Rotate(selected[i].resSca * fixedScale, selected[i].transform.eulerAngles.z * Mathf.Deg2Rad)));
 				selected[i].SetPosition(newResArea.center - selected[i].resPos * fixedScale);
 			}
 
@@ -757,20 +758,19 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			for (int i = 0; i < selected.Count; i++) {
 				if (!selected[i]) continue;
 
+				selected[i].resPos = rotArea.center - (Vector2)selected[i].transform.position;
 				selected[i].rot = selected[i].transform.localEulerAngles.z;
 			}
-
 		}
 		public void UpdateRotating() {
-			float newRot = rotHandle - RSMath.Direction(rotArea.center, cursorToWorld) * Mathf.Rad2Deg;
-
-			if (Globals.Editor.snap)
-				newRot = Snapping.Snap(newRot, 15f);
+			float newRot = Snapping.Snap(rotHandle - RSMath.Direction(rotArea.center, cursorToWorld) * Mathf.Rad2Deg, Globals.Editor.snap ? 15f : 0f),
+				alpha = -newRot * Mathf.Deg2Rad;
 
 			for (int i = 0; i < selected.Count; i++) {
 				if (!selected[i]) continue;
 
 				selected[i].SetRotation(selected[i].rot - newRot);
+				selected[i].SetPosition(rotArea.center - RSMath.Rotate(selected[i].resPos, alpha));
 			}
 
 			rotRectArea.transform.eulerAngles = new Vector3(0f, 0f, -newRot);
