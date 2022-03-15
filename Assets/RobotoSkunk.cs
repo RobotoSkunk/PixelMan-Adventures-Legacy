@@ -358,6 +358,17 @@ namespace RobotoSkunk {
 			Mathf.Abs(vector.y),
 			Mathf.Abs(vector.z)
 		);
+
+		public static Vector2 Round(Vector2 vector) => new(
+			Mathf.Round(vector.x),
+			Mathf.Round(vector.y)
+		);
+
+		public static Vector3 Round(Vector3 vector) => new(
+			Mathf.Round(vector.x),
+			Mathf.Round(vector.y),
+			Mathf.Round(vector.z)
+		);
 	}
 
 	public static class RSRandom {

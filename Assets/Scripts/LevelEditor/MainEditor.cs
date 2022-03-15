@@ -114,11 +114,11 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		#region Temporal garbage
 		Rect guiRect = new(15, 15, 250, 150), msDrag, lastResArea, newResArea;
 		Material g_Material;
-		Vector2 navSpeed, dragNavOrigin, cursorToWorld;
+		Vector2 navSpeed, dragNavOrigin, cursorToWorld, resRefPnt;
 		float newZoom = 1f, zoomSpeed, msAlpha;
 		bool somePanelEnabled;
 		uint undoIndex, undoLimit;
-		int sid;
+		int sid, selCount;
 		#endregion
 
 		#region Common variables
@@ -368,7 +368,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			}
 
 			// Interpreting selection area
-			if ((Vector2)selectionBounds.size == Vector2.zero)
+			if (selCount == 0)
 				dragArea.enabled = false;
 			else {
 				dragArea.enabled = true;
@@ -540,6 +540,8 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		}
 
 		Bounds GetSelectionBounds() {
+			selCount = 0;
+
 			if (selected.Count > 0) {
 				int i = 0;
 				Bounds bounds = new();
@@ -561,6 +563,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 					bounds.Encapsulate(selected[i].bounds);
 				}
 
+				selCount = i;
 				return bounds;
 			}
 
@@ -673,10 +676,24 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			UpdateUndoRedo(UndoRedo.Type.Remove, listBuffer);
 		}
 
-		public void StartResizing(ResizeDragArea handler) {
+		public void StartResizing(EditorDragArea handler) {
 			onResize = true;
 
 			lastResArea = newResArea = new Rect(selectionBounds.min, selectionBounds.size);
+
+			resRefPnt = handler.resizePoint switch {
+				ResizePoints.TOP          => new(0f, lastResArea.yMin),
+				ResizePoints.RIGHT        => new(lastResArea.xMin, 0f),
+				ResizePoints.BOTTOM       => new(0f, lastResArea.yMax),
+				ResizePoints.LEFT         => new(lastResArea.yMax, 0f),
+
+				ResizePoints.TOP_LEFT     => new(lastResArea.xMax, lastResArea.yMin),
+				ResizePoints.TOP_RIGHT    => new(lastResArea.xMin, lastResArea.yMin),
+				ResizePoints.BOTTOM_LEFT  => new(lastResArea.xMax, lastResArea.yMax),
+				ResizePoints.BOTTOM_RIGHT => new(lastResArea.xMin, lastResArea.yMax),
+
+				_ => new()
+			};
 
 			for (int i = 0; i < selected.Count; i++) {
 				if (!selected[i]) continue;
@@ -685,19 +702,26 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				selected[i].resPos = newResArea.center - (Vector2)selected[i].transform.position;
 			}
 		}
-		public void UpdateResizing(ResizeDragArea handler) {
+		public void UpdateResizing(EditorDragArea handler) {
 			Vector4 a = newResArea.MinMaxToVec4();
+			Vector2 B = virtualCursor + new Vector2(
+				virtualCursor.x < resRefPnt.x ? 0.5f : -0.5f,
+				virtualCursor.y < resRefPnt.y ? 0.5f : -0.5f
+			);
+
+			if (Mathf.Abs(virtualCursor.x - resRefPnt.x) <= 0.5f) B.x = resRefPnt.x;
+			if (Mathf.Abs(virtualCursor.y - resRefPnt.y) <= 0.5f) B.y = resRefPnt.y;
 
 			Vector4 newData = handler.resizePoint switch {
-				ResizePoints.TOP          => new(a.x, a.y, a.z, virtualCursor.y - 0.5f),
-				ResizePoints.BOTTOM       => new(a.x, virtualCursor.y + 0.5f, a.z, a.w),
-				ResizePoints.LEFT         => new(virtualCursor.x + 0.5f, a.y, a.z, a.w),
-				ResizePoints.RIGHT        => new(a.x, a.y, virtualCursor.x - 0.5f, a.w),
+				ResizePoints.TOP          => new(a.x, a.y, a.z, B.y),
+				ResizePoints.RIGHT        => new(a.x, a.y, B.x, a.w),
+				ResizePoints.BOTTOM       => new(a.x, B.y, a.z, a.w),
+				ResizePoints.LEFT         => new(B.x, a.y, a.z, a.w),
 
-				ResizePoints.TOP_LEFT     => new(virtualCursor.x + 0.5f, a.y, a.z, virtualCursor.y - 0.5f),
-				ResizePoints.TOP_RIGHT    => new(a.x, a.y, virtualCursor.x - 0.5f, virtualCursor.y - 0.5f),
-				ResizePoints.BOTTOM_LEFT  => new(virtualCursor.x + 0.5f, virtualCursor.y + 0.5f, a.z, a.w),
-				ResizePoints.BOTTOM_RIGHT => new(a.x, virtualCursor.y + 0.5f, virtualCursor.x - 0.5f, a.w),
+				ResizePoints.TOP_LEFT     => new(B.x, a.y, a.z, B.y),
+				ResizePoints.TOP_RIGHT    => new(a.x, a.y, B.x, B.y),
+				ResizePoints.BOTTOM_LEFT  => new(B.x, B.y, a.z, a.w),
+				ResizePoints.BOTTOM_RIGHT => new(a.x, B.y, B.x, a.w),
 
 				_ => new()
 			};
