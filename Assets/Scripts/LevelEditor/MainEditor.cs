@@ -67,11 +67,13 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		public InputSystemUIInputModule inputModule;
 		public SpriteRenderer objectPreview, selectionArea;
 		public Canvas dragArea;
-		public RectTransform dragAreaRect;
+		public RectTransform dragAreaRect, resRectArea, rotRectArea;
 
 		[Header("UI components")]
 		public Image virtualCursorImg;
 		public Image undoImg, redoImg;
+		public Button[] buttons;
+		public Image[] gamepadIndications;
 
 		[Header("Properties")]
 		public Vector2 zoomLimits;
@@ -79,8 +81,6 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		[Range(0f, 1f)] public float zoomSpeedGamepad, zoomSpeedKeyboard;
 		public ContactFilter2D contactFilter;
 		public Sprite[] panelSwitchSprite = new Sprite[2];
-		public Button[] buttons;
-		public Image[] gamepadIndications;
 		public Toggle[] optionsToggles;
 
 		[Space(25)]
@@ -112,10 +112,10 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		#endregion
 
 		#region Temporal garbage
-		Rect guiRect = new(15, 15, 250, 150), msDrag, lastResArea, newResArea;
+		Rect guiRect = new(15, 15, 250, 150), msDrag, lastResArea, newResArea, rotArea;
 		Material g_Material;
 		Vector2 navSpeed, dragNavOrigin, cursorToWorld, resRefPnt;
-		float newZoom = 1f, zoomSpeed, msAlpha;
+		float newZoom = 1f, zoomSpeed, msAlpha, rotHandle;
 		bool somePanelEnabled;
 		uint undoIndex, undoLimit;
 		int sid, selCount;
@@ -128,7 +128,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		Bounds selectionBounds;
 
 		bool onSubmit, onDelete;
-		bool onDragNavigation, onMultiselection, onDrag, hoverAnObject, onResize;
+		bool onDragNavigation, onMultiselection, onDrag, hoverAnObject, onResize, onRotate;
 		bool hoverUI, curInWindow, allowScroll;
 
 		AnalysisData analysis = new();
@@ -154,7 +154,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			get => !hoverUI && curInWindow;
 		}
 		bool userIsDragging {
-			get => onResize || onDrag || onMultiselection || onDragNavigation;
+			get => onRotate || onResize || onDrag || onMultiselection || onDragNavigation;
 		}
 
 
@@ -678,6 +678,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 		public void StartResizing(EditorDragArea handler) {
 			onResize = true;
+			rotRectArea.gameObject.SetActive(false);
 
 			lastResArea = newResArea = new Rect(selectionBounds.min, selectionBounds.size);
 
@@ -705,12 +706,12 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		public void UpdateResizing(EditorDragArea handler) {
 			Vector4 a = newResArea.MinMaxToVec4();
 			Vector2 B = virtualCursor + new Vector2(
-				virtualCursor.x < resRefPnt.x ? 0.5f : -0.5f,
-				virtualCursor.y < resRefPnt.y ? 0.5f : -0.5f
+				Mathf.Abs(virtualCursor.x - resRefPnt.x) <= 0.5f ? resRefPnt.x : (virtualCursor.x < resRefPnt.x ? 0.5f : -0.5f),
+				Mathf.Abs(virtualCursor.y - resRefPnt.y) <= 0.5f ? resRefPnt.y : (virtualCursor.y < resRefPnt.y ? 0.5f : -0.5f)
 			);
 
-			if (Mathf.Abs(virtualCursor.x - resRefPnt.x) <= 0.5f) B.x = resRefPnt.x;
-			if (Mathf.Abs(virtualCursor.y - resRefPnt.y) <= 0.5f) B.y = resRefPnt.y;
+			// if (Mathf.Abs(virtualCursor.x - resRefPnt.x) <= 0.5f) B.x = resRefPnt.x;
+			// if (Mathf.Abs(virtualCursor.y - resRefPnt.y) <= 0.5f) B.y = resRefPnt.y;
 
 			Vector4 newData = handler.resizePoint switch {
 				ResizePoints.TOP          => new(a.x, a.y, a.z, B.y),
@@ -741,7 +742,46 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		}
 		public void EndResizing() {
 			onResize = false;
-			lastResArea = newResArea;
+			rotRectArea.gameObject.SetActive(true);
+			UpdateColliders();
+		}
+
+		public void StartRotating() {
+			onRotate = true;
+			resRectArea.gameObject.SetActive(false);
+
+			rotArea = new Rect(selectionBounds.min, selectionBounds.size);
+
+			rotHandle = RSMath.Direction(rotArea.center, cursorToWorld) * Mathf.Rad2Deg;
+
+			for (int i = 0; i < selected.Count; i++) {
+				if (!selected[i]) continue;
+
+				selected[i].rot = selected[i].transform.localEulerAngles.z;
+			}
+
+		}
+		public void UpdateRotating() {
+			float newRot = rotHandle - RSMath.Direction(rotArea.center, cursorToWorld) * Mathf.Rad2Deg;
+
+			if (Globals.Editor.snap)
+				newRot = Snapping.Snap(newRot, 15f);
+
+			for (int i = 0; i < selected.Count; i++) {
+				if (!selected[i]) continue;
+
+				selected[i].SetRotation(selected[i].rot - newRot);
+			}
+
+			rotRectArea.transform.eulerAngles = new Vector3(0f, 0f, -newRot);
+		}
+		public void EndRotating() {
+			resRectArea.gameObject.SetActive(true);
+			rotRectArea.transform.eulerAngles = Vector3.zero;
+
+			selectionBounds = GetSelectionBounds();
+
+			onRotate = false;
 			UpdateColliders();
 		}
 

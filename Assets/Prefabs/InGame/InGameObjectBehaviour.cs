@@ -8,6 +8,7 @@ namespace RobotoSkunk.PixelMan {
 		public MonoBehaviour[] scripts;
 		public SpriteRenderer[] renderers;
 		[System.NonSerialized] public Vector2 dist2Dragged, dragOrigin, resPos, resSca, resRelSca;
+		[System.NonSerialized] public float rot;
 
 		readonly Vector2 limit = Constants.worldLimit * Vector2.one;
 
