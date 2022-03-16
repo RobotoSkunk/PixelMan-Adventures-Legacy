@@ -116,7 +116,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		Material g_Material;
 		Vector2 navSpeed, dragNavOrigin, cursorToWorld, resRefPnt;
 		float newZoom = 1f, zoomSpeed, msAlpha, rotHandle;
-		bool somePanelEnabled;
+		bool somePanelEnabled, wasMultiselecting;
 		uint undoIndex, undoLimit;
 		int sid, selCount;
 		#endregion
@@ -354,6 +354,11 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			if (!onMultiselection) {
 				if (multiSelected.Count > 0) multiSelected.Clear();
 				if (lastMS.Length > 0) lastMS = new InGameObjectBehaviour[0];
+
+				if (wasMultiselecting) {
+					wasMultiselecting = false;
+					analysis = AnalizeObjects(AnalysisData.Area.SELECTED);
+				}
 			}
 
 			// Dragging all
@@ -369,7 +374,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			}
 
 			// Interpreting selection area
-			if (selCount == 0)
+			if (analysis.selectedNumber == 0)
 				dragArea.enabled = false;
 			else {
 				dragArea.enabled = true;
@@ -421,7 +426,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 							draggedObject.dragOrigin = (Vector2)draggedObject.transform.position - dragOrigin;
 
 							for (int i = 0; i < selected.Count; i++) {
-								selected[i].lastProperties = selected[i].properties;
+								selected[i].SetLastProperties();
 								selected[i].dist2Dragged = draggedObject.transform.position - selected[i].transform.position;
 							}
 						} else if (onDelete) {
@@ -540,15 +545,24 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			UpdateUndoRedo(UndoRedo.Type.Properties, tmp);
 		}
 
-		AnalysisData AnalizeObjects() {
+		AnalysisData AnalizeObjects(AnalysisData.Area area = AnalysisData.Area.ALL) {
 			AnalysisData analysis = new();
 
 			for (int i = 0; i < objCache.Count; i++) {
 				if (!objCache[i]) continue;
 				if (!objCache[i].gameObject.activeInHierarchy) continue;
 
-				analysis.objectsNumber++;
-				if (objCache[i].properties.id == Constants.InternalIDs.player) analysis.playersNumber++;
+
+				if ((area & AnalysisData.Area.OBJECTS) != 0)
+					analysis.objectsNumber++;
+
+
+				if ((area & AnalysisData.Area.PLAYERS) != 0)
+					if (objCache[i].properties.id == Constants.InternalIDs.player) analysis.playersNumber++;
+
+
+				if ((area & AnalysisData.Area.SELECTED) != 0)
+					if (selected.Contains(objCache[i])) analysis.selectedNumber++;
 			}
 
 			return analysis;
@@ -671,8 +685,9 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 		public void DeselectAll() {
 			if (selected.Count == 0) return;
-
 			selected.Clear();
+
+			analysis.selectedNumber = 0;
 		}
 		public void DeleteSelected() {
 			if (selected.Count == 0) return;
@@ -717,7 +732,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				if (!selected[i]) continue;
 				if (!selected[i].gameObject.activeInHierarchy) continue;
 
-				selected[i].lastProperties = selected[i].properties;
+				selected[i].SetLastProperties();
 				selected[i].dist2Dragged = newResArea.center - (Vector2)selected[i].transform.position;
 			}
 		}
@@ -782,7 +797,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				if (!selected[i]) continue;
 				if (!selected[i].gameObject.activeInHierarchy) continue;
 
-				selected[i].lastProperties = selected[i].properties;
+				selected[i].SetLastProperties();
 				selected[i].dist2Dragged = rotArea.center - (Vector2)selected[i].transform.position;
 			}
 		}
@@ -863,6 +878,8 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				selected.Add(raycastHits[0].collider.GetComponent<InGameObjectBehaviour>());
 				dragOrigin = cursorToWorld;
 				hoverAnObject = true;
+
+				analysis = AnalizeObjects(AnalysisData.Area.SELECTED);
 			}
 
 			if (!isTrue && onDrag) {
@@ -876,7 +893,10 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			if (onMultiselection || (userReady && !userIsDragging)) {
 				onMultiselection = context.ReadValue<float>() != 0f;
 
-				if (onMultiselection) msDrag.position = cursorToWorld;
+				if (onMultiselection) {
+					msDrag.position = cursorToWorld;
+					if (!wasMultiselecting) wasMultiselecting = true;
+				}
 			}
 		}
 
@@ -935,7 +955,15 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		#endregion
 
 		struct AnalysisData {
-			public int playersNumber, objectsNumber;
+			public int playersNumber, objectsNumber, selectedNumber;
+
+			public enum Area {
+				ALL = 0x7,
+
+				PLAYERS = 0x1,
+				OBJECTS = 0x2,
+				SELECTED = 0x4
+			}
 		}
 	}
 }

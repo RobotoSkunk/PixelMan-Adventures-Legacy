@@ -30,13 +30,7 @@ namespace RobotoSkunk.PixelMan {
 		}
 		public InGameObjectProperties properties {
 			set {
-				__lastProp = properties;
-
-				if (value.renderOrder != __prop.renderOrder)
-					for (int i = 0; i < renderers.Length; i++)
-						renderers[i].sortingOrder = __prop.orderInLayer - i;
-
-				__prop = value;
+				SetPropertiesWithoutTransform(value);
 
 				SetPosition(value.position);
 				SetScale(value.scale);
@@ -53,7 +47,7 @@ namespace RobotoSkunk.PixelMan {
 				return tmp;
 			}
 		}
-		public InGameObjectProperties lastProperties { get => __lastProp; set => __lastProp = value; }
+		public InGameObjectProperties lastProperties { get => __lastProp; }
 
 		[SerializeField]
 		IGOEvent onEditorCallback = new(), onNotEditorCallback = new();
@@ -95,6 +89,14 @@ namespace RobotoSkunk.PixelMan {
 
 		public void SetInternalId(uint id) => __id = id;
 		public void SetInternalOptions(InGameObject.Options options) => __opt = options;
+		public void SetLastProperties() => __lastProp = properties;
+		public void SetPropertiesWithoutTransform(InGameObjectProperties prop) {
+			if (prop.renderOrder != __prop.renderOrder)
+				for (int i = 0; i < renderers.Length; i++)
+					renderers[i].sortingOrder = __prop.orderInLayer - i;
+
+			__prop = prop;
+		}
 
 		public void SetPosition(Vector2 value) => transform.position = RSMath.Clamp(value, -limit, limit);
 		public void SetScale(Vector2 value) {
@@ -169,7 +171,7 @@ namespace RobotoSkunk.PixelMan {
 			InGameObjectBehaviour newObj = Object.Instantiate(doStatic && staticGameObject != null ? staticGameObject : gameObject);
 			newObj.SetInternalOptions(options);
 
-			newObj.properties = defaultProperties;
+			newObj.SetPropertiesWithoutTransform(defaultProperties);
 			newObj.SetPosition(position);
 			newObj.SetScale(scale);
 			newObj.SetRotation(rotation);
