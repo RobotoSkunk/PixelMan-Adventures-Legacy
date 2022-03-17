@@ -154,6 +154,7 @@ MonoBehaviour:
   scripts: []
   renderers:
   - {fileID: 4123075766293717894}
+  editorCollider: {fileID: 150969251282524284}
   onEditorCallback:
     m_PersistentCalls:
       m_Calls: []

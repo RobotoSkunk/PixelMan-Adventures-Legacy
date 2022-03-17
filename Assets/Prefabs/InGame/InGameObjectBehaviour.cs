@@ -7,6 +7,7 @@ namespace RobotoSkunk.PixelMan {
 
 		public MonoBehaviour[] scripts;
 		public SpriteRenderer[] renderers;
+		public Collider2D editorCollider;
 		[System.NonSerialized] public Vector2 dist2Dragged, dragOrigin;
 
 		readonly Vector2 limit = Constants.worldLimit * Vector2.one;
@@ -62,12 +63,15 @@ namespace RobotoSkunk.PixelMan {
 			__tag = gameObject.tag;
 			__layer = gameObject.layer;
 
+			if (editorCollider != null)
+				editorCollider.enabled = false;
+
 			for (int i = 0; i < renderers.Length; i++)
 				renderers[i].sortingOrder = __prop.orderInLayer - i;
 		}
 
-		protected override void OnStartTest() => Prepare4Editor(true);
-		protected override void OnEndTest() => Prepare4Editor(false);
+		protected override void OnStartTest() => Prepare4Editor(false);
+		protected override void OnEndTest() => Prepare4Editor(true);
 
 		void EnableScripts(bool trigger) {
 			foreach (var script in scripts)
@@ -77,6 +81,9 @@ namespace RobotoSkunk.PixelMan {
 		public void Prepare4Editor(bool trigger) {
 			gameObject.tag = trigger ? "EditorObject" : __tag;
 			gameObject.layer = trigger ? 9 : __layer;
+
+			if (editorCollider != null)
+				editorCollider.enabled = trigger;
 
 			EnableScripts(!trigger);
 

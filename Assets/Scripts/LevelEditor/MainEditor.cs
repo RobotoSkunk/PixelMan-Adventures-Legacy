@@ -332,24 +332,6 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			#endregion
 
 			#region Selection
-			// Color
-			for (int i = 0; i < selected.Count; i++)
-				if (selected[i])
-					selected[i].color = Constants.Colors.green;
-
-			if (lastSelBuffer.Length != selected.Count) {
-				selectedBuffer = lastSelBuffer.Except(selected).ToArray();
-
-				for (int i = 0; i < selectedBuffer.Length; i++)
-					if (selectedBuffer[i])
-						selectedBuffer[i].color = Color.white;
-				
-
-				lastSelBuffer = selected.ToArray();
-
-				selectionBounds = GetSelectionBounds();
-			}
-
 			// Multiselection buffer
 			if (!onMultiselection) {
 				if (multiSelected.Count > 0) multiSelected.Clear();
@@ -358,6 +340,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				if (wasMultiselecting) {
 					wasMultiselecting = false;
 					analysis = AnalizeObjects(AnalysisData.Area.SELECTED);
+					ScanSelected();
 				}
 			}
 
@@ -500,7 +483,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			redoImg.color = undoIndex == 0 ? Color.grey : Color.white;
 
 			analysis = AnalizeObjects();
-			selectionBounds = GetSelectionBounds();
+			ScanSelected();
 		}
 
 		void UpdateUndoRedo(UndoRedo.Type type, List<InGameObjectBehaviour> objs) {
@@ -545,6 +528,22 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			UpdateUndoRedo(UndoRedo.Type.Properties, tmp);
 		}
 
+		void ScanSelected() {
+			for (int i = 0; i < selected.Count; i++)
+				if (selected[i])
+					selected[i].color = Constants.Colors.green;
+
+			selectedBuffer = lastSelBuffer.Except(selected).ToArray();
+
+			for (int i = 0; i < selectedBuffer.Length; i++)
+				if (selectedBuffer[i])
+					selectedBuffer[i].color = Color.white;
+
+
+			lastSelBuffer = selected.ToArray();
+
+			selectionBounds = GetSelectionBounds();
+		}
 		AnalysisData AnalizeObjects(AnalysisData.Area area = AnalysisData.Area.ALL) {
 			AnalysisData analysis = new();
 
@@ -739,9 +738,13 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		public void UpdateResizing(EditorDragArea handler) {
 			Vector4 a = newResArea.MinMaxToVec4();
 			Vector2 B = virtualCursor + new Vector2(
-				Mathf.Abs(virtualCursor.x - resRefPnt.x) <= 0.5f ? resRefPnt.x : (virtualCursor.x < resRefPnt.x ? 0.5f : -0.5f),
-				Mathf.Abs(virtualCursor.y - resRefPnt.y) <= 0.5f ? resRefPnt.y : (virtualCursor.y < resRefPnt.y ? 0.5f : -0.5f)
+				virtualCursor.x < resRefPnt.x ? 0.5f : -0.5f,
+				virtualCursor.y < resRefPnt.y ? 0.5f : -0.5f
 			);
+
+			if (Mathf.Abs(virtualCursor.x - resRefPnt.x) <= 0.5f) B.x = resRefPnt.x;
+			if (Mathf.Abs(virtualCursor.y - resRefPnt.y) <= 0.5f) B.y = resRefPnt.y;
+
 
 			Vector4 newData = handler.resizePoint switch {
 				ResizePoints.TOP          => new(a.x, a.y, a.z, B.y),
@@ -763,8 +766,8 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			selectionBounds.extents = RSMath.Abs(selectionBounds.extents);
 
 			Vector2 fixedScale = new(
-				lastResArea.size.x <= Mathf.Epsilon ? 0f : newResArea.size.x / lastResArea.size.x,
-				lastResArea.size.y <= Mathf.Epsilon ? 0f : newResArea.size.y / lastResArea.size.y
+				lastResArea.size.x <= Mathf.Epsilon ? newResArea.size.x : newResArea.size.x / lastResArea.size.x,
+				lastResArea.size.y <= Mathf.Epsilon ? newResArea.size.y : newResArea.size.y / lastResArea.size.y
 			);
 
 			for (int i = 0; i < selected.Count; i++) {
@@ -875,11 +878,28 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			onSubmit = isTrue && userReady && context.action.phase == InputActionPhase.Performed;
 
 			if (isTrue && userReady && context.action.phase == InputActionPhase.Started && raycastHits.Count > 0) {
-				selected.Add(raycastHits[0].collider.GetComponent<InGameObjectBehaviour>());
+				InGameObjectBehaviour tmp = null;
+				bool hoverSelected = true;
+
+				for (int i = 0; i < raycastHits.Count; i++) {
+					tmp = raycastHits[i].collider.GetComponent<InGameObjectBehaviour>();
+
+					if (!selected.Contains(tmp)) {
+						hoverSelected = false;
+						break;
+					}
+				}
+
+				if (!hoverSelected && tmp != null) {
+					DeselectAll();
+					selected.Add(tmp);
+
+					analysis.selectedNumber = 1;
+					ScanSelected();
+				}
+
 				dragOrigin = cursorToWorld;
 				hoverAnObject = true;
-
-				analysis = AnalizeObjects(AnalysisData.Area.SELECTED);
 			}
 
 			if (!isTrue && onDrag) {

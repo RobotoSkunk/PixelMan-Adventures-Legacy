@@ -179,6 +179,30 @@ MonoBehaviour:
       allowRotation: 1
       allowScale: 1
       allowFreeScale: 0
+  - name: Checkpoint
+    gameObject: {fileID: 3105351536044256590, guid: b608a426ac3d05844b911297f7508d8b, type: 3}
+    staticGameObject: {fileID: 0}
+    preview: {fileID: 804760411, guid: 20389dd01a32da842bae8e10845b154f, type: 3}
+    category: 2
+    defaultProperties:
+      id: 0
+      position: {x: 0, y: 0}
+      scale: {x: 1, y: 1}
+      rotation: 0
+      renderOrder: 1
+      skinIndex: 0
+      speed: 0
+      startupTime: 0
+      reloadTime: 0
+    options:
+      allowRenderOrder: 1
+      allowSkinIndex: 0
+      allowSpeed: 0
+      allowStartupTime: 0
+      allowReloadTime: 0
+      allowRotation: 1
+      allowScale: 0
+      allowFreeScale: 0
   musicClips:
   - name: None
     type: 0
