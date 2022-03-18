@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 124134162645641990}
   - component: {fileID: 5718692535105146582}
   - component: {fileID: 332758527843395059}
+  - component: {fileID: 4960024227147967090}
   m_Layer: 8
   m_Name: Saw
   m_TagString: Untagged
@@ -147,11 +148,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 793afdc305c85ca4f92dd9157d3e5791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 0, g: 0, b: 0, a: 0}
   scripts:
   - {fileID: 332758527843395059}
   renderers:
   - {fileID: 1351965420970289578}
+  editorCollider: {fileID: 4960024227147967090}
   onEditorCallback:
     m_PersistentCalls:
       m_Calls: []
@@ -171,3 +172,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprRend: {fileID: 1351965420970289578}
+--- !u!58 &4960024227147967090
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351965421685861533}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.4

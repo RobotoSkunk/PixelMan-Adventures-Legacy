@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 658094594085256144}
   - component: {fileID: 9103921099121994224}
   - component: {fileID: 5040479961699674109}
+  - component: {fileID: 2385805338912316900}
+  - component: {fileID: 4483178638288063750}
   m_Layer: 7
   m_Name: Trampoline
   m_TagString: Trampoline
@@ -247,3 +249,52 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &2385805338912316900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9012778957856189214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 793afdc305c85ca4f92dd9157d3e5791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scripts:
+  - {fileID: 5040479961699674109}
+  renderers:
+  - {fileID: 9012778957856189208}
+  editorCollider: {fileID: 4483178638288063750}
+  onEditorCallback:
+    m_PersistentCalls:
+      m_Calls: []
+  onNotEditorCallback:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!61 &4483178638288063750
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9012778957856189214}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.5, y: 1}
+    newSize: {x: 1.5, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.5, y: 1}
+  m_EdgeRadius: 0

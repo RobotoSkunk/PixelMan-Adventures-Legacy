@@ -785,7 +785,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Obj-directional-gun
+      name: Obj-swivel-gun
       rect:
         serializedVersion: 2
         x: 53
@@ -2044,6 +2044,69 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Preview-checkpoint
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 167
+        width: 22
+        height: 54
+      alignment: 9
+      pivot: {x: 0.5, y: 0.14814815}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2a697685b23f0444a47aea2e8fd545f
+      internalID: 1745425481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview-saw-base
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 175
+        width: 44
+        height: 46
+      alignment: 9
+      pivot: {x: 0.5, y: 0.19565217}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c75585119012d642a110d7b4174c542
+      internalID: -628639985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview-gravity-switch
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 168
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a4e4505923e4824e93921d6b0c88387
+      internalID: 856374703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -2060,9 +2123,11 @@ TextureImporter:
       Obj-rocket-1: -700097054
       Obj-block-toggle-1: -1946027427
       Pointed-line-3: 1726025340
+      Preview-gravity-switch: 856374703
       Obj-saw: -3628955789918953988
       Obj-static-gun: 1578965865
       Obj-rocket-5: 564930306
+      Preview-checkpoint: 1745425481
       Obj-lasergun-5: 747409560
       Obj-number-4: 1881724988
       Obj-finish-2: 1681511104
@@ -2097,7 +2162,7 @@ TextureImporter:
       Obj-gravity-switch-particles: -2032692991992021066
       Obj-block-toggle-2: -1033014114
       Obj-trampoline-2: -1688769666
-      Obj-directional-gun: -329119186
+      Preview-saw-base: -628639985
       Obj-number-0: -806003791
       Obj-finish-3: -226197972
       Obj-lasergun-3: -1652066286
@@ -2132,14 +2197,15 @@ TextureImporter:
       Obj-number-5: -278800795
       Obj-finish-1: -1579523275
       Obj-platform-1: -1016043205
+      Obj-swivel-gun: -329119186
       Obj-number-6: -1126405975
       Obj-fragile-platform: 891212740
       Obj-bullet-1: -1646459703
       Obj-button-2: -604190890
       Obj-block-special-1: 602742946
       Obj-gravity-switch: 6397528744559725978
-      Obj-switch-5: -609942487
       Pointed-line-1: 776891072
+      Obj-switch-5: -609942487
       Obj-trampoline-1: -1180068893
       Obj-number-8: -1233329608
       Obj-intelligent-rocket-1: -1248975459

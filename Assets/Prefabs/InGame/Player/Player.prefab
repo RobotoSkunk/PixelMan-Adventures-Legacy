@@ -10139,14 +10139,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 793afdc305c85ca4f92dd9157d3e5791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 0, g: 0, b: 0, a: 0}
   scripts:
   - {fileID: 8861255068588313322}
   - {fileID: 1995670383407584719}
   - {fileID: 2810474812816257224}
   - {fileID: 665508272187798439}
   renderers:
-  - {fileID: 1386140349391247303}
+  - {fileID: 8009474489757818013}
+  editorCollider: {fileID: 0}
   onEditorCallback:
     m_PersistentCalls:
       m_Calls: []

@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 5204762810220471878}
   - component: {fileID: 8518151361439859264}
   - component: {fileID: 2974891262015718510}
+  - component: {fileID: 8091675067368179921}
+  - component: {fileID: 441153609631218257}
   m_Layer: 3
   m_Name: Ice block
   m_TagString: IceBlock
@@ -111,3 +113,51 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!61 &8091675067368179921
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993623687134309060}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 88522370ebfa29f4ea0e192c0b1fa008, type: 2}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &441153609631218257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993623687134309060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 793afdc305c85ca4f92dd9157d3e5791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scripts: []
+  renderers:
+  - {fileID: 8518151361439859264}
+  editorCollider: {fileID: 8091675067368179921}
+  onEditorCallback:
+    m_PersistentCalls:
+      m_Calls: []
+  onNotEditorCallback:
+    m_PersistentCalls:
+      m_Calls: []

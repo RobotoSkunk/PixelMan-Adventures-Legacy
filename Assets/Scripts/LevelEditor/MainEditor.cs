@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem.UI;
@@ -69,11 +70,15 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		public Canvas dragArea;
 		public RectTransform dragAreaRect, resRectArea, rotRectArea;
 
+		[Header("")]
+		public ButtonSelectObject bso;
+
 		[Header("UI components")]
 		public Image virtualCursorImg;
 		public Image undoImg, redoImg;
 		public Button[] buttons;
 		public Image[] gamepadIndications;
+		public RectTransform BSOGameplay, BSOBlocks, BSOObstacles, BSODecoration;
 
 		[Header("Properties")]
 		public Vector2 zoomLimits;
@@ -167,6 +172,39 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 			foreach (PanelStruct panel in panels) {
 				panel.internals.wasOpen = true;
+			}
+
+			float c = 22f;
+
+			for (int i = 0; i < Globals.objects.Count; i++) {
+				if (Globals.objects[i].category == InGameObject.Category.IGNORE) continue;
+
+				RectTransform parent = Globals.objects[i].category switch {
+					InGameObject.Category.GAMEPLAY => BSOGameplay,
+					InGameObject.Category.BLOCKS => BSOBlocks,
+					InGameObject.Category.OBSTACLES => BSOObstacles,
+					InGameObject.Category.DECORATION => BSODecoration,
+					_ => null
+				};
+
+				ButtonSelectObject tmp = Instantiate(bso, parent);
+
+				Sprite spr = Globals.objects[i].preview;
+				tmp.preview.sprite = spr;
+				tmp.preview.SetNativeSize();
+
+				float max = Mathf.Max(spr.rect.size.x, spr.rect.size.y);
+				if (max > c) {
+					Vector3 newSize = (c / max) * tmp.preview.rectTransform.localScale;
+					newSize.z = 1;
+
+					tmp.preview.rectTransform.localScale = newSize;
+				}
+
+				int x = i;
+				tmp.button.onClick.AddListener(() => SetObjectId(x));
+				tmp.onSelect.AddListener(() => OpenPanel(1));
+				panels[1].content.Add(tmp.button);
 			}
 
 			undoLimit = Globals.settings.editor.undoLimit;
@@ -537,7 +575,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 			for (int i = 0; i < selectedBuffer.Length; i++)
 				if (selectedBuffer[i])
-					selectedBuffer[i].color = Color.white;
+					selectedBuffer[i].ResetColor();
 
 
 			lastSelBuffer = selected.ToArray();
@@ -686,6 +724,8 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			if (selected.Count == 0) return;
 			selected.Clear();
 
+			ScanSelected();
+
 			analysis.selectedNumber = 0;
 		}
 		public void DeleteSelected() {
@@ -702,6 +742,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			}
 
 			selected.Clear();
+			ScanSelected();
 
 			analysis = AnalizeObjects();
 			UpdateUndoRedo(UndoRedo.Type.Remove, listBuffer);

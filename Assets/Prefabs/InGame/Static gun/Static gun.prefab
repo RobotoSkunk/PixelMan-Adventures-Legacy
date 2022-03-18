@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9093957345132585867}
   - component: {fileID: 8243989049210252129}
   - component: {fileID: -8316735461421561303}
+  - component: {fileID: 3886515938912334041}
   m_Layer: 0
   m_Name: Static gun
   m_TagString: Untagged
@@ -195,18 +196,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 793afdc305c85ca4f92dd9157d3e5791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  properties:
-    id: 0
-    position: {x: 0, y: 0}
-    scale: {x: 0, y: 0}
-    rotation: 0
-    renderOrder: 0
-    skinIndex: 0
-    speed: 0
-    startupTime: 0
-    reloadTime: 0
   scripts:
   - {fileID: -8316735461421561303}
+  renderers:
+  - {fileID: 6248492080504041467}
+  editorCollider: {fileID: 3886515938912334041}
+  onEditorCallback:
+    m_PersistentCalls:
+      m_Calls: []
+  onNotEditorCallback:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &-8316735461421561303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,3 +224,29 @@ MonoBehaviour:
   bullet: {fileID: 6708733427911933524, guid: 4fcf70256e6c82a4c9de23a6a678344e, type: 3}
   wakeTime: 0.5
   reloadTime: 1
+--- !u!61 &3886515938912334041
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6248492080504041412}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.125, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.6428572, y: 0.5}
+    oldSize: {x: 0.875, y: 1.125}
+    newSize: {x: 0.875, y: 1.125}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.875, y: 1.125}
+  m_EdgeRadius: 0

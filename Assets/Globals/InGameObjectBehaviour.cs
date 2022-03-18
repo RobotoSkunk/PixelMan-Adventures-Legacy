@@ -56,6 +56,7 @@ namespace RobotoSkunk.PixelMan {
 		string __tag;
 		int __layer;
 		uint __id;
+		Color[] __defCol;
 		InGameObjectProperties __prop, __lastProp;
 		InGameObject.Options __opt;
 
@@ -66,8 +67,10 @@ namespace RobotoSkunk.PixelMan {
 			if (editorCollider != null)
 				editorCollider.enabled = false;
 
+			__defCol = new Color[renderers.Length];
+
 			for (int i = 0; i < renderers.Length; i++)
-				renderers[i].sortingOrder = __prop.orderInLayer - i;
+				__defCol[i] = renderers[i].color;
 		}
 
 		protected override void OnStartTest() => Prepare4Editor(false);
@@ -94,6 +97,10 @@ namespace RobotoSkunk.PixelMan {
 		public string GetDefaultTag() => __tag;
 		public int GetDefaultLayer() => __layer;
 
+		public void ResetColor() {
+			for (int i = 0; i < renderers.Length; i++)
+				renderers[i].color = __defCol[i];
+		}
 		public void SetInternalId(uint id) => __id = id;
 		public void SetInternalOptions(InGameObject.Options options) => __opt = options;
 		public void SetLastProperties() => __lastProp = properties;
@@ -113,7 +120,7 @@ namespace RobotoSkunk.PixelMan {
 			if (value.y < 0f) value.y = 0f;
 
 			if (!__opt.allowFreeScale)
-				value = Mathf.Min(value.x + value.y) / 2f * Vector2.one;
+				value = (value.x + value.y) / 2f * Vector2.one;
 
 			transform.localScale = (Vector3)value + Vector3.forward;
 		}
@@ -138,7 +145,7 @@ namespace RobotoSkunk.PixelMan {
 
 		public int orderInLayer {
 			get {
-				int order = Mathf.Clamp(renderOrder, -3000, 3000);
+				int order = Mathf.Clamp(renderOrder, -Constants.orderLimit, Constants.orderLimit);
 
 				return order * 10;
 			}
@@ -168,6 +175,7 @@ namespace RobotoSkunk.PixelMan {
 		}
 
 		public enum Category {
+			IGNORE,
 			BLOCKS,
 			DECORATION,
 			GAMEPLAY, 

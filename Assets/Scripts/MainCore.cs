@@ -29,6 +29,7 @@ namespace RobotoSkunk.PixelMan {
 			trampolineForce = 25f,
 			maxVelocity = 40f,
 			pixelToUnit = 1f / 16f;
+		public const int orderLimit = 3200;
 
 		public static float worldHypotenuse {
 			get {

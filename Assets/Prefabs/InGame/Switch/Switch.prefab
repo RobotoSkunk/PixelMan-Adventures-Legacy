@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 6189805890477940058}
   - component: {fileID: 6428525308716720719}
   - component: {fileID: 8943520294639131438}
+  - component: {fileID: 1392903579520204717}
+  - component: {fileID: 8068619851858863662}
   m_Layer: 7
   m_Name: Switch
   m_TagString: Switch
@@ -245,3 +247,52 @@ MonoBehaviour:
   anim: {fileID: 6189805890477940058}
   audioSource: {fileID: 6428525308716720719}
   switched: 0
+--- !u!114 &1392903579520204717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424587051114657476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 793afdc305c85ca4f92dd9157d3e5791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scripts:
+  - {fileID: 8943520294639131438}
+  renderers:
+  - {fileID: 2559966455716498447}
+  editorCollider: {fileID: 8068619851858863662}
+  onEditorCallback:
+    m_PersistentCalls:
+      m_Calls: []
+  onNotEditorCallback:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!61 &8068619851858863662
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424587051114657476}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.03125}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.52380955}
+    oldSize: {x: 0.875, y: 1.3125}
+    newSize: {x: 0.875, y: 1.3125}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.875, y: 1.3125}
+  m_EdgeRadius: 0

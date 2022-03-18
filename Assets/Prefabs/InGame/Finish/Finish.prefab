@@ -11,8 +11,10 @@ GameObject:
   - component: {fileID: 3485482001440164796}
   - component: {fileID: 3485482001440164797}
   - component: {fileID: 3485482001440164770}
+  - component: {fileID: 4611242839930027295}
   - component: {fileID: 619867462924625922}
   - component: {fileID: 4126146466498111883}
+  - component: {fileID: -2537131271402590532}
   - component: {fileID: 5118827687010753006}
   m_Layer: 7
   m_Name: Finish
@@ -113,6 +115,32 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 1.0651559, y: 1.1211095}
+  m_EdgeRadius: 0
+--- !u!61 &4611242839930027295
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3485482001440164771}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.03125, y: 0.53125}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.47826087, y: 0.25714287}
+    oldSize: {x: 1.4375, y: 2.1875}
+    newSize: {x: 1.4375, y: 2.1875}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.4375, y: 2.1875}
   m_EdgeRadius: 0
 --- !u!95 &619867462924625922
 Animator:
@@ -230,6 +258,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-2537131271402590532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3485482001440164771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 793afdc305c85ca4f92dd9157d3e5791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scripts:
+  - {fileID: 5118827687010753006}
+  renderers:
+  - {fileID: 3485482001440164797}
+  editorCollider: {fileID: 4611242839930027295}
+  onEditorCallback:
+    m_PersistentCalls:
+      m_Calls: []
+  onNotEditorCallback:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &5118827687010753006
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 using UnityEditor;
 using UnityEditor.UI;
@@ -9,7 +11,7 @@ using TMPro.EditorUtilities;
 
 namespace RobotoSkunk.PixelMan.UI {
 	[AddComponentMenu("UI/RobotoSkunk - Input Field")]
-	public class RSInputField : TMP_InputField {
+	public class RSInputField : TMP_InputField, ICancelHandler {
 		public IntelliNav selectOnUp, selectOnDown, selectOnLeft, selectOnRight;
 
 		public override Selectable FindSelectableOnUp() {
@@ -42,6 +44,22 @@ namespace RobotoSkunk.PixelMan.UI {
 			if (!selectOnRight.useAutomatic) return selectOnRight.selectable;
 
 			return FindSelectable(Quaternion.Euler(transform.eulerAngles + selectOnRight.addRotation) * Vector3.right);
+		}
+
+		public override void OnSelect(BaseEventData eventData) {
+			base.OnSelect(eventData);
+
+			DeactivateInputField();
+		}
+
+		public override void OnSubmit(BaseEventData eventData) {
+			base.OnSubmit(eventData);
+
+			DeactivateInputField();
+		}
+
+		public void OnCancel(BaseEventData ev) {
+			DeactivateInputField(true);
 		}
 	}
 

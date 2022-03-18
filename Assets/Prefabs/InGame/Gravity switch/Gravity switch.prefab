@@ -263,6 +263,8 @@ GameObject:
   - component: {fileID: 7967883188615776672}
   - component: {fileID: 5051202574385544841}
   - component: {fileID: 5687911824954863207}
+  - component: {fileID: 6067414985142913003}
+  - component: {fileID: 8641227703468952032}
   - component: {fileID: 5268647632029849737}
   m_Layer: 7
   m_Name: Gravity switch
@@ -401,6 +403,47 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!58 &6067414985142913003
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8668410908662382391}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.9
+--- !u!114 &8641227703468952032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8668410908662382391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 793afdc305c85ca4f92dd9157d3e5791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scripts:
+  - {fileID: 5268647632029849737}
+  renderers:
+  - {fileID: 7812796714201804713}
+  - {fileID: 2495238230121098376}
+  - {fileID: 3739546504761386038}
+  editorCollider: {fileID: 6067414985142913003}
+  onEditorCallback:
+    m_PersistentCalls:
+      m_Calls: []
+  onNotEditorCallback:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &5268647632029849737
 MonoBehaviour:
   m_ObjectHideFlags: 0

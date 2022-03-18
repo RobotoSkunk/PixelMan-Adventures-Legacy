@@ -485,7 +485,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Button-container
+      name: Button-container-0
       rect:
         serializedVersion: 2
         x: 999
@@ -1051,6 +1051,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Button-container-1
+      rect:
+        serializedVersion: 2
+        x: 989
+        y: 11
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 4, y: 4, z: 4, w: 4}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6d4cffd784fbfa438ab16a659c7d979
+      internalID: -527067623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -1071,6 +1092,7 @@ TextureImporter:
       Button-switch-off: 85650759
       palette-sv-white: -1605685468875770678
       Editor-button-stop: 1953064187
+      GUI-1_1: 1480581391
       base-rect-border-2: -634390419545406517
       base-rect-border-4: -280262383310750262
       rulette-hue: 325564063192308738
@@ -1087,9 +1109,9 @@ TextureImporter:
       Gamepad-LT: -72771803
       game-title: -7010831734835879382
       Button-plus: -2027476996
-      Button-container: -1312120766
       slider-border-2: 5224690882252275055
       Editor-button-undo: 531908384
+      Button-container-1: -527067623
       Alex Skunk: -6377995968244068863
       Editor-button-hidePanel: 1731858915
       color-picker: 7786610187498457116
@@ -1109,6 +1131,7 @@ TextureImporter:
       Editor-button-zoomRemove: -780712959
       Cur-default: -756887439
       base-rect-corner: 8267307703009234630
+      Button-container-0: -1312120766
       base-rect-border-1: 9010152221549391988
       Editor-button-zoomAdd: -1436274194
       palette-sv: 3191599451653250520
