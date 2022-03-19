@@ -114,18 +114,18 @@ namespace RobotoSkunk.PixelMan {
 
 		public void SetPosition(Vector2 value) => transform.position = RSMath.Clamp(value, -limit, limit);
 		public void SetScale(Vector2 value) {
-			if (!__opt.allowScale) return;
+			if ((__opt.allowed & InGameObject.Options.Allowed.Scale) == 0) return;
 
 			if (value.x < 0f) value.x = 0f;
 			if (value.y < 0f) value.y = 0f;
 
-			if (!__opt.allowFreeScale)
+			if (((int)__opt.allowed & (1 << 7)) == 0)
 				value = (value.x + value.y) / 2f * Vector2.one;
 
 			transform.localScale = (Vector3)value + Vector3.forward;
 		}
 		public void SetRotation(float value) {
-			if (!__opt.allowRotation) return;
+			if ((__opt.allowed & InGameObject.Options.Allowed.Rotation) == 0) return;
 
 			transform.localEulerAngles = new Vector3(0f, 0f, value);
 		}
@@ -163,15 +163,23 @@ namespace RobotoSkunk.PixelMan {
 
 		[System.Serializable]
 		public struct Options {
-			public bool
-				allowRenderOrder,
-				allowSkinIndex,
-				allowSpeed,
-				allowStartupTime,
-				allowReloadTime,
-				allowRotation,
-				allowScale,
-				allowFreeScale;
+			public Allowed allowed;
+
+			[System.Flags]
+			public enum Allowed {
+				None = 0,
+
+				RenderOrder = 1 << 0,
+				SkinIndex = 1 << 1,
+				Speed = 1 << 2,
+				StartupTime = 1 << 3,
+				ReloadTime = 1 << 4,
+				Rotation = 1 << 5,
+				Scale = 1 << 6,
+				FreeScale = Scale | 1 << 7,
+
+				All = ~0,
+			}
 		}
 
 		public enum Category {

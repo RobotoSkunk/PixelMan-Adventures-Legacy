@@ -1678,6 +1678,34 @@ PrefabInstance:
       propertyPath: m_CharacterValidation
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7497506594450753881, guid: 19fcf940531e2ea4cb009e181b1f3b5b, type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7497506594450753881, guid: 19fcf940531e2ea4cb009e181b1f3b5b, type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7497506594450753881, guid: 19fcf940531e2ea4cb009e181b1f3b5b, type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1850394236}
+    - target: {fileID: 7497506594450753881, guid: 19fcf940531e2ea4cb009e181b1f3b5b, type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7497506594450753881, guid: 19fcf940531e2ea4cb009e181b1f3b5b, type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Example3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7497506594450753881, guid: 19fcf940531e2ea4cb009e181b1f3b5b, type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RobotoSkunk.PixelMan.LevelEditor.ObjectInspector, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7497506594450753881, guid: 19fcf940531e2ea4cb009e181b1f3b5b, type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: RobotoSkunk.PixelMan.LevelEditor.EnumPropertiesChanges, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19fcf940531e2ea4cb009e181b1f3b5b, type: 3}
 --- !u!224 &286591097 stripped
@@ -12300,6 +12328,51 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebbd6f80d0ff6074b8cecf2d8cebe5cc, type: 3}
+--- !u!1 &1850394235
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1850394237}
+  - component: {fileID: 1850394236}
+  m_Layer: 0
+  m_Name: "\xD1am \xF1am"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1850394236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1850394235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfaceadef776de5489d043fee4b51e6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  properties: 0
+--- !u!4 &1850394237
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1850394235}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1884868429
 GameObject:
   m_ObjectHideFlags: 0
