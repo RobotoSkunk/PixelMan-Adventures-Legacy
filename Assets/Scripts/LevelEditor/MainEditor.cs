@@ -97,6 +97,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 		[Header("Game inspector")]
 		public ScrollRect inspector;
+		public ObjectInspector inspectorProcessor;
 		public RectTransform[] inspectorSections;
 
 
@@ -581,6 +582,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			lastSelBuffer = selected.ToArray();
 
 			selectionBounds = GetSelectionBounds();
+			inspectorProcessor.PrepareInspector(lastSelBuffer);
 		}
 		AnalysisData AnalizeObjects(AnalysisData.Area area = AnalysisData.Area.ALL) {
 			AnalysisData analysis = new();

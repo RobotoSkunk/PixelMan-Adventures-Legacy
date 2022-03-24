@@ -1,3 +1,4 @@
+using RobotoSkunk.PixelMan.LevelEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -49,6 +50,7 @@ namespace RobotoSkunk.PixelMan {
 			}
 		}
 		public InGameObjectProperties lastProperties { get => __lastProp; }
+		public InGameObject.Options options { get => __opt; }
 
 		[SerializeField]
 		IGOEvent onEditorCallback = new(), onNotEditorCallback = new();
@@ -114,18 +116,18 @@ namespace RobotoSkunk.PixelMan {
 
 		public void SetPosition(Vector2 value) => transform.position = RSMath.Clamp(value, -limit, limit);
 		public void SetScale(Vector2 value) {
-			if ((__opt.allowed & InGameObject.Options.Allowed.Scale) == 0) return;
+			if ((__opt.allowed & (PropertiesEnum.Scale | PropertiesEnum.FreeScale)) == 0) return;
 
 			if (value.x < 0f) value.x = 0f;
 			if (value.y < 0f) value.y = 0f;
 
-			if (((int)__opt.allowed & (1 << 7)) == 0)
+			if ((__opt.allowed & PropertiesEnum.FreeScale) == 0)
 				value = (value.x + value.y) / 2f * Vector2.one;
 
 			transform.localScale = (Vector3)value + Vector3.forward;
 		}
 		public void SetRotation(float value) {
-			if ((__opt.allowed & InGameObject.Options.Allowed.Rotation) == 0) return;
+			if ((__opt.allowed & PropertiesEnum.Rotation) == 0) return;
 
 			transform.localEulerAngles = new Vector3(0f, 0f, value);
 		}
@@ -163,23 +165,7 @@ namespace RobotoSkunk.PixelMan {
 
 		[System.Serializable]
 		public struct Options {
-			public Allowed allowed;
-
-			[System.Flags]
-			public enum Allowed {
-				None = 0,
-
-				RenderOrder = 1 << 0,
-				SkinIndex = 1 << 1,
-				Speed = 1 << 2,
-				StartupTime = 1 << 3,
-				ReloadTime = 1 << 4,
-				Rotation = 1 << 5,
-				Scale = 1 << 6,
-				FreeScale = Scale | 1 << 7,
-
-				All = ~0,
-			}
+			public PropertiesEnum allowed;
 		}
 
 		public enum Category {

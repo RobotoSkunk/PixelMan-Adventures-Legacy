@@ -9,6 +9,8 @@ namespace RobotoSkunk.PixelMan.UI {
 	public class RSSlider : Slider {
 		public IntelliNav selectOnUp, selectOnDown, selectOnLeft, selectOnRight;
 
+		public SliderEvent onEndValueChange = new();
+
 		public override Selectable FindSelectableOnUp() {
 			if ((navigation.mode & Navigation.Mode.Vertical) == 0) return null;
 
