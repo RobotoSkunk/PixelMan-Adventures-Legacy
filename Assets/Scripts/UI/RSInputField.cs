@@ -11,8 +11,16 @@ using TMPro.EditorUtilities;
 
 namespace RobotoSkunk.PixelMan.UI {
 	[AddComponentMenu("UI/RobotoSkunk - Input Field")]
-	public class RSInputField : TMP_InputField, ICancelHandler {
+	public class RSInputField : TMP_InputField {
 		public IntelliNav selectOnUp, selectOnDown, selectOnLeft, selectOnRight;
+
+		protected override void Awake() {
+			base.Awake();
+
+			onSelect.AddListener((value) => Globals.onEditField = true);
+			onEndEdit.AddListener((value) => Globals.onEditField = false);
+			onDeselect.AddListener((value) => Globals.onEditField = false);
+		}
 
 		public override Selectable FindSelectableOnUp() {
 			if ((navigation.mode & Navigation.Mode.Vertical) == 0) return null;
@@ -44,22 +52,6 @@ namespace RobotoSkunk.PixelMan.UI {
 			if (!selectOnRight.useAutomatic) return selectOnRight.selectable;
 
 			return FindSelectable(Quaternion.Euler(transform.eulerAngles + selectOnRight.addRotation) * Vector3.right);
-		}
-
-		public override void OnSelect(BaseEventData eventData) {
-			base.OnSelect(eventData);
-
-			DeactivateInputField();
-		}
-
-		public override void OnSubmit(BaseEventData eventData) {
-			base.OnSubmit(eventData);
-
-			DeactivateInputField();
-		}
-
-		public void OnCancel(BaseEventData ev) {
-			DeactivateInputField(true);
 		}
 	}
 

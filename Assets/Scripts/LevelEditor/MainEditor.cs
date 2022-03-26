@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem.UI;
 
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 
 namespace RobotoSkunk.PixelMan.LevelEditor {
@@ -124,7 +125,8 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		float newZoom = 1f, zoomSpeed, msAlpha, rotHandle;
 		bool somePanelEnabled, wasMultiselecting;
 		uint undoIndex, undoLimit;
-		int sid, selCount;
+		int sid;
+		Coroutine inspectorCoroutine;
 		#endregion
 
 		#region Common variables
@@ -136,6 +138,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		bool onSubmit, onDelete;
 		bool onDragNavigation, onMultiselection, onDrag, hoverAnObject, onResize, onRotate;
 		bool hoverUI, curInWindow, allowScroll;
+		bool historialAvailable = true;
 
 		AnalysisData analysis = new();
 		#endregion
@@ -608,8 +611,6 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		}
 
 		Bounds GetSelectionBounds() {
-			selCount = 0;
-
 			if (selected.Count > 0) {
 				int i = 0;
 				Bounds bounds = new();
@@ -631,7 +632,6 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 					bounds.Encapsulate(selected[i].bounds);
 				}
 
-				selCount = i;
 				return bounds;
 			}
 
@@ -689,10 +689,77 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				if (a == i) inspector.content = inspectorSections[a];
 			}
 		}
+		public void HandleInspectorChanges(ObjectInspector.Section section, ObjectInspector.Section.PropertyField field) {
+			bool storeLast = inspectorCoroutine == null;
+
+			if (inspectorCoroutine != null) StopCoroutine(inspectorCoroutine);
+			inspectorCoroutine = StartCoroutine(Inspector2Historial());
+
+			historialAvailable = false;
+
+			for (int i = 0; i < selected.Count; i++) {
+				if (!selected[i]) continue;
+				if (!selected[i].gameObject.activeInHierarchy) continue;
+
+				if (storeLast)
+					selected[i].SetLastProperties();
+
+				InGameObjectProperties prop = selected[i].properties;
+
+				switch (section.dataType) {
+					case ObjectInspector.Section.DataType.Vector2D:
+						bool isX = field.axis == ObjectInspector.Section.PropertyField.Axis.x;
+
+						switch (section.purpose) {
+							case PropertiesEnum.Position:
+								if (isX) prop.position.x = field.GetFloat();
+								else prop.position.y = field.GetFloat();
+
+								break;
+							case PropertiesEnum.FreeScale:
+								if (isX) prop.scale.x = field.GetFloat();
+								else prop.scale.y = field.GetFloat();
+
+								break;
+						}
+
+						break;
+					case ObjectInspector.Section.DataType.Float:
+
+						switch (section.purpose) {
+							case PropertiesEnum.Scale:
+								prop.scale = field.GetFloat() * Vector2.one;
+								break;
+							case PropertiesEnum.Rotation:
+								prop.rotation = field.GetFloat();
+								break;
+							case PropertiesEnum.StartupTime:
+								prop.startupTime = field.GetFloat();
+								break;
+							case PropertiesEnum.ReloadTime:
+								prop.reloadTime = field.GetFloat();
+								break;
+							case PropertiesEnum.Speed:
+								prop.speed = field.GetFloat();
+								break;
+						}
+
+						break;
+
+					case ObjectInspector.Section.DataType.Integer:
+						prop.renderOrder = field.GetInt();
+						break;
+				}
+
+				selected[i].properties = prop;
+			}
+
+			ScanSelected();
+		}
 
 
 		public void Undo() {
-			if (undoRedo.Count == undoIndex) return;
+			if (undoRedo.Count == undoIndex || !historialAvailable) return;
 			UndoRedo undoBuffer = undoRedo[undoDiff - 1];
 
 			foreach (UndoRedo.GOHandler obj in undoBuffer.objCache) {
@@ -707,7 +774,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			UpdateButtons();
 		}
 		public void Redo() {
-			if (undoIndex == 0) return;
+			if (undoIndex == 0 || !historialAvailable) return;
 			UndoRedo undoBuffer = undoRedo[undoDiff];
 
 			foreach (UndoRedo.GOHandler obj in undoBuffer.objCache) {
@@ -889,7 +956,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			}
 		}
 
-		public void OnNavigation(InputAction.CallbackContext context) => navSpeed = context.ReadValue<Vector2>();
+		public void OnNavigation(InputAction.CallbackContext context) => navSpeed = Globals.onEditField ? Vector2.zero : context.ReadValue<Vector2>();
 
 		public void OnDragNavigation(InputAction.CallbackContext context) {
 			if (onDragNavigation || (!hoverUI && !onDragNavigation)) {
@@ -965,22 +1032,22 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 
 		public void UndoAction(InputAction.CallbackContext context) {
-			if (context.action.phase != InputActionPhase.Started) return;
+			if (Globals.onEditField || context.action.phase != InputActionPhase.Started) return;
 
 			Undo();
 		}
 		public void RedoAction(InputAction.CallbackContext context) {
-			if (context.action.phase != InputActionPhase.Started) return;
+			if (Globals.onEditField || context.action.phase != InputActionPhase.Started) return;
 
 			Redo();
 		}
 		public void DeselectAllAction(InputAction.CallbackContext context) {
-			if (context.action.phase != InputActionPhase.Started) return;
+			if (Globals.onEditField || context.action.phase != InputActionPhase.Started) return;
 
 			DeselectAll();
 		}
 		public void DeleteSelectedAction(InputAction.CallbackContext context) {
-			if (context.action.phase != InputActionPhase.Started) return;
+			if (Globals.onEditField || context.action.phase != InputActionPhase.Started) return;
 
 			DeleteSelected();
 		}
@@ -1014,6 +1081,17 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 					image.enabled = inputType == InputType.Gamepad;
 				}
 			}
+		}
+		#endregion
+
+		#region Coroutines
+		IEnumerator Inspector2Historial() {
+			yield return new WaitForSeconds(0.5f);
+
+			StoreSelectedInHistorial();
+
+			inspectorCoroutine = null;
+			historialAvailable = true;
 		}
 		#endregion
 

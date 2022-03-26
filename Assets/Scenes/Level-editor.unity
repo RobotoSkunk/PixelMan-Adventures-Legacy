@@ -7351,11 +7351,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1056968073}
   m_CullTransparentMesh: 1
---- !u!1 &1073973755 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4092847091048635227, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
-  m_PrefabInstance: {fileID: 1695501860}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1112878448
 GameObject:
   m_ObjectHideFlags: 0
@@ -7902,43 +7897,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
       propertyPath: m_MaxValue
-      value: 15
+      value: 360
       objectReference: {fileID: 0}
     - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
       propertyPath: m_WholeNumbers
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1199897377}
-    - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: DoBridge
-      objectReference: {fileID: 0}
-    - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: RobotoSkunk.PixelMan.UI.SliderToField, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4092847090791638111, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
       propertyPath: m_AnchorMax.y
@@ -8039,36 +8002,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4092847091048635220, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
   m_PrefabInstance: {fileID: 1199897373}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1199897375 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4092847091048635227, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
-  m_PrefabInstance: {fileID: 1199897373}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1199897376 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
   m_PrefabInstance: {fileID: 1199897373}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1199897375}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d036c3f3e41b8f4e86ea8d9ab435fed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1199897377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1199897375}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f2b37db30ffa5e48a017ef0ce634f81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  from: {fileID: 1199897376}
-  to: {fileID: 1916022210}
 --- !u!1 &1227265902
 GameObject:
   m_ObjectHideFlags: 0
@@ -8432,43 +8376,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
       propertyPath: m_MaxValue
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
-      propertyPath: m_WholeNumbers
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1447770718}
-    - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: DoBridge
-      objectReference: {fileID: 0}
-    - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: RobotoSkunk.PixelMan.UI.SliderToField, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: 360
       objectReference: {fileID: 0}
     - target: {fileID: 4092847090791638111, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
       propertyPath: m_AnchorMax.y
@@ -9668,41 +9576,17 @@ MonoBehaviour:
     color: {r: 1, g: 1, b: 1, a: 1}
   target: {fileID: 0}
   button: {fileID: 0}
---- !u!1 &1444131710 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4092847091048635227, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
-  m_PrefabInstance: {fileID: 1796916847}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1447770716 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4092847091048635227, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
-  m_PrefabInstance: {fileID: 1296871881}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1447770717 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
   m_PrefabInstance: {fileID: 1296871881}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1447770716}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d036c3f3e41b8f4e86ea8d9ab435fed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1447770718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1447770716}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f2b37db30ffa5e48a017ef0ce634f81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  from: {fileID: 1447770717}
-  to: {fileID: 935183606}
 --- !u!1 &1458062169
 GameObject:
   m_ObjectHideFlags: 0
@@ -11521,15 +11405,7 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
       propertyPath: onEndValueChange.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
@@ -11537,52 +11413,24 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1695501863}
-    - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
       propertyPath: onEndValueChange.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2097089062}
     - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
       propertyPath: onEndValueChange.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: DoBridge
       objectReference: {fileID: 0}
     - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
       propertyPath: onEndValueChange.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: TestButton
       objectReference: {fileID: 0}
     - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: RobotoSkunk.PixelMan.UI.SliderToField, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
       propertyPath: onEndValueChange.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
       propertyPath: onEndValueChange.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Hello world!
-      objectReference: {fileID: 0}
-    - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
       propertyPath: onEndValueChange.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -11692,26 +11540,12 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
   m_PrefabInstance: {fileID: 1695501860}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1073973755}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d036c3f3e41b8f4e86ea8d9ab435fed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1695501863
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1073973755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f2b37db30ffa5e48a017ef0ce634f81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  from: {fileID: 1695501862}
-  to: {fileID: 1046028524}
 --- !u!1 &1732240136
 GameObject:
   m_ObjectHideFlags: 0
@@ -12158,43 +11992,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
       propertyPath: m_MaxValue
-      value: 15
+      value: 360
       objectReference: {fileID: 0}
     - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
       propertyPath: m_WholeNumbers
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1796916850}
-    - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: DoBridge
-      objectReference: {fileID: 0}
-    - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: RobotoSkunk.PixelMan.UI.SliderToField, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4092847090791638111, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
       propertyPath: m_AnchorMax.y
@@ -12300,26 +12102,12 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
   m_PrefabInstance: {fileID: 1796916847}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1444131710}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d036c3f3e41b8f4e86ea8d9ab435fed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1796916850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1444131710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f2b37db30ffa5e48a017ef0ce634f81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  from: {fileID: 1796916849}
-  to: {fileID: 82499488}
 --- !u!1 &1802514220
 GameObject:
   m_ObjectHideFlags: 0
@@ -14028,54 +13816,96 @@ MonoBehaviour:
     dataType: 2
     obj: {fileID: 727003615}
     fields:
-    - {fileID: 286591098}
-    - {fileID: 1682120805}
+    - axis: 0
+      inputField: {fileID: 286591098}
+      slider: {fileID: 0}
+      toggle: {fileID: 0}
+    - axis: 1
+      inputField: {fileID: 1682120805}
+      slider: {fileID: 0}
+      toggle: {fileID: 0}
   - name: Free scale
     purpose: 2
     dataType: 2
     obj: {fileID: 2086028907}
     fields:
-    - {fileID: 1348017176}
-    - {fileID: 1803238234}
+    - axis: 0
+      inputField: {fileID: 1348017176}
+      slider: {fileID: 0}
+      toggle: {fileID: 0}
+    - axis: 1
+      inputField: {fileID: 1803238234}
+      slider: {fileID: 0}
+      toggle: {fileID: 0}
   - name: Scale
     purpose: 4
     dataType: 0
     obj: {fileID: 469307260}
     fields:
-    - {fileID: 1549363492}
+    - axis: 0
+      inputField: {fileID: 1549363492}
+      slider: {fileID: 0}
+      toggle: {fileID: 0}
   - name: Rotation
     purpose: 8
     dataType: 0
     obj: {fileID: 1960882434}
     fields:
-    - {fileID: 1046028524}
+    - axis: 0
+      inputField: {fileID: 1046028524}
+      slider: {fileID: 1695501862}
+      toggle: {fileID: 0}
   - name: Render order
     purpose: 16
     dataType: 1
     obj: {fileID: 630788390}
     fields:
-    - {fileID: 1823314690}
+    - axis: 0
+      inputField: {fileID: 1823314690}
+      slider: {fileID: 0}
+      toggle: {fileID: 0}
   - name: Startup time
     purpose: 64
     dataType: 0
     obj: {fileID: 1256047031}
     fields:
-    - {fileID: 935183606}
+    - axis: 0
+      inputField: {fileID: 935183606}
+      slider: {fileID: 1447770717}
+      toggle: {fileID: 0}
   - name: Reload time
     purpose: 128
     dataType: 0
     obj: {fileID: 268672325}
     fields:
-    - {fileID: 1916022210}
+    - axis: 0
+      inputField: {fileID: 1916022210}
+      slider: {fileID: 1199897376}
+      toggle: {fileID: 0}
   - name: Speed
     purpose: 32
     dataType: 0
     obj: {fileID: 1926469298}
     fields:
-    - {fileID: 82499488}
+    - axis: 0
+      inputField: {fileID: 82499488}
+      slider: {fileID: 1796916849}
+      toggle: {fileID: 0}
   onChange:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2097089062}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
+        m_MethodName: HandleInspectorChanges
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1960882434
 GameObject:
   m_ObjectHideFlags: 0

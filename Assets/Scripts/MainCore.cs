@@ -48,7 +48,7 @@ namespace RobotoSkunk.PixelMan {
 	}
 
 	public static class Globals {
-		public static bool onPause = true;
+		public static bool onPause = true, onEditField = false;
 		public static uint attempts = 0u, respawnAttempts = 0u;
 		public static PlayerCharacters[] playerCharacters;
 		public static Settings settings = new();

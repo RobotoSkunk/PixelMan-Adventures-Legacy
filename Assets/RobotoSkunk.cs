@@ -438,6 +438,23 @@ namespace RobotoSkunk {
 		}
 
 		public static Vector4 MinMaxToVec4(this Rect rect) => new(rect.xMin, rect.yMin, rect.xMax, rect.yMax);
+
+
+		public static float ToFloat(this string str) {
+			try {
+				return float.Parse(str);
+			} catch (Exception) { }
+
+			return 0f;
+		}
+
+		public static int ToInt(this string str) {
+			try {
+				return int.Parse(str);
+			} catch (Exception) { }
+
+			return 0;
+		}
 	}
 
 

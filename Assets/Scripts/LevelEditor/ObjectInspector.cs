@@ -7,24 +7,23 @@ using RobotoSkunk.PixelMan.UI;
 namespace RobotoSkunk.PixelMan.LevelEditor {
 	public class ObjectInspector : MonoBehaviour {
 		[System.Serializable]
-		public class InspectorEvent : UnityEvent<PropertiesEnum, InGameObjectProperties> { }
+		public class InspectorEvent : UnityEvent<Section, Section.PropertyField> { }
 
 		public Section[] sections;
 
-		PropertiesEnum __chg;
-		InGameObjectProperties __prop;
-
 		[SerializeField] InspectorEvent onChange = new();
 
-		private void Start() => DisableAll();
+		private void Start() {
+			for (int i = 0; i < sections.Length; i++) {
+				sections[i].SetUp();
+				sections[i].obj.SetActive(false);
 
-
-		void SendChanges() {
-			onChange.Invoke(__chg, __prop);
-
-			__prop = default;
-			__chg = 0;
+				sections[i].onChange.AddListener((section, field) => SendChanges(section, field));
+			}
 		}
+
+
+		void SendChanges(Section section, Section.PropertyField field) => onChange.Invoke(section, field);
 
 		void DisableAll() {
 			for (int i = 0; i < sections.Length; i++) {
@@ -51,7 +50,8 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 					InGameObjectProperties __lst = lastProp.Value, __act = objs[i].properties;
 
 					if (__lst.position != __act.position) isDifferent |= PropertiesEnum.Position;
-					if (__lst.scale != __act.scale) isDifferent |= PropertiesEnum.Scale;
+					if (__lst.scale != __act.scale) isDifferent |= PropertiesEnum.FreeScale;
+					if (__lst.scale.x != __act.scale.x) isDifferent |= PropertiesEnum.Scale;
 
 					if (__lst.rotation != __act.rotation) isDifferent |= PropertiesEnum.Rotation;
 
@@ -72,32 +72,34 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 						bool diff = (sections[i].purpose & isDifferent) == sections[i].purpose;
 
 						if (diff) {
-							sections[i].SetValue("- - - -");
+							sections[i].SetDiff();
 						} else {
-							switch (sections[i].purpose) {
-								case PropertiesEnum.Position:
-									sections[i].SetValue(lastProp.Value.position.x.ToString(), lastProp.Value.position.y.ToString());
+							switch (sections[i].dataType) {
+								case Section.DataType.Vector2D:
+									Vector2 v = sections[i].purpose switch {
+										PropertiesEnum.Position => lastProp.Value.position,
+										PropertiesEnum.FreeScale => lastProp.Value.scale,
+
+										_ => new()
+									};
+
+									sections[i].SetValue(v.x, v.y);
 									break;
-								case PropertiesEnum.FreeScale:
-									sections[i].SetValue(lastProp.Value.scale.x.ToString(), lastProp.Value.scale.y.ToString());
+								case Section.DataType.Float:
+									float f = sections[i].purpose switch {
+										PropertiesEnum.Scale => lastProp.Value.scale.x,
+										PropertiesEnum.Rotation => lastProp.Value.rotation,
+										PropertiesEnum.Speed => lastProp.Value.speed,
+										PropertiesEnum.StartupTime => lastProp.Value.startupTime,
+										PropertiesEnum.ReloadTime => lastProp.Value.reloadTime,
+
+										_ => 0f
+									};
+
+									sections[i].SetValue(f);
 									break;
-								case PropertiesEnum.Scale:
-									sections[i].SetValue(lastProp.Value.scale.x.ToString());
-									break;
-								case PropertiesEnum.Rotation:
-									sections[i].SetValue(lastProp.Value.rotation.ToString());
-									break;
-								case PropertiesEnum.RenderOrder:
-									sections[i].SetValue(lastProp.Value.renderOrder.ToString());
-									break;
-								case PropertiesEnum.Speed:
-									sections[i].SetValue(lastProp.Value.speed.ToString());
-									break;
-								case PropertiesEnum.StartupTime:
-									sections[i].SetValue(lastProp.Value.startupTime.ToString());
-									break;
-								case PropertiesEnum.ReloadTime:
-									sections[i].SetValue(lastProp.Value.reloadTime.ToString());
+								case Section.DataType.Integer:
+									sections[i].SetValue(lastProp.Value.renderOrder);
 									break;
 							}
 						}
@@ -107,63 +109,191 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			else DisableAll();
 		}
 
+
 		[System.Serializable]
-		public struct Section {
+		public class Section {
+			[System.Serializable]
+			public class SectionEvent : UnityEvent<Section, PropertyField> { }
+
 			public string name;
 			public PropertiesEnum purpose;
 			public DataType dataType;
 			public GameObject obj;
-			public RSInputField[] fields;
+			public PropertyField[] fields;
+			// public RSInputField[] fields;
 
-			float GetFloat(string str) {
-				try {
-					return float.Parse(str);
-				} catch (System.Exception) { }
+			[System.NonSerialized]
+			public SectionEvent onChange = new();
 
-				return 0f;
+
+			public void SetUp() {
+				for (int i = 0; i < fields.Length; i++) {
+					fields[i].SetUp();
+
+					fields[i].onChange.AddListener((field) => SendEvent(field));
+				}
 			}
 
-			int GetInt(string str) {
-				try {
-					return int.Parse(str);
-				} catch (System.Exception) { }
 
-				return 0;
-			}
+			public void SetValue(float x) => SetValue(x, x);
 
-			public void SetValue(string x) => SetValue(x, x);
-
-			public void SetValue(string x, string y) {
+			public void SetValue(float x, float y) {
 				switch (dataType) {
 					case DataType.Vector2D:
-						fields[0].SetTextWithoutNotify(x);
-						fields[1].SetTextWithoutNotify(y);
+						fields[0].SetFloat(x);
+						fields[1].SetFloat(y);
 						break;
+
 					case DataType.Float:
+						fields[0].SetFloat(x);
+						break;
+
 					case DataType.Integer:
-						fields[0].SetTextWithoutNotify(x);
+						fields[0].SetInt((int)x);
 						break;
 				}
 			}
 
+			public void SetDiff() {
+				for (int i = 0; i < fields.Length; i++)
+					fields[i].SetDiff();
+			}
+
 			public Vector2 GetVector2() {
 				if (fields.Length == 1)
-					return GetFloat(fields[0].text) * Vector2.one;
+					return fields[0].GetFloat() * Vector2.one;
 
 				if (fields.Length == 2) 
-					return new(GetFloat(fields[0].text), GetFloat(fields[1].text));
+					return new(fields[0].GetFloat(), fields[1].GetFloat());
 
 				return default;
 			}
 
-			public float GetFloat() => GetFloat(fields[0].text);
-			public float GetInt() => GetInt(fields[0].text);
+			public float GetFloat() => fields[0].GetFloat();
+			public float GetInt() => fields[0].GetInt();
+
+
+			void SendEvent(PropertyField field) => onChange.Invoke(this, field);
+
 
 			public enum DataType {
 				Float,
 				Integer,
 				Vector2D,
 				Boolean
+			}
+
+			[System.Serializable]
+			public class PropertyField {
+				[System.Serializable]
+				public class PropertyEvent : UnityEvent<PropertyField> { }
+
+				public Axis axis;
+				public RSInputField inputField;
+				public RSSlider slider;
+				public RSToggle toggle;
+
+				[System.NonSerialized]
+				public PropertyEvent onChange = new();
+
+				public void SetUp() {
+					PropertyField tmp = this;
+
+					if (slider != null) {
+						slider.onValueChanged.AddListener((value) => {
+							Slider2Field();
+							SendEvent();
+						});
+					}
+
+					if (inputField != null) {
+						inputField.onEndEdit.AddListener((value) => {
+							Field2Slider();
+							SendEvent();
+						});
+					}
+
+					if (toggle != null)
+						toggle.onValueChanged.AddListener((value) => SendEvent());
+				}
+
+
+				public void SetFloat(float value) {
+					if (inputField != null)
+						inputField.SetTextWithoutNotify(value.ToString());
+
+					if (slider != null)
+						slider.SetValueWithoutNotify(value);
+				}
+				public void SetBool(bool value) {
+					if (toggle != null)
+						toggle.SetIsOnWithoutNotify(value);
+				}
+				public void SetInt(int value) => SetFloat(value);
+				public void SetDiff() {
+					if (inputField != null)
+						inputField.SetTextWithoutNotify("- - - -");
+
+					if (slider != null)
+						slider.SetValueWithoutNotify(0f);
+
+					if (toggle != null)
+						toggle.SetIsOnWithoutNotify(false);
+				}
+
+
+				public float GetFloat() {
+					if (slider != null)
+						return slider.value;
+
+					if (inputField != null)
+						return inputField.text.ToFloat();
+
+					return default;
+				}
+				public int GetInt() {
+					if (slider != null)
+						return (int)slider.value;
+
+					if (inputField != null)
+						return inputField.text.ToInt();
+
+					return default;
+				}
+				public bool GetBool() {
+					if (toggle != null)
+						return toggle.isOn;
+
+					return default;
+				}
+
+				public void AddFloat(float value) {
+					float f = GetFloat();
+					f += value;
+
+					SetFloat(f);
+				}
+				public void AddInt(int value) {
+					int i = GetInt();
+					i += value;
+
+					SetInt(i);
+				}
+
+
+				public void Slider2Field() {
+					if (inputField != null && slider != null)
+						inputField.SetTextWithoutNotify(slider.value.ToString());
+				}
+				public void Field2Slider() {
+					if (inputField != null && slider != null)
+						slider.SetValueWithoutNotify(inputField.text.ToFloat());
+				}
+
+
+				void SendEvent() => onChange.Invoke(this);
+
+				public enum Axis { x, y, z, w }
 			}
 		}
 	}
