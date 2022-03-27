@@ -123,6 +123,8 @@ MonoBehaviour:
       startupTime: 0
       reloadTime: 0
     options:
+      angleClamp: 90
+      skins: []
       allowed: 19
   - name: Player
     gameObject: {fileID: 2795602898338667627, guid: e58f917291fbca84eb2f131834ee9d20, type: 3}
@@ -140,6 +142,8 @@ MonoBehaviour:
       startupTime: 0
       reloadTime: 0
     options:
+      angleClamp: 0
+      skins: []
       allowed: 1
   - name: Finish
     gameObject: {fileID: -2537131271402590532, guid: 57bdeb7cc748c9847b47a0039fe4a75b, type: 3}
@@ -157,6 +161,8 @@ MonoBehaviour:
       startupTime: 0
       reloadTime: 0
     options:
+      angleClamp: 0
+      skins: []
       allowed: 1
   - name: Switch
     gameObject: {fileID: 1392903579520204717, guid: 13aba6915a5c57149927891abf855112, type: 3}
@@ -174,6 +180,8 @@ MonoBehaviour:
       startupTime: 0
       reloadTime: 0
     options:
+      angleClamp: 0
+      skins: []
       allowed: 9
   - name: Checkpoint
     gameObject: {fileID: 3105351536044256590, guid: b608a426ac3d05844b911297f7508d8b, type: 3}
@@ -191,6 +199,8 @@ MonoBehaviour:
       startupTime: 0
       reloadTime: 0
     options:
+      angleClamp: 0
+      skins: []
       allowed: 9
   - name: Trampoline
     gameObject: {fileID: 2385805338912316900, guid: 648eaf0208b43174697f1b02e012a974, type: 3}
@@ -208,6 +218,8 @@ MonoBehaviour:
       startupTime: 0
       reloadTime: 0
     options:
+      angleClamp: 0
+      skins: []
       allowed: 29
   - name: Killzone
     gameObject: {fileID: 538609715721522125, guid: 2c37b98841aca6a4ca05f7fa26103e6a, type: 3}
@@ -225,6 +237,8 @@ MonoBehaviour:
       startupTime: 0
       reloadTime: 0
     options:
+      angleClamp: 0
+      skins: []
       allowed: 11
   - name: Spike
     gameObject: {fileID: -175194137513401291, guid: 0624b7e1b828aad48b995680e0a8db6d, type: 3}
@@ -242,6 +256,8 @@ MonoBehaviour:
       startupTime: 0
       reloadTime: 0
     options:
+      angleClamp: 0
+      skins: []
       allowed: 29
   - name: Saw base
     gameObject: {fileID: 2850270523580359093, guid: 991f573d9b75c5f4abd5b6a75629e698, type: 3}
@@ -259,6 +275,8 @@ MonoBehaviour:
       startupTime: 0
       reloadTime: 0
     options:
+      angleClamp: 0
+      skins: []
       allowed: 29
   - name: Saw
     gameObject: {fileID: 5718692535105146582, guid: 0a7e03d053de7b8488e54fc3a01cbd5f, type: 3}
@@ -276,6 +294,8 @@ MonoBehaviour:
       startupTime: 0
       reloadTime: 0
     options:
+      angleClamp: 0
+      skins: []
       allowed: 29
   - name: Ice block
     gameObject: {fileID: 441153609631218257, guid: 0d50829928a96f3479e687602393d125, type: 3}
@@ -293,6 +313,8 @@ MonoBehaviour:
       startupTime: 0
       reloadTime: 0
     options:
+      angleClamp: 0
+      skins: []
       allowed: 19
   - name: Special block
     gameObject: {fileID: 3382837582060861023, guid: f1906695a5040244393058c91c00385c, type: 3}
@@ -310,6 +332,8 @@ MonoBehaviour:
       startupTime: 0
       reloadTime: 0
     options:
+      angleClamp: 0
+      skins: []
       allowed: 21
   - name: Swivel gun
     gameObject: {fileID: 235951751190812938, guid: a6c1f52acf39b634cbb92b48e92abc47, type: 3}
@@ -327,6 +351,8 @@ MonoBehaviour:
       startupTime: 0.5
       reloadTime: 1
     options:
+      angleClamp: 0
+      skins: []
       allowed: 157
   - name: Gravity switch
     gameObject: {fileID: 8641227703468952032, guid: 7856283a2b2dbb14e8fe841514567c29, type: 3}
@@ -344,6 +370,8 @@ MonoBehaviour:
       startupTime: 0
       reloadTime: 1
     options:
+      angleClamp: 0
+      skins: []
       allowed: 157
   - name: Laser gun
     gameObject: {fileID: 3659891405983142060, guid: ed2d1c4206cd1154cb4f75f487d92343, type: 3}
@@ -361,6 +389,8 @@ MonoBehaviour:
       startupTime: 0
       reloadTime: 1
     options:
+      angleClamp: 0
+      skins: []
       allowed: 157
   - name: Platform
     gameObject: {fileID: 6704700425601252943, guid: 3fc08f39019e36845bfb85e7b0279868, type: 3}
@@ -378,6 +408,8 @@ MonoBehaviour:
       startupTime: 0
       reloadTime: 0
     options:
+      angleClamp: 0
+      skins: []
       allowed: 49
   - name: Rocket launcher
     gameObject: {fileID: 4409445528987486779, guid: f69089e012846024ba1c927494d0910d, type: 3}
@@ -395,6 +427,8 @@ MonoBehaviour:
       startupTime: 0
       reloadTime: 1
     options:
+      angleClamp: 0
+      skins: []
       allowed: 157
   - name: Static gun
     gameObject: {fileID: 8243989049210252129, guid: 052c8ba3d441767449414cdb3dbfa5ea, type: 3}
@@ -412,6 +446,8 @@ MonoBehaviour:
       startupTime: 0.5
       reloadTime: 1
     options:
+      angleClamp: 0
+      skins: []
       allowed: 221
   musicClips:
   - name: None

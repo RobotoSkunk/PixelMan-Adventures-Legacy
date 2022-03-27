@@ -109,6 +109,14 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			else DisableAll();
 		}
 
+		public void Add2RenderOrder(int value) {
+			for (int i = 0; i < sections.Length; i++) {
+				if (sections[i].purpose != PropertiesEnum.RenderOrder) continue;
+
+				sections[i].AddInt(value);
+			}
+		}
+
 
 		[System.Serializable]
 		public class Section {
@@ -120,7 +128,6 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			public DataType dataType;
 			public GameObject obj;
 			public PropertyField[] fields;
-			// public RSInputField[] fields;
 
 			[System.NonSerialized]
 			public SectionEvent onChange = new();
@@ -136,7 +143,6 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 
 			public void SetValue(float x) => SetValue(x, x);
-
 			public void SetValue(float x, float y) {
 				switch (dataType) {
 					case DataType.Vector2D:
@@ -171,6 +177,15 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 			public float GetFloat() => fields[0].GetFloat();
 			public float GetInt() => fields[0].GetInt();
+
+			public void AddFloat(float value) {
+				for (int i = 0; i < fields.Length; i++)
+					fields[i].AddFloat(value);
+			}
+			public void AddInt(int value) {
+				for (int i = 0; i < fields.Length; i++)
+					fields[i].AddInt(value);
+			}
 
 
 			void SendEvent(PropertyField field) => onChange.Invoke(this, field);

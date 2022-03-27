@@ -165,6 +165,8 @@ namespace RobotoSkunk.PixelMan {
 
 		[System.Serializable]
 		public struct Options {
+			public float angleClamp;
+			public Sprite[] skins;
 			public PropertiesEnum allowed;
 		}
 
