@@ -238,11 +238,11 @@ namespace RobotoSkunk.PixelMan {
 			languagesWrapper = null;
 
 			// Suscribe events
-			GameEventsHandler.PlayerDeath += () => {
+			/*GameEventsHandler.PlayerDeath += () => {
 				t.Stop();
 
 				StartCoroutine(ResetObjects());
-			};
+			};*/
 
 			GeneralEventsHandler.PlayOnBG += (AudioClip clip) => bgAudio.PlayOneShot(clip);
 

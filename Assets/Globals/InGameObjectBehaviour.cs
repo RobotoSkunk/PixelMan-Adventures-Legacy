@@ -108,10 +108,15 @@ namespace RobotoSkunk.PixelMan {
 		public void SetLastProperties() => __lastProp = properties;
 		public void SetPropertiesWithoutTransform(InGameObjectProperties prop) {
 			if (prop.renderOrder != __prop.renderOrder)
-				for (int i = 0; i < renderers.Length; i++)
-					renderers[i].sortingOrder = __prop.orderInLayer - i;
+				SetSortingOrder(__prop.orderInLayer);
 
 			__prop = prop;
+		}
+		public void SetSortingOrder(int order, bool bypass = false) {
+			if (!bypass && (__opt.allowed & PropertiesEnum.RenderOrder) == 0) return;
+
+			for (int i = 0; i < renderers.Length; i++)
+				renderers[i].sortingOrder = order - i;
 		}
 
 		public void SetPosition(Vector2 value) => transform.position = RSMath.Clamp(value, -limit, limit);
@@ -181,6 +186,7 @@ namespace RobotoSkunk.PixelMan {
 		public InGameObjectBehaviour Instantiate(Vector2 position, Vector2 scale, float rotation, bool doStatic = true) {
 			InGameObjectBehaviour newObj = Object.Instantiate(doStatic && staticGameObject != null ? staticGameObject : gameObject);
 			newObj.SetInternalOptions(options);
+			newObj.SetSortingOrder(defaultProperties.orderInLayer, true);
 
 			newObj.SetPropertiesWithoutTransform(defaultProperties);
 			newObj.SetPosition(position);

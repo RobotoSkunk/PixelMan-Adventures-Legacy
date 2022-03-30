@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem.UI;
@@ -8,6 +7,9 @@ using UnityEngine.InputSystem.UI;
 using System.Collections.Generic;
 using System.Collections;
 using System.Linq;
+
+using RobotoSkunk.PixelMan.Events;
+
 
 namespace RobotoSkunk.PixelMan.LevelEditor {
 	[System.Serializable]
@@ -70,23 +72,20 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		public SpriteRenderer objectPreview, selectionArea;
 		public Canvas dragArea;
 		public RectTransform dragAreaRect, resRectArea, rotRectArea;
-
-		[Header("")]
-		public ButtonSelectObject bso;
+		public PlayerInput playerInput;
 
 		[Header("UI components")]
 		public Image virtualCursorImg;
-		public Image undoImg, redoImg;
+		public Image undoImg, redoImg, testButtonImg;
 		public Button[] buttons;
 		public Image[] gamepadIndications;
-		public RectTransform BSOGameplay, BSOBlocks, BSOObstacles, BSODecoration;
 
 		[Header("Properties")]
 		public Vector2 zoomLimits;
 		public float defaultOrtho, navigationSpeed, cursorSpeed;
 		[Range(0f, 1f)] public float zoomSpeedGamepad, zoomSpeedKeyboard;
 		public ContactFilter2D contactFilter;
-		public Sprite[] panelSwitchSprite = new Sprite[2];
+		public Sprite[] panelSwitchSprite = new Sprite[2], sprTestBtn;
 		public Toggle[] optionsToggles;
 
 		[Space(25)]
@@ -100,6 +99,8 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		public ScrollRect inspector;
 		public ObjectInspector inspectorProcessor;
 		public RectTransform[] inspectorSections;
+		public ButtonSelectObject bso;
+		public RectTransform BSOGameplay, BSOBlocks, BSOObstacles, BSODecoration;
 
 
 		const float panelLimit = 0.9f;
@@ -123,7 +124,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		Material g_Material;
 		Vector2 navSpeed, dragNavOrigin, cursorToWorld, resRefPnt;
 		float newZoom = 1f, zoomSpeed, msAlpha, rotHandle;
-		bool somePanelEnabled, wasMultiselecting;
+		bool somePanelEnabled, wasMultiselecting, isOnTest;
 		uint undoIndex, undoLimit;
 		int sid;
 		Coroutine inspectorCoroutine;
@@ -172,11 +173,10 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		private void Start() {
 			g_Material = grids.material;
 			cursorPos = Globals.screen / 2f;
-			// Globals.musicType = MainCore.MusicClips.Type.EDITOR;
+			Globals.musicType = MainCore.MusicClips.Type.EDITOR;
 
-			foreach (PanelStruct panel in panels) {
+			foreach (PanelStruct panel in panels)
 				panel.internals.wasOpen = true;
-			}
 
 			float c = 22f;
 
@@ -670,12 +670,34 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			for (int i = 0; i < composites.Length; i++)
 				composites[i].GenerateGeometry();
 		}
+
+		void SetUpTestingState(bool enabled) {
+			Globals.onPause = !enabled;
+			Globals.isDead = false;
+			Globals.respawnAttempts = 0;
+
+			if (enabled) {
+				UpdateColliders();
+				ClosePanel(0);
+				ClosePanel(1);
+
+				EditorEventsHandler.InvokeStartTesting();
+				GameEventsHandler.InvokeLevelReady();
+			} else {
+				GameEventsHandler.InvokeResetObject();
+				EditorEventsHandler.InvokeEndTesting();
+			}
+
+			testButtonImg.sprite = sprTestBtn[enabled.ToInt()];
+			playerInput.enabled = !enabled;
+		}
 		#endregion
 
 		#region Public methods
 		public void ButtonResetZoom() => newZoom = 1f;
 		public void ButtonChangeZoom(float x) => newZoom += x;
 		public void SwitchPanel(int i) { panels[i].internals.nextPosition = (!panels[i].internals.enabled).ToInt(); panels[i].internals.deltaPosition = 0f; }
+		public void ClosePanel(int i) => panels[i].internals.nextPosition = 0f;
 		public void OpenPanel(int i) => panels[i].internals.nextPosition = 1f;
 		public void SetObjectId(int i) => selectedId = i;
 
@@ -938,6 +960,14 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			selectionBounds = GetSelectionBounds();
 			UpdateColliders();
 		}
+
+
+		public void ToggleTestingState() {
+			isOnTest = !isOnTest;
+
+			SetUpTestingState(isOnTest);
+		}
+
 
 		public void TestButton(string text) => Debug.Log(text);
 		#endregion

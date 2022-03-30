@@ -57,9 +57,6 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 
 			var particleMain = deathParticles.main;
 			particleMain.startColor = Globals.playerData.color;
-
-			startPos = transform.position;
-			invertedGravity = invertGravity;
 		}
 
 		private void FixedUpdate() {
@@ -277,6 +274,30 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 		public void LookUp(InputAction.CallbackContext context) => cam.look = context.ReadValue<Vector2>();
 		#endregion
 
+		#region Editor methods
+		public void SetUpStartupVars() {
+			startPos = transform.position;
+			invertedGravity = invertGravity;
+		}
+		public void SetUpTest(bool onTest) {
+			if (onTest) {
+				SetUpStartupVars();
+				OnGameReady();
+			}
+
+			spr.flipX = false;
+
+			if (runParticles.isPlaying) runParticles.Stop();
+			anim.Play("Default", 0, 0f);
+
+			anim.SetFloat("State", (float)State.IDLE);
+			anim.SetFloat("Speed", 0f);
+
+			Debug.Log("Called: " + onTest.ToString());
+			rb.gravityScale = onTest.ToInt();
+		}
+		#endregion
+
 		#region Custom events
 		void DefaultReset(bool trigger) {
 			boxCol.enabled = spr.enabled = pmrb.enabled = trigger;
@@ -295,6 +316,7 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 
 		protected override void OnGameReady() {
 			GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Platform");
+			platforms.Clear();
 
 			foreach (GameObject g in gameObjects) {
 				Platforms p = new() {

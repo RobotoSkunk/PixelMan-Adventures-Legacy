@@ -88,5 +88,12 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 			}
 			#endregion
 		}
+
+		public void SetUpTesting(bool onTest) {
+			if (!onTest) {
+				dotedLine.size = normalLine.size = new(0f, dotedLine.size.y);
+				laser.size = new(0f, laser.size.y);
+			}
+		}
 	}
 }

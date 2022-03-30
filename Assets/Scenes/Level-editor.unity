@@ -8632,8 +8632,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2097089062}
         m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
-        m_MethodName: TestButton
-        m_Mode: 5
+        m_MethodName: ToggleTestingState
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -14538,10 +14538,11 @@ MonoBehaviour:
   dragAreaRect: {fileID: 1534143618}
   resRectArea: {fileID: 907268592}
   rotRectArea: {fileID: 1386692133}
-  bso: {fileID: 4114711902073874813, guid: 8d59c87b8c81ddb489526bb0c4216d94, type: 3}
+  playerInput: {fileID: 2097089063}
   virtualCursorImg: {fileID: 1365372466}
   undoImg: {fileID: 1814505213}
   redoImg: {fileID: 2008843871}
+  testButtonImg: {fileID: 1335368529}
   buttons:
   - {fileID: 1335368532}
   - {fileID: 1814505216}
@@ -14555,10 +14556,6 @@ MonoBehaviour:
   gamepadIndications:
   - {fileID: 69044195}
   - {fileID: 264495308}
-  BSOGameplay: {fileID: 310991889}
-  BSOBlocks: {fileID: 680903919}
-  BSOObstacles: {fileID: 626695454}
-  BSODecoration: {fileID: 1802514221}
   zoomLimits: {x: 0.25, y: 5}
   defaultOrtho: 5
   navigationSpeed: 0.25
@@ -14582,6 +14579,9 @@ MonoBehaviour:
   panelSwitchSprite:
   - {fileID: 1731858915, guid: c9a941e71eff10d458d5413e27ee60f6, type: 3}
   - {fileID: 1057841057, guid: c9a941e71eff10d458d5413e27ee60f6, type: 3}
+  sprTestBtn:
+  - {fileID: 243878023, guid: c9a941e71eff10d458d5413e27ee60f6, type: 3}
+  - {fileID: 1953064187, guid: c9a941e71eff10d458d5413e27ee60f6, type: 3}
   optionsToggles:
   - {fileID: 195293620424292648}
   panels:
@@ -14618,6 +14618,11 @@ MonoBehaviour:
   - {fileID: 1150721609}
   - {fileID: 1956481120}
   - {fileID: 1732240137}
+  bso: {fileID: 4114711902073874813, guid: 8d59c87b8c81ddb489526bb0c4216d94, type: 3}
+  BSOGameplay: {fileID: 310991889}
+  BSOBlocks: {fileID: 680903919}
+  BSOObstacles: {fileID: 626695454}
+  BSODecoration: {fileID: 1802514221}
 --- !u!114 &2097089063
 MonoBehaviour:
   m_ObjectHideFlags: 0
