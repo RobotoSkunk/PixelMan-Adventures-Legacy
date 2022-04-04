@@ -45,6 +45,15 @@ namespace RobotoSkunk.PixelMan {
 			public static void ChangeMusic(MainCore.MusicClips.Type type) => ChgMusic(type);
 			public static void SetShake(float force, float time) => ShakeFx(force, time);
 		}
+
+		public static class PhysicsEventsHandler {
+			public delegate void PhysicsEvent();
+
+			public static event PhysicsEvent CompGeo = delegate { };
+
+			public static void GenerateCompositeGeometry() => CompGeo();
+
+		}
 	}
 
 	public class GameHandler : MonoBehaviour {
@@ -132,5 +141,24 @@ namespace RobotoSkunk.PixelMan {
 		/// Is called when the editor loaded a level.
 		/// </summary>
 		protected virtual void OnEditorReady() { }
+	}
+
+	public class PhysicsHandler : MonoBehaviour {
+		private void OnEnable() => EnableEvents(true);
+		private void OnDisable() => EnableEvents(false);
+		private void OnDestroy() => EnableEvents(false);
+
+		private void EnableEvents(bool enable) {
+			if (enable) {
+				Events.PhysicsEventsHandler.CompGeo += OnGenerateCompositeGeometry;
+			} else {
+				Events.PhysicsEventsHandler.CompGeo -= OnGenerateCompositeGeometry;
+			}
+		}
+
+		/// <summary>
+		/// Is called when the editor starts testing a level.
+		/// </summary>
+		protected virtual void OnGenerateCompositeGeometry() { }
 	}
 }
