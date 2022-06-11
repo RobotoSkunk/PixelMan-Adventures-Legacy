@@ -128,6 +128,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		uint undoIndex, undoLimit;
 		int sid;
 		Coroutine inspectorCoroutine;
+		GameObject[] players;
 		#endregion
 
 		#region Common variables
@@ -173,7 +174,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		private void Start() {
 			g_Material = grids.material;
 			cursorPos = Globals.screen / 2f;
-			Globals.musicType = MainCore.MusicClips.Type.EDITOR;
+			// Globals.musicType = MainCore.MusicClips.Type.EDITOR;
 
 			foreach (PanelStruct panel in panels)
 				panel.internals.wasOpen = true;
@@ -341,8 +342,11 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				multiSelected.Clear();
 			}
 
-			transform.position += navigationSpeed * zoom * RSTime.delta * (Vector3)trnsSpd;
-			transform.position = new Vector3(transform.position.x, transform.position.y, -10f);
+
+			if (!isOnTest) {
+				transform.position += navigationSpeed * zoom * RSTime.delta * (Vector3)trnsSpd;
+				transform.position = new Vector3(transform.position.x, transform.position.y, -10f);
+			}
 		}
 
 		private void LateUpdate() {
@@ -411,6 +415,28 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		}
 
 		private void FixedUpdate() {
+			if (isOnTest) {
+				if (players == null)
+					players = GameObject.FindGameObjectsWithTag("Player");
+
+				if (players.Length > 0) {
+					Vector3 minPos = new(), maxPos = new();
+
+					for (int i = 0; i < players.Length; i++) {
+						if (i == 0) {
+							minPos = players[i].transform.position;
+							maxPos = players[i].transform.position;
+						} else {
+							minPos = Vector3.Min(minPos, players[i].transform.position);
+							maxPos = Vector3.Max(maxPos, players[i].transform.position);
+						}
+					}
+
+					Vector3 center = (minPos + maxPos) * 0.5f;
+					transform.position = Vector3.Lerp(transform.position, new Vector3(center.x, center.y, transform.position.z), 0.3f);
+				}
+			}
+
 			if (onMultiselection) {
 				int nmb = Physics2D.BoxCast(msDrag.center, RSMath.Abs(msDrag.size), 0f, Vector2.zero, contactFilter, msHits);
 
@@ -686,6 +712,8 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			} else {
 				GameEventsHandler.InvokeResetObject();
 				EditorEventsHandler.InvokeEndTesting();
+
+				players = null;
 			}
 
 			testButtonImg.sprite = sprTestBtn[enabled.ToInt()];
