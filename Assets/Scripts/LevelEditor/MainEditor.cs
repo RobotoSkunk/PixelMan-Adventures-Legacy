@@ -65,6 +65,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 	}
 
 	public class MainEditor : MonoBehaviour {
+		#region Public attributes
 		[Header("Components")]
 		public Camera cam;
 		public MeshRenderer grids;
@@ -101,6 +102,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		public RectTransform[] inspectorSections;
 		public ButtonSelectObject bso;
 		public RectTransform BSOGameplay, BSOBlocks, BSOObstacles, BSODecoration;
+		#endregion
 
 
 		const float panelLimit = 0.9f;
@@ -117,6 +119,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 								selectedBuffer = new InGameObjectBehaviour[0];
 
 		InGameObjectBehaviour draggedObject;
+		Coroutine saveCoroutine = null, collidersCoroutine = null;
 		#endregion
 
 		#region Temporal garbage
@@ -229,8 +232,6 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 			for (int i = 0; i < objs.Length; i++)
 				objCache.Add(objs[i].GetComponent<InGameObjectBehaviour>());
-
-			CollidersSetAutomatic(false);
 		}
 
 		private void Update() {
@@ -354,18 +355,20 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			virtualCursor = Snapping.Snap(cursorToWorld, (Globals.Editor.snap ? 1f : Constants.pixelToUnit) * Vector2.one);
 
 			#region Preview and selection area
-			msAlpha = Mathf.Lerp(msAlpha, onMultiselection.ToInt(), 0.15f * RSTime.delta);
-			if (onMultiselection) msDrag.size = cursorToWorld - msDrag.position;
+			if (!isOnTest) {
+				msAlpha = Mathf.Lerp(msAlpha, onMultiselection.ToInt(), 0.15f * RSTime.delta);
+				if (onMultiselection) msDrag.size = cursorToWorld - msDrag.position;
 
-			objectPreview.transform.position = virtualCursor;
-			objectPreview.enabled = userReady && !userIsDragging;
-			objectPreview.sprite = selectedObject.preview;
+				objectPreview.transform.position = virtualCursor;
+				objectPreview.enabled = userReady && !userIsDragging;
+				objectPreview.sprite = selectedObject.preview;
 
-			selectionArea.transform.position = msDrag.position;
-			selectionArea.transform.localScale = (Vector3)(zoom * Vector2.one) + Vector3.forward;
-			selectionArea.size = msDrag.size / zoom;
-			selectionArea.color = new Color(0.23f, 0.35f, 1f, msAlpha);
-			selectionArea.enabled = msAlpha > 0.05f;
+				selectionArea.transform.position = msDrag.position;
+				selectionArea.transform.localScale = (Vector3)(zoom * Vector2.one) + Vector3.forward;
+				selectionArea.size = msDrag.size / zoom;
+				selectionArea.color = new Color(0.23f, 0.35f, 1f, msAlpha);
+				selectionArea.enabled = msAlpha > 0.05f;
+			}
 			#endregion
 
 			#region Grids
@@ -403,14 +406,12 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			}
 
 			// Interpreting selection area
-			if (analysis.selectedNumber == 0)
-				dragArea.enabled = false;
-			else {
+			if (analysis.selectedNumber != 0 && !isOnTest) {
 				dragArea.enabled = true;
 				dragAreaRect.transform.position = selectionBounds.center;
 				dragAreaRect.transform.localScale = (Vector3)(zoom * Vector2.one) + Vector3.forward;
 				dragAreaRect.sizeDelta = (selectionBounds.size + new Vector3(1f, 1f, 0f)) / zoom;
-			}
+			} else dragArea.enabled = false;
 			#endregion
 		}
 
@@ -684,17 +685,17 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 
 			objCache.Add(newObj);
+			UpdateColliders();
 
 			return newObj;
 		}
 
-		void CollidersSetAutomatic(bool enabled) {
-			for (int i = 0; i < composites.Length; i++)
-				composites[i].generationType = enabled ? CompositeCollider2D.GenerationType.Synchronous : CompositeCollider2D.GenerationType.Manual;
-		}
-		void UpdateColliders() {
-			for (int i = 0; i < composites.Length; i++)
-				composites[i].GenerateGeometry();
+		void UpdateColliders(bool lazyUpdate = true) {
+			if (lazyUpdate) {
+				if (collidersCoroutine != null) StopCoroutine(collidersCoroutine);
+				collidersCoroutine = StartCoroutine(LazyUpdateColliders());
+
+			} else PhysicsEventsHandler.GenerateCompositeGeometry();
 		}
 
 		void SetUpTestingState(bool enabled) {
@@ -703,7 +704,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			Globals.respawnAttempts = 0;
 
 			if (enabled) {
-				UpdateColliders();
+				UpdateColliders(false);
 				ClosePanel(0);
 				ClosePanel(1);
 
@@ -998,6 +999,11 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 
 		public void TestButton(string text) => Debug.Log(text);
+
+		public void SaveLevel() {
+			if (saveCoroutine == null)
+				saveCoroutine = StartCoroutine(SaveLvlRoutine());
+		}
 		#endregion
 
 		#region Input System
@@ -1150,6 +1156,44 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 			inspectorCoroutine = null;
 			historialAvailable = true;
+		}
+		IEnumerator SaveLvlRoutine() {
+			IO.Level level;
+			level.objects = new();
+			level.size = 5f * Vector2.one;
+
+			int chunkIndex = 0;
+
+			for (int i = 0; i < objCache.Count; i++) {
+				if (!objCache[i]) continue;
+				if (!objCache[i].gameObject.activeInHierarchy) continue;
+
+				level.objects.Add(objCache[i].properties);
+				chunkIndex++;
+
+				if (chunkIndex >= Constants.chunkSize) {
+					chunkIndex = 0;
+					yield return new WaitForSeconds(0.1f);
+				}
+			}
+
+			IO.LevelIO.Save(level, (bool success) => {
+				if (success) Debug.Log("Level saved!");
+				else Debug.Log("Level save failed!");
+				
+				Debug.Log($"Output: {Files.Directories.User.levels}");
+				Debug.Log($"File hash: {IO.LevelIO.GenerateSHA1()}");
+
+				saveCoroutine = null;
+			});
+
+			yield return null;
+		}
+		IEnumerator LazyUpdateColliders() {
+			yield return new WaitForSeconds(0.5f);
+
+			PhysicsEventsHandler.GenerateCompositeGeometry();
+			collidersCoroutine = null;
 		}
 		#endregion
 

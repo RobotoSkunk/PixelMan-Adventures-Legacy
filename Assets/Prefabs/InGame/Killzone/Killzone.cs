@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace RobotoSkunk.PixelMan.Gameplay {
-	public class Killzone : MonoBehaviour {
+	public class Killzone : GameHandler {
 		[Header("Components")]
 		public SpriteRenderer sprRend;
 
@@ -11,17 +11,18 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 
 		[Header("Shared")]
 		public float radius = 5f;
-		public bool enableEffects = true;
 
 		float delta = 0f;
 		readonly List<Collider2D> overlapResult = new();
 
+		bool inEditor = false;
+
 		private void Start() {
-			if (!enableEffects) sprRend.color = Color.clear;
+			if (!inEditor) sprRend.color = Color.clear;
 		}
 
 		private void FixedUpdate() {
-			if (enableEffects) {
+			if (inEditor) {
 				int buffer = Physics2D.OverlapCircle(transform.position, radius, ContactFilter2D, overlapResult);
 				float lastDistance = radius + 1f;
 
@@ -36,6 +37,11 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 				delta = Mathf.Lerp(delta, Mathf.Clamp01((radius - lastDistance) / radius), 0.3f);
 				sprRend.color = new Color(1f, 1f, 1f, 0.2f + 0.8f * delta);
 			}
+		}
+
+		public void InEditor(bool inEditor) => this.inEditor = inEditor;
+		protected override void OnGameResetObject() {
+			if (inEditor) sprRend.color = Color.white;
 		}
 	}
 }

@@ -52,7 +52,6 @@ namespace RobotoSkunk.PixelMan {
 			public static event PhysicsEvent CompGeo = delegate { };
 
 			public static void GenerateCompositeGeometry() => CompGeo();
-
 		}
 	}
 

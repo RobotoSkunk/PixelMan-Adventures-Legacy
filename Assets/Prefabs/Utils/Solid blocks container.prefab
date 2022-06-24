@@ -69,7 +69,7 @@ CompositeCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_GeometryType: 0
-  m_GenerationType: 0
+  m_GenerationType: 1
   m_EdgeRadius: 0
   m_ColliderPaths: []
   m_CompositePaths:
@@ -85,6 +85,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6396014017321481125}
+  - component: {fileID: 7113637980696962435}
   m_Layer: 0
   m_Name: Solid blocks container
   m_TagString: Untagged
@@ -109,6 +110,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7113637980696962435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6396014017321481120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f55fb894d09d0e4da6d647b88136179, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  untagged: {fileID: 1245177559034210106}
+  iceBlock: {fileID: 8610096062358160595}
 --- !u!1 &7569185928681239573
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,7 +193,7 @@ CompositeCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_GeometryType: 0
-  m_GenerationType: 0
+  m_GenerationType: 1
   m_EdgeRadius: 0
   m_ColliderPaths: []
   m_CompositePaths:

@@ -30,6 +30,7 @@ namespace RobotoSkunk.PixelMan {
 			maxVelocity = 40f,
 			pixelToUnit = 1f / 16f;
 		public const int orderLimit = 3200;
+		public const int chunkSize = 32;
 
 		public static float worldHypotenuse {
 			get {

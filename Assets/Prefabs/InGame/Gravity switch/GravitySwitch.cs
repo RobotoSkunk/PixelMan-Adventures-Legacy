@@ -21,8 +21,10 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 
 		protected override void OnGameResetObject() {
 			time = ang = 0f;
-
 			sprParticles.gameObject.transform.rotation = default;
+			loadSprite.size = maxSize * Vector2.one;
+			loadSprite.transform.localPosition = default;
+			sprParticles.enabled = true;
 		}
 
 		private void Update() {

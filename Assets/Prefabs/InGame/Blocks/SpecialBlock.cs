@@ -2,6 +2,8 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
+using RobotoSkunk.PixelMan.Events;
+
 
 namespace RobotoSkunk.PixelMan.Gameplay {
 	public class SpecialBlock : GameHandler {
@@ -17,7 +19,7 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 		readonly List<Collider2D> collider2Ds = new();
 
 		float time = 0f;
-		bool destroy, ready;
+		bool destroy;
 		int sprIndx;
 
 		protected override void OnGameResetObject() {
@@ -27,6 +29,7 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 			spriteRenderer.sprite = sprites[0];
 			box.enabled = true;
 			spriteRenderer.enabled = true;
+			PhysicsEventsHandler.GenerateCompositeGeometry();
 		}
 
 		private void FixedUpdate() {
@@ -52,9 +55,10 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 
 						spriteRenderer.sprite = sprites[sprIndx];
 					}
-				} else {
+				} else if (box.enabled) {
 					box.enabled = false;
 					spriteRenderer.enabled = false;
+					PhysicsEventsHandler.GenerateCompositeGeometry();
 				}
 			}
 		}

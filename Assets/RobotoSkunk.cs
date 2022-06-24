@@ -457,6 +457,20 @@ namespace RobotoSkunk {
 		}
 	}
 
+	public static class AsyncJson {
+		public static async Task<T> FromJson<T>(string json) {
+			return await Task.Run(() => JsonUtility.FromJson<T>(json));
+		}
+
+		public static async Task<string> ToJson<T>(T obj) {
+			return await Task.Run(() => JsonUtility.ToJson(obj));
+		}
+
+		public static async Task FromJsonOverwrite<T>(string json, T obj) {
+			await Task.Run(() => JsonUtility.FromJsonOverwrite(json, obj));
+		}
+	}
+
 
 
 	public class Timer {

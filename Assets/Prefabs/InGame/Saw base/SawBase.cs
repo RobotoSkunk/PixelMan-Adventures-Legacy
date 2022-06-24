@@ -2,7 +2,7 @@ using UnityEngine;
 
 
 namespace RobotoSkunk.PixelMan.Gameplay {
-	public class SawBase : MonoBehaviour {
+	public class SawBase : GameHandler {
 		[Header("Components")]
 		public SpriteRenderer sprRend;
 		public GameObject children;
@@ -19,5 +19,7 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 				sprRend.transform.localPosition = Random.insideUnitCircle * 0.1f;
 			}
 		}
+
+		protected override void OnGameResetObject() => sprRend.transform.localPosition = default;
 	}
 }

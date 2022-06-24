@@ -132,7 +132,19 @@ MonoBehaviour:
   editorCollider: {fileID: 0}
   onEditorCallback:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1195079220087769136}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.Gameplay.Killzone, Assembly-CSharp
+        m_MethodName: InEditor
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   onNotEditorCallback:
     m_PersistentCalls:
       m_Calls: []
@@ -164,4 +176,3 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   radius: 5
-  enableEffects: 1

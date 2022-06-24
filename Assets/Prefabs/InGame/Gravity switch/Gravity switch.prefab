@@ -434,9 +434,9 @@ MonoBehaviour:
   scripts:
   - {fileID: 5268647632029849737}
   renderers:
-  - {fileID: 7812796714201804713}
-  - {fileID: 2495238230121098376}
   - {fileID: 3739546504761386038}
+  - {fileID: 2495238230121098376}
+  - {fileID: 7812796714201804713}
   editorCollider: {fileID: 6067414985142913003}
   onEditorCallback:
     m_PersistentCalls:

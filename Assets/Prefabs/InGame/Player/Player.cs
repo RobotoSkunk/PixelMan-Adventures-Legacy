@@ -43,20 +43,18 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 		private enum State { IDLE, RUNNING, JUMPING, FALLING }
 
 		private void Awake() {
-			rb.velocity = Vector2.zero;
-			rb.gravityScale = 0f;
-		}
-
-		private void Start() {
-			uint ps = Globals.playerData.skinIndex;
 			Globals.playerData.color.a = 1f;
 			spr.color = Globals.playerData.color;
 
-			spr.sprite = Globals.playerCharacters[ps].display;
-			anim.runtimeAnimatorController = Globals.playerCharacters[ps].controller;
+			Globals.PlayerCharacters ps = Globals.playerCharacters.ClampIndex((int)Globals.playerData.skinIndex);
+			spr.sprite = ps.display;
+			anim.runtimeAnimatorController = ps.controller;
 
-			var particleMain = deathParticles.main;
+			ParticleSystem.MainModule particleMain = deathParticles.main;
 			particleMain.startColor = Globals.playerData.color;
+
+			rb.velocity = Vector2.zero;
+			rb.gravityScale = 0f;
 		}
 
 		private void FixedUpdate() {
@@ -293,7 +291,6 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 			anim.SetFloat("State", (float)State.IDLE);
 			anim.SetFloat("Speed", 0f);
 
-			Debug.Log("Called: " + onTest.ToString());
 			rb.gravityScale = onTest.ToInt();
 		}
 		#endregion
@@ -312,6 +309,11 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 				if (deathParticles.isPlaying) deathParticles.Stop();
 				deathParticles.Clear();
 			}
+
+			for (int i = 0; i < platforms.Count; i++) platforms[i].wasCollided = false;
+			overPlatform = false;
+			pSpeed = 0f;
+			spr.flipY = invertGravity;
 		}
 
 		protected override void OnGameReady() {

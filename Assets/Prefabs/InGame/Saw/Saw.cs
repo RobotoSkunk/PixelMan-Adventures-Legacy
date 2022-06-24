@@ -13,6 +13,7 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 
 		protected override void OnGameResetObject() {
 			sprRend.transform.rotation = default;
+			sprRend.transform.localPosition = default;
 			ang = 0f;
 		}
 

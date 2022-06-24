@@ -95,8 +95,8 @@ MonoBehaviour:
   playerData:
     displayName: Player
     accessToken: 
-    color: {r: 1, g: 1, b: 1, a: 1}
-    skinIndex: 0
+    color: {r: 0.8867924, g: 0.11294055, b: 0.11294055, a: 1}
+    skinIndex: 1
     fun: 0
   audioTransitionFactor: 0.085
   playerCharacters:
