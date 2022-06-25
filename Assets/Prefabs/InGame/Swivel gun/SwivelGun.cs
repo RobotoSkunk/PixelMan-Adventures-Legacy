@@ -6,13 +6,11 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 		[Header("Components")]
 		public SpriteRenderer spriteRenderer;
 		public AudioSource audioSource;
+		public InGameObjectBehaviour gunBehaviour;
 
 		[Header("Properties")]
 		public ContactFilter2D lineFilter;
 		public Bullet bullet;
-
-		[Header("Shared")]
-		public float reloadTime;
 
 		float time = 1f, ang;
 		readonly List<RaycastHit2D> lineResults = new();
@@ -70,7 +68,7 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 							newObj.rb.velocity = 15f * transform.localScale.x * RSMath.GetDirVector(ang * Mathf.Deg2Rad);
 							newObj.spriteRenderer.sortingOrder = spriteRenderer.sortingOrder - 1;
 
-							time = reloadTime;
+							time = gunBehaviour.properties.safeReloadTime;
 							audioSource.Play();
 						}
 					}

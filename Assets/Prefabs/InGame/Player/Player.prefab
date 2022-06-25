@@ -10177,6 +10177,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  onSetProperties:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &8861255068588313322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10197,6 +10200,7 @@ MonoBehaviour:
   anim: {fileID: 5182439856068789001}
   deathParticles: {fileID: 7892300943647491314}
   runParticles: {fileID: 789821646428716133}
+  playerBehaviour: {fileID: 2795602898338667627}
   speed: {x: 9, y: 20}
   maxSpeed: 40
   maxJumpBuffer: 0.16
@@ -10219,7 +10223,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: dd57eccf57b02904f9dfecbd3593a484, type: 3}
   - {fileID: 8300000, guid: 7121ed16253ffaf4c8046ed32f88cd83, type: 3}
   cam: {fileID: 2810474812816257224}
-  invertGravity: 0
 --- !u!1 &8009474489757818011
 GameObject:
   m_ObjectHideFlags: 0
@@ -10316,7 +10319,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 6855b228aed06e3468ac534e795d3d36, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 2
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0

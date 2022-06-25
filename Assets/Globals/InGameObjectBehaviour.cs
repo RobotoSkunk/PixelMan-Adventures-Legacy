@@ -53,13 +53,13 @@ namespace RobotoSkunk.PixelMan {
 		public InGameObject.Options options { get => __opt; }
 
 		[SerializeField]
-		IGOEvent onEditorCallback = new(), onNotEditorCallback = new();
+		IGOEvent onEditorCallback = new(), onNotEditorCallback = new(), onSetProperties = new();
 
 		string __tag;
 		int __layer;
 		uint __id;
 		Color[] __defCol;
-		InGameObjectProperties __prop, __lastProp;
+		[SerializeField] InGameObjectProperties __prop, __lastProp;
 		InGameObject.Options __opt;
 
 		private void Awake() {
@@ -111,6 +111,7 @@ namespace RobotoSkunk.PixelMan {
 				SetSortingOrder(__prop.orderInLayer);
 
 			__prop = prop;
+			onSetProperties.Invoke();
 		}
 		public void SetSortingOrder(int order, bool bypass = false) {
 			if (!bypass && (__opt.allowed & PropertiesEnum.RenderOrder) == 0) return;
@@ -148,7 +149,11 @@ namespace RobotoSkunk.PixelMan {
 		[Header("Advanced")]
 		public int renderOrder;
 		public uint skinIndex;
-		public float speed, startupTime, reloadTime;
+		public float speed, wakeTime, reloadTime;
+		public bool invertGravity;
+		public Direction direction;
+		public DirectionH directionHorizontal;
+		public DirectionV directionVertical;
 
 		public int orderInLayer {
 			get {
@@ -157,6 +162,39 @@ namespace RobotoSkunk.PixelMan {
 				return order * 10;
 			}
 		}
+		public float safeReloadTime {
+			get {
+				float tmp = reloadTime;
+				if (tmp < 0.1f) tmp = 0.1f;
+
+				return tmp;
+			}
+		}
+
+		public enum Direction { Up, Down, Left, Right }
+		public enum DirectionH { Up, Down }
+		public enum DirectionV { Left, Right }
+	}
+
+
+	[System.Flags]
+	public enum PropertiesEnum {
+		None = 0,
+
+		Position = 1 << 0,
+		FreeScale = 1 << 1,
+		Scale = 1 << 2,
+		Rotation = 1 << 3,
+		RenderOrder = 1 << 4,
+		Speed = 1 << 5,
+		wakeTime = 1 << 6,
+		ReloadTime = 1 << 7,
+		InvertGravity = 1 << 8,
+		DirectionH = 1 << 9,
+		DirectionV = 1 << 10,
+		Direction = 1 << 11,
+
+		All = ~0
 	}
 
 	[System.Serializable]

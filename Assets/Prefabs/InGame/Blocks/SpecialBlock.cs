@@ -50,7 +50,7 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 				if (time > 0) {
 					time -= Time.fixedDeltaTime;
 
-					if (RSTime.fixedFrameCount % 3 == 0) {
+					if (RSTime.fixedFrameCount % 3 == 0 && spriteRenderer.isVisible) {
 						sprIndx = sprIndx == 1 ? 0 : 1;
 
 						spriteRenderer.sprite = sprites[sprIndx];

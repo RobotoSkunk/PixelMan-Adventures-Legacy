@@ -57,7 +57,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 					if (__lst.renderOrder != __act.renderOrder) isDifferent |= PropertiesEnum.RenderOrder;
 					if (__lst.speed != __act.speed) isDifferent |= PropertiesEnum.Speed;
-					if (__lst.startupTime != __act.startupTime) isDifferent |= PropertiesEnum.StartupTime;
+					if (__lst.wakeTime != __act.wakeTime) isDifferent |= PropertiesEnum.wakeTime;
 					if (__lst.reloadTime != __act.reloadTime) isDifferent |= PropertiesEnum.ReloadTime;
 				}
 			}
@@ -90,7 +90,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 										PropertiesEnum.Scale => lastProp.Value.scale.x,
 										PropertiesEnum.Rotation => lastProp.Value.rotation,
 										PropertiesEnum.Speed => lastProp.Value.speed,
-										PropertiesEnum.StartupTime => lastProp.Value.startupTime,
+										PropertiesEnum.wakeTime => lastProp.Value.wakeTime,
 										PropertiesEnum.ReloadTime => lastProp.Value.reloadTime,
 
 										_ => 0f
@@ -311,21 +311,5 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				public enum Axis { x, y, z, w }
 			}
 		}
-	}
-
-	[System.Flags]
-	public enum PropertiesEnum {
-		None = 0,
-
-		Position = 1 << 0,
-		FreeScale = 1 << 1,
-		Scale = 1 << 2,
-		Rotation = 1 << 3,
-		RenderOrder = 1 << 4,
-		Speed = 1 << 5,
-		StartupTime = 1 << 6,
-		ReloadTime = 1 << 7,
-
-		All = ~0
 	}
 }

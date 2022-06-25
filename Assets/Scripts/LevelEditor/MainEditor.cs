@@ -532,6 +532,9 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			// GUI.Box(guiRect, "");
 			// GUI.Label(guiRect, $"Instances number: {analysis.objectsNumber}\nCurrent ID: {sid}");
 		}
+		
+		private void OnEnable() => GameEventsHandler.PlayerDeath += OnPlayerDeathInTest;
+		private void OnDisable() => GameEventsHandler.PlayerDeath -= OnPlayerDeathInTest;
 		#endregion
 
 		#region Private methods
@@ -583,6 +586,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 			undoRedo.Add(undoBuffer);
 			UpdateButtons();
+			UpdateColliders();
 		}
 		void StoreSelectedInHistorial() {
 			List<InGameObjectBehaviour> tmp = new();
@@ -685,7 +689,6 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 
 			objCache.Add(newObj);
-			UpdateColliders();
 
 			return newObj;
 		}
@@ -718,16 +721,27 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			}
 
 			testButtonImg.sprite = sprTestBtn[enabled.ToInt()];
-			playerInput.enabled = !enabled;
+			// playerInput.enabled = !enabled;
+		}
+		
+		void OnPlayerDeathInTest() {
+			if (!isOnTest) return;
+
+			StartCoroutine(ResetTestObjects());
 		}
 		#endregion
 
 		#region Public methods
 		public void ButtonResetZoom() => newZoom = 1f;
 		public void ButtonChangeZoom(float x) => newZoom += x;
-		public void SwitchPanel(int i) { panels[i].internals.nextPosition = (!panels[i].internals.enabled).ToInt(); panels[i].internals.deltaPosition = 0f; }
+		public void SwitchPanel(int i) {
+			if (isOnTest) return;
+
+			panels[i].internals.nextPosition = (!panels[i].internals.enabled).ToInt();
+			panels[i].internals.deltaPosition = 0f;
+		}
 		public void ClosePanel(int i) => panels[i].internals.nextPosition = 0f;
-		public void OpenPanel(int i) => panels[i].internals.nextPosition = 1f;
+		public void OpenPanel(int i) { if (isOnTest) return; panels[i].internals.nextPosition = 1f; }
 		public void SetObjectId(int i) => selectedId = i;
 
 		public void SwitchPointerEnter(int i) { if (inputType != InputType.Gamepad) panels[i].internals.deltaPosition = panels[i].internals.enabled ? -0.05f : 0.05f; }
@@ -784,8 +798,8 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 							case PropertiesEnum.Rotation:
 								prop.rotation = field.GetFloat();
 								break;
-							case PropertiesEnum.StartupTime:
-								prop.startupTime = field.GetFloat();
+							case PropertiesEnum.wakeTime:
+								prop.wakeTime = field.GetFloat();
 								break;
 							case PropertiesEnum.ReloadTime:
 								prop.reloadTime = field.GetFloat();
@@ -810,7 +824,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 
 		public void Undo() {
-			if (undoRedo.Count == undoIndex || !historialAvailable) return;
+			if (undoRedo.Count == undoIndex || !historialAvailable || isOnTest) return;
 			UndoRedo undoBuffer = undoRedo[undoDiff - 1];
 
 			foreach (UndoRedo.GOHandler obj in undoBuffer.objCache) {
@@ -823,9 +837,10 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 			undoIndex++;
 			UpdateButtons();
+			UpdateColliders();
 		}
 		public void Redo() {
-			if (undoIndex == 0 || !historialAvailable) return;
+			if (undoIndex == 0 || !historialAvailable || isOnTest) return;
 			UndoRedo undoBuffer = undoRedo[undoDiff];
 
 			foreach (UndoRedo.GOHandler obj in undoBuffer.objCache) {
@@ -838,6 +853,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 			undoIndex--;
 			UpdateButtons();
+			UpdateColliders();
 		}
 
 		public void DeselectAll() {
@@ -1023,6 +1039,8 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		public void OnNavigation(InputAction.CallbackContext context) => navSpeed = Globals.onEditField ? Vector2.zero : context.ReadValue<Vector2>();
 
 		public void OnDragNavigation(InputAction.CallbackContext context) {
+			if (isOnTest) return;
+
 			if (onDragNavigation || (!hoverUI && !onDragNavigation)) {
 				onDragNavigation = context.ReadValue<float>() != 0f;
 
@@ -1047,6 +1065,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		public void OnShowRightPanel(InputAction.CallbackContext context) => PanelsTrigger(context.ReadValue<float>(), 1);
 
 		public void SubmitEditor(InputAction.CallbackContext context) {
+			if (isOnTest) return;
 			bool isTrue = context.ReadValue<float>() > 0.5f;
 
 			onSubmit = isTrue && userReady && context.action.phase == InputActionPhase.Performed;
@@ -1082,8 +1101,12 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				UpdateColliders();
 			}
 		}
-		public void DeleteEditor(InputAction.CallbackContext context) => onDelete = context.ReadValue<float>() > 0.5f && userReady && context.action.phase == InputActionPhase.Performed;
+		public void DeleteEditor(InputAction.CallbackContext context) {
+			if (isOnTest) return;
+			onDelete = context.ReadValue<float>() > 0.5f && userReady && context.action.phase == InputActionPhase.Performed;
+		}
 		public void OnMultiselection(InputAction.CallbackContext context) {
+			if (isOnTest) return;
 			if (onMultiselection || (userReady && !userIsDragging)) {
 				onMultiselection = context.ReadValue<float>() != 0f;
 
@@ -1096,11 +1119,13 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 
 		public void UndoAction(InputAction.CallbackContext context) {
+			if (isOnTest) return;
 			if (Globals.onEditField || context.action.phase != InputActionPhase.Started) return;
 
 			Undo();
 		}
 		public void RedoAction(InputAction.CallbackContext context) {
+			if (isOnTest) return;
 			if (Globals.onEditField || context.action.phase != InputActionPhase.Started) return;
 
 			Redo();
@@ -1111,6 +1136,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			DeselectAll();
 		}
 		public void DeleteSelectedAction(InputAction.CallbackContext context) {
+			if (isOnTest) return;
 			if (Globals.onEditField || context.action.phase != InputActionPhase.Started) return;
 
 			DeleteSelected();
@@ -1194,6 +1220,14 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 			PhysicsEventsHandler.GenerateCompositeGeometry();
 			collidersCoroutine = null;
+		}
+		IEnumerator ResetTestObjects() {
+			yield return new WaitForSeconds(1f);
+
+			if (Globals.respawnAttempts > 0) {
+				GameEventsHandler.InvokeBackToCheckpoint();
+				Globals.isDead = false;
+			}
 		}
 		#endregion
 

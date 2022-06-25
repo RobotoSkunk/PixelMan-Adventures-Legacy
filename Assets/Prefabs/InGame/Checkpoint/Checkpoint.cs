@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-using TMPro;
-
 using RobotoSkunk.PixelMan.Events;
+
+
 
 namespace RobotoSkunk.PixelMan.Gameplay {
 	public class Checkpoint : GameHandler {
@@ -18,12 +16,26 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 		[Header("Shared")]
 		public uint attempts;
 
-		bool onUse, doAnimation, destroyed;
+		bool onUse, doAnimation, destroyed, onEditor;
 		float ang, newAng;
 
 		protected override void OnGameResetObject() {
 			ang = newAng = 0f;
 			doAnimation = destroyed = onUse = false;
+			counterContainer.transform.rotation = default;
+
+			SetCounterSprite();
+		}
+
+		void SetCounterSprite() {
+			if (onEditor) {
+				counter.sprite = numbers.ClampIndex((int)attempts);
+				counter.enabled = counterContainer.enabled = true;
+				return;
+			}
+
+			counter.sprite = !onUse ? null : numbers.ClampIndex((int)Globals.respawnAttempts);
+			counter.enabled = counterContainer.enabled = !destroyed;
 		}
 
 		private void FixedUpdate() {
@@ -37,8 +49,7 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 			ang = Mathf.Lerp(ang, newAng, 0.2f);
 			counterContainer.transform.rotation = Quaternion.Euler(0, 0, ang);
 
-			counter.sprite = !onUse ? null : numbers.ClampIndex((int)Globals.respawnAttempts);
-			counter.enabled = counterContainer.enabled = !destroyed;
+			SetCounterSprite();
 		}
 
 		private void OnTriggerEnter2D(Collider2D collision) {
@@ -65,6 +76,14 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 
 				if (Globals.respawnAttempts == 0) destroyed = true;
 			}
+
+			Debug.Log("Called!");
+		}
+
+		public void OnPropertiesChange() => SetCounterSprite();
+		public void IsOnEditor(bool trigger) {
+			onEditor = trigger;
+			SetCounterSprite();
 		}
 	}
 }

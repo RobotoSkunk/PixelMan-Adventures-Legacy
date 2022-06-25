@@ -6,13 +6,11 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 		[Header("Components")]
 		public SpriteRenderer spriteRenderer;
 		public AudioSource audioSource;
+		public InGameObjectBehaviour launcherBehaviour;
 
 		[Header("Properties")]
 		public ContactFilter2D lineFilter;
 		public Rocket rocket;
-
-		[Header("Shared")]
-		public float reloadTime;
 
 		float time = 1f, ang, newAng;
 		readonly List<RaycastHit2D> lineResults = new();
@@ -67,7 +65,7 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 							newObj.spriteRenderer.sortingOrder = spriteRenderer.sortingOrder - 1;
 							newObj.target = target;
 
-							time = reloadTime;
+							time = launcherBehaviour.properties.safeReloadTime;
 							audioSource.Play();
 						}
 					}

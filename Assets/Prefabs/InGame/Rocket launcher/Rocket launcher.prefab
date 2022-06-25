@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5457667079381877636}
   - component: {fileID: 1787095182182535651}
   - component: {fileID: 1986451872140568024}
-  - component: {fileID: 4859170598831848126}
   - component: {fileID: 4409445528987486779}
+  - component: {fileID: 4859170598831848126}
   - component: {fileID: 4236988337690657785}
   m_Layer: 0
   m_Name: Rocket launcher
@@ -184,36 +184,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &4859170598831848126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2880587796278706857}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6992051ba09cec6408e37d0af143aaa7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 1787095182182535651}
-  audioSource: {fileID: 1986451872140568024}
-  lineFilter:
-    useTriggers: 0
-    useLayerMask: 1
-    useDepth: 0
-    useOutsideDepth: 0
-    useNormalAngle: 0
-    useOutsideNormalAngle: 0
-    layerMask:
-      serializedVersion: 2
-      m_Bits: 8
-    minDepth: 0
-    maxDepth: 0
-    minNormalAngle: 0
-    maxNormalAngle: 0
-  rocket: {fileID: 4781507467887508714, guid: d0e97e1c629a82644a5030de84dc3fad, type: 3}
-  reloadTime: 3
 --- !u!114 &4409445528987486779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,6 +207,39 @@ MonoBehaviour:
   onNotEditorCallback:
     m_PersistentCalls:
       m_Calls: []
+  onSetProperties:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &4859170598831848126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2880587796278706857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6992051ba09cec6408e37d0af143aaa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 1787095182182535651}
+  audioSource: {fileID: 1986451872140568024}
+  launcherBehaviour: {fileID: 4409445528987486779}
+  lineFilter:
+    useTriggers: 0
+    useLayerMask: 1
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 8
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
+  rocket: {fileID: 4781507467887508714, guid: d0e97e1c629a82644a5030de84dc3fad, type: 3}
 --- !u!61 &4236988337690657785
 BoxCollider2D:
   m_ObjectHideFlags: 0

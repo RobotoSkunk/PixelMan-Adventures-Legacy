@@ -11,15 +11,13 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 		public AudioSource audioSource;
 		public SpriteRenderer gun, dotedLine, normalLine, laser, outline;
 		public BoxCollider2D laserCollider;
+		public InGameObjectBehaviour laserBehaviour;
 
 		[Header("Properties")]
 		public ContactFilter2D contactFilter;
 		public LayerMask solidLayer;
 		public AudioClip detectedClip, shootClip;
 		public Sprite[] laserSprites, gunSprites, dotedLineSprites;
-
-		[Header("Shared")]
-		public float reloadTime;
 
 		readonly List<RaycastHit2D> hits = new();
 		readonly float laserHeight = 0.4375f;
@@ -137,7 +135,7 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 					}
 					break;
 				case LaserState.Reload:
-					reload += Time.fixedDeltaTime / reloadTime;
+					reload += Time.fixedDeltaTime / laserBehaviour.properties.safeReloadTime;
 					laser.enabled = false;
 
 					if (gun.isVisible)

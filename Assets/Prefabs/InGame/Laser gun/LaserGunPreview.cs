@@ -3,7 +3,7 @@ using UnityEngine;
 
 
 namespace RobotoSkunk.PixelMan.LevelEditor {
-	public class LaserGunPreview : MonoBehaviour {
+	public class LaserGunPreview : PhysicsHandler {
 		[Header("Components")]
 		public SpriteRenderer laser;
 		public SpriteRenderer gun;
@@ -46,5 +46,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			transform.hasChanged = false;
 			hasChanged = true;
 		}
+
+		protected override void OnGenerateCompositeGeometry() => hasChanged = true;
 	}
 }

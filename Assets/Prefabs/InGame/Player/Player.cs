@@ -15,6 +15,7 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 		public AudioSource audSource;
 		public Animator anim;
 		public ParticleSystem deathParticles, runParticles;
+		public InGameObjectBehaviour playerBehaviour;
 
 		[Header("Properties")]
 		public Vector2 speed;
@@ -22,9 +23,6 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 		public ContactFilter2D groundFilter;
 		public AudioClip[] sounds;
 		public PlayerCamera cam;
-
-		[Header("Shared")]
-		public bool invertGravity;
 
 		float axis = 0f, jumpBuffer = 0f, hangCount = 0f, hSpeed = 0f, pSpeed = 0f, speedFactor = 0.4f;
 		bool onGround = false, canControlJump = false, canJump = true, overPlatform = false, invertedGravity = false, wasOnPause = false, respawnGravity;
@@ -275,7 +273,7 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 		#region Editor methods
 		public void SetUpStartupVars() {
 			startPos = transform.position;
-			invertedGravity = invertGravity;
+			invertedGravity = playerBehaviour.properties.invertGravity;
 		}
 		public void SetUpTest(bool onTest) {
 			if (onTest) {
@@ -313,7 +311,7 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 			for (int i = 0; i < platforms.Count; i++) platforms[i].wasCollided = false;
 			overPlatform = false;
 			pSpeed = 0f;
-			spr.flipY = invertGravity;
+			spr.flipY = playerBehaviour.properties.invertGravity;
 		}
 
 		protected override void OnGameReady() {
@@ -340,7 +338,7 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 
 		protected override void OnGameResetObject() {
 			transform.position = startPos;
-			invertedGravity = invertGravity;
+			invertedGravity = playerBehaviour.properties.invertGravity;
 			DefaultReset(true);
 		}
 

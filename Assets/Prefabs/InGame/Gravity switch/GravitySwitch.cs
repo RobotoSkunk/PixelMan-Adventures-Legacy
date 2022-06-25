@@ -7,13 +7,11 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 		public CircleCollider2D col;
 		public SpriteRenderer sprParticles, loadSprite;
 		public AudioSource aud;
+		public InGameObjectBehaviour gravityBehaviour;
 
 		[Header("Configuration")]
 		public List<string> tags;
 		public float maxSize = 1.25f;
-
-		[Header("Shared")]
-		public float reloadTime = 1f;
 
 		float ang, time, rotFactor;
 
@@ -35,8 +33,8 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 				sprParticles.gameObject.transform.rotation = Quaternion.Euler(0, 0, ang);
 			}
 			if (loadSprite.isVisible) {
-				loadSprite.size = maxSize * new Vector2(1f, Mathf.Clamp01((reloadTime - time) / reloadTime));
-				loadSprite.transform.localPosition = maxSize / 2f * (time / reloadTime) * Vector2.down;
+				loadSprite.size = maxSize * new Vector2(1f, Mathf.Clamp01((gravityBehaviour.properties.safeReloadTime - time) / gravityBehaviour.properties.safeReloadTime));
+				loadSprite.transform.localPosition = maxSize / 2f * (time / gravityBehaviour.properties.safeReloadTime) * Vector2.down;
 			}
 
 			if (time > 0f) time -= Time.deltaTime;
@@ -46,7 +44,7 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 
 		private void OnTriggerEnter2D(Collider2D collision) {
 			if (tags.Contains(collision.tag) && time <= 0f) {
-				time = reloadTime;
+				time = gravityBehaviour.properties.safeReloadTime;
 				aud.Play();
 			}
 		}

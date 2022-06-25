@@ -5,24 +5,22 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 		[Header("Components")]
 		public SpriteRenderer spriteRenderer;
 		public AudioSource audioSource;
+		public InGameObjectBehaviour gunBehaviour;
 
 		[Header("Properties")]
 		public Bullet bullet;
 
-		[Header("Shared")]
-		public float wakeTime;
-		public float reloadTime;
-
 		float time;
 
-		private void Start() => time = wakeTime;
+		void ResetTime() => time = gunBehaviour.properties.wakeTime;
 
-		protected override void OnGameResetObject() => Start();
+		protected override void OnGameReady() => ResetTime();
+		protected override void OnGameResetObject() => ResetTime();
 
-		private void Update() {
+		private void FixedUpdate() {
 			if (Globals.onPause) return;
 
-			if (time < reloadTime) time += Time.deltaTime;
+			if (time > 0f) time -= Time.fixedDeltaTime;
 			else {
 				Bullet newObj = Instantiate(
 					bullet,
@@ -33,7 +31,7 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 				newObj.rb.velocity = 15f * transform.localScale.x * RSMath.GetDirVector(transform.eulerAngles.z * Mathf.Deg2Rad);
 				newObj.spriteRenderer.sortingOrder = spriteRenderer.sortingOrder - 1;
 
-				time = 0f;
+				time = gunBehaviour.properties.safeReloadTime;
 				audioSource.Play();
 			}
 		}

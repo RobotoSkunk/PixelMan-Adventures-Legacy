@@ -207,6 +207,9 @@ MonoBehaviour:
   onNotEditorCallback:
     m_PersistentCalls:
       m_Calls: []
+  onSetProperties:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &-8316735461421561303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,9 +224,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 6248492080504041467}
   audioSource: {fileID: 9093957345132585867}
+  gunBehaviour: {fileID: 8243989049210252129}
   bullet: {fileID: 6708733427911933524, guid: 4fcf70256e6c82a4c9de23a6a678344e, type: 3}
-  wakeTime: 0.5
-  reloadTime: 1
 --- !u!61 &3886515938912334041
 BoxCollider2D:
   m_ObjectHideFlags: 0

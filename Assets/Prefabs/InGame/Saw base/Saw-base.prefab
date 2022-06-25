@@ -131,6 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprRend: {fileID: 5555329520322171306}
   children: {fileID: 3506223747228140890}
+  sawBehaviour: {fileID: 2850270523580359093}
   spawnChildren: 1
 --- !u!114 &2850270523580359093
 MonoBehaviour:
@@ -155,6 +156,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onNotEditorCallback:
+    m_PersistentCalls:
+      m_Calls: []
+  onSetProperties:
     m_PersistentCalls:
       m_Calls: []
 --- !u!61 &8266645468603868618

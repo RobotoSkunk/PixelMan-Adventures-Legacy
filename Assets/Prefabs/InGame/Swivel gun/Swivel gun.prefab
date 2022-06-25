@@ -233,6 +233,9 @@ MonoBehaviour:
   onNotEditorCallback:
     m_PersistentCalls:
       m_Calls: []
+  onSetProperties:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &-7456460940774413331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,6 +250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 7136080047296535919}
   audioSource: {fileID: 2849375122905958409}
+  gunBehaviour: {fileID: 235951751190812938}
   lineFilter:
     useTriggers: 0
     useLayerMask: 1
@@ -262,4 +266,3 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   bullet: {fileID: 6708733427911933524, guid: 4fcf70256e6c82a4c9de23a6a678344e, type: 3}
-  reloadTime: 1

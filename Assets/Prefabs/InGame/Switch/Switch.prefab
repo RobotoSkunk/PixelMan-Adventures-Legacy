@@ -127,7 +127,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 503e42eb8c473194ca56cd1a7cd02b61, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 2
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -268,6 +268,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onNotEditorCallback:
+    m_PersistentCalls:
+      m_Calls: []
+  onSetProperties:
     m_PersistentCalls:
       m_Calls: []
 --- !u!61 &8068619851858863662

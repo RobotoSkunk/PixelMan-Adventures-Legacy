@@ -6,24 +6,24 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 		public Rigidbody2D rb;
 		public BoxCollider2D col;
 		public LayerMask layer;
-		//public SpriteRenderer spr;
+		public InGameObjectBehaviour platformBehaviour;
 
-		[Header("Shared")]
-		public float speed;
-		public bool goPositive = true;
-		public Direction dir;
-		public Vector2 lastPosition;
+		[HideInInspector] public Vector2 lastPosition;
 
 		float time = 0f;
-		bool goPosStart;
+		bool goPosStart, goPositive;
 		Vector2 lastPos, startPos, velocity;
+		Direction dir;
 
 		public enum Direction { HORIZONTAL, VERTICAL }
 
-		private void Start() {
-			if (dir == Direction.VERTICAL)
-				rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-			
+		override protected void OnGameReady() {
+			InGameObjectProperties.Direction direction = platformBehaviour.properties.direction;
+			dir = direction == InGameObjectProperties.Direction.Left || direction == InGameObjectProperties.Direction.Right ? Direction.HORIZONTAL : Direction.VERTICAL;
+
+			rb.constraints = (dir == Direction.VERTICAL ? RigidbodyConstraints2D.FreezePositionX : RigidbodyConstraints2D.FreezePositionY) | RigidbodyConstraints2D.FreezeRotation;
+			goPositive = direction == InGameObjectProperties.Direction.Right || direction == InGameObjectProperties.Direction.Up;
+
 			startPos = transform.position;
 			goPosStart = goPositive;
 		}
@@ -41,9 +41,9 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 				lastPos += Vector2.one;
 			} else {
 				if (dir == Direction.HORIZONTAL)
-					velocity = new Vector2(speed * (goPositive ? 1f : -1f), 0f);
+					velocity = new Vector2(platformBehaviour.properties.speed * (goPositive ? 1f : -1f), 0f);
 				else
-					velocity = new Vector2(0f, speed * (goPositive ? 1f : -1f));
+					velocity = new Vector2(0f, platformBehaviour.properties.speed * (goPositive ? 1f : -1f));
 
 				if (Vector2.Distance(transform.position, lastPos) < 0.05f) {
 					goPositive = !goPositive;

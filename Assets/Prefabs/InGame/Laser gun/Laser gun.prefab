@@ -365,6 +365,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onSetProperties:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &7234909512133831830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -384,6 +387,7 @@ MonoBehaviour:
   laser: {fileID: 4824725519743269922}
   outline: {fileID: 2571745209679486029}
   laserCollider: {fileID: 8255685444293044462}
+  laserBehaviour: {fileID: 3659891405983142060}
   contactFilter:
     useTriggers: 0
     useLayerMask: 1
@@ -425,7 +429,6 @@ MonoBehaviour:
   - {fileID: 1726025340, guid: 20389dd01a32da842bae8e10845b154f, type: 3}
   - {fileID: 2122876962, guid: 20389dd01a32da842bae8e10845b154f, type: 3}
   - {fileID: -2027738764, guid: 20389dd01a32da842bae8e10845b154f, type: 3}
-  reloadTime: 1
 --- !u!114 &8066652820123744843
 MonoBehaviour:
   m_ObjectHideFlags: 0

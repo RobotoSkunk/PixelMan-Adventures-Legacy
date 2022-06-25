@@ -95,8 +95,8 @@ MonoBehaviour:
   playerData:
     displayName: Player
     accessToken: 
-    color: {r: 0.8867924, g: 0.11294055, b: 0.11294055, a: 1}
-    skinIndex: 1
+    color: {r: 1, g: 1, b: 1, a: 1}
+    skinIndex: 0
     fun: 0
   audioTransitionFactor: 0.085
   playerCharacters:
@@ -120,8 +120,12 @@ MonoBehaviour:
       renderOrder: 3
       skinIndex: 0
       speed: 0
-      startupTime: 0
+      wakeTime: 0
       reloadTime: 0
+      invertGravity: 0
+      direction: 0
+      directionHorizontal: 0
+      directionVertical: 0
     options:
       angleClamp: 90
       skins: []
@@ -139,12 +143,16 @@ MonoBehaviour:
       renderOrder: 0
       skinIndex: 0
       speed: 0
-      startupTime: 0
+      wakeTime: 0
       reloadTime: 0
+      invertGravity: 0
+      direction: 0
+      directionHorizontal: 0
+      directionVertical: 0
     options:
       angleClamp: 0
       skins: []
-      allowed: 1
+      allowed: 257
   - name: Finish
     gameObject: {fileID: -2537131271402590532, guid: 57bdeb7cc748c9847b47a0039fe4a75b, type: 3}
     staticGameObject: {fileID: 0}
@@ -158,8 +166,12 @@ MonoBehaviour:
       renderOrder: -2
       skinIndex: 0
       speed: 0
-      startupTime: 0
+      wakeTime: 0
       reloadTime: 0
+      invertGravity: 0
+      direction: 0
+      directionHorizontal: 0
+      directionVertical: 0
     options:
       angleClamp: 0
       skins: []
@@ -177,8 +189,12 @@ MonoBehaviour:
       renderOrder: -3
       skinIndex: 0
       speed: 0
-      startupTime: 0
+      wakeTime: 0
       reloadTime: 0
+      invertGravity: 0
+      direction: 0
+      directionHorizontal: 0
+      directionVertical: 0
     options:
       angleClamp: 0
       skins: []
@@ -196,8 +212,12 @@ MonoBehaviour:
       renderOrder: -1
       skinIndex: 0
       speed: 0
-      startupTime: 0
+      wakeTime: 0
       reloadTime: 0
+      invertGravity: 0
+      direction: 0
+      directionHorizontal: 0
+      directionVertical: 0
     options:
       angleClamp: 0
       skins: []
@@ -215,8 +235,12 @@ MonoBehaviour:
       renderOrder: -1
       skinIndex: 0
       speed: 0
-      startupTime: 0
+      wakeTime: 0
       reloadTime: 0
+      invertGravity: 0
+      direction: 0
+      directionHorizontal: 0
+      directionVertical: 0
     options:
       angleClamp: 0
       skins: []
@@ -234,8 +258,12 @@ MonoBehaviour:
       renderOrder: 3200
       skinIndex: 0
       speed: 0
-      startupTime: 0
+      wakeTime: 0
       reloadTime: 0
+      invertGravity: 0
+      direction: 0
+      directionHorizontal: 0
+      directionVertical: 0
     options:
       angleClamp: 0
       skins: []
@@ -253,8 +281,12 @@ MonoBehaviour:
       renderOrder: 3
       skinIndex: 0
       speed: 0
-      startupTime: 0
+      wakeTime: 0
       reloadTime: 0
+      invertGravity: 0
+      direction: 0
+      directionHorizontal: 0
+      directionVertical: 0
     options:
       angleClamp: 0
       skins: []
@@ -272,8 +304,12 @@ MonoBehaviour:
       renderOrder: 1
       skinIndex: 0
       speed: 0
-      startupTime: 0
+      wakeTime: 0
       reloadTime: 0
+      invertGravity: 0
+      direction: 0
+      directionHorizontal: 0
+      directionVertical: 0
     options:
       angleClamp: 0
       skins: []
@@ -291,8 +327,12 @@ MonoBehaviour:
       renderOrder: 1
       skinIndex: 0
       speed: 0
-      startupTime: 0
+      wakeTime: 0
       reloadTime: 0
+      invertGravity: 0
+      direction: 0
+      directionHorizontal: 0
+      directionVertical: 0
     options:
       angleClamp: 0
       skins: []
@@ -310,8 +350,12 @@ MonoBehaviour:
       renderOrder: 3
       skinIndex: 0
       speed: 0
-      startupTime: 0
+      wakeTime: 0
       reloadTime: 0
+      invertGravity: 0
+      direction: 0
+      directionHorizontal: 0
+      directionVertical: 0
     options:
       angleClamp: 0
       skins: []
@@ -329,8 +373,12 @@ MonoBehaviour:
       renderOrder: 1
       skinIndex: 0
       speed: 0
-      startupTime: 0
+      wakeTime: 0
       reloadTime: 0
+      invertGravity: 0
+      direction: 0
+      directionHorizontal: 0
+      directionVertical: 0
     options:
       angleClamp: 0
       skins: []
@@ -348,8 +396,12 @@ MonoBehaviour:
       renderOrder: 1
       skinIndex: 0
       speed: 0
-      startupTime: 0.5
+      wakeTime: 0
       reloadTime: 1
+      invertGravity: 0
+      direction: 0
+      directionHorizontal: 0
+      directionVertical: 0
     options:
       angleClamp: 0
       skins: []
@@ -367,8 +419,12 @@ MonoBehaviour:
       renderOrder: -1
       skinIndex: 0
       speed: 0
-      startupTime: 0
+      wakeTime: 0
       reloadTime: 1
+      invertGravity: 0
+      direction: 0
+      directionHorizontal: 0
+      directionVertical: 0
     options:
       angleClamp: 0
       skins: []
@@ -386,8 +442,12 @@ MonoBehaviour:
       renderOrder: 1
       skinIndex: 0
       speed: 0
-      startupTime: 0
+      wakeTime: 0
       reloadTime: 1
+      invertGravity: 0
+      direction: 0
+      directionHorizontal: 0
+      directionVertical: 0
     options:
       angleClamp: 0
       skins: []
@@ -405,12 +465,16 @@ MonoBehaviour:
       renderOrder: 2
       skinIndex: 0
       speed: 5
-      startupTime: 0
+      wakeTime: 0
       reloadTime: 0
+      invertGravity: 0
+      direction: 3
+      directionHorizontal: 0
+      directionVertical: 0
     options:
       angleClamp: 0
       skins: []
-      allowed: 49
+      allowed: 2353
   - name: Rocket launcher
     gameObject: {fileID: 4409445528987486779, guid: f69089e012846024ba1c927494d0910d, type: 3}
     staticGameObject: {fileID: 0}
@@ -424,8 +488,12 @@ MonoBehaviour:
       renderOrder: 1
       skinIndex: 0
       speed: 0
-      startupTime: 0
+      wakeTime: 0
       reloadTime: 1
+      invertGravity: 0
+      direction: 0
+      directionHorizontal: 0
+      directionVertical: 0
     options:
       angleClamp: 0
       skins: []
@@ -443,8 +511,12 @@ MonoBehaviour:
       renderOrder: 2
       skinIndex: 0
       speed: 0
-      startupTime: 0.5
+      wakeTime: 0.5
       reloadTime: 1
+      invertGravity: 0
+      direction: 0
+      directionHorizontal: 0
+      directionVertical: 0
     options:
       angleClamp: 0
       skins: []

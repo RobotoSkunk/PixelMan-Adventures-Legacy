@@ -15,8 +15,12 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 
 		protected override void OnGameReady() {
 			GameObject[] tmp = GameObject.FindGameObjectsWithTag("Switch");
+			switches.Clear();
 
 			foreach (GameObject go in tmp) {
+				if (!go) continue;
+				if (!go.activeInHierarchy) continue;
+
 				switches.Add(go.GetComponent<Switch>());
 			}
 		}

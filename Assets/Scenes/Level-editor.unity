@@ -1899,7 +1899,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Startup time
+  m_text: Wake time
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc321c16c35336843a7e6e4504ba2366, type: 2}
   m_sharedMaterial: {fileID: 5353253523756052617, guid: dc321c16c35336843a7e6e4504ba2366, type: 2}
@@ -4778,7 +4778,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!1 &703217890
 GameObject:
@@ -8199,7 +8199,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1256047032}
   m_Layer: 0
-  m_Name: Startup time
+  m_Name: Wake time
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13877,7 +13877,7 @@ MonoBehaviour:
       inputField: {fileID: 1823314690}
       slider: {fileID: 0}
       toggle: {fileID: 0}
-  - name: Startup time
+  - name: Wake time
     purpose: 64
     dataType: 0
     obj: {fileID: 1256047031}
@@ -15573,7 +15573,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7338674681615354144, guid: 382224b9678134b449a4e7402fcb6267, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7338674681615354144, guid: 382224b9678134b449a4e7402fcb6267, type: 3}
       propertyPath: m_LocalPosition.x

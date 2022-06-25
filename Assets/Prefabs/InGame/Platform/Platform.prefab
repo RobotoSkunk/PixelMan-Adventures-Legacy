@@ -258,6 +258,9 @@ MonoBehaviour:
   onNotEditorCallback:
     m_PersistentCalls:
       m_Calls: []
+  onSetProperties:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &3592301456718997083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,9 +278,7 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 8
-  speed: 5
-  goPositive: 1
-  dir: 0
+  platformBehaviour: {fileID: 6704700425601252943}
   lastPosition: {x: 0, y: 0}
 --- !u!61 &3174423604319376839
 BoxCollider2D:

@@ -8,8 +8,6 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 
 		[Header("Properties")]
 		public ContactFilter2D ContactFilter2D;
-
-		[Header("Shared")]
 		public float radius = 5f;
 
 		float delta = 0f;

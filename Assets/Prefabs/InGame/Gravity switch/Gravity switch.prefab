@@ -444,6 +444,9 @@ MonoBehaviour:
   onNotEditorCallback:
     m_PersistentCalls:
       m_Calls: []
+  onSetProperties:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &5268647632029849737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -460,7 +463,7 @@ MonoBehaviour:
   sprParticles: {fileID: 7812796714201804713}
   loadSprite: {fileID: 3739546504761386038}
   aud: {fileID: 5687911824954863207}
+  gravityBehaviour: {fileID: 8641227703468952032}
   tags:
   - Player
   maxSize: 1.25
-  reloadTime: 1
