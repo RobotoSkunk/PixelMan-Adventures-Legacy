@@ -112,6 +112,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		readonly List<RaycastHit2D> raycastHits = new(), msHits = new();
 		readonly List<UndoRedo> undoRedo = new();
 		readonly List<InGameObjectBehaviour> objCache = new(), selected = new(), multiSelected = new();
+		public List<InGameObjectProperties> copiedObjCache = new();
 
 		InGameObjectBehaviour[] lastMS = new InGameObjectBehaviour[0],
 								msBuffer = new InGameObjectBehaviour[0],
@@ -682,7 +683,9 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			}
 
 			newObj.transform.SetParent(destCont);
+			newObj.transform.localPosition = pos;
 			newObj.transform.localScale = (Vector3)sca + Vector3.forward;
+			newObj.transform.localRotation = Quaternion.Euler(0f, 0f, rot);
 
 			newObj.SetInternalId((uint)id);
 			newObj.Prepare4Editor(true);
@@ -923,6 +926,9 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			if (Mathf.Abs(virtualCursor.y - resRefPnt.y) <= 0.5f) B.y = resRefPnt.y;
 
 
+			// Hola, soy RobotoSkunk del 2022, y ahora que veo esta reverenda porquería, comienzo a replantear si mi intelecto es el suficiente para continuar con esto.
+			// Apenas en Febrero o Marzo del 2022 descubrí que existen las máscaras de bits, por lo que esta parte del código es redundante como la m...
+			// Si a alguien le interesa mejorar la calidad de esta pieza de código, pues adelante, porque por mi parte tengo tanta pereza que ni siquiera traduje esto al inglés xD
 			Vector4 newData = handler.resizePoint switch {
 				ResizePoints.TOP          => new(a.x, a.y, a.z, B.y),
 				ResizePoints.RIGHT        => new(a.x, a.y, B.x, a.w),
@@ -1007,13 +1013,90 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		}
 
 
+		public void CopySelection() {
+			if (selected.Count == 0 || isOnTest) return;
+			copiedObjCache.Clear();
+			
+			for (int i = 0; i < selected.Count; i++) {
+				if (!selected[i]) continue;
+				if (!selected[i].gameObject.activeInHierarchy) continue;
+
+				InGameObjectProperties __tmp = selected[i].properties;
+				__tmp.position = (Vector2)selectionBounds.center - __tmp.position;
+	
+				copiedObjCache.Add(__tmp);
+			}
+		}
+		public void PasteSelection() {
+			if (copiedObjCache.Count == 0 || isOnTest) return;
+			List<InGameObjectBehaviour> tmpCache = new();
+
+			for (int i = 0; i < copiedObjCache.Count; i++) {
+				InGameObjectProperties __tmp = copiedObjCache[i];
+				__tmp.position += (Vector2)transform.position;
+
+				tmpCache.Add(CreateObject((int)__tmp.id, __tmp.position, __tmp.scale, __tmp.rotation));
+			}
+
+			selected.Clear();
+			selected.AddRange(tmpCache);
+			ScanSelected();
+			
+			analysis = AnalizeObjects();
+			UpdateUndoRedo(UndoRedo.Type.Add, tmpCache);
+		}
+		public void DuplicateSelection() {
+			if (selected.Count == 0 || isOnTest) return;
+			List<InGameObjectBehaviour> tmpCache = new();
+
+			for (int i = 0; i < selected.Count; i++) {
+				if (!selected[i]) continue;
+				if (!selected[i].gameObject.activeInHierarchy) continue;
+
+				InGameObjectProperties __tmp = selected[i].properties;
+				tmpCache.Add(selected[i]);
+
+				CreateObject((int)__tmp.id, __tmp.position, __tmp.scale, __tmp.rotation);
+			}
+
+			selected.Clear();
+			selected.AddRange(tmpCache);
+			ScanSelected();
+			
+			analysis = AnalizeObjects();
+			UpdateUndoRedo(UndoRedo.Type.Add, tmpCache);
+		}
+		public void CutSelection() {
+			if (selected.Count == 0 || isOnTest) return;
+
+			copiedObjCache.Clear();
+			List<InGameObjectBehaviour> tmpCache = new();
+
+			for (int i = 0; i < selected.Count; i++) {
+				if (!selected[i]) continue;
+				if (!selected[i].gameObject.activeInHierarchy) continue;
+
+				InGameObjectProperties __tmp = selected[i].properties;
+				__tmp.position = (Vector2)selectionBounds.center - __tmp.position;
+
+				tmpCache.Add(selected[i]);
+				selected[i].gameObject.SetActive(false);
+				copiedObjCache.Add(__tmp);
+			}
+
+			selected.Clear();
+			ScanSelected();
+			
+			analysis = AnalizeObjects();
+			UpdateUndoRedo(UndoRedo.Type.Remove, tmpCache);
+		}
+
+
 		public void ToggleTestingState() {
 			isOnTest = !isOnTest;
 
 			SetUpTestingState(isOnTest);
 		}
-
-
 		public void TestButton(string text) => Debug.Log(text);
 
 		public void SaveLevel() {
@@ -1143,6 +1226,30 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		}
 		public void SetSnap(bool value) => Globals.Editor.snap = value;
 
+		public void CopyAction(InputAction.CallbackContext context) {
+			if (isOnTest) return;
+			if (Globals.onEditField || context.action.phase != InputActionPhase.Started) return;
+
+			CopySelection();
+		}
+		public void PasteAction(InputAction.CallbackContext context) {
+			if (isOnTest) return;
+			if (Globals.onEditField || context.action.phase != InputActionPhase.Started) return;
+
+			PasteSelection();
+		}
+		public void DuplicateAction(InputAction.CallbackContext context) {
+			if (isOnTest) return;
+			if (Globals.onEditField || context.action.phase != InputActionPhase.Started) return;
+
+			DuplicateSelection();
+		}
+		public void CutAction(InputAction.CallbackContext context) {
+			if (isOnTest) return;
+			if (Globals.onEditField || context.action.phase != InputActionPhase.Started) return;
+
+			CutSelection();
+		}
 
 
 		public void OnControlsChanged(PlayerInput input) {
