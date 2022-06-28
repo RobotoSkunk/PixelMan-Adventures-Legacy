@@ -15,15 +15,8 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		bool isEditor, hasChanged;
 		float lineSize;
 
-		private void Update() {
-			if (gun.isVisible && isEditor && transform.hasChanged) {
-				hasChanged = true;
-				transform.hasChanged = false;
-			}
-		}
-
 		private void FixedUpdate() {
-			if (hasChanged) {
+			if (isEditor && hasChanged) {
 				int count = GetRaycastCount();
 				lineSize = Constants.worldHypotenuse;
 
@@ -43,7 +36,6 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 		public void SetIsEditor(bool isEditor) {
 			laser.enabled = this.isEditor = isEditor;
-			transform.hasChanged = false;
 			hasChanged = true;
 		}
 

@@ -128,7 +128,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		Material g_Material;
 		Vector2 navSpeed, dragNavOrigin, cursorToWorld, resRefPnt;
 		float newZoom = 1f, zoomSpeed, msAlpha, rotHandle;
-		bool somePanelEnabled, wasMultiselecting, isOnTest;
+		bool somePanelEnabled, wasMultiselecting, isOnTest, wasEditing;
 		uint undoIndex, undoLimit;
 		int sid;
 		Coroutine inspectorCoroutine;
@@ -138,7 +138,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		#region Common variables
 		InputType inputType = InputType.KeyboardAndMouse;
 		float zoom = 1f;
-		Vector2 cursorPos, virtualCursor, mousePosition, dragOrigin;
+		Vector2 cursorPos, virtualCursor, mousePosition, dragOrigin, virtualPosition;
 		Bounds selectionBounds;
 
 		bool onSubmit, onDelete;
@@ -354,6 +354,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		private void LateUpdate() {
 			cursorToWorld = cam.ScreenToWorldPoint(cursorPos);
 			virtualCursor = Snapping.Snap(cursorToWorld, (Globals.Editor.snap ? 1f : Constants.pixelToUnit) * Vector2.one);
+			virtualPosition = Globals.Editor.snap ? Snapping.Snap(transform.position, Vector2.one) : transform.position;
 
 			#region Preview and selection area
 			if (!isOnTest) {
@@ -463,7 +464,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 
 			} else if (userReady && !userIsDragging) {
-				int nmb = Physics2D.Raycast(virtualCursor, Vector2.zero, contactFilter, raycastHits, 1f);
+				int nmb = Physics2D.Raycast(cursorToWorld, Vector2.zero, contactFilter, raycastHits, 1f);
 
 
 				switch (nmb) {
@@ -482,6 +483,8 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 								selected[i].SetLastProperties();
 								selected[i].dist2Dragged = draggedObject.transform.position - selected[i].transform.position;
 							}
+
+							wasEditing = true;
 						} else if (onDelete) {
 							List<InGameObjectBehaviour> listBuffer = new();
 
@@ -502,6 +505,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 							InGameObjectBehaviour newObj = CreateObject(selectedId, virtualCursor, Vector2.one, 0f);
 
+							wasEditing = true;
 							UpdateUndoRedo(UndoRedo.Type.Add, new List<InGameObjectBehaviour>() { newObj });
 						}
 						break;
@@ -731,6 +735,23 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			if (!isOnTest) return;
 
 			StartCoroutine(ResetTestObjects());
+		}
+
+		InGameObjectBehaviour HoverFindNotSelected() {
+			for (int i = 0; i < raycastHits.Count; i++) {
+				InGameObjectBehaviour tmp = raycastHits[i].collider.GetComponent<InGameObjectBehaviour>();
+
+				if (!selected.Contains(tmp)) return tmp;
+			}
+
+			return null;
+		}
+		bool HoverSelected() {
+			for (int i = 0; i < raycastHits.Count; i++) {
+				if (selected.Contains(raycastHits[i].collider.GetComponent<InGameObjectBehaviour>())) return true;
+			}
+
+			return false;
 		}
 		#endregion
 
@@ -1022,7 +1043,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				if (!selected[i].gameObject.activeInHierarchy) continue;
 
 				InGameObjectProperties __tmp = selected[i].properties;
-				__tmp.position = (Vector2)selectionBounds.center - __tmp.position;
+				__tmp.position -= (Vector2)selectionBounds.center;
 	
 				copiedObjCache.Add(__tmp);
 			}
@@ -1033,7 +1054,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 			for (int i = 0; i < copiedObjCache.Count; i++) {
 				InGameObjectProperties __tmp = copiedObjCache[i];
-				__tmp.position += (Vector2)transform.position;
+				__tmp.position += (Vector2)virtualPosition;
 
 				tmpCache.Add(CreateObject((int)__tmp.id, __tmp.position, __tmp.scale, __tmp.rotation));
 			}
@@ -1077,7 +1098,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				if (!selected[i].gameObject.activeInHierarchy) continue;
 
 				InGameObjectProperties __tmp = selected[i].properties;
-				__tmp.position = (Vector2)selectionBounds.center - __tmp.position;
+				__tmp.position -= (Vector2)selectionBounds.center;
 
 				tmpCache.Add(selected[i]);
 				selected[i].gameObject.SetActive(false);
@@ -1153,35 +1174,29 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 			onSubmit = isTrue && userReady && context.action.phase == InputActionPhase.Performed;
 
-			if (isTrue && userReady && context.action.phase == InputActionPhase.Started && raycastHits.Count > 0) {
-				InGameObjectBehaviour tmp = null;
-				bool hoverSelected = true;
-
-				for (int i = 0; i < raycastHits.Count; i++) {
-					tmp = raycastHits[i].collider.GetComponent<InGameObjectBehaviour>();
-
-					if (!selected.Contains(tmp)) {
-						hoverSelected = false;
-						break;
-					}
-				}
-
-				if (!hoverSelected && tmp != null) {
-					DeselectAll();
-					selected.Add(tmp);
-
-					analysis.selectedNumber = 1;
-					ScanSelected();
-				}
-
+			if (isTrue && userReady && raycastHits.Count > 0 && context.action.phase == InputActionPhase.Started) {
 				dragOrigin = cursorToWorld;
 				hoverAnObject = true;
 			}
 
-			if (!isTrue && onDrag) {
-				onDrag = false;
-				StoreSelectedInHistorial();
-				UpdateColliders();
+			if (!isTrue) {
+				if (onDrag) {
+					onDrag = false;
+					StoreSelectedInHistorial();
+					UpdateColliders();
+				} else if (!wasEditing) {
+					InGameObjectBehaviour tmp = HoverFindNotSelected();
+
+					if (!HoverSelected() && tmp != null) {
+						DeselectAll();
+						selected.Add(tmp);
+
+						analysis.selectedNumber = 1;
+						ScanSelected();
+					}
+				}
+
+				wasEditing = false;
 			}
 		}
 		public void DeleteEditor(InputAction.CallbackContext context) {
