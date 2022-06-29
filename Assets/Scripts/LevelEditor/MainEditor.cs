@@ -1075,9 +1075,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				if (!selected[i].gameObject.activeInHierarchy) continue;
 
 				InGameObjectProperties __tmp = selected[i].properties;
-				tmpCache.Add(selected[i]);
-
-				CreateObject((int)__tmp.id, __tmp.position, __tmp.scale, __tmp.rotation);
+				tmpCache.Add(CreateObject((int)__tmp.id, __tmp.position, __tmp.scale, __tmp.rotation));
 			}
 
 			selected.Clear();
@@ -1175,7 +1173,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			onSubmit = isTrue && userReady && context.action.phase == InputActionPhase.Performed;
 
 			if (isTrue && userReady && raycastHits.Count > 0 && context.action.phase == InputActionPhase.Started) {
-				dragOrigin = cursorToWorld;
+				if (HoverSelected()) dragOrigin = cursorToWorld;
 				hoverAnObject = true;
 			}
 
