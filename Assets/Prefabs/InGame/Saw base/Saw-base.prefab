@@ -132,7 +132,6 @@ MonoBehaviour:
   sprRend: {fileID: 5555329520322171306}
   children: {fileID: 3506223747228140890}
   sawBehaviour: {fileID: 2850270523580359093}
-  spawnChildren: 1
 --- !u!114 &2850270523580359093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,6 +151,9 @@ MonoBehaviour:
   - {fileID: 5555329520322171306}
   - {fileID: 3506223746231517293}
   editorCollider: {fileID: 8266645468603868618}
+  editorColliders:
+  - {fileID: 8266645468603868618}
+  - {fileID: 7403413428596671413}
   onEditorCallback:
     m_PersistentCalls:
       m_Calls: []
@@ -160,7 +162,49 @@ MonoBehaviour:
       m_Calls: []
   onSetProperties:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 545631532598295280}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.Gameplay.SawBase, Assembly-CSharp
+        m_MethodName: OnSetProperties
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  __prop:
+    id: 0
+    position: {x: 0, y: 0}
+    scale: {x: 0, y: 0}
+    rotation: 0
+    renderOrder: 0
+    skinIndex: 0
+    speed: 0
+    wakeTime: 0
+    reloadTime: 0
+    invertGravity: 0
+    spawnSaw: 0
+    direction: 0
+    directionHorizontal: 0
+    directionVertical: 0
+  __lastProp:
+    id: 0
+    position: {x: 0, y: 0}
+    scale: {x: 0, y: 0}
+    rotation: 0
+    renderOrder: 0
+    skinIndex: 0
+    speed: 0
+    wakeTime: 0
+    reloadTime: 0
+    invertGravity: 0
+    spawnSaw: 0
+    direction: 0
+    directionHorizontal: 0
+    directionVertical: 0
 --- !u!61 &8266645468603868618
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -357,5 +401,10 @@ GameObject:
 --- !u!4 &3506223747228140893 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1351965421685861530, guid: 0a7e03d053de7b8488e54fc3a01cbd5f, type: 3}
+  m_PrefabInstance: {fileID: 2480285513414666695}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &7403413428596671413 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 4960024227147967090, guid: 0a7e03d053de7b8488e54fc3a01cbd5f, type: 3}
   m_PrefabInstance: {fileID: 2480285513414666695}
   m_PrefabAsset: {fileID: 0}

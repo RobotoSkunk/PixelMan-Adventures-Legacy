@@ -9729,6 +9729,7 @@ GameObject:
   - component: {fileID: 1812400675351063183}
   - component: {fileID: 8009474488916196578}
   - component: {fileID: 8009474488916196579}
+  - component: {fileID: 2145347875039296668}
   - component: {fileID: 1995670383407584719}
   - component: {fileID: 665508272187798439}
   - component: {fileID: 1386140349391247303}
@@ -9903,6 +9904,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!61 &2145347875039296668
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8009474488916196639}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!114 &1995670383407584719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10146,7 +10173,9 @@ MonoBehaviour:
   - {fileID: 665508272187798439}
   renderers:
   - {fileID: 8009474489757818013}
-  editorCollider: {fileID: 0}
+  editorCollider: {fileID: 2145347875039296668}
+  editorColliders:
+  - {fileID: 2145347875039296668}
   onEditorCallback:
     m_PersistentCalls:
       m_Calls:
@@ -10180,6 +10209,36 @@ MonoBehaviour:
   onSetProperties:
     m_PersistentCalls:
       m_Calls: []
+  __prop:
+    id: 0
+    position: {x: 0, y: 0}
+    scale: {x: 0, y: 0}
+    rotation: 0
+    renderOrder: 0
+    skinIndex: 0
+    speed: 0
+    wakeTime: 0
+    reloadTime: 0
+    invertGravity: 0
+    spawnSaw: 0
+    direction: 0
+    directionHorizontal: 0
+    directionVertical: 0
+  __lastProp:
+    id: 0
+    position: {x: 0, y: 0}
+    scale: {x: 0, y: 0}
+    rotation: 0
+    renderOrder: 0
+    skinIndex: 0
+    speed: 0
+    wakeTime: 0
+    reloadTime: 0
+    invertGravity: 0
+    spawnSaw: 0
+    direction: 0
+    directionHorizontal: 0
+    directionVertical: 0
 --- !u!114 &8861255068588313322
 MonoBehaviour:
   m_ObjectHideFlags: 0

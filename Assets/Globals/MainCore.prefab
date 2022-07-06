@@ -42,8 +42,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3355192528981997731}
-  - component: {fileID: 3355192528981997732}
   - component: {fileID: 3355192528981997733}
+  - component: {fileID: 3355192528981997732}
   m_Layer: 0
   m_Name: MainCore
   m_TagString: Untagged
@@ -67,6 +67,14 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &3355192528981997733
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3355192528981997734}
+  m_Enabled: 1
 --- !u!114 &3355192528981997732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,17 +89,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settings:
     general:
-      enableShake: 1
-      enableDeviceVibration: 1
-      enableControllerVibration: 1
-      enableParticles: 1
       lang: en
+      shakeStrenght: 0.5
+      options: 0
     volume:
       music: 1
       fx: 1
       master: 1
     editor:
       undoLimit: 250
+      lineLength: 500
   playerData:
     displayName: Player
     accessToken: 
@@ -123,6 +130,7 @@ MonoBehaviour:
       wakeTime: 0
       reloadTime: 0
       invertGravity: 0
+      spawnSaw: 0
       direction: 0
       directionHorizontal: 0
       directionVertical: 0
@@ -146,6 +154,7 @@ MonoBehaviour:
       wakeTime: 0
       reloadTime: 0
       invertGravity: 0
+      spawnSaw: 0
       direction: 0
       directionHorizontal: 0
       directionVertical: 0
@@ -169,6 +178,7 @@ MonoBehaviour:
       wakeTime: 0
       reloadTime: 0
       invertGravity: 0
+      spawnSaw: 0
       direction: 0
       directionHorizontal: 0
       directionVertical: 0
@@ -192,6 +202,7 @@ MonoBehaviour:
       wakeTime: 0
       reloadTime: 0
       invertGravity: 0
+      spawnSaw: 0
       direction: 0
       directionHorizontal: 0
       directionVertical: 0
@@ -215,6 +226,7 @@ MonoBehaviour:
       wakeTime: 0
       reloadTime: 0
       invertGravity: 0
+      spawnSaw: 0
       direction: 0
       directionHorizontal: 0
       directionVertical: 0
@@ -238,6 +250,7 @@ MonoBehaviour:
       wakeTime: 0
       reloadTime: 0
       invertGravity: 0
+      spawnSaw: 0
       direction: 0
       directionHorizontal: 0
       directionVertical: 0
@@ -261,6 +274,7 @@ MonoBehaviour:
       wakeTime: 0
       reloadTime: 0
       invertGravity: 0
+      spawnSaw: 0
       direction: 0
       directionHorizontal: 0
       directionVertical: 0
@@ -284,6 +298,7 @@ MonoBehaviour:
       wakeTime: 0
       reloadTime: 0
       invertGravity: 0
+      spawnSaw: 0
       direction: 0
       directionHorizontal: 0
       directionVertical: 0
@@ -307,13 +322,14 @@ MonoBehaviour:
       wakeTime: 0
       reloadTime: 0
       invertGravity: 0
+      spawnSaw: 1
       direction: 0
       directionHorizontal: 0
       directionVertical: 0
     options:
       angleClamp: 0
       skins: []
-      allowed: 29
+      allowed: 4125
   - name: Saw
     gameObject: {fileID: 5718692535105146582, guid: 0a7e03d053de7b8488e54fc3a01cbd5f, type: 3}
     staticGameObject: {fileID: 0}
@@ -330,6 +346,7 @@ MonoBehaviour:
       wakeTime: 0
       reloadTime: 0
       invertGravity: 0
+      spawnSaw: 0
       direction: 0
       directionHorizontal: 0
       directionVertical: 0
@@ -353,6 +370,7 @@ MonoBehaviour:
       wakeTime: 0
       reloadTime: 0
       invertGravity: 0
+      spawnSaw: 0
       direction: 0
       directionHorizontal: 0
       directionVertical: 0
@@ -376,6 +394,7 @@ MonoBehaviour:
       wakeTime: 0
       reloadTime: 0
       invertGravity: 0
+      spawnSaw: 0
       direction: 0
       directionHorizontal: 0
       directionVertical: 0
@@ -399,6 +418,7 @@ MonoBehaviour:
       wakeTime: 0
       reloadTime: 1
       invertGravity: 0
+      spawnSaw: 0
       direction: 0
       directionHorizontal: 0
       directionVertical: 0
@@ -422,6 +442,7 @@ MonoBehaviour:
       wakeTime: 0
       reloadTime: 1
       invertGravity: 0
+      spawnSaw: 0
       direction: 0
       directionHorizontal: 0
       directionVertical: 0
@@ -445,6 +466,7 @@ MonoBehaviour:
       wakeTime: 0
       reloadTime: 1
       invertGravity: 0
+      spawnSaw: 0
       direction: 0
       directionHorizontal: 0
       directionVertical: 0
@@ -468,6 +490,7 @@ MonoBehaviour:
       wakeTime: 0
       reloadTime: 0
       invertGravity: 0
+      spawnSaw: 0
       direction: 3
       directionHorizontal: 0
       directionVertical: 0
@@ -491,6 +514,7 @@ MonoBehaviour:
       wakeTime: 0
       reloadTime: 1
       invertGravity: 0
+      spawnSaw: 0
       direction: 0
       directionHorizontal: 0
       directionVertical: 0
@@ -514,6 +538,7 @@ MonoBehaviour:
       wakeTime: 0.5
       reloadTime: 1
       invertGravity: 0
+      spawnSaw: 0
       direction: 0
       directionHorizontal: 0
       directionVertical: 0
@@ -572,14 +597,6 @@ MonoBehaviour:
         value: "Vers\xE3o do jogo: {0}"
   bgAudio: {fileID: 3355192530202362898}
   musicAudio: {fileID: 1931014126442553692}
---- !u!81 &3355192528981997733
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3355192528981997734}
-  m_Enabled: 1
 --- !u!1 &3355192530202362900
 GameObject:
   m_ObjectHideFlags: 0

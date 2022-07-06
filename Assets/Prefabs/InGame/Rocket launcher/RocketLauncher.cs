@@ -18,12 +18,14 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 
 		protected override void OnGameReady() {
 			GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Player");
+			players.Clear();
 
 			foreach (GameObject g in gameObjects) players.Add(g);
+			time = launcherBehaviour.properties.safeReloadTime;
 		}
 
 		protected override void OnGameResetObject() {
-			time = 1f;
+			time = launcherBehaviour.properties.safeReloadTime;
 			ang = newAng = 0f;
 			transform.rotation = Quaternion.Euler(0f, 0f, 0f);
 		}

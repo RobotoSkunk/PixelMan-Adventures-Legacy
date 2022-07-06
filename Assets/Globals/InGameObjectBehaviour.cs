@@ -1,4 +1,3 @@
-using RobotoSkunk.PixelMan.LevelEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,7 +7,7 @@ namespace RobotoSkunk.PixelMan {
 
 		public MonoBehaviour[] scripts;
 		public SpriteRenderer[] renderers;
-		public Collider2D editorCollider;
+		public Collider2D[] editorColliders;
 		[System.NonSerialized] public Vector2 dist2Dragged, dragOrigin;
 
 		readonly Vector2 limit = Constants.worldLimit * Vector2.one;
@@ -66,10 +65,10 @@ namespace RobotoSkunk.PixelMan {
 			__tag = gameObject.tag;
 			__layer = gameObject.layer;
 
-			if (editorCollider != null)
-				editorCollider.enabled = false;
-
 			__defCol = new Color[renderers.Length];
+
+			for (int i = 0; i < editorColliders.Length; i++)
+				editorColliders[i].enabled = false;
 
 			for (int i = 0; i < renderers.Length; i++)
 				__defCol[i] = renderers[i].color;
@@ -86,9 +85,9 @@ namespace RobotoSkunk.PixelMan {
 		public void Prepare4Editor(bool trigger) {
 			gameObject.tag = trigger ? "EditorObject" : __tag;
 			gameObject.layer = trigger ? 9 : __layer;
-
-			if (editorCollider != null)
-				editorCollider.enabled = trigger;
+				
+			for (int i = 0; i < editorColliders.Length; i++)
+				editorColliders[i].enabled = trigger;
 
 			EnableScripts(!trigger);
 
@@ -108,7 +107,7 @@ namespace RobotoSkunk.PixelMan {
 		public void SetLastProperties() => __lastProp = properties;
 		public void SetPropertiesWithoutTransform(InGameObjectProperties prop) {
 			if (prop.renderOrder != __prop.renderOrder)
-				SetSortingOrder(__prop.orderInLayer);
+				SetSortingOrder(prop.orderInLayer);
 
 			__prop = prop;
 			onSetProperties.Invoke();
@@ -150,17 +149,13 @@ namespace RobotoSkunk.PixelMan {
 		public int renderOrder;
 		public uint skinIndex;
 		public float speed, wakeTime, reloadTime;
-		public bool invertGravity;
+		public bool invertGravity, spawnSaw;
 		public Direction direction;
 		public DirectionH directionHorizontal;
 		public DirectionV directionVertical;
 
 		public int orderInLayer {
-			get {
-				int order = Mathf.Clamp(renderOrder, -Constants.orderLimit, Constants.orderLimit);
-
-				return order * 10;
-			}
+			get => Mathf.Clamp(renderOrder, -Constants.orderLimit, Constants.orderLimit) * 10;
 		}
 		public float safeReloadTime {
 			get {
@@ -193,6 +188,7 @@ namespace RobotoSkunk.PixelMan {
 		DirectionH = 1 << 9,
 		DirectionV = 1 << 10,
 		Direction = 1 << 11,
+		SpawnSaw = 1 << 12,
 
 		All = ~0
 	}

@@ -108,12 +108,34 @@ namespace RobotoSkunk.PixelMan {
 			}
 			[Serializable]
 			public class General {
-				public bool enableShake = true, enableDeviceVibration = true, enableControllerVibration = true, enableParticles = true;
 				public string lang = "en";
+				public float shakeStrenght = 0.5f;
+				public Options options;
+
+				[Flags]
+				public enum Options {
+					None = 0,
+					EnableDeviceVibration = 1 << 0,
+					EnableControllerVibration = 1 << 1,
+					EnableParticles = 1 << 2
+				}
+
+				public bool enableDeviceVibration {
+					get => (options & Options.EnableDeviceVibration) == Options.EnableDeviceVibration;
+					set => options = (options & ~Options.EnableDeviceVibration) | (value ? Options.EnableDeviceVibration : 0);
+				}
+				public bool enableControllerVibration {
+					get => (options & Options.EnableControllerVibration) == Options.EnableControllerVibration;
+					set => options = (options & ~Options.EnableControllerVibration) | (value ? Options.EnableControllerVibration : 0);
+				}
+				public bool enableParticles {
+					get => (options & Options.EnableParticles) == Options.EnableParticles;
+					set => options = (options & ~Options.EnableParticles) | (value ? Options.EnableParticles : 0);
+				}
 			}
 			[Serializable]
 			public class Editor {
-				public uint undoLimit;
+				public uint undoLimit, lineLength = 500;
 			}
 
 			[Serializable]
@@ -267,12 +289,6 @@ namespace RobotoSkunk.PixelMan {
 			// Prepare directories
 			try {
 				await Files.Directories.Prepare();
-
-				string langs = await Files.ReadFile($"{Files.Directories.root}/languages.json");
-
-				if (!string.IsNullOrEmpty(langs)) {
-					Globals.langWrapper = await Files.FromJson<Globals.Settings.LangWrapper>(langs);
-				}
 			} catch (Exception e) {
 				Debug.LogWarning(e);
 			}
@@ -312,8 +328,6 @@ namespace RobotoSkunk.PixelMan {
 		// }
 
 		void SetVibration(float leftMotor, float rightMotor) {
-			if (Globals.settings.general.enableDeviceVibration && leftMotor + rightMotor != 0f) Device.Vibrate(150);
-
 			if (Globals.settings.general.enableControllerVibration) {
 				PlayerIndex[] enums = (PlayerIndex[])Enum.GetValues(typeof(PlayerIndex));
 
@@ -324,7 +338,8 @@ namespace RobotoSkunk.PixelMan {
 
 		#region Coroutines
 		IEnumerator ShakeEffect(float __force, float __time) {
-			if (Globals.settings.general.enableShake) Globals.shakeForce = Mathf.Clamp01(__force);
+			Globals.shakeForce = Mathf.Clamp01(__force * Globals.settings.general.shakeStrenght);
+			if (Globals.settings.general.enableDeviceVibration) Device.Vibrate((long)(__time * 1000f));
 			SetVibration(__force, __force);
 
 			yield return new WaitForSeconds(__time);

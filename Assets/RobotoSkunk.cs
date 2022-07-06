@@ -16,7 +16,7 @@ namespace RobotoSkunk {
 #if UNITY_ANDROID && !UNITY_EDITOR
 					return "/storage/emulated/0/RobotoSkunk/PixelMan Adventures";
 #else
-					string folder = "/RobotoSkunk/PixelMan Adventures", special = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+					string folder = "/My Games/PixelMan Adventures", special = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
 					if (special == "")
 						special = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);

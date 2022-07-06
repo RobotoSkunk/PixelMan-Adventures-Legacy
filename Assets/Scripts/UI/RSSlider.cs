@@ -7,9 +7,15 @@ using UnityEditor.UI;
 namespace RobotoSkunk.PixelMan.UI {
 	[AddComponentMenu("UI/RobotoSkunk - Slider")]
 	public class RSSlider : Slider {
+		[Range(0f, 1f)] public float snapValue = 0f;
 		public IntelliNav selectOnUp, selectOnDown, selectOnLeft, selectOnRight;
 
 		public SliderEvent onEndValueChange = new();
+
+		public override float value {
+			get => (snapValue > 0f) ? Mathf.Round(base.value / snapValue) * snapValue : base.value;
+			set => base.value = value;
+		}
 
 		public override Selectable FindSelectableOnUp() {
 			if ((navigation.mode & Navigation.Mode.Vertical) == 0) return null;
@@ -47,7 +53,7 @@ namespace RobotoSkunk.PixelMan.UI {
 	[CustomEditor(typeof(RSSlider), true)]
 	[CanEditMultipleObjects]
 	public class RSSliderEditor : SliderEditor {
-		SerializedProperty m_selectOnUp, m_selectOnDown, m_selectOnLeft, m_selectOnRight;
+		SerializedProperty m_selectOnUp, m_selectOnDown, m_selectOnLeft, m_selectOnRight, m_snapValue;
 
 		protected override void OnEnable() {
 			base.OnEnable();
@@ -56,6 +62,7 @@ namespace RobotoSkunk.PixelMan.UI {
 			m_selectOnDown  = serializedObject.FindProperty("selectOnDown");
 			m_selectOnLeft  = serializedObject.FindProperty("selectOnLeft");
 			m_selectOnRight = serializedObject.FindProperty("selectOnRight");
+			m_snapValue     = serializedObject.FindProperty("snapValue");
 		}
 
 		public override void OnInspectorGUI() {
@@ -65,6 +72,7 @@ namespace RobotoSkunk.PixelMan.UI {
 			serializedObject.Update();
 
 
+			EditorGUILayout.PropertyField(m_snapValue);
 			EditorGUILayout.PropertyField(m_selectOnUp);
 			EditorGUILayout.PropertyField(m_selectOnDown);
 			EditorGUILayout.PropertyField(m_selectOnLeft);

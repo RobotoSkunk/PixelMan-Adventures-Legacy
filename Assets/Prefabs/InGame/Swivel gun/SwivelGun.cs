@@ -18,12 +18,14 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 
 		protected override void OnGameReady() {
 			GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Player");
+			players.Clear();
 
 			foreach (GameObject g in gameObjects) players.Add(g);
+			time = gunBehaviour.properties.safeReloadTime;
 		}
 
 		protected override void OnGameResetObject() {
-			time = 1f;
+			time = gunBehaviour.properties.safeReloadTime;
 			ang = 0f;
 			transform.rotation = Quaternion.Euler(0f, 0f, 0f);
 		}
@@ -75,7 +77,7 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 				}
 			}
 
-			if (!onCount) time = 1f;
+			if (!onCount) time = gunBehaviour.properties.safeReloadTime;
 		}
 	}
 }

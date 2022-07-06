@@ -49,6 +49,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				else {
 					InGameObjectProperties __lst = lastProp.Value, __act = objs[i].properties;
 
+					// I'm sorry you have to see this horrible comparison written in the worst possible way, but I couldn't think of another way to compare two structures and pass it to an enum.
 					if (__lst.position != __act.position) isDifferent |= PropertiesEnum.Position;
 					if (__lst.scale != __act.scale) isDifferent |= PropertiesEnum.FreeScale;
 					if (__lst.scale.x != __act.scale.x) isDifferent |= PropertiesEnum.Scale;
@@ -59,10 +60,13 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 					if (__lst.speed != __act.speed) isDifferent |= PropertiesEnum.Speed;
 					if (__lst.wakeTime != __act.wakeTime) isDifferent |= PropertiesEnum.wakeTime;
 					if (__lst.reloadTime != __act.reloadTime) isDifferent |= PropertiesEnum.ReloadTime;
+
+					if (__lst.invertGravity != __act.invertGravity) isDifferent |= PropertiesEnum.InvertGravity;
+					if (__lst.spawnSaw != __act.spawnSaw) isDifferent |= PropertiesEnum.SpawnSaw;
 				}
 			}
 
-			if (nmb > 0)
+			if (nmb > 0) {
 				for (int i = 0; i < sections.Length; i++) {
 					bool toUse = (sections[i].purpose & allowed) == sections[i].purpose;
 
@@ -79,7 +83,6 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 									Vector2 v = sections[i].purpose switch {
 										PropertiesEnum.Position => lastProp.Value.position,
 										PropertiesEnum.FreeScale => lastProp.Value.scale,
-
 										_ => new()
 									};
 
@@ -92,7 +95,6 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 										PropertiesEnum.Speed => lastProp.Value.speed,
 										PropertiesEnum.wakeTime => lastProp.Value.wakeTime,
 										PropertiesEnum.ReloadTime => lastProp.Value.reloadTime,
-
 										_ => 0f
 									};
 
@@ -101,12 +103,21 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 								case Section.DataType.Integer:
 									sections[i].SetValue(lastProp.Value.renderOrder);
 									break;
+								case Section.DataType.Boolean:
+									bool b = sections[i].purpose switch {
+										PropertiesEnum.InvertGravity => lastProp.Value.invertGravity,
+										PropertiesEnum.SpawnSaw => lastProp.Value.spawnSaw,
+										_ => false
+									};
+
+									sections[i].SetValue(b);
+									break;
 							}
 						}
 
 					}
 				}
-			else DisableAll();
+			} else DisableAll();
 		}
 
 		public void Add2RenderOrder(int value) {
@@ -142,6 +153,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			}
 
 
+			public void SetValue(bool b) => fields[0].SetBool(b);
 			public void SetValue(float x) => SetValue(x, x);
 			public void SetValue(float x, float y) {
 				switch (dataType) {

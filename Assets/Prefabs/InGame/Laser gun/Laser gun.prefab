@@ -321,6 +321,8 @@ MonoBehaviour:
   - {fileID: 2060264407538327949}
   - {fileID: 2571745209679486029}
   editorCollider: {fileID: 5180200622930101866}
+  editorColliders:
+  - {fileID: 5180200622930101866}
   onEditorCallback:
     m_PersistentCalls:
       m_Calls:
@@ -368,6 +370,36 @@ MonoBehaviour:
   onSetProperties:
     m_PersistentCalls:
       m_Calls: []
+  __prop:
+    id: 0
+    position: {x: 0, y: 0}
+    scale: {x: 0, y: 0}
+    rotation: 0
+    renderOrder: 0
+    skinIndex: 0
+    speed: 0
+    wakeTime: 0
+    reloadTime: 0
+    invertGravity: 0
+    spawnSaw: 0
+    direction: 0
+    directionHorizontal: 0
+    directionVertical: 0
+  __lastProp:
+    id: 0
+    position: {x: 0, y: 0}
+    scale: {x: 0, y: 0}
+    rotation: 0
+    renderOrder: 0
+    skinIndex: 0
+    speed: 0
+    wakeTime: 0
+    reloadTime: 0
+    invertGravity: 0
+    spawnSaw: 0
+    direction: 0
+    directionHorizontal: 0
+    directionVertical: 0
 --- !u!114 &7234909512133831830
 MonoBehaviour:
   m_ObjectHideFlags: 0

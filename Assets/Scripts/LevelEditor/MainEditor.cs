@@ -9,6 +9,7 @@ using System.Collections;
 using System.Linq;
 
 using RobotoSkunk.PixelMan.Events;
+using RobotoSkunk.PixelMan.Gameplay;
 
 
 namespace RobotoSkunk.PixelMan.LevelEditor {
@@ -81,6 +82,9 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		public Button[] buttons;
 		public Image[] gamepadIndications;
 
+		[Header("I don't know which name should I use")]
+		public LineRenderer[] lineRenderers;
+
 		[Header("Properties")]
 		public Vector2 zoomLimits;
 		public float defaultOrtho, navigationSpeed, cursorSpeed;
@@ -109,7 +113,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 		#region Cache and buffers
 		readonly List<RaycastResult> guiResults = new();
-		readonly List<RaycastHit2D> raycastHits = new(), msHits = new();
+		readonly List<RaycastHit2D> raycastHits = new(), msHits = new(), virtualHits = new();
 		readonly List<UndoRedo> undoRedo = new();
 		readonly List<InGameObjectBehaviour> objCache = new(), selected = new(), multiSelected = new();
 		public List<InGameObjectProperties> copiedObjCache = new();
@@ -121,6 +125,8 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 		InGameObjectBehaviour draggedObject;
 		Coroutine saveCoroutine = null, collidersCoroutine = null;
+		List<Player> players = new();
+		List<Vector3>[] playersPos;
 		#endregion
 
 		#region Temporal garbage
@@ -132,13 +138,13 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		uint undoIndex, undoLimit;
 		int sid;
 		Coroutine inspectorCoroutine;
-		GameObject[] players;
+		// GameObject[] players;
 		#endregion
 
 		#region Common variables
 		InputType inputType = InputType.KeyboardAndMouse;
 		float zoom = 1f;
-		Vector2 cursorPos, virtualCursor, mousePosition, dragOrigin, virtualPosition;
+		Vector2 cursorPos, virtualCursor, mousePosition, dragOrigin, virtualPosition, testPos;
 		Bounds selectionBounds;
 
 		bool onSubmit, onDelete;
@@ -233,6 +239,9 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 			for (int i = 0; i < objs.Length; i++)
 				objCache.Add(objs[i].GetComponent<InGameObjectBehaviour>());
+
+			playersPos = new List<Vector3>[lineRenderers.Length];
+			for (int i = 0; i < playersPos.Length; i++) playersPos[i] = new List<Vector3>();
 		}
 
 		private void Update() {
@@ -375,12 +384,17 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 			#region Grids
 			Vector2 gridScale = cameraSize / 10f;
+			float pixelSize = zoom * (defaultOrtho * 2f / Screen.height) * 0.1f;
 
 			grids.transform.localScale = new(gridScale.x, 1f, gridScale.y);
-			g_Material.SetFloat("_Thickness", zoom * (defaultOrtho * 2f / Screen.height) * 0.1f);
+			g_Material.SetFloat("_Thickness", pixelSize);
 			g_Material.SetColor("_MainColor", Color.white);
 			g_Material.SetColor("_SecondaryColor", new Color(1, 1, 1, 0.2f));
 			#endregion
+
+			for (int i = 0; i < lineRenderers.Length; i++) {
+				lineRenderers[i].widthMultiplier = zoom * 0.025f;
+			}
 
 			#region Selection
 			// Multiselection buffer
@@ -419,24 +433,44 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 		private void FixedUpdate() {
 			if (isOnTest) {
-				if (players == null)
-					players = GameObject.FindGameObjectsWithTag("Player");
-
-				if (players.Length > 0) {
+				if (players.Count > 0) {
 					Vector3 minPos = new(), maxPos = new();
+					int j = 0;
+					bool minMaxDefined = false;
 
-					for (int i = 0; i < players.Length; i++) {
-						if (i == 0) {
+					for (int i = 0; i < players.Count; i++) {
+						if (!players[i]) continue;
+
+						if (!minMaxDefined) {
 							minPos = players[i].transform.position;
 							maxPos = players[i].transform.position;
+							minMaxDefined = true;
 						} else {
 							minPos = Vector3.Min(minPos, players[i].transform.position);
 							maxPos = Vector3.Max(maxPos, players[i].transform.position);
 						}
+
+
+						if (j < lineRenderers.Length) {
+							Vector2 diff = (Vector2)players[i].transform.position - players[i].lastPublicPos;
+
+							if (diff.magnitude > 0.05f) {
+								if (playersPos[j].Count > Globals.settings.editor.lineLength) playersPos[j].RemoveAt(0);
+								playersPos[j].Add(players[i].transform.position);
+
+								lineRenderers[j].positionCount = playersPos[j].Count;
+								lineRenderers[j].SetPositions(playersPos[j].ToArray());
+							}
+
+							j++;
+							players[i].lastPublicPos = players[i].transform.position;
+						}
 					}
 
 					Vector3 center = (minPos + maxPos) * 0.5f;
-					transform.position = Vector3.Lerp(transform.position, new Vector3(center.x, center.y, transform.position.z), 0.3f);
+					testPos = Vector2.Lerp(testPos, center, 0.3f);
+
+					transform.position = (Vector3)(testPos + (1f + zoom) * Globals.shakeForce * 0.5f * Random.insideUnitCircle) + Vector3.forward * -10f;
 				}
 			}
 
@@ -465,6 +499,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 			} else if (userReady && !userIsDragging) {
 				int nmb = Physics2D.Raycast(cursorToWorld, Vector2.zero, contactFilter, raycastHits, 1f);
+				Physics2D.Raycast(virtualCursor, Vector2.zero, contactFilter, virtualHits, 1f);
 
 
 				switch (nmb) {
@@ -500,7 +535,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 						}
 						break;
 					case 0:
-						if (onSubmit) {
+						if (onSubmit && virtualHits.Count == 0) {
 							if (selectedId == Constants.InternalIDs.player && analysis.playersNumber >= 2) return;
 
 							InGameObjectBehaviour newObj = CreateObject(selectedId, virtualCursor, Vector2.one, 0f);
@@ -720,11 +755,19 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 				EditorEventsHandler.InvokeStartTesting();
 				GameEventsHandler.InvokeLevelReady();
+				testPos = transform.position;
+
+				GameObject[] plyrs = GameObject.FindGameObjectsWithTag("Player");
+				for (int i = 0; i < plyrs.Length; i++)
+					players.Add(plyrs[i].GetComponent<Player>());
+
+				for (int i = 0; i < lineRenderers.Length; i++) lineRenderers[i].positionCount = 0;
+				for (int i = 0; i < playersPos.Length; i++) playersPos[i].Clear();
 			} else {
 				GameEventsHandler.InvokeResetObject();
 				EditorEventsHandler.InvokeEndTesting();
 
-				players = null;
+				players.Clear();
 			}
 
 			testButtonImg.sprite = sprTestBtn[enabled.ToInt()];
@@ -811,32 +854,27 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 								break;
 						}
-
 						break;
+
 					case ObjectInspector.Section.DataType.Float:
-
 						switch (section.purpose) {
-							case PropertiesEnum.Scale:
-								prop.scale = field.GetFloat() * Vector2.one;
-								break;
-							case PropertiesEnum.Rotation:
-								prop.rotation = field.GetFloat();
-								break;
-							case PropertiesEnum.wakeTime:
-								prop.wakeTime = field.GetFloat();
-								break;
-							case PropertiesEnum.ReloadTime:
-								prop.reloadTime = field.GetFloat();
-								break;
-							case PropertiesEnum.Speed:
-								prop.speed = field.GetFloat();
-								break;
+							case PropertiesEnum.Scale: prop.scale = field.GetFloat() * Vector2.one; break;
+							case PropertiesEnum.Rotation: prop.rotation = field.GetFloat(); break;
+							case PropertiesEnum.wakeTime: prop.wakeTime = field.GetFloat(); break;
+							case PropertiesEnum.ReloadTime: prop.reloadTime = field.GetFloat(); break;
+							case PropertiesEnum.Speed: prop.speed = field.GetFloat(); break;
 						}
-
 						break;
 
 					case ObjectInspector.Section.DataType.Integer:
 						prop.renderOrder = field.GetInt();
+						break;
+
+					case ObjectInspector.Section.DataType.Boolean:
+						switch (section.purpose) {
+							case PropertiesEnum.InvertGravity: prop.invertGravity = field.GetBool(); break;
+							case PropertiesEnum.SpawnSaw: prop.spawnSaw = field.GetBool(); break;
+						}
 						break;
 				}
 
@@ -1138,7 +1176,11 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			}
 		}
 
-		public void OnNavigation(InputAction.CallbackContext context) => navSpeed = Globals.onEditField ? Vector2.zero : context.ReadValue<Vector2>();
+		public void OnNavigation(InputAction.CallbackContext context) {
+			if (Keyboard.current?.ctrlKey.isPressed ?? false) return;
+
+			navSpeed = Globals.onEditField ? Vector2.zero : context.ReadValue<Vector2>();
+		}
 
 		public void OnDragNavigation(InputAction.CallbackContext context) {
 			if (isOnTest) return;
@@ -1182,7 +1224,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 					onDrag = false;
 					StoreSelectedInHistorial();
 					UpdateColliders();
-				} else if (!wasEditing) {
+				} else if (!wasEditing && userReady) {
 					InGameObjectBehaviour tmp = HoverFindNotSelected();
 
 					if (!HoverSelected() && tmp != null) {

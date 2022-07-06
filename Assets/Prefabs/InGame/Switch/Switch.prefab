@@ -264,6 +264,8 @@ MonoBehaviour:
   renderers:
   - {fileID: 2559966455716498447}
   editorCollider: {fileID: 8068619851858863662}
+  editorColliders:
+  - {fileID: 8068619851858863662}
   onEditorCallback:
     m_PersistentCalls:
       m_Calls: []
@@ -273,6 +275,36 @@ MonoBehaviour:
   onSetProperties:
     m_PersistentCalls:
       m_Calls: []
+  __prop:
+    id: 0
+    position: {x: 0, y: 0}
+    scale: {x: 0, y: 0}
+    rotation: 0
+    renderOrder: 0
+    skinIndex: 0
+    speed: 0
+    wakeTime: 0
+    reloadTime: 0
+    invertGravity: 0
+    spawnSaw: 0
+    direction: 0
+    directionHorizontal: 0
+    directionVertical: 0
+  __lastProp:
+    id: 0
+    position: {x: 0, y: 0}
+    scale: {x: 0, y: 0}
+    rotation: 0
+    renderOrder: 0
+    skinIndex: 0
+    speed: 0
+    wakeTime: 0
+    reloadTime: 0
+    invertGravity: 0
+    spawnSaw: 0
+    direction: 0
+    directionHorizontal: 0
+    directionVertical: 0
 --- !u!61 &8068619851858863662
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -24,6 +24,9 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 		public AudioClip[] sounds;
 		public PlayerCamera cam;
 
+		[Header("Shared")]
+		public Vector2 lastPublicPos;
+
 		float axis = 0f, jumpBuffer = 0f, hangCount = 0f, hSpeed = 0f, pSpeed = 0f, speedFactor = 0.4f;
 		bool onGround = false, canControlJump = false, canJump = true, overPlatform = false, invertedGravity = false, wasOnPause = false, respawnGravity;
 		Vector2 startPos, lastPos, lastVelocity;
@@ -53,6 +56,7 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 
 			rb.velocity = Vector2.zero;
 			rb.gravityScale = 0f;
+			rb.bodyType = RigidbodyType2D.Static;
 		}
 
 		private void FixedUpdate() {
@@ -274,11 +278,14 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 		public void SetUpStartupVars() {
 			startPos = transform.position;
 			invertedGravity = playerBehaviour.properties.invertGravity;
+			rb.bodyType = RigidbodyType2D.Dynamic;
 		}
 		public void SetUpTest(bool onTest) {
 			if (onTest) {
 				SetUpStartupVars();
 				OnGameReady();
+			} else {
+				rb.bodyType = RigidbodyType2D.Static;
 			}
 
 			spr.flipX = false;
