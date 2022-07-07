@@ -210,7 +210,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 				float max = Mathf.Max(spr.rect.size.x, spr.rect.size.y);
 				if (max > c) {
-					Vector3 newSize = (c / max) * tmp.preview.rectTransform.localScale;
+					Vector3 newSize = c / max * tmp.preview.rectTransform.localScale;
 					newSize.z = 1;
 
 					tmp.preview.rectTransform.localScale = newSize;

@@ -41,7 +41,7 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 			public Platform code;
 		}
 
-		private enum State { IDLE, RUNNING, JUMPING, FALLING }
+		public enum State { IDLE, RUNNING, JUMPING, FALLING }
 
 		private void Awake() {
 			Globals.playerData.color.a = 1f;

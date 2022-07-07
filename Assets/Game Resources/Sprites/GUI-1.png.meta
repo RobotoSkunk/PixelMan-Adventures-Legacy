@@ -173,7 +173,7 @@ TextureImporter:
       name: bar-color-palette
       rect:
         serializedVersion: 2
-        x: 837
+        x: 835
         y: 197
         width: 122
         height: 10
@@ -194,7 +194,7 @@ TextureImporter:
       name: bar-gradiant-palette
       rect:
         serializedVersion: 2
-        x: 837
+        x: 835
         y: 219
         width: 122
         height: 10
@@ -215,10 +215,10 @@ TextureImporter:
       name: palette-sv
       rect:
         serializedVersion: 2
-        x: 960
-        y: 165
-        width: 64
-        height: 64
+        x: 958
+        y: 163
+        width: 66
+        height: 66
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -257,7 +257,7 @@ TextureImporter:
       name: bar-hue-palette
       rect:
         serializedVersion: 2
-        x: 837
+        x: 835
         y: 208
         width: 122
         height: 10
@@ -278,7 +278,7 @@ TextureImporter:
       name: bar-alpha-palette
       rect:
         serializedVersion: 2
-        x: 837
+        x: 835
         y: 186
         width: 122
         height: 10
@@ -300,7 +300,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 898
-        y: 21
+        y: 19
         width: 126
         height: 126
       alignment: 0
@@ -321,7 +321,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 896
-        y: 148
+        y: 146
         width: 128
         height: 16
       alignment: 0
@@ -338,7 +338,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: color-picker
+      name: Color-picker
       rect:
         serializedVersion: 2
         x: 192
@@ -468,7 +468,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1015
-        y: 6
+        y: 4
         width: 9
         height: 14
       alignment: 0
@@ -489,7 +489,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 999
-        y: 5
+        y: 3
         width: 15
         height: 15
       alignment: 0
@@ -1035,7 +1035,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1021
-        y: 2
+        y: 0
         width: 3
         height: 3
       alignment: 6
@@ -1056,11 +1056,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 989
-        y: 11
+        y: 9
         width: 9
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 4, y: 4, z: 4, w: 4}
       outline: []
       physicsShape: []
@@ -1068,6 +1068,237 @@ TextureImporter:
       bones: []
       spriteID: c6d4cffd784fbfa438ab16a659c7d979
       internalID: -527067623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Color-bar-handler
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 415
+        width: 5
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24f926a3d3fa59240a89138d06861c9d
+      internalID: -997809473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn-hsv1-1
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 332
+        width: 29
+        height: 18
+      alignment: 9
+      pivot: {x: 0.4827586, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 237fb4e89ce4de941b8e339d85f85089
+      internalID: -113377018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn-rgb-1
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 319
+        width: 33
+        height: 12
+      alignment: 9
+      pivot: {x: 0.4848485, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 034d53824784ca7469a84585dd7876f8
+      internalID: 1480581391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn-hsv2-1
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 334
+        width: 31
+        height: 16
+      alignment: 9
+      pivot: {x: 0.48387095, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0680e69e7c94474ea9b459a5a28edc7
+      internalID: -1261916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn-hsv2-0
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 319
+        width: 30
+        height: 14
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef5042c79bd357a4ab0ab32ed12b6c65
+      internalID: 1620884808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn-hsv1-0
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 346
+        width: 28
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92ab276a1a8e3aa41bf151c39ad59aa7
+      internalID: 347979576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn-hex-1
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 352
+        width: 33
+        height: 12
+      alignment: 9
+      pivot: {x: 0.4848485, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d30f626efe7df2849b826690a19f27ba
+      internalID: -1803052031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn-hex-0
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 335
+        width: 32
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f36a43cb56f9b8428a7a6f3f1536123
+      internalID: -2079380455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn-rgb-0
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 324
+        width: 32
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c856757a0139e64abe6a4c57a20c599
+      internalID: -748758907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Color-bar-h
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 380
+        width: 16
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5acf5a6771569624490821430fc307ca
+      internalID: 1812897042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button-back
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 370
+        width: 133
+        height: 43
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec9fa1f7b37ab8c4eb82e2208167f6ab
+      internalID: -905986701
       vertices: []
       indices: 
       edges: []
@@ -1083,56 +1314,66 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      btn-rgb-1: 1480581391
+      Button-back: -905986701
       bar-color-palette: 5438888047807879708
       Button-right: 252892595
+      btn-hsv1-0: 347979576
+      btn-hex-1: -1803052031
       Editor-button-objects: -952989520
       bar-hue-palette: -4019474977474178137
+      btn-hsv2-1: -1261916
       Editor-button-container: 746526994
       Button-left: 1793650563
       Button-switch-off: 85650759
       palette-sv-white: -1605685468875770678
+      Color-picker: 7786610187498457116
       Editor-button-stop: 1953064187
-      GUI-1_1: 1480581391
+      btn-hex-0: -2079380455
       base-rect-border-2: -634390419545406517
       base-rect-border-4: -280262383310750262
       rulette-hue: 325564063192308738
       base-rect-border-3: 6931351593359424303
-      button-pause: -6294512886237695265
       Editor-button-pause: 1321980181
-      slider-border-1: 2211136918358296430
-      Editor-button-showPanel: 1057841057
+      button-pause: -6294512886237695265
       Editor-button-settings: 3816540026819079933
+      Editor-button-showPanel: 1057841057
       Editor-button-save: -1491967587
       blank: 2054124001041304269
       Gamepad-RT: 1683522589
       bar-gradiant-palette: 213274684569274308
       Gamepad-LT: -72771803
+      btn-hsv2-0: 1620884808
       game-title: -7010831734835879382
       Button-plus: -2027476996
+      btn-hsv1-1: -113377018
       slider-border-2: 5224690882252275055
       Editor-button-undo: 531908384
       Button-container-1: -527067623
       Alex Skunk: -6377995968244068863
       Editor-button-hidePanel: 1731858915
-      color-picker: 7786610187498457116
+      Color-bar-h: 1812897042
       Slider-container: -2051916891
       Button-switch-on: -1735754346
       bar-alpha-palette: -574547697581011041
       Editor-button-help: 815706927
+      slider-border-1: 2211136918358296430
       Editor-button-redo: -1727614579
       Button-minus: -1134415044
+      Color-bar-handler: -997809473
       bar-color-container: 7713757842985170668
       Editor-button-options: 1123823680
       Editor-button-properties: -676435924
       Editor-selectionArea: -584654700
       Editor-button-zoomReset: -1004530483
+      base-rect-border-1: 9010152221549391988
       console-controller: 1293517014411768107
+      Button-container-0: -1312120766
       Editor-button-run: 243878023
+      btn-rgb-0: -748758907
       Editor-button-zoomRemove: -780712959
       Cur-default: -756887439
       base-rect-corner: 8267307703009234630
-      Button-container-0: -1312120766
-      base-rect-border-1: 9010152221549391988
       Editor-button-zoomAdd: -1436274194
       palette-sv: 3191599451653250520
   spritePackingTag: 
