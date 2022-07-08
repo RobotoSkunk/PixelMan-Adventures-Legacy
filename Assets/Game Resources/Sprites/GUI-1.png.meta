@@ -1480,7 +1480,7 @@ TextureImporter:
         width: 35
         height: 35
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1501,7 +1501,7 @@ TextureImporter:
         width: 35
         height: 35
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1522,7 +1522,7 @@ TextureImporter:
         width: 35
         height: 35
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1543,7 +1543,7 @@ TextureImporter:
         width: 35
         height: 35
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1564,7 +1564,7 @@ TextureImporter:
         width: 35
         height: 35
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1572,6 +1572,27 @@ TextureImporter:
       bones: []
       spriteID: fc79dab8f15cd8546854a9e8f17f9476
       internalID: -1240474371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Menu-dirt
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 302
+        width: 80
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 282f9f34688668942b2560da6af0af28
+      internalID: -1618493472
       vertices: []
       indices: 
       edges: []
@@ -1593,8 +1614,8 @@ TextureImporter:
       Button-right: 252892595
       btn-hsv1-0: 347979576
       btn-hex-1: -1803052031
-      btn-rgb-1: 1480581391
       btn-social-github: -1940428192
+      base-rect-border-1: 9010152221549391988
       Button-T2: -1939519551
       Editor-button-objects: -952989520
       bar-hue-palette: -4019474977474178137
@@ -1633,6 +1654,7 @@ TextureImporter:
       Button-container-1: -527067623
       Alex Skunk: -6377995968244068863
       Editor-button-hidePanel: 1731858915
+      Menu-dirt: -1618493472
       base-rect-border-3: 6931351593359424303
       Color-bar-h: 1812897042
       btn-social-website: -904043096
@@ -1654,14 +1676,14 @@ TextureImporter:
       btn-social-twitter: -1240474371
       console-controller: 1293517014411768107
       Editor-button-run: 243878023
-      Editor-button-zoomRemove: -780712959
-      Cur-default: -756887439
-      base-rect-corner: 8267307703009234630
       Button-container-0: -1312120766
-      base-rect-border-1: 9010152221549391988
+      Editor-button-zoomRemove: -780712959
+      btn-rgb-0: -748758907
+      base-rect-corner: 8267307703009234630
+      Cur-default: -756887439
       Button-T1: 1033676227
       palette-sv: 3191599451653250520
-      btn-rgb-0: -748758907
+      btn-rgb-1: 1480581391
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

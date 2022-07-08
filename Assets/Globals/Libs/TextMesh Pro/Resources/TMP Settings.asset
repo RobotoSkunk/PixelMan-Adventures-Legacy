@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_enableWordWrapping: 1
   m_enableKerning: 1
-  m_enableExtraPadding: 0
+  m_enableExtraPadding: 1
   m_enableTintAllSprites: 0
   m_enableParseEscapeCharacters: 1
   m_EnableRaycastTarget: 0

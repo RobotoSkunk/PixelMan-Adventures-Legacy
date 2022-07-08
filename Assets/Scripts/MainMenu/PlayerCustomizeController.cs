@@ -2,6 +2,8 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
+using TMPro;
+
 using RobotoSkunk.PixelMan.Gameplay;
 
 
@@ -12,6 +14,7 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 		public Image playerPreview;
 		public SkinSelector skinSelectorButton;
 		public Transform buttonsContainer;
+		public TextMeshProUGUI avatarName;
 
 		[Header("Garbage")]
 		public SpriteRenderer playerSprite;
@@ -25,9 +28,9 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 		private void Start() {
 			playerPreview.color = colorPicker.color = Globals.playerData.color;
 
+			SetState(Player.State.IDLE);
 			SetPreviewPlayer();
 			SetPreviewSprite();
-			SetState(Player.State.IDLE);
 
 			for (int i = 0; i < Globals.playerCharacters.Length; i++) {
 				SkinSelector sks = Instantiate(skinSelectorButton, buttonsContainer);
@@ -60,14 +63,19 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 		}
 
 		void SetPreviewSprite() {
+			if (playerSprite.sprite == null) return;
+
 			playerPreview.sprite = playerSprite.sprite;
 			playerPreview.SetNativeSize();
+			playerPreview.rectTransform.pivot = playerSprite.sprite.pivot / playerSprite.sprite.rect.size;
 		}
 
 		void SetPreviewPlayer() {
 			Globals.PlayerCharacters ps = Globals.playerCharacters.ClampIndex((int)Globals.playerData.skinIndex);
 			playerAnimator.runtimeAnimatorController = ps.controller;
 			ResetAnimation();
+
+			avatarName.text = ps.name;
 		}
 
 		void ResetAnimation() {

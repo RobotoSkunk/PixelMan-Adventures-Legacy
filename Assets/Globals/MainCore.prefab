@@ -93,7 +93,7 @@ MonoBehaviour:
       shakeStrenght: 0.5
       options: 0
     volume:
-      music: 1
+      music: 0
       fx: 1
       master: 1
     editor:
@@ -103,16 +103,19 @@ MonoBehaviour:
     displayName: Player
     accessToken: 
     color: {r: 1, g: 1, b: 1, a: 1}
-    skinIndex: 0
+    skinIndex: 2
     fun: 0
   audioTransitionFactor: 0.085
   playerCharacters:
-  - name: Default
+  - name: Pixelar
     display: {fileID: 3338216053436577882, guid: 7fd017377abf2284ca95efd90bded325, type: 3}
     controller: {fileID: 9100000, guid: a704fed66fa6ccf4ba0c6f828459d538, type: 2}
-  - name: Alien
+  - name: Invader
     display: {fileID: -2273262987894464175, guid: 7fd017377abf2284ca95efd90bded325, type: 3}
     controller: {fileID: 9100000, guid: 6855b228aed06e3468ac534e795d3d36, type: 2}
+  - name: PixelFox
+    display: {fileID: 724422300144628181, guid: 7fd017377abf2284ca95efd90bded325, type: 3}
+    controller: {fileID: 9100000, guid: 749083bc5a5de3d489c42a535555de4a, type: 2}
   objects:
   - name: Default block
     gameObject: {fileID: 8956469483171973529, guid: c948d7796ff06594e8a34e4476db98f2, type: 3}

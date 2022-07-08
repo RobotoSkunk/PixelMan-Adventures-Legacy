@@ -57,7 +57,7 @@ namespace RobotoSkunk.PixelMan {
 		public static Settings.LangWrapper langWrapper;
 		public static float gmVolume = 1f, shakeForce = 0f;
 		public static Vector2 respawnPoint;
-		public static int checkpointId = 0, buttonSelected;
+		public static int checkpointId = 0, buttonSelected, mainMenuSection = 0;
 		public static InputType inputType;
 		public static List<InGameObject> objects;
 
