@@ -1303,6 +1303,279 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Button-T1
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 319
+        width: 28
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 26, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7875bdf43f735f47bf638fe6e3d14f9
+      internalID: 1033676227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button-T2
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 265
+        width: 46
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 44, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f912da92720dfe42afb5c2218210eae
+      internalID: -1939519551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn-icon-play
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 231
+        width: 15
+        height: 14
+      alignment: 9
+      pivot: {x: 0.4666667, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08d5192edfc351b4aa2b11401343876b
+      internalID: -13258650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn-icon-achievements
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 253
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d30fd15398c943447a06fe1c93618554
+      internalID: -1923701582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn-icon-exit
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 253
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a118bc51a15c7df4fb5ad63e28700f27
+      internalID: -366013911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn-icon-settings
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 296
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0326a8bf79451c2449111ba3157c7cdd
+      internalID: -253604558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button-account
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 326
+        width: 133
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1c8a17c5a4ee664ca5c8c3d45fecfff
+      internalID: 2032717371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button-credits
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 209
+        width: 133
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1f84c34ec242bb4ba901828039f016a
+      internalID: -1265729555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn-social-youtube
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 319
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ef5e1bfb1002f84090f6369f7df9091
+      internalID: 341688520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn-social-facebook
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 355
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bf43983a9901444fa93e5c13fe8a66a
+      internalID: 1636844418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn-social-github
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 391
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6306abe633a7cb0448d384eb9a5a5e3c
+      internalID: -1940428192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn-social-website
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 391
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d55172f4da025247b75d942312f26de
+      internalID: -904043096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn-social-twitter
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 355
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc79dab8f15cd8546854a9e8f17f9476
+      internalID: -1240474371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -1314,30 +1587,38 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      btn-rgb-1: 1480581391
       Button-back: -905986701
+      Editor-button-zoomAdd: -1436274194
       bar-color-palette: 5438888047807879708
       Button-right: 252892595
       btn-hsv1-0: 347979576
       btn-hex-1: -1803052031
+      btn-rgb-1: 1480581391
+      btn-social-github: -1940428192
+      Button-T2: -1939519551
       Editor-button-objects: -952989520
       bar-hue-palette: -4019474977474178137
       btn-hsv2-1: -1261916
+      Button-credits: -1265729555
       Editor-button-container: 746526994
       Button-left: 1793650563
       Button-switch-off: 85650759
       palette-sv-white: -1605685468875770678
+      btn-icon-exit: -366013911
       Color-picker: 7786610187498457116
+      btn-icon-achievements: -1923701582
       Editor-button-stop: 1953064187
       btn-hex-0: -2079380455
+      btn-icon-settings: -253604558
+      btn-social-youtube: 341688520
       base-rect-border-2: -634390419545406517
       base-rect-border-4: -280262383310750262
       rulette-hue: 325564063192308738
-      base-rect-border-3: 6931351593359424303
-      Editor-button-pause: 1321980181
       button-pause: -6294512886237695265
-      Editor-button-settings: 3816540026819079933
+      Editor-button-pause: 1321980181
+      slider-border-1: 2211136918358296430
       Editor-button-showPanel: 1057841057
+      Editor-button-settings: 3816540026819079933
       Editor-button-save: -1491967587
       blank: 2054124001041304269
       Gamepad-RT: 1683522589
@@ -1352,30 +1633,35 @@ TextureImporter:
       Button-container-1: -527067623
       Alex Skunk: -6377995968244068863
       Editor-button-hidePanel: 1731858915
+      base-rect-border-3: 6931351593359424303
       Color-bar-h: 1812897042
+      btn-social-website: -904043096
       Slider-container: -2051916891
       Button-switch-on: -1735754346
       bar-alpha-palette: -574547697581011041
       Editor-button-help: 815706927
-      slider-border-1: 2211136918358296430
       Editor-button-redo: -1727614579
       Button-minus: -1134415044
       Color-bar-handler: -997809473
       bar-color-container: 7713757842985170668
+      btn-icon-play: -13258650
+      btn-social-facebook: 1636844418
       Editor-button-options: 1123823680
       Editor-button-properties: -676435924
       Editor-selectionArea: -584654700
+      Button-account: 2032717371
       Editor-button-zoomReset: -1004530483
-      base-rect-border-1: 9010152221549391988
+      btn-social-twitter: -1240474371
       console-controller: 1293517014411768107
-      Button-container-0: -1312120766
       Editor-button-run: 243878023
-      btn-rgb-0: -748758907
       Editor-button-zoomRemove: -780712959
       Cur-default: -756887439
       base-rect-corner: 8267307703009234630
-      Editor-button-zoomAdd: -1436274194
+      Button-container-0: -1312120766
+      base-rect-border-1: 9010152221549391988
+      Button-T1: 1033676227
       palette-sv: 3191599451653250520
+      btn-rgb-0: -748758907
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

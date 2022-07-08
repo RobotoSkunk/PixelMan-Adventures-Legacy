@@ -83,7 +83,6 @@ namespace RobotoSkunk.PixelMan.UI {
 			saturationChannelBar.color = colH;
 			valueChannelBar.color = Color.HSVToRGB(h, s, 1f);
 			saturationValueChannelSquare.color = colH;
-			svPicker.color = inverted;
 			#endregion
 
 			#region RGB Color Channel bars
@@ -149,7 +148,8 @@ namespace RobotoSkunk.PixelMan.UI {
 		public void GetHexValue(string hex) {
 			if (hex.StartsWith("#")) hex = hex[1..];
 			if (hex.Length != 6 && hex.Length != 8) return;
-			if (!Regex.IsMatch(hex, @"^[0-9a-fA-F]$")) return;
+			if (!Regex.IsMatch(hex, "[0-9a-fA-F]")) return;
+			if (hex.Length == 6) hex += "FF";
 
 			int rgba = int.Parse(hex, System.Globalization.NumberStyles.HexNumber);
 
@@ -174,7 +174,7 @@ namespace RobotoSkunk.PixelMan.UI {
 
 		void UpdateHex() {
 			string hex = allowAlpha ? ColorUtility.ToHtmlStringRGBA(__color) : ColorUtility.ToHtmlStringRGB(__color);
-			inputField.text = string.Concat("#", hex);
+			inputField.SetTextWithoutNotify(string.Concat("#", hex));
 		}
 	}
 }
