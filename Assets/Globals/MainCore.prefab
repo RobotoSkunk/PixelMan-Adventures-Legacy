@@ -93,7 +93,7 @@ MonoBehaviour:
       shakeStrenght: 0.5
       options: 0
     volume:
-      music: 0
+      music: 1
       fx: 1
       master: 1
     editor:
@@ -103,7 +103,7 @@ MonoBehaviour:
     displayName: Player
     accessToken: 
     color: {r: 1, g: 1, b: 1, a: 1}
-    skinIndex: 2
+    skinIndex: 0
     fun: 0
   audioTransitionFactor: 0.085
   playerCharacters:
