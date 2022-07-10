@@ -28,34 +28,35 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 
 	public class MenuController : MonoBehaviour {
 		public Menu[] menus;
+		public GameObject[] parts;
 
 		[Header("Intro stuff")]
-		public float introTextSpeed;
-		public RectTransform text1, text2;
-		public GameObject introPanel;
+		public RectTransform text1, text2, introPanel;
 
 		bool moveTexts;
-		float introTimer;
 
 
 		private void Start() {
-			bool intro = Globals.musicType == MainCore.MusicClips.Type.NONE;
-
-			if (!intro) {
-				introPanel.SetActive(false);
+			if (!Globals.doIntro) {
+				introPanel.gameObject.SetActive(false);
 				Globals.musicType = MainCore.MusicClips.Type.MAIN_MENU;
-			} else StartCoroutine(DoIntro());
 
-			UpdateActiveMenu();
-			UpdatePositions(true);
+				UpdateActiveMenu();
+				UpdatePositions(true);
+			} else {
+				StartCoroutine(DoIntro());
+				SetActiveParts(false);
+			}
 		}
 
 		private void Update() {
 			UpdatePositions();
 
 			if (moveTexts) {
-				text1.anchoredPosition -= Time.deltaTime * new Vector2(introTextSpeed, 0f);
-				text2.anchoredPosition += Time.deltaTime * new Vector2(introTextSpeed, 0f);
+				float introSpeed = introPanel.sizeDelta.x / 2f * Time.deltaTime;
+
+				text1.anchoredPosition -= introSpeed * Vector2.right;
+				text2.anchoredPosition += introSpeed * Vector2.right;
 			}
 		}
 
@@ -74,6 +75,11 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 			UpdateActiveMenu();
 		}
 
+		void SetActiveParts(bool active) {
+			for (int i = 0; i < parts.Length; i++)
+				parts[i].SetActive(active);
+		}
+
 
 		IEnumerator DoIntro() {
 			yield return new WaitForSeconds(2.5f);
@@ -84,7 +90,12 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 			
 			yield return new WaitForSeconds(1.8f);
 			moveTexts = false;
-			introPanel.SetActive(false);
+			introPanel.gameObject.SetActive(false);
+			SetActiveParts(true);
+			UpdateActiveMenu();
+			UpdatePositions(true);
+
+			Globals.doIntro = false;
 		}
 	}
 }

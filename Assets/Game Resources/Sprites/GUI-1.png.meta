@@ -1585,7 +1585,7 @@ TextureImporter:
         width: 80
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1593,6 +1593,27 @@ TextureImporter:
       bones: []
       spriteID: 282f9f34688668942b2560da6af0af28
       internalID: -1618493472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Volume-bar
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 95
+        width: 128
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7e7c3ac9c57335469f857e601edbfc2
+      internalID: -526204447
       vertices: []
       indices: 
       edges: []
@@ -1609,14 +1630,14 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Button-back: -905986701
-      Editor-button-zoomAdd: -1436274194
+      palette-sv: 3191599451653250520
       bar-color-palette: 5438888047807879708
       Button-right: 252892595
       btn-hsv1-0: 347979576
       btn-hex-1: -1803052031
       btn-social-github: -1940428192
-      base-rect-border-1: 9010152221549391988
       Button-T2: -1939519551
+      btn-rgb-1: 1480581391
       Editor-button-objects: -952989520
       bar-hue-palette: -4019474977474178137
       btn-hsv2-1: -1261916
@@ -1629,6 +1650,7 @@ TextureImporter:
       Color-picker: 7786610187498457116
       btn-icon-achievements: -1923701582
       Editor-button-stop: 1953064187
+      Volume-bar: -526204447
       btn-hex-0: -2079380455
       btn-icon-settings: -253604558
       btn-social-youtube: 341688520
@@ -1674,16 +1696,16 @@ TextureImporter:
       Button-account: 2032717371
       Editor-button-zoomReset: -1004530483
       btn-social-twitter: -1240474371
+      base-rect-border-1: 9010152221549391988
       console-controller: 1293517014411768107
-      Editor-button-run: 243878023
       Button-container-0: -1312120766
-      Editor-button-zoomRemove: -780712959
+      Editor-button-run: 243878023
       btn-rgb-0: -748758907
-      base-rect-corner: 8267307703009234630
-      Cur-default: -756887439
+      Editor-button-zoomRemove: -780712959
       Button-T1: 1033676227
-      palette-sv: 3191599451653250520
-      btn-rgb-1: 1480581391
+      base-rect-corner: 8267307703009234630
+      Editor-button-zoomAdd: -1436274194
+      Cur-default: -756887439
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

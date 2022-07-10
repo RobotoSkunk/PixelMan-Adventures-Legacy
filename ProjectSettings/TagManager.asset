@@ -18,6 +18,7 @@ TagManager:
   - InputEventSystem
   - EditorObject
   - EnableScroll
+  - Coin
   layers:
   - Default
   - TransparentFX

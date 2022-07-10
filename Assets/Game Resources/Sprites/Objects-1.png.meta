@@ -2095,7 +2095,7 @@ TextureImporter:
         width: 28
         height: 28
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2103,6 +2103,216 @@ TextureImporter:
       bones: []
       spriteID: 7a4e4505923e4824e93921d6b0c88387
       internalID: 856374703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-coin-0
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 435
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b30c9fbe43e858443a6e68e37ad84782
+      internalID: -1249281701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-coin-1
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 435
+        width: 14
+        height: 17
+      alignment: 9
+      pivot: {x: 0.53571427, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f16c48a4d42d1664c86aaa7f808b2b36
+      internalID: 1179883978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-coin-2
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 435
+        width: 10
+        height: 17
+      alignment: 9
+      pivot: {x: 0.55, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f94a42634b4c8b74f98a546112a656be
+      internalID: -437511755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-coin-3
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 417
+        width: 6
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa81a9cf399418a4a94a58b61faa5cd8
+      internalID: 1418172243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-coin-4
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 419
+        width: 10
+        height: 17
+      alignment: 9
+      pivot: {x: 0.45, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7129db2e1638670478354250908c2351
+      internalID: 1823569288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obj-coin-5
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 435
+        width: 14
+        height: 17
+      alignment: 9
+      pivot: {x: 0.4642857, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7047d44fa8c4faf4ba701ffd632f3c9f
+      internalID: -1118064248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sparkle-0
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 409
+        width: 1
+        height: 1
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f5e0ec255fd0264fa8a99cfd5aafaae
+      internalID: -800331290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sparkle-1
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 407
+        width: 3
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2f87069fcadedb49ba10ff641391963
+      internalID: 1903357969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sparkle-2
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 411
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b2f3755431dc794faf651af17bd9dee
+      internalID: -1198560508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sparkle-3
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 411
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dbd615ba3f80484b8bdcff712e9601f
+      internalID: -1502426503
       vertices: []
       indices: 
       edges: []
@@ -2125,6 +2335,7 @@ TextureImporter:
       Pointed-line-3: 1726025340
       Preview-gravity-switch: 856374703
       Obj-saw: -3628955789918953988
+      Obj-coin-2: -437511755
       Obj-static-gun: 1578965865
       Obj-rocket-5: 564930306
       Preview-checkpoint: 1745425481
@@ -2134,6 +2345,7 @@ TextureImporter:
       Obj-lasergun-outline: 506532716
       Obj-block-ice: -3268829529888356909
       Obj-rocket-2: 1313608394
+      Sparkle-3: -1502426503
       Pointed-line-0: 1534981881
       Obj-saw-base: -7177038359938043184
       Obj-lasergun-2: -487177794
@@ -2143,8 +2355,10 @@ TextureImporter:
       Obj-button-0: 582035530
       Obj-block-toggle-0: -1083771288
       Obj-block-special-0: 305123104
-      Obj-laser-0: 1663440724
       Obj-finish-4: -2139162831
+      Obj-laser-0: 1663440724
+      Sparkle-2: -1198560508
+      Obj-coin-4: 1823569288
       Obj-number-3: 1866114055
       Obj-switch-2: -1397556029
       Pointed-line-5: -2027738764
@@ -2152,15 +2366,18 @@ TextureImporter:
       Pointed-line-6: -1939871824
       Pointed-line-4: 2122876962
       Obj-lasergun-6: -1573321960
+      Obj-coin-3: 1418172243
       Obj-number-2: 717795536
       Obj-number-7: 1609224833
       Obj-finish-10: -1428930924
-      Obj-switch-6: -1401883316
-      Obj-switch-0: 1035999500
       Obj-lasergun-1: -405821941
+      Obj-switch-0: 1035999500
+      Obj-switch-6: -1401883316
       Obj-lasergun-8: 2122093972
+      Sparkle-0: -800331290
       Obj-gravity-switch-particles: -2032692991992021066
       Obj-block-toggle-2: -1033014114
+      Obj-coin-0: -1249281701
       Obj-trampoline-2: -1688769666
       Preview-saw-base: -628639985
       Obj-number-0: -806003791
@@ -2190,8 +2407,10 @@ TextureImporter:
       Obj-magnet: 6118266599247217843
       Obj-finish-9: -172941664
       Obj-button-1: 1161002461
+      Obj-coin-5: -1118064248
       Obj-spike: -4688537935949528539
       Obj-checkpoint-0: 804760411
+      Obj-coin-1: 1179883978
       Obj-lasergun-10: 957438984
       Obj-intelligent-rocket-0: -1481203256
       Obj-number-5: -278800795
@@ -2211,6 +2430,7 @@ TextureImporter:
       Obj-intelligent-rocket-1: -1248975459
       Obj-platform-0: -546009425
       Obj-switch-7: -2030122291
+      Sparkle-1: 1903357969
       Obj-rocket-3: -723275759
   spritePackingTag: 
   pSDRemoveMatte: 0
