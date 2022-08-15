@@ -1,0 +1,8 @@
+version: 2
+tpsheetFileNames:
+- Assets/Game Resources/Sprites/Atlas/atlas-1.tpsheet
+textureFileNames:
+- Assets/Game Resources/Sprites/Atlas/atlas-1.png
+normalmapFileNames:
+- 
+enableDebugOutput: 0

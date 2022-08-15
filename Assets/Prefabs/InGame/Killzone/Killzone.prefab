@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7892106377978383869, guid: 20389dd01a32da842bae8e10845b154f, type: 3}
+  m_Sprite: {fileID: -1619722049, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -129,7 +129,7 @@ MonoBehaviour:
   - {fileID: 1195079220087769136}
   renderers:
   - {fileID: 2365136283745573753}
-  editorCollider: {fileID: 0}
+  editorColliders: []
   onEditorCallback:
     m_PersistentCalls:
       m_Calls:
@@ -148,6 +148,39 @@ MonoBehaviour:
   onNotEditorCallback:
     m_PersistentCalls:
       m_Calls: []
+  onSetProperties:
+    m_PersistentCalls:
+      m_Calls: []
+  __prop:
+    id: 0
+    position: {x: 0, y: 0}
+    scale: {x: 0, y: 0}
+    rotation: 0
+    renderOrder: 0
+    skinIndex: 0
+    speed: 0
+    wakeTime: 0
+    reloadTime: 0
+    invertGravity: 0
+    spawnSaw: 0
+    direction: 0
+    directionHorizontal: 0
+    directionVertical: 0
+  __lastProp:
+    id: 0
+    position: {x: 0, y: 0}
+    scale: {x: 0, y: 0}
+    rotation: 0
+    renderOrder: 0
+    skinIndex: 0
+    speed: 0
+    wakeTime: 0
+    reloadTime: 0
+    invertGravity: 0
+    spawnSaw: 0
+    direction: 0
+    directionHorizontal: 0
+    directionVertical: 0
 --- !u!114 &1195079220087769136
 MonoBehaviour:
   m_ObjectHideFlags: 0

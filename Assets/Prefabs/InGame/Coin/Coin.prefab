@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1249281701, guid: 20389dd01a32da842bae8e10845b154f, type: 3}
+  m_Sprite: {fileID: -1854563452, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1590,10 +1590,10 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: -800331290, guid: 20389dd01a32da842bae8e10845b154f, type: 3}
-    - sprite: {fileID: 1903357969, guid: 20389dd01a32da842bae8e10845b154f, type: 3}
-    - sprite: {fileID: -1198560508, guid: 20389dd01a32da842bae8e10845b154f, type: 3}
-    - sprite: {fileID: -1502426503, guid: 20389dd01a32da842bae8e10845b154f, type: 3}
+    - sprite: {fileID: 1848512047, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
+    - sprite: {fileID: -1057568552, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
+    - sprite: {fileID: -139829212, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
+    - sprite: {fileID: -1348035571, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:

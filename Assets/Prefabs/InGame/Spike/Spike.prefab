@@ -129,7 +129,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4688537935949528539, guid: 20389dd01a32da842bae8e10845b154f, type: 3}
+  m_Sprite: {fileID: 1272456788, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -155,7 +155,6 @@ MonoBehaviour:
   scripts: []
   renderers:
   - {fileID: 1840475295383933793}
-  editorCollider: {fileID: 3409696862458486991}
   editorColliders:
   - {fileID: 3409696862458486991}
   onEditorCallback:

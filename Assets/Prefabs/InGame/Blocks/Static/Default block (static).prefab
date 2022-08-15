@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 8229598875086543445, guid: d2a114b1be56ebe4a92b18b4001732f8, type: 3}
+  m_Sprite: {fileID: -1079774194, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -127,9 +127,43 @@ MonoBehaviour:
   scripts: []
   renderers:
   - {fileID: 4123075766293717894}
+  editorColliders: []
   onEditorCallback:
     m_PersistentCalls:
       m_Calls: []
   onNotEditorCallback:
     m_PersistentCalls:
       m_Calls: []
+  onSetProperties:
+    m_PersistentCalls:
+      m_Calls: []
+  __prop:
+    id: 0
+    position: {x: 0, y: 0}
+    scale: {x: 0, y: 0}
+    rotation: 0
+    renderOrder: 0
+    skinIndex: 0
+    speed: 0
+    wakeTime: 0
+    reloadTime: 0
+    invertGravity: 0
+    spawnSaw: 0
+    direction: 0
+    directionHorizontal: 0
+    directionVertical: 0
+  __lastProp:
+    id: 0
+    position: {x: 0, y: 0}
+    scale: {x: 0, y: 0}
+    rotation: 0
+    renderOrder: 0
+    skinIndex: 0
+    speed: 0
+    wakeTime: 0
+    reloadTime: 0
+    invertGravity: 0
+    spawnSaw: 0
+    direction: 0
+    directionHorizontal: 0
+    directionVertical: 0

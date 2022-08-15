@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 6397528744559725978, guid: 20389dd01a32da842bae8e10845b154f, type: 3}
+  m_Sprite: {fileID: -1102216038, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -157,7 +157,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 6397528744559725978, guid: 20389dd01a32da842bae8e10845b154f, type: 3}
+  m_Sprite: {fileID: -1102216038, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
   m_Color: {r: 0.7, g: 0.7, b: 0.7, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -241,7 +241,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2032692991992021066, guid: 20389dd01a32da842bae8e10845b154f, type: 3}
+  m_Sprite: {fileID: 155663615, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -437,7 +437,6 @@ MonoBehaviour:
   - {fileID: 3739546504761386038}
   - {fileID: 2495238230121098376}
   - {fileID: 7812796714201804713}
-  editorCollider: {fileID: 6067414985142913003}
   editorColliders:
   - {fileID: 6067414985142913003}
   onEditorCallback:

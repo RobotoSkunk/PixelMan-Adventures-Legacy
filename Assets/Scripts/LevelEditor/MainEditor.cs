@@ -184,7 +184,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		private void Start() {
 			g_Material = grids.material;
 			cursorPos = Globals.screen / 2f;
-			// Globals.musicType = MainCore.MusicClips.Type.EDITOR;
+			// Globals.musicType = GameDirector.MusicClips.Type.EDITOR;
 
 			foreach (PanelStruct panel in panels)
 				panel.internals.wasOpen = true;

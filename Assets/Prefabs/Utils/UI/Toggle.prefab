@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1735754346, guid: c9a941e71eff10d458d5413e27ee60f6, type: 3}
+  m_Sprite: {fileID: -563814930, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 85650759, guid: c9a941e71eff10d458d5413e27ee60f6, type: 3}
+  m_Sprite: {fileID: -800540760, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -206,15 +206,19 @@ MonoBehaviour:
   selectOnUp:
     useAutomatic: 1
     selectable: {fileID: 0}
+    addRotation: {x: 0, y: 0, z: 0}
   selectOnDown:
     useAutomatic: 1
     selectable: {fileID: 0}
+    addRotation: {x: 0, y: 0, z: 0}
   selectOnLeft:
     useAutomatic: 1
     selectable: {fileID: 0}
+    addRotation: {x: 0, y: 0, z: 0}
   selectOnRight:
     useAutomatic: 1
     selectable: {fileID: 0}
+    addRotation: {x: 0, y: 0, z: 0}
 --- !u!114 &8275092909591719159
 MonoBehaviour:
   m_ObjectHideFlags: 0

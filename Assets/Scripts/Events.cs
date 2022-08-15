@@ -34,7 +34,7 @@ namespace RobotoSkunk.PixelMan {
 
 		public static class GeneralEventsHandler {
 			public delegate void AudioEvent(AudioClip clip);
-			public delegate void MusicEvent(MainCore.MusicClips.Type type);
+			public delegate void MusicEvent(GameDirector.MusicClips.Type type);
 			public delegate void ShakeEvent(float force, float time);
 
 			public static event AudioEvent PlayOnBG = delegate { };
@@ -42,7 +42,7 @@ namespace RobotoSkunk.PixelMan {
 			public static event ShakeEvent ShakeFx = delegate { };
 
 			public static void PlayOnBackground(AudioClip clip) => PlayOnBG(clip);
-			public static void ChangeMusic(MainCore.MusicClips.Type type) => ChgMusic(type);
+			public static void ChangeMusic(GameDirector.MusicClips.Type type) => ChgMusic(type);
 			public static void SetShake(float force, float time) => ShakeFx(force, time);
 		}
 

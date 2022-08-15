@@ -7,7 +7,7 @@ using UnityEditor.UI;
 namespace RobotoSkunk.PixelMan.UI {
 	[AddComponentMenu("UI/RobotoSkunk - Slider")]
 	public class RSSlider : Slider {
-		[Range(0f, 1f)] public float snapValue = 0f;
+		[MinAttribute(0f)] public float snapValue = 0f;
 		public IntelliNav selectOnUp, selectOnDown, selectOnLeft, selectOnRight;
 
 		public SliderEvent onEndValueChange = new();

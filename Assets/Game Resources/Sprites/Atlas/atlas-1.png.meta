@@ -1,0 +1,5282 @@
+fileFormatVersion: 2
+guid: 4eb0c0502dfa80e44a4990914b03ab76
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: avatars-avatar-0-falling-0
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 255
+        width: 7
+        height: 14
+      alignment: 9
+      pivot: {x: 0.5714286, y: 0.42857143}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30352ac685a9f4d41b07ad6cc46d6e6a
+      internalID: -1303608682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-0-falling-1
+      rect:
+        serializedVersion: 2
+        x: 1163
+        y: 163
+        width: 8
+        height: 13
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3846154}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb8857ec16d4f6f4d8e49a362cc11403
+      internalID: 1780259897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-0-falling-2
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 104
+        width: 10
+        height: 14
+      alignment: 9
+      pivot: {x: 0.5, y: 0.42857143}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 322384967a4227249a2c7a14996d227b
+      internalID: 582735404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-0-idle-0
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 214
+        width: 9
+        height: 17
+      alignment: 9
+      pivot: {x: 0.5555556, y: 0.47058824}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ba7b8fb0b9811442968cf0198715aad
+      internalID: -1673497317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-0-jumping-0
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 236
+        width: 7
+        height: 16
+      alignment: 9
+      pivot: {x: 0.42857143, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40068b8f9d42a4d4db578b663deb10e0
+      internalID: 170975863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-0-jumping-1
+      rect:
+        serializedVersion: 2
+        x: 1176
+        y: 35
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f6cef96a3d650842a52c3a30261c6e9
+      internalID: -2004258664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-0-running-0
+      rect:
+        serializedVersion: 2
+        x: 1177
+        y: 217
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80e3d6fba218a3a479ac6978454350bb
+      internalID: -118637379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-0-running-1
+      rect:
+        serializedVersion: 2
+        x: 1189
+        y: 254
+        width: 9
+        height: 15
+      alignment: 9
+      pivot: {x: 0.44444445, y: 0.5333333}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a06033d1229a9a4d93ee81f896a3520
+      internalID: 1253813104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-0-running-2
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 252
+        width: 6
+        height: 15
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.5333333}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e1efc5b850314a4a9ceb2a7c0503be2
+      internalID: -1749809834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-0-running-3
+      rect:
+        serializedVersion: 2
+        x: 1177
+        y: 160
+        width: 10
+        height: 16
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f039ee32454b48242a5c4833456ea3c8
+      internalID: -2001929311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-0-running-4
+      rect:
+        serializedVersion: 2
+        x: 1177
+        y: 235
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd83bb766e1fd69469340e59499b0009
+      internalID: 1559636757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-0-running-5
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 219
+        width: 8
+        height: 15
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5333333}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d323876d5fd35e4eaed078f6a74b3fb
+      internalID: -144223824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-0-running-6
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 43
+        width: 6
+        height: 15
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.5333333}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0abd06b8194e4747b071e704e7a36e6
+      internalID: 1232214920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-0-running-7
+      rect:
+        serializedVersion: 2
+        x: 1179
+        y: 180
+        width: 10
+        height: 16
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5f462c84a6a8b947ac42769c60792c2
+      internalID: -447143472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-1-falling-0
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 254
+        width: 8
+        height: 15
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dfa37ca293016d4481aca75d7033e14
+      internalID: 822633118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-1-falling-1
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 79
+        width: 8
+        height: 15
+      alignment: 9
+      pivot: {x: 0.625, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d24a553a3d9ae8f498d2566e1c7c06ad
+      internalID: 2122629982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-1-falling-2
+      rect:
+        serializedVersion: 2
+        x: 1175
+        y: 17
+        width: 11
+        height: 15
+      alignment: 9
+      pivot: {x: 0.54545456, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01c340feb553ab04ea489212aa036e71
+      internalID: -1996614777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-1-idle-0
+      rect:
+        serializedVersion: 2
+        x: 1177
+        y: 127
+        width: 9
+        height: 18
+      alignment: 9
+      pivot: {x: 0.44444445, y: 0.44444445}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e94429864861ec4da2c0df596375c85
+      internalID: 67251378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-1-jumping-0
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 252
+        width: 8
+        height: 17
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47058824}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c04753feebfcd24386609a8b519e527
+      internalID: -318287780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-1-jumping-1
+      rect:
+        serializedVersion: 2
+        x: 1163
+        y: 194
+        width: 12
+        height: 17
+      alignment: 9
+      pivot: {x: 0.5833333, y: 0.47058824}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36685b1d21fb3e946a675ea47dc4281e
+      internalID: -129926116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-1-running-0
+      rect:
+        serializedVersion: 2
+        x: 1163
+        y: 213
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a240de73cc200ca44aa96b1ff81aa36a
+      internalID: -828644475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-1-running-1
+      rect:
+        serializedVersion: 2
+        x: 1189
+        y: 199
+        width: 9
+        height: 16
+      alignment: 9
+      pivot: {x: 0.44444445, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc1e0b81cd96db84fbffad1abc5844f1
+      internalID: -250580995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-1-running-2
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 113
+        width: 6
+        height: 16
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7d754197747587498e8d5ba9dd0bbb4
+      internalID: -1669410137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-1-running-3
+      rect:
+        serializedVersion: 2
+        x: 1176
+        y: 108
+        width: 10
+        height: 17
+      alignment: 9
+      pivot: {x: 0.4, y: 0.47058824}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ccffe84722dba64d98d172d2aef39de
+      internalID: -796542255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-1-running-4
+      rect:
+        serializedVersion: 2
+        x: 1176
+        y: 253
+        width: 11
+        height: 17
+      alignment: 9
+      pivot: {x: 0.36363637, y: 0.47058824}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6792821b8a001449a3c14bf453c8eb5
+      internalID: 547441476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-1-running-5
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 239
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1032b875fe914a440b17667f20149439
+      internalID: 1096626880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-1-running-6
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 271
+        width: 9
+        height: 16
+      alignment: 9
+      pivot: {x: 0.44444445, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac7966a25804c4b46abc6c367a3977f8
+      internalID: -771926466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-1-running-7
+      rect:
+        serializedVersion: 2
+        x: 771
+        y: 46
+        width: 6
+        height: 16
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9f72538ebcd0a246a09263ff5d82a2a
+      internalID: -718276285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-1-running-8
+      rect:
+        serializedVersion: 2
+        x: 1177
+        y: 85
+        width: 10
+        height: 17
+      alignment: 9
+      pivot: {x: 0.4, y: 0.47058824}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cb8686c4b362a24e989053523b0a056
+      internalID: -2067072277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-2-falling-0
+      rect:
+        serializedVersion: 2
+        x: 1160
+        y: 90
+        width: 15
+        height: 16
+      alignment: 9
+      pivot: {x: 0.8, y: 0.375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3de8b31b9c6d76148b3a6282aa803b21
+      internalID: 155089004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-2-falling-1
+      rect:
+        serializedVersion: 2
+        x: 958
+        y: 199
+        width: 15
+        height: 15
+      alignment: 9
+      pivot: {x: 0.73333335, y: 0.33333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af12a972dc1366f49943bd272678c8c7
+      internalID: 456540672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-2-falling-2
+      rect:
+        serializedVersion: 2
+        x: 954
+        y: 233
+        width: 14
+        height: 16
+      alignment: 9
+      pivot: {x: 0.64285713, y: 0.375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b4c577c7379ca94a92d39ce5077d179
+      internalID: 304765734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-2-idle-0
+      rect:
+        serializedVersion: 2
+        x: 1145
+        y: 14
+        width: 13
+        height: 19
+      alignment: 9
+      pivot: {x: 0.6923077, y: 0.42105263}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03a9da8ae754868428fc427a4b46a3e4
+      internalID: -540359408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-2-jumping-0
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 135
+        width: 13
+        height: 18
+      alignment: 9
+      pivot: {x: 0.6923077, y: 0.44444445}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 655e93fcec9ec684ab39cd4cb4cfec65
+      internalID: 2048973737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-2-jumping-1
+      rect:
+        serializedVersion: 2
+        x: 1144
+        y: 118
+        width: 15
+        height: 18
+      alignment: 9
+      pivot: {x: 0.6666667, y: 0.44444445}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc88589081d101940a17bd9ff7f7e5df
+      internalID: 727516347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-2-running-0
+      rect:
+        serializedVersion: 2
+        x: 1142
+        y: 98
+        width: 16
+        height: 18
+      alignment: 9
+      pivot: {x: 0.625, y: 0.44444445}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db369be82c6a7d64195f2787cfcf5785
+      internalID: 1248217418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-2-running-1
+      rect:
+        serializedVersion: 2
+        x: 1160
+        y: 15
+        width: 13
+        height: 17
+      alignment: 9
+      pivot: {x: 0.61538464, y: 0.47058824}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f31ea87da218eeb41bc0a24db88b463a
+      internalID: -1335296273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-2-running-2
+      rect:
+        serializedVersion: 2
+        x: 1163
+        y: 232
+        width: 12
+        height: 17
+      alignment: 9
+      pivot: {x: 0.5833333, y: 0.47058824}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cacd753ff05934344b8eaa2c73233db4
+      internalID: 1689970800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-2-running-3
+      rect:
+        serializedVersion: 2
+        x: 1147
+        y: 170
+        width: 14
+        height: 18
+      alignment: 9
+      pivot: {x: 0.5714286, y: 0.44444445}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f003e1dc9f6461e46aeb86ef5db8beb8
+      internalID: -1868958703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-2-running-4
+      rect:
+        serializedVersion: 2
+        x: 1143
+        y: 246
+        width: 16
+        height: 18
+      alignment: 9
+      pivot: {x: 0.625, y: 0.44444445}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e0d8ec2d6299a94e8e7a8594a1a7b55
+      internalID: -226674747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-2-running-5
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 251
+        width: 16
+        height: 18
+      alignment: 9
+      pivot: {x: 0.5625, y: 0.44444445}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f62b57e5fbcbfcb4192b32fd2c205dcd
+      internalID: -1405350885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-2-running-6
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 234
+        width: 12
+        height: 17
+      alignment: 9
+      pivot: {x: 0.5833333, y: 0.47058824}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b57c3a4347c7384792561421f9e6248
+      internalID: -600091407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-2-running-7
+      rect:
+        serializedVersion: 2
+        x: 1147
+        y: 190
+        width: 14
+        height: 18
+      alignment: 9
+      pivot: {x: 0.5714286, y: 0.44444445}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 499529fbda18404439d15150e095cfd7
+      internalID: 1330280768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-3-falling-0
+      rect:
+        serializedVersion: 2
+        x: 1161
+        y: 34
+        width: 13
+        height: 17
+      alignment: 9
+      pivot: {x: 0.46153846, y: 0.47058824}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a062b46128d837b4ebab68b4f51b817c
+      internalID: 1837963769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-3-falling-1
+      rect:
+        serializedVersion: 2
+        x: 1161
+        y: 127
+        width: 13
+        height: 17
+      alignment: 9
+      pivot: {x: 0.46153846, y: 0.47058824}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca0faa82f9b4c13419f62e2cbc65b6e4
+      internalID: -38543083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-3-idle-0
+      rect:
+        serializedVersion: 2
+        x: 1161
+        y: 108
+        width: 13
+        height: 17
+      alignment: 9
+      pivot: {x: 0.46153846, y: 0.47058824}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 697f6e9ac1bfbcb4eafe8082a2061413
+      internalID: -743508338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-3-jumping-0
+      rect:
+        serializedVersion: 2
+        x: 1175
+        y: 272
+        width: 13
+        height: 15
+      alignment: 9
+      pivot: {x: 0.46153846, y: 0.5333333}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa5f1925a3af22841a69d4956c826ef7
+      internalID: 1019447442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-3-running-0
+      rect:
+        serializedVersion: 2
+        x: 1161
+        y: 108
+        width: 13
+        height: 17
+      alignment: 9
+      pivot: {x: 0.46153846, y: 0.47058824}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 907aa0a884f6d4747be2dff3ebf617d8
+      internalID: -1509888920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-3-running-1
+      rect:
+        serializedVersion: 2
+        x: 1161
+        y: 251
+        width: 13
+        height: 17
+      alignment: 9
+      pivot: {x: 0.46153846, y: 0.47058824}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2de78acc71bbc914d88ac912a2274340
+      internalID: -1107923794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-3-running-2
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 1
+        width: 13
+        height: 16
+      alignment: 9
+      pivot: {x: 0.46153846, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3aba2a4f3e5ae194c96f1b92410272d1
+      internalID: -538644804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-3-running-3
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 229
+        width: 13
+        height: 16
+      alignment: 9
+      pivot: {x: 0.46153846, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ca8f6885f38a4e40a71118caadadf39
+      internalID: 1285855309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-default
+      rect:
+        serializedVersion: 2
+        x: 1145
+        y: 210
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a768f38fe514d0243afad15ddd3149ea
+      internalID: -1079774194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-cute-stinker
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 5
+        width: 270
+        height: 282
+      alignment: 8
+      pivot: {x: 1, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77443a3f36a73ba4f9711c37aca495c6
+      internalID: 1231714849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-area-selector
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 156
+        width: 3
+        height: 3
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 1, y: 1, z: 1, w: 1}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaf71b0380b6a674984e8406ad4f4f58
+      internalID: -1504070027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-buttons-back
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 25
+        width: 133
+        height: 43
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a50a91479b2d47b4cb5c86a4436884a1
+      internalID: -1255911101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-buttons-credits
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 70
+        width: 133
+        height: 43
+      alignment: 8
+      pivot: {x: 1, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9b807da230812f4d960e50c3ea73289
+      internalID: -370571130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-buttons-editor-help
+      rect:
+        serializedVersion: 2
+        x: 953
+        y: 37
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3caabbfab0e7f7e48a3d92f85006e735
+      internalID: -953385279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-buttons-editor-hide
+      rect:
+        serializedVersion: 2
+        x: 890
+        y: 250
+        width: 46
+        height: 31
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70c9ebfba7706b94c99430048b8db567
+      internalID: 519071301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-buttons-editor-objects
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 1
+        width: 32
+        height: 22
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc0d45ea93981ad47b9a103fdde3fb89
+      internalID: 2123002278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-buttons-editor-options
+      rect:
+        serializedVersion: 2
+        x: 1069
+        y: 203
+        width: 32
+        height: 22
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b0539045f559b94687ea46ef5e8dafb
+      internalID: -1359528598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-buttons-editor-pause
+      rect:
+        serializedVersion: 2
+        x: 951
+        y: 71
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64c4cdb13f3efeb4cb09a98ee87cb4e8
+      internalID: 18266927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-buttons-editor-properties
+      rect:
+        serializedVersion: 2
+        x: 1069
+        y: 179
+        width: 32
+        height: 22
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8ce667332f78494c923609cfbad2f70
+      internalID: -1176678625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-buttons-editor-redo
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 199
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5e4c1e1962458d4a8380368af40792e
+      internalID: 709878959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-buttons-editor-save
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ee965f33266891478c711959f8e0e94
+      internalID: -315829979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-buttons-editor-settings
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 74
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4848b00f35332234482aa7d9633bd3fa
+      internalID: -1704998907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-buttons-editor-show
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 71
+        width: 46
+        height: 31
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 165d7095f0c37b24d8dfe4a83ac408c5
+      internalID: 434883368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-buttons-editor-stop
+      rect:
+        serializedVersion: 2
+        x: 1039
+        y: 214
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8ba7d1cf7f38aa4e9a410435426d237
+      internalID: 762406547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-buttons-editor-test
+      rect:
+        serializedVersion: 2
+        x: 1009
+        y: 195
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 831b774c7e5a0c84a86f9594c5a080e6
+      internalID: -250386631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-buttons-editor-undo
+      rect:
+        serializedVersion: 2
+        x: 1039
+        y: 179
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0244a011f50ca74eb9f6c3f5fb08823
+      internalID: 667344800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-buttons-editor-zoom-in
+      rect:
+        serializedVersion: 2
+        x: 1093
+        y: 262
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7405a33aa0b99b246bc2068fa8d09a56
+      internalID: -1286464795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-buttons-editor-zoom-out
+      rect:
+        serializedVersion: 2
+        x: 1089
+        y: 102
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0eedc86978a005e4d9f2347102685346
+      internalID: -2044922546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-buttons-editor-zoom-reset
+      rect:
+        serializedVersion: 2
+        x: 1089
+        y: 75
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb1cbbfa413afc7488b5b610c10cb580
+      internalID: -86167700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-buttons-left
+      rect:
+        serializedVersion: 2
+        x: 1171
+        y: 69
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d71776176f6f304db2732322fade4d7
+      internalID: -1391307328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-buttons-minus
+      rect:
+        serializedVersion: 2
+        x: 1163
+        y: 178
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7656fabd46360c4dae87356ad741b1d
+      internalID: 1598409594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-buttons-pause
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 142
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fdd67b2dc4ada54d829e6dd1dcf7858
+      internalID: -1113978040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-buttons-plus
+      rect:
+        serializedVersion: 2
+        x: 1165
+        y: 53
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fec23e0c0c3b19744816ebd8686e8059
+      internalID: -520602335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-buttons-profile
+      rect:
+        serializedVersion: 2
+        x: 958
+        y: 244
+        width: 133
+        height: 43
+      alignment: 3
+      pivot: {x: 1, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f33fcc042b3986438bbd680ff94cd04
+      internalID: 1620533948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-buttons-right
+      rect:
+        serializedVersion: 2
+        x: 1161
+        y: 146
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11a799b5517f612448e26acb4e60d896
+      internalID: -1334934824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-buttons-social-fb
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 105
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 915e4266c2cbb084e80d945c817238ac
+      internalID: -1025946489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-buttons-social-gh
+      rect:
+        serializedVersion: 2
+        x: 914
+        y: 68
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4d1a8a9c4070c5458fe48b26f0ed2a8
+      internalID: 1236875773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-buttons-social-tw
+      rect:
+        serializedVersion: 2
+        x: 757
+        y: 9
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a29985f6ee190124394448c8ce85f2b1
+      internalID: 762597615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-buttons-social-website
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 9
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b98316d8d165fe846aec83702f7184f3
+      internalID: -1734289602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-buttons-social-yt
+      rect:
+        serializedVersion: 2
+        x: 831
+        y: 9
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a976f8755fc95d247b481d5f6ba7fbc5
+      internalID: 1317596138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-buttons-T1
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 112
+        width: 28
+        height: 35
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 26, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86c471b7313931b47b0a1fcdbfbcc962
+      internalID: -1222942605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-buttons-T2
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 19
+        width: 46
+        height: 53
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 44, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a184eff5face154294625edb9c3f6b6
+      internalID: 1146535247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-buttons-toggle-off
+      rect:
+        serializedVersion: 2
+        x: 921
+        y: 199
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10acc2a113c7f574e9805448246dded2
+      internalID: -800540760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-buttons-toggle-on
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 156
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5211939d770574409b4af3ddc742dd3
+      internalID: -563814930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-color-selector-btn-hex-0
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 7
+        width: 32
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba070d2c502a72c46b2ca74f50919966
+      internalID: 1441351297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-color-selector-btn-hex-1
+      rect:
+        serializedVersion: 2
+        x: 1004
+        y: 230
+        width: 33
+        height: 12
+      alignment: 9
+      pivot: {x: 0.48484847, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29a3025273b044f43a0356500713fe57
+      internalID: 1154323618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-color-selector-btn-hsv1-0
+      rect:
+        serializedVersion: 2
+        x: 1099
+        y: 5
+        width: 28
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d18b71d25d49a04ba3e39b926387a20
+      internalID: -360627970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-color-selector-btn-hsv1-1
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 4
+        width: 29
+        height: 18
+      alignment: 9
+      pivot: {x: 0.4827586, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 222703924dbd5f0448622b559238c0b5
+      internalID: 1353082819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-color-selector-btn-hsv2-0
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 178
+        width: 30
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c729d965b8e65049bdbe86fdc8b4312
+      internalID: 1830238394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-color-selector-btn-hsv2-1
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 6
+        width: 31
+        height: 16
+      alignment: 9
+      pivot: {x: 0.48387098, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fadad52f04a8d6f4b878343de577c25b
+      internalID: -1790476286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-color-selector-btn-rgb-0
+      rect:
+        serializedVersion: 2
+        x: 990
+        y: 3
+        width: 32
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 712077b711173434b8b31d5a6a62d161
+      internalID: -294569085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-color-selector-btn-rgb-1
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 275
+        width: 33
+        height: 12
+      alignment: 9
+      pivot: {x: 0.48484847, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3590633783e17ac44a4a77e1a6f2f462
+      internalID: 122996945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-color-selector-color-bar-container
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 86
+        width: 128
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 381305792bd742c42b7b8fe1583a0ee2
+      internalID: -182551486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-color-selector-color-bar-flat
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 34
+        width: 122
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1351e644703c224fb7ec83f2faf4d91
+      internalID: -736451581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-color-selector-gradient-bar-palette
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 46
+        width: 122
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21c98b1ae5540ca4d9675684051036dc
+      internalID: -1933248331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-color-selector-handler
+      rect:
+        serializedVersion: 2
+        x: 871
+        y: 131
+        width: 5
+        height: 3
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e84eb2da0f48c0b499bbe7d2a91dd67c
+      internalID: -1414858831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-color-selector-h-picker
+      rect:
+        serializedVersion: 2
+        x: 647
+        y: 149
+        width: 16
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c7ad63a41c93c14ab75ac3cdb2cd9d2
+      internalID: -271658700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-color-selector-hue-bar-palette
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 58
+        width: 122
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b1ed2361a0bcf346a15b602ec38d921
+      internalID: -334781007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-color-selector-hue-rulette
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 143
+        width: 126
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec334a9e977df3b47a85ee4b63d12811
+      internalID: -1594576734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-color-selector-picker
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 136
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6915324343b35534395e1fab063ffbe4
+      internalID: 763494557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-color-selector-sv-palette
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 6
+        width: 66
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d48553ffba83e094aa8bca0e985663f5
+      internalID: -1026755271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-color-selector-transparency-checker-bar
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 74
+        width: 122
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 520c4e0c332d0954691dcacf0a0e3a65
+      internalID: 68122156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-containers-button-1
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 95
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 7, y: 7, z: 7, w: 7}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26129b1aa9a901a4a9044ad5a40030ac
+      internalID: 653004664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-containers-button-2
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 156
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 4, y: 4, z: 4, w: 4}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c2057ea4b7944248ae5280dcd12b1dc
+      internalID: 567913625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-containers-slider-1
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 273
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 4, y: 3, z: 4, w: 3}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd74321d10ab8244dbe1908f4dadec44
+      internalID: 854489077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-editor-cur-idle
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 108
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 525f3234d6e87b844ae5007cf01ea2a6
+      internalID: -973353001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-symbols-achievements
+      rect:
+        serializedVersion: 2
+        x: 1103
+        y: 182
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 601671865d8c77a4e98b13d88886078f
+      internalID: -1266882107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-symbols-exit
+      rect:
+        serializedVersion: 2
+        x: 1125
+        y: 27
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fceb1189fe202f14c9a37ffaf3e67e09
+      internalID: 30398175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-symbols-play
+      rect:
+        serializedVersion: 2
+        x: 1069
+        y: 228
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1b340d75554d794baf493ceb89b3e10
+      internalID: 2091085726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-volume-bar
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 24
+        width: 128
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9943ddea1b65b7747a84035124c8ce9d
+      internalID: -1701516507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-xbox-button-east
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 3
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ded16ced1c9bfdd48a45dc4c60ee4058
+      internalID: -1692920314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-xbox-button-east-pressed
+      rect:
+        serializedVersion: 2
+        x: 1103
+        y: 208
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2b8649fcf3e7014ba20a3dde723dbb4
+      internalID: -739816713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-xbox-button-north
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 1
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90a72ed996dec564f844ec9d9b0d8f2b
+      internalID: -664683458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-xbox-button-north-pressed
+      rect:
+        serializedVersion: 2
+        x: 1099
+        y: 23
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6441b7f3c1e7fd49b3cf06db10ea49c
+      internalID: -1765211814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-xbox-button-south
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 125
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a485b904c624594da3adcfb84f368c2
+      internalID: 1906842448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-xbox-button-south-pressed
+      rect:
+        serializedVersion: 2
+        x: 1099
+        y: 49
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68a771b3b5a78c241a576d3433264677
+      internalID: 48113091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-xbox-button-weast
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 60
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00b35371d276f294eb2a52a1d4c21f76
+      internalID: 1291757510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-xbox-button-weast-pressed
+      rect:
+        serializedVersion: 2
+        x: 1094
+        y: 129
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76ff6f8e748a421449d813e32942dff4
+      internalID: -1161896470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-xbox-controller
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 104
+        width: 275
+        height: 183
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e68c5494e911fe4793dfc586b1e4178
+      internalID: -1304000428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-xbox-trigger-left
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 261
+        width: 21
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7958b6871a7b9da428396c068a724035
+      internalID: -378977240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-xbox-trigger-right
+      rect:
+        serializedVersion: 2
+        x: 1116
+        y: 75
+        width: 21
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69dd62026954dfb43bd3594848827a6e
+      internalID: -929569765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-menu-dirt
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 271
+        width: 80
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84dfb9225b665c440ba159600759a002
+      internalID: -162251707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-title
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 220
+        width: 197
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83bcf2343dac74d48be4ac91badfbea4
+      internalID: -696897440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-BOOM
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 70
+        width: 98
+        height: 49
+      alignment: 9
+      pivot: {x: 0.48979592, y: 0.53061223}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ecf6a28892c91549afa5ea970b1348c
+      internalID: -664286575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-bullet-0
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 199
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d575e0e1feaf10543afb3efcd487c43a
+      internalID: -1117223788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-bullet-1
+      rect:
+        serializedVersion: 2
+        x: 1144
+        y: 138
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 441f8fe2b0ddf6b4cb64e8526879f4bd
+      internalID: 705424389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-gravity-switch
+      rect:
+        serializedVersion: 2
+        x: 1125
+        y: 53
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94373f270721484408715ee479ea6e52
+      internalID: -1102216038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-gravity-switch-particles
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 209
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f15d80f6f4f3fa49acab348156a7d9d
+      internalID: 155663615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-killzone
+      rect:
+        serializedVersion: 2
+        x: 1143
+        y: 149
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54376daeb9d9e804082be30959658359
+      internalID: -1619722049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-rocket-launcher
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 27
+        width: 41
+        height: 30
+      alignment: 9
+      pivot: {x: 0.36585367, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2ed18ab7754ccf40b461fc07dd4aeef
+      internalID: -1057992796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-saw
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 59
+        width: 44
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b776ff85e1f625a459f41e432e9b55b4
+      internalID: -72321222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-saw-base
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 75
+        width: 34
+        height: 28
+      alignment: 9
+      pivot: {x: 0.5, y: 0.32142857}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 058df944653388541a6b1179bd5bb514
+      internalID: 1975709752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-spike
+      rect:
+        serializedVersion: 2
+        x: 1129
+        y: 173
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 251f5cc9561cf8c4aae53d311cec9ea7
+      internalID: 1272456788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-swivel-gun
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 2
+        width: 37
+        height: 23
+      alignment: 9
+      pivot: {x: 0.3243243, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbb57d0d035e21548918c2c1073934f3
+      internalID: -972414604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-trampoline-0
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 4
+        width: 24
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9b325810aae8d246ac3709e866290ec
+      internalID: -1216480209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-trampoline-1
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 269
+        width: 24
+        height: 18
+      alignment: 9
+      pivot: {x: 0.5, y: 0.44444445}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 692bc15dddfc5af4fa7bfe4194696e36
+      internalID: -686183199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-trampoline-2
+      rect:
+        serializedVersion: 2
+        x: 1116
+        y: 103
+        width: 24
+        height: 20
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d79c4e405cfd7e4d8dae0951db27cd0
+      internalID: 224444514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-trampoline-3
+      rect:
+        serializedVersion: 2
+        x: 1117
+        y: 237
+        width: 24
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36363637}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccce24951d3ab534884a90c041d3dc16
+      internalID: -1546612423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-symbols-settings
+      rect:
+        serializedVersion: 2
+        x: 875
+        y: 210
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9e3737d651c81449a941d36aa929c07
+      internalID: 458632354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-buttons-editor-container
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 105
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 618db214694920b4897894363a14ee40
+      internalID: -640667373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-mini-arrow
+      rect:
+        serializedVersion: 2
+        x: 1171
+        y: 86
+        width: 3
+        height: 2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 125cbbfcdfb2de3419589de0e2176a4e
+      internalID: -973643613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-mini-arrow-corner
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 29
+        width: 3
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d625619f5f592b642b608bfe2d5c8333
+      internalID: -45520716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-ice
+      rect:
+        serializedVersion: 2
+        x: 1145
+        y: 228
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2740405904b1096429ccf878822a6b66
+      internalID: 1103790712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-special-0
+      rect:
+        serializedVersion: 2
+        x: 1147
+        y: 53
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a82a4a4180774fe4b8263e6511c04984
+      internalID: 1581292004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-special-1
+      rect:
+        serializedVersion: 2
+        x: 1143
+        y: 35
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3a01e2a8675fdd44b675b639cae92e0
+      internalID: 1797328346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effects-explosion-0
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 105
+        width: 48
+        height: 44
+      alignment: 9
+      pivot: {x: 0.5208333, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06e41dfd9e13f4d4fa58dfd02b42a00b
+      internalID: 309142560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effects-explosion-1
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 151
+        width: 47
+        height: 46
+      alignment: 9
+      pivot: {x: 0.5106383, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 675cc2b13e8736f428e7a7507799f679
+      internalID: 145113800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effects-explosion-2
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 227
+        width: 59
+        height: 60
+      alignment: 9
+      pivot: {x: 0.47457626, y: 0.5333333}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 543221c1a49398147b198992babdf4bf
+      internalID: -618974925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effects-explosion-3
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 84
+        width: 72
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4722222, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a38cf3a2645de0f47b45220b4b0565b5
+      internalID: 1750234691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effects-explosion-4
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 46
+        width: 87
+        height: 74
+      alignment: 9
+      pivot: {x: 0.49425286, y: 0.5135135}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 916950fd254711f4499e5155980f2fbf
+      internalID: 812568506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effects-explosion-5
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 58
+        width: 94
+        height: 83
+      alignment: 9
+      pivot: {x: 0.5, y: 0.45783132}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99084e3261d05ca469b691d9237f5a23
+      internalID: 68072735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effects-explosion-6
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 115
+        width: 112
+        height: 103
+      alignment: 9
+      pivot: {x: 0.45535713, y: 0.47572815}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7928a2dcc7827b040b9984bed0ae5c10
+      internalID: 2039203346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effects-explosion-7
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 122
+        width: 97
+        height: 96
+      alignment: 9
+      pivot: {x: 0.48453608, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98645a381f9469c46bbc7d75d6e5a786
+      internalID: 745975159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effects-explosion-8
+      rect:
+        serializedVersion: 2
+        x: 863
+        y: 196
+        width: 111
+        height: 91
+      alignment: 9
+      pivot: {x: 0.4864865, y: 0.5604396}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: badeb421f2c873b46bebeb657752a3eb
+      internalID: -1343891639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effects-sparkle-0
+      rect:
+        serializedVersion: 2
+        x: 1116
+        y: 126
+        width: 1
+        height: 1
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fc7c3e5c162fe84bad7575fc3969736
+      internalID: 1848512047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effects-sparkle-1
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 219
+        width: 3
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d13125581f09c044aee23fc3cbd7da9
+      internalID: -1057568552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effects-sparkle-2
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 282
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9955f48165ea374bb80dc90d5baca60
+      internalID: -139829212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effects-sparkle-3
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 248
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34eb07b53b4e361478e885aaa6faa7ff
+      internalID: -1348035571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-checkpoint-number-0
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 216
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da6d753535cd6304db8e887cdd4ac74a
+      internalID: 472091774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-checkpoint-number-1
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 249
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5588aab90cc3e0d41bd9940e605e64e6
+      internalID: -881409798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-checkpoint-number-2
+      rect:
+        serializedVersion: 2
+        x: 745
+        y: 27
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b3d86cf5f5cd0640b59480b9c4f74fa
+      internalID: -1184349429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-checkpoint-number-3
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 81
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fd3c64755de51f4d9ae90e70b28095c
+      internalID: -844177018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-checkpoint-number-4
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 104
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0709fe818f5b1d04c907b9f1bf73a812
+      internalID: -425313185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-checkpoint-number-5
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 156
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb9a825614d41ae43bc8a5011bf34f8e
+      internalID: 1491565091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-checkpoint-number-6
+      rect:
+        serializedVersion: 2
+        x: 908
+        y: 199
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4549cde8e64abb042a7a7c017794331f
+      internalID: 1425259511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-checkpoint-number-7
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 104
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2db864d6844b25d4a9c1f43f7ee5879c
+      internalID: 903826311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-checkpoint-number-8
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 229
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0575181d79b474e48a75659f8e8f7118
+      internalID: -2051476929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-checkpoint-number-9
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 217
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73df437fe68739a43a92a3c6ef01074b
+      internalID: 1997685284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-checkpoint-post
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 38
+        width: 22
+        height: 31
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2580645}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ceb94028de993ed46ba0174945cd19c7
+      internalID: 657425723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-checkpoint-sign
+      rect:
+        serializedVersion: 2
+        x: 1093
+        y: 234
+        width: 22
+        height: 26
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed3c5d1dc2d94af40aa290bf797de15d
+      internalID: 2108409677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-coin-0
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 210
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5dc1b988a7d34a4fb28c473e70a6467
+      internalID: -1854563452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-coin-1
+      rect:
+        serializedVersion: 2
+        x: 1159
+        y: 270
+        width: 14
+        height: 17
+      alignment: 9
+      pivot: {x: 0.53571427, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 142287f5b0f1a42458c63143a8b645e3
+      internalID: 467007493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-coin-2
+      rect:
+        serializedVersion: 2
+        x: 1177
+        y: 198
+        width: 10
+        height: 17
+      alignment: 9
+      pivot: {x: 0.55, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dbcf0deb9fe19a41b440501f29b832c
+      internalID: 1048260316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-coin-3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 96
+        width: 6
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d984868e5f9aceb4ebec145d79ba13db
+      internalID: 544599981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-coin-4
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 42
+        width: 10
+        height: 17
+      alignment: 9
+      pivot: {x: 0.45, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be3ce7ebe27ae344993a938b271c66b0
+      internalID: -2062012362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-coin-5
+      rect:
+        serializedVersion: 2
+        x: 1155
+        y: 71
+        width: 14
+        height: 17
+      alignment: 9
+      pivot: {x: 0.4642857, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce3f156d09413e0499178347c78b19bc
+      internalID: -524433059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-finish-0
+      rect:
+        serializedVersion: 2
+        x: 1074
+        y: 1
+        width: 23
+        height: 35
+      alignment: 9
+      pivot: {x: 0.47826087, y: 0.25714287}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc53106923a53cc42a92df15c012d4ea
+      internalID: 1754850399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-finish-1
+      rect:
+        serializedVersion: 2
+        x: 1074
+        y: 38
+        width: 23
+        height: 35
+      alignment: 9
+      pivot: {x: 0.47826087, y: 0.25714287}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 607d9563755124e49b6411e78884de46
+      internalID: -549758524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-finish-10
+      rect:
+        serializedVersion: 2
+        x: 1064
+        y: 112
+        width: 23
+        height: 35
+      alignment: 9
+      pivot: {x: 0.47826087, y: 0.25714287}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4aab6dd89b73c79478d372b306981d94
+      internalID: -968267306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-finish-2
+      rect:
+        serializedVersion: 2
+        x: 1064
+        y: 75
+        width: 23
+        height: 35
+      alignment: 9
+      pivot: {x: 0.47826087, y: 0.25714287}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63ac25345bb0c13468a9f7caa4685858
+      internalID: -1719403713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-finish-3
+      rect:
+        serializedVersion: 2
+        x: 1049
+        y: 1
+        width: 23
+        height: 35
+      alignment: 9
+      pivot: {x: 0.47826087, y: 0.25714287}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caf4ba12c5b5c624cbeb3cdbc6014231
+      internalID: -558981056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-finish-4
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1
+        width: 23
+        height: 35
+      alignment: 9
+      pivot: {x: 0.47826087, y: 0.25714287}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2cd041f2c569ac43a857769234c6e4e
+      internalID: 1586299187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-finish-5
+      rect:
+        serializedVersion: 2
+        x: 1049
+        y: 38
+        width: 23
+        height: 35
+      alignment: 9
+      pivot: {x: 0.47826087, y: 0.25714287}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 696d57c65e310cd46951ed4e00e7ac11
+      internalID: -1139740779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-finish-6
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 213
+        width: 23
+        height: 35
+      alignment: 9
+      pivot: {x: 0.47826087, y: 0.25714287}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ebab1e76cc57134c96800ac7f1ce725
+      internalID: -462701123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-finish-7
+      rect:
+        serializedVersion: 2
+        x: 1039
+        y: 142
+        width: 23
+        height: 35
+      alignment: 9
+      pivot: {x: 0.47826087, y: 0.25714287}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dab2a560402adc34282c5ff7f1e24cc7
+      internalID: -1914078096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-finish-8
+      rect:
+        serializedVersion: 2
+        x: 1039
+        y: 105
+        width: 23
+        height: 35
+      alignment: 9
+      pivot: {x: 0.47826087, y: 0.25714287}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 620fda4e9ac723d42b808835ccd0da68
+      internalID: 763082713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-finish-9
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 38
+        width: 23
+        height: 35
+      alignment: 9
+      pivot: {x: 0.47826087, y: 0.25714287}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f43834b9f485d1a46abe3581ce72a556
+      internalID: -1546476962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-laser-body-0
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 244
+        width: 1
+        height: 7
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1bd0ed54e81a4e4caddb1fac16ca82c
+      internalID: -1606881331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-laser-body-1
+      rect:
+        serializedVersion: 2
+        x: 1156
+        y: 138
+        width: 1
+        height: 7
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc2985bea8e920a4998b4542b2d91fd9
+      internalID: 1662275632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-laser-dots-0
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 271
+        width: 384
+        height: 1
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb3999400df71fe49a3ba0562da55e88
+      internalID: -1664500220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-laser-dots-1
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 274
+        width: 384
+        height: 1
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2982d40d60cdfaa40a9ea3786ee6ae86
+      internalID: 1916936138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-laser-dots-2
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 277
+        width: 384
+        height: 1
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ce10dc4082113d46983d67ee240b4f5
+      internalID: -2096427929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-laser-dots-3
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 280
+        width: 384
+        height: 1
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71f475133afb84c47ad74150973bc1c0
+      internalID: -1034531206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-laser-dots-4
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 283
+        width: 384
+        height: 1
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cabc0e13cbd66d4683dc94f583017ee
+      internalID: 840889973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-laser-dots-5
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 286
+        width: 384
+        height: 1
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff3a5a5d1ca67534c8cdf80f87992c99
+      internalID: -470178122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-laser-gun-0
+      rect:
+        serializedVersion: 2
+        x: 1002
+        y: 165
+        width: 35
+        height: 28
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1f2b7faff91b944d825df40e94c5825
+      internalID: -758162439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-laser-gun-1
+      rect:
+        serializedVersion: 2
+        x: 964
+        y: 169
+        width: 35
+        height: 28
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b316212694a77224a9511ab5cceb4d87
+      internalID: -40804072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-laser-gun-10
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 15
+        width: 35
+        height: 28
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4e40e89b5eb2494490306ad4a75c3ac
+      internalID: -194806617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-laser-gun-2
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 6
+        width: 35
+        height: 28
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f2db788c052c804b8566b3344170144
+      internalID: -233399494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-laser-gun-3
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 6
+        width: 35
+        height: 28
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1cb46ee61410494d8b7387c0e44e8a1
+      internalID: -552214573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-laser-gun-4
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 4
+        width: 35
+        height: 28
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88e539a3001d50242996c793b4819a87
+      internalID: -194026279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-laser-gun-5
+      rect:
+        serializedVersion: 2
+        x: 1002
+        y: 135
+        width: 35
+        height: 28
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7694204076035b04c9eab715f2057fe2
+      internalID: -1129219105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-laser-gun-6
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 105
+        width: 35
+        height: 28
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 138b9452df3847d4cafb2a4afebccd81
+      internalID: 1586943571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-laser-gun-7
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 45
+        width: 35
+        height: 28
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bbcc1b365c60e84f858bd515acd5378
+      internalID: -1457573058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-laser-gun-8
+      rect:
+        serializedVersion: 2
+        x: 985
+        y: 75
+        width: 35
+        height: 28
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 120e5b34c7d24bf42ad35d037bcd48af
+      internalID: 559168260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-laser-gun-9
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 139
+        width: 35
+        height: 28
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45b832125684b14459d4dfc2d58e1385
+      internalID: 850159109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-laser-gun-outline
+      rect:
+        serializedVersion: 2
+        x: 914
+        y: 36
+        width: 37
+        height: 30
+      alignment: 9
+      pivot: {x: 0.4054054, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e026616c16b247439a847fa498bd85a
+      internalID: 241166358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-laser-line
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 132
+        width: 6
+        height: 1
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a866c44baaa883a4a822ccb7623d37e1
+      internalID: 771680316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-platform-large
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 22
+        width: 76
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac848b8f00b6df347adebb97f6bb0940
+      internalID: -1463061962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-platform-medium
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 10
+        width: 46
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 724f47040a4de3748990d3447b241d93
+      internalID: -1707511188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-platform-short
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 131
+        width: 16
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d6e851d272985c4595f42716b3a8308
+      internalID: -29291623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-preview-checkpoint
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 24
+        width: 22
+        height: 54
+      alignment: 9
+      pivot: {x: 0.5, y: 0.14814815}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e5aaf0ff4f2d734d965fd0d9f04cff8
+      internalID: 1702807011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-preview-gravity-switch
+      rect:
+        serializedVersion: 2
+        x: 1064
+        y: 149
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 588cc67efffab4a468bd86e240e6bd81
+      internalID: 766971812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-preview-mobile-saw
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 8
+        width: 29
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 605883007bd4c904bbd7b15cea1697f1
+      internalID: -1356139352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-preview-saw-base
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 36
+        width: 44
+        height: 46
+      alignment: 9
+      pivot: {x: 0.5, y: 0.19565217}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bca0688f704b0a2429559bd8cd12804f
+      internalID: -1149907282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-rocket-0
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 1
+        width: 30
+        height: 16
+      alignment: 9
+      pivot: {x: 0.7, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f194c27043a1ef409e366290d9dd2eb
+      internalID: -1364836496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-rocket-1
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 6
+        width: 31
+        height: 16
+      alignment: 9
+      pivot: {x: 0.7096774, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46d7a2d3df6bd6b41a2d006c8f42607b
+      internalID: 1454338972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-rocket-2
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 6
+        width: 30
+        height: 16
+      alignment: 9
+      pivot: {x: 0.7, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c967b0cf218b6db4abf279ed4da8ed5c
+      internalID: -749852808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-rocket-3
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 253
+        width: 29
+        height: 16
+      alignment: 9
+      pivot: {x: 0.6896552, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60f965fc042d8aa4a82c61cd56a150db
+      internalID: -1226176407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-rocket-4
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 7
+        width: 31
+        height: 16
+      alignment: 9
+      pivot: {x: 0.7096774, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eec9631710fc5794f9c51381377bbfd3
+      internalID: -360391977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-rocket-5
+      rect:
+        serializedVersion: 2
+        x: 1094
+        y: 161
+        width: 31
+        height: 16
+      alignment: 9
+      pivot: {x: 0.7096774, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfed0886e04eb834b8c5176517b521ce
+      internalID: -1092705391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-rocket-6
+      rect:
+        serializedVersion: 2
+        x: 921
+        y: 230
+        width: 31
+        height: 16
+      alignment: 9
+      pivot: {x: 0.7096774, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0591e89e814d3b4b94f93718f60db69
+      internalID: -1785178062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-static-gun
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 104
+        width: 14
+        height: 18
+      alignment: 9
+      pivot: {x: 0.64285713, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76d5a397644703f45b840cd04a298a36
+      internalID: -799368360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-switch-0
+      rect:
+        serializedVersion: 2
+        x: 1143
+        y: 266
+        width: 14
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52380955}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3aa71f562b74aa346a65215160d6c809
+      internalID: 1351357549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-switch-1
+      rect:
+        serializedVersion: 2
+        x: 1139
+        y: 75
+        width: 14
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52380955}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b6cf6179e13e4d48bda924a6da45fac
+      internalID: -1138316201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-switch-2
+      rect:
+        serializedVersion: 2
+        x: 1129
+        y: 4
+        width: 14
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52380955}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b32e44c0de1fc364cafc9bd775034b46
+      internalID: -1082922919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-switch-3
+      rect:
+        serializedVersion: 2
+        x: 1127
+        y: 149
+        width: 14
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52380955}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a3e828c574c14148a46f865d0c6de69
+      internalID: 1631768075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-switch-4
+      rect:
+        serializedVersion: 2
+        x: 1129
+        y: 191
+        width: 14
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52380955}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f12b6df7fabfdd4b86290e7f35e6313
+      internalID: 1212057106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-switch-5
+      rect:
+        serializedVersion: 2
+        x: 1129
+        y: 214
+        width: 14
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52380955}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9446cf847fe711f4ea83e767631a27dc
+      internalID: 1463929810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-switch-6
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 266
+        width: 14
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52380955}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32d5fe6d32605e046b9a51b8b1b1f06e
+      internalID: 1188731681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects-switch-7
+      rect:
+        serializedVersion: 2
+        x: 862
+        y: 108
+        width: 14
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52380955}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c371d9ee15fecd84aa7ec1486551ae5b
+      internalID: -1581118815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: b30cd36006aa6bd47bbb303087810370
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      avatars-avatar-1-falling-1: 2122629982
+      objects-preview-mobile-saw: -1356139352
+      objects-preview-gravity-switch: 766971812
+      objects-saw: -72321222
+      avatars-avatar-2-running-6: -600091407
+      avatars-avatar-1-running-1: -250580995
+      gui-generics-buttons-editor-options: -1359528598
+      objects-laser-dots-1: 1916936138
+      effects-explosion-7: 745975159
+      objects-rocket-launcher: -1057992796
+      avatars-avatar-0-falling-2: 582735404
+      avatars-avatar-0-jumping-0: 170975863
+      gui-generics-buttons-profile: 1620533948
+      gui-generics-color-selector-hue-rulette: -1594576734
+      gui-generics-buttons-plus: -520602335
+      gui-generics-buttons-editor-show: 434883368
+      objects-switch-0: 1351357549
+      objects-trampoline-2: 224444514
+      gui-generics-xbox-trigger-right: -929569765
+      objects-preview-checkpoint: 1702807011
+      effects-explosion-3: 1750234691
+      objects-finish-9: -1546476962
+      gui-generics-area-selector: -1504070027
+      gui-generics-buttons-editor-save: -315829979
+      objects-switch-3: 1631768075
+      objects-laser-gun-9: 850159109
+      avatars-avatar-0-idle-0: -1673497317
+      objects-platform-short: -29291623
+      objects-platform-medium: -1707511188
+      avatars-avatar-1-falling-2: -1996614777
+      avatars-avatar-0-falling-1: 1780259897
+      avatars-avatar-3-running-0: -1509888920
+      objects-laser-gun-0: -758162439
+      objects-finish-7: -1914078096
+      objects-laser-gun-4: -194026279
+      gui-generics-buttons-toggle-on: -563814930
+      gui-generics-buttons-editor-properties: -1176678625
+      objects-laser-gun-1: -40804072
+      objects-swivel-gun: -972414604
+      objects-switch-2: -1082922919
+      blocks-ice: 1103790712
+      avatars-avatar-0-jumping-1: -2004258664
+      objects-checkpoint-number-4: -425313185
+      objects-rocket-4: -360391977
+      gui-generics-color-selector-handler: -1414858831
+      gui-generics-buttons-editor-objects: 2123002278
+      objects-checkpoint-number-5: 1491565091
+      gui-generics-buttons-toggle-off: -800540760
+      gui-generics-xbox-trigger-left: -378977240
+      gui-generics-containers-button-1: 653004664
+      avatars-avatar-1-running-8: -2067072277
+      gui-generics-buttons-social-gh: 1236875773
+      gui-title: -696897440
+      gui-generics-xbox-button-south-pressed: 48113091
+      objects-finish-1: -549758524
+      objects-laser-dots-5: -470178122
+      gui-generics-buttons-editor-zoom-reset: -86167700
+      gui-menu-dirt: -162251707
+      effects-sparkle-2: -139829212
+      avatars-avatar-1-running-4: 547441476
+      objects-finish-2: -1719403713
+      objects-laser-gun-5: -1129219105
+      objects-laser-body-0: -1606881331
+      objects-switch-6: 1188731681
+      avatars-avatar-1-running-0: -828644475
+      objects-finish-4: 1586299187
+      gui-generics-volume-bar: -1701516507
+      gui-generics-xbox-button-weast: 1291757510
+      blocks-special-0: 1581292004
+      avatars-avatar-3-running-1: -1107923794
+      avatars-avatar-3-running-2: -538644804
+      effects-explosion-8: -1343891639
+      avatars-avatar-2-running-4: -226674747
+      avatars-avatar-1-running-6: -771926466
+      effects-sparkle-0: 1848512047
+      avatars-avatar-0-falling-0: -1303608682
+      gui-generics-buttons-T2: 1146535247
+      avatars-avatar-3-falling-1: -38543083
+      objects-gravity-switch-particles: 155663615
+      avatars-avatar-0-running-6: 1232214920
+      gui-generics-color-selector-btn-rgb-0: -294569085
+      avatars-avatar-2-jumping-1: 727516347
+      objects-laser-gun-10: -194806617
+      gui-generics-color-selector-btn-hsv1-0: -360627970
+      effects-explosion-4: 812568506
+      objects-coin-2: 1048260316
+      objects-checkpoint-number-7: 903826311
+      objects-static-gun: -799368360
+      gui-generics-buttons-pause: -1113978040
+      objects-laser-dots-4: 840889973
+      gui-generics-color-selector-btn-hex-1: 1154323618
+      objects-rocket-1: 1454338972
+      objects-coin-5: -524433059
+      gui-generics-buttons-left: -1391307328
+      gui-generics-buttons-back: -1255911101
+      objects-checkpoint-number-8: -2051476929
+      avatars-avatar-2-running-2: 1689970800
+      gui-generics-xbox-controller: -1304000428
+      avatars-avatar-2-running-0: 1248217418
+      objects-platform-large: -1463061962
+      gui-generics-buttons-editor-undo: 667344800
+      avatars-avatar-2-running-7: 1330280768
+      objects-laser-gun-2: -233399494
+      objects-laser-line: 771680316
+      gui-generics-buttons-minus: 1598409594
+      gui-generics-buttons-T1: -1222942605
+      objects-killzone: -1619722049
+      objects-checkpoint-number-2: -1184349429
+      objects-coin-3: 544599981
+      avatars-avatar-2-falling-1: 456540672
+      avatars-avatar-1-running-5: 1096626880
+      gui-generics-buttons-editor-test: -250386631
+      avatars-avatar-1-running-2: -1669410137
+      avatars-avatar-2-jumping-0: 2048973737
+      gui-generics-mini-arrow: -973643613
+      gui-generics-buttons-editor-zoom-in: -1286464795
+      avatars-avatar-2-falling-2: 304765734
+      avatars-avatar-2-running-5: -1405350885
+      objects-trampoline-1: -686183199
+      avatars-avatar-2-falling-0: 155089004
+      objects-switch-5: 1463929810
+      objects-checkpoint-post: 657425723
+      avatars-avatar-0-running-2: -1749809834
+      objects-finish-6: -462701123
+      avatars-avatar-3-idle-0: -743508338
+      avatars-avatar-0-running-1: 1253813104
+      objects-coin-0: -1854563452
+      objects-coin-1: 467007493
+      avatars-avatar-2-running-3: -1868958703
+      gui-generics-color-selector-picker: 763494557
+      objects-finish-3: -558981056
+      avatars-avatar-2-running-1: -1335296273
+      gui-generics-color-selector-transparency-checker-bar: 68122156
+      objects-switch-7: -1581118815
+      gui-generics-buttons-editor-hide: 519071301
+      objects-checkpoint-number-0: 472091774
+      objects-laser-gun-outline: 241166358
+      objects-coin-4: -2062012362
+      gui-generics-symbols-achievements: -1266882107
+      objects-laser-dots-0: -1664500220
+      gui-generics-buttons-editor-zoom-out: -2044922546
+      gui-generics-xbox-button-north-pressed: -1765211814
+      gui-generics-buttons-editor-redo: 709878959
+      avatars-avatar-0-running-0: -118637379
+      gui-generics-color-selector-btn-hex-0: 1441351297
+      gui-generics-buttons-editor-help: -953385279
+      objects-BOOM: -664286575
+      objects-checkpoint-number-1: -881409798
+      avatars-avatar-0-running-7: -447143472
+      avatars-avatar-3-jumping-0: 1019447442
+      objects-checkpoint-sign: 2108409677
+      objects-preview-saw-base: -1149907282
+      gui-generics-color-selector-btn-hsv1-1: 1353082819
+      gui-generics-xbox-button-south: 1906842448
+      objects-rocket-6: -1785178062
+      objects-laser-body-1: 1662275632
+      objects-laser-dots-3: -1034531206
+      effects-sparkle-3: -1348035571
+      gui-generics-buttons-right: -1334934824
+      objects-laser-gun-3: -552214573
+      gui-generics-buttons-credits: -370571130
+      objects-laser-gun-7: -1457573058
+      gui-generics-editor-cur-idle: -973353001
+      objects-laser-gun-8: 559168260
+      objects-checkpoint-number-9: 1997685284
+      avatars-avatar-3-falling-0: 1837963769
+      objects-finish-5: -1139740779
+      gui-generics-color-selector-btn-hsv2-1: -1790476286
+      gui-generics-xbox-button-east: -1692920314
+      effects-explosion-5: 68072735
+      objects-checkpoint-number-6: 1425259511
+      objects-laser-gun-6: 1586943571
+      objects-switch-4: 1212057106
+      objects-rocket-2: -749852808
+      avatars-avatar-1-jumping-0: -318287780
+      avatars-avatar-2-idle-0: -540359408
+      objects-laser-dots-2: -2096427929
+      blocks-default: -1079774194
+      gui-generics-color-selector-btn-hsv2-0: 1830238394
+      gui-generics-xbox-button-east-pressed: -739816713
+      effects-explosion-1: 145113800
+      objects-trampoline-3: -1546612423
+      avatars-avatar-0-running-4: 1559636757
+      effects-sparkle-1: -1057568552
+      effects-explosion-2: -618974925
+      gui-generics-color-selector-h-picker: -271658700
+      avatars-avatar-3-running-3: 1285855309
+      gui-generics-symbols-play: 2091085726
+      gui-generics-xbox-button-north: -664683458
+      avatars-avatar-0-running-5: -144223824
+      gui-generics-color-selector-color-bar-container: -182551486
+      objects-rocket-0: -1364836496
+      objects-trampoline-0: -1216480209
+      gui-generics-color-selector-btn-rgb-1: 122996945
+      gui-generics-symbols-exit: 30398175
+      effects-explosion-0: 309142560
+      gui-generics-xbox-button-weast-pressed: -1161896470
+      objects-bullet-1: 705424389
+      avatars-avatar-1-running-7: -718276285
+      gui-generics-color-selector-hue-bar-palette: -334781007
+      avatars-avatar-1-jumping-1: -129926116
+      gui-generics-buttons-social-website: -1734289602
+      gui-generics-buttons-editor-container: -640667373
+      objects-bullet-0: -1117223788
+      objects-finish-10: -968267306
+      gui-cute-stinker: 1231714849
+      gui-generics-buttons-editor-pause: 18266927
+      objects-rocket-3: -1226176407
+      gui-generics-color-selector-color-bar-flat: -736451581
+      effects-explosion-6: 2039203346
+      gui-generics-buttons-social-tw: 762597615
+      gui-generics-color-selector-sv-palette: -1026755271
+      objects-spike: 1272456788
+      avatars-avatar-1-running-3: -796542255
+      gui-generics-containers-button-2: 567913625
+      objects-finish-8: 763082713
+      objects-checkpoint-number-3: -844177018
+      avatars-avatar-1-falling-0: 822633118
+      objects-rocket-5: -1092705391
+      avatars-avatar-0-running-3: -2001929311
+      gui-generics-buttons-social-yt: 1317596138
+      objects-finish-0: 1754850399
+      gui-generics-buttons-editor-settings: -1704998907
+      gui-generics-mini-arrow-corner: -45520716
+      gui-generics-buttons-editor-stop: 762406547
+      gui-generics-containers-slider-1: 854489077
+      objects-gravity-switch: -1102216038
+      blocks-special-1: 1797328346
+      gui-generics-buttons-social-fb: -1025946489
+      objects-saw-base: 1975709752
+      gui-generics-color-selector-gradient-bar-palette: -1933248331
+      objects-switch-1: -1138316201
+      gui-generics-symbols-settings: 458632354
+      avatars-avatar-1-idle-0: 67251378
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

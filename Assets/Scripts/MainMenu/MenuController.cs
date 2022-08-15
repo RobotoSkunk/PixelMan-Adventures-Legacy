@@ -39,7 +39,7 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 		private void Start() {
 			if (!Globals.doIntro) {
 				introPanel.gameObject.SetActive(false);
-				Globals.musicType = MainCore.MusicClips.Type.MAIN_MENU;
+				Globals.musicType = GameDirector.MusicClips.Type.MAIN_MENU;
 
 				UpdateActiveMenu();
 				UpdatePositions(true);
@@ -83,7 +83,7 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 
 		IEnumerator DoIntro() {
 			yield return new WaitForSeconds(2.5f);
-			Globals.musicType = MainCore.MusicClips.Type.MAIN_MENU;
+			Globals.musicType = GameDirector.MusicClips.Type.MAIN_MENU;
 
 			yield return new WaitForSeconds(1.8f);
 			moveTexts = true;

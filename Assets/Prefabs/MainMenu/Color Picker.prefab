@@ -237,7 +237,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -113377018, guid: c9a941e71eff10d458d5413e27ee60f6, type: 3}
+  m_Sprite: {fileID: 1353082819, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -383,7 +383,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -527067623, guid: c9a941e71eff10d458d5413e27ee60f6, type: 3}
+  m_Sprite: {fileID: 567913625, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -557,7 +557,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1480581391, guid: c9a941e71eff10d458d5413e27ee60f6, type: 3}
+  m_Sprite: {fileID: 122996945, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -633,7 +633,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1803052031, guid: c9a941e71eff10d458d5413e27ee60f6, type: 3}
+  m_Sprite: {fileID: 1154323618, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -695,23 +695,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sections:
-  - enabled: {fileID: -113377018, guid: c9a941e71eff10d458d5413e27ee60f6, type: 3}
-    disabled: {fileID: 347979576, guid: c9a941e71eff10d458d5413e27ee60f6, type: 3}
+  - enabled: {fileID: 1353082819, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
+    disabled: {fileID: -360627970, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
     image: {fileID: 297713628205789377}
     gameObject: {fileID: 297713628769306241}
     isHex: 0
-  - enabled: {fileID: -1261916, guid: c9a941e71eff10d458d5413e27ee60f6, type: 3}
-    disabled: {fileID: 1620884808, guid: c9a941e71eff10d458d5413e27ee60f6, type: 3}
+  - enabled: {fileID: -1790476286, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
+    disabled: {fileID: 1830238394, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
     image: {fileID: 297713628923121138}
     gameObject: {fileID: 297713628215942985}
     isHex: 0
-  - enabled: {fileID: 1480581391, guid: c9a941e71eff10d458d5413e27ee60f6, type: 3}
-    disabled: {fileID: -748758907, guid: c9a941e71eff10d458d5413e27ee60f6, type: 3}
+  - enabled: {fileID: 122996945, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
+    disabled: {fileID: -294569085, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
     image: {fileID: 297713628468800206}
     gameObject: {fileID: 297713628085130503}
     isHex: 0
-  - enabled: {fileID: -1803052031, guid: c9a941e71eff10d458d5413e27ee60f6, type: 3}
-    disabled: {fileID: -2079380455, guid: c9a941e71eff10d458d5413e27ee60f6, type: 3}
+  - enabled: {fileID: 1154323618, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
+    disabled: {fileID: 1441351297, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
     image: {fileID: 297713628560900390}
     gameObject: {fileID: 1230909047111662592}
     isHex: 1
@@ -813,7 +813,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -527067623, guid: c9a941e71eff10d458d5413e27ee60f6, type: 3}
+  m_Sprite: {fileID: 567913625, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1053,7 +1053,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 3191599451653250520, guid: c9a941e71eff10d458d5413e27ee60f6, type: 3}
+  m_Sprite: {fileID: -1026755271, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1129,7 +1129,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1261916, guid: c9a941e71eff10d458d5413e27ee60f6, type: 3}
+  m_Sprite: {fileID: -1790476286, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1207,7 +1207,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 325564063192308738, guid: c9a941e71eff10d458d5413e27ee60f6, type: 3}
+  m_Sprite: {fileID: -1594576734, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1215,7 +1215,7 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
-  m_UseSpriteMesh: 0
+  m_UseSpriteMesh: 1
   m_PixelsPerUnitMultiplier: 1
 --- !u!1 &297713629370925915
 GameObject:
@@ -1286,7 +1286,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -527067623, guid: c9a941e71eff10d458d5413e27ee60f6, type: 3}
+  m_Sprite: {fileID: 567913625, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1460,7 +1460,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1812897042, guid: c9a941e71eff10d458d5413e27ee60f6, type: 3}
+  m_Sprite: {fileID: -271658700, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1540,7 +1540,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -527067623, guid: c9a941e71eff10d458d5413e27ee60f6, type: 3}
+  m_Sprite: {fileID: 567913625, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1619,7 +1619,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -527067623, guid: c9a941e71eff10d458d5413e27ee60f6, type: 3}
+  m_Sprite: {fileID: 567913625, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1793,7 +1793,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7786610187498457116, guid: c9a941e71eff10d458d5413e27ee60f6, type: 3}
+  m_Sprite: {fileID: 763494557, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2885,7 +2885,7 @@ PrefabInstance:
     - target: {fileID: 6906899799709596498, guid: c63468933978f0f44a0175676431c2ff, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -574547697581011041, guid: c9a941e71eff10d458d5413e27ee60f6, type: 3}
+      objectReference: {fileID: 68122156, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
     - target: {fileID: 6906899799709596498, guid: c63468933978f0f44a0175676431c2ff, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -3098,7 +3098,7 @@ PrefabInstance:
     - target: {fileID: 6906899799709596498, guid: c63468933978f0f44a0175676431c2ff, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -574547697581011041, guid: c9a941e71eff10d458d5413e27ee60f6, type: 3}
+      objectReference: {fileID: 68122156, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
     - target: {fileID: 6906899799709596498, guid: c63468933978f0f44a0175676431c2ff, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -3311,7 +3311,7 @@ PrefabInstance:
     - target: {fileID: 6906899799709596498, guid: c63468933978f0f44a0175676431c2ff, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -4019474977474178137, guid: c9a941e71eff10d458d5413e27ee60f6, type: 3}
+      objectReference: {fileID: -334781007, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
     - target: {fileID: 6906899799709596498, guid: c63468933978f0f44a0175676431c2ff, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -3498,6 +3498,10 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: RobotoSkunk.PixelMan.UI.MainMenu.ColorBar, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 6906899799709596498, guid: c63468933978f0f44a0175676431c2ff, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -736451581, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
     - target: {fileID: 6906899799709596498, guid: c63468933978f0f44a0175676431c2ff, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -3699,6 +3703,10 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: RobotoSkunk.PixelMan.UI.MainMenu.ColorBar, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 6906899799709596498, guid: c63468933978f0f44a0175676431c2ff, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -736451581, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
     - target: {fileID: 6906899799709596500, guid: c63468933978f0f44a0175676431c2ff, type: 3}
       propertyPath: m_Name
       value: S
