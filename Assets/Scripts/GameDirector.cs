@@ -1,7 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading.Tasks;
+// using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 
 using UnityEngine;
 using UnityEngine.UI;
@@ -65,9 +66,11 @@ namespace RobotoSkunk.PixelMan {
 		public static InputType inputType;
 		public static List<InGameObject> objects;
 		public static GameDirector director;
+		public static Dictionary<string, RSBehaviour> __behaviours = new();
+
 
 		public static class Editor {
-			public static bool snap = true;
+			public static bool snap = true, handleLocally = false;
 		}
 
 		static bool __isDead = false;
@@ -246,6 +249,9 @@ namespace RobotoSkunk.PixelMan {
 		Coroutine musicRoutine, shakeRoutine;
 		Rect guiRect = new(15, 65, 200, 100);
 
+
+
+
 		[Serializable]
 		public class MusicClips {
 			public string name;
@@ -328,7 +334,7 @@ namespace RobotoSkunk.PixelMan {
 		}
 
 		private async void Start() {
-			await Task.Delay(500);
+			await UniTask.Delay(500);
 			GameEventsHandler.InvokeLevelReady();
 			Globals.onPause = false;
 			t.Start();

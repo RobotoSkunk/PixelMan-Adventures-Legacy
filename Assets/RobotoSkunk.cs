@@ -2,11 +2,13 @@ using UnityEngine;
 using UnityEngine.UI;
 
 using System.Collections.Generic;
-using System.Threading.Tasks;
+// using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using System.Diagnostics;
 using System.Text;
 using System.IO;
 using System;
+
 
 namespace RobotoSkunk {
 	public static class Files {
@@ -38,8 +40,8 @@ namespace RobotoSkunk {
 				public static string dir = $"{root}/downloads", levels = $"{dir}/levels", cache = $"{dir}/cache";
 			}
 
-			public static async Task Prepare() {
-				await Task.Run(() => {
+			public static async UniTask Prepare() {
+				await UniTask.RunOnThreadPool(() => {
 					Directory.CreateDirectory($"{root}/");
 
 					Directory.CreateDirectory($"{User.dir}/");
@@ -68,7 +70,7 @@ namespace RobotoSkunk {
 			return result;
 		}
 
-		public static async Task<string> ReadFile(string path) {
+		public static async UniTask<string> ReadFile(string path) {
 			await Directories.Prepare();
 
 			StreamReader sr = new StreamReader(path);
@@ -78,7 +80,7 @@ namespace RobotoSkunk {
 			return fileContent;
 		}
 
-		public static async Task WriteFile(string path, string data) {
+		public static async UniTask WriteFile(string path, string data) {
 			await Directories.Prepare();
 
 			StreamWriter sw = new StreamWriter(path);
@@ -86,26 +88,26 @@ namespace RobotoSkunk {
 			sw.Close();
 		}
 
-		public static async Task<T> FromJson<T>(string data) {
+		public static async UniTask<T> FromJson<T>(string data) {
 			T __tmp = default;
 
-			await Task.Run(() => {
+			await UniTask.RunOnThreadPool(() => {
 				__tmp = JsonUtility.FromJson<T>(data);
 			});
 
 			return __tmp;
 		}
 		
-		public static async Task FromJsonOverwrite(string data, object objectToOverwrite) {
-			await Task.Run(() => {
+		public static async UniTask FromJsonOverwrite(string data, object objectToOverwrite) {
+			await UniTask.RunOnThreadPool(() => {
 				JsonUtility.FromJsonOverwrite(data, objectToOverwrite);
 			});
 		}
 
-		public static async Task<string> ToJson(string json) {
+		public static async UniTask<string> ToJson(string json) {
 			string __tmp = null;
 
-			await Task.Run(() => {
+			await UniTask.RunOnThreadPool(() => {
 				__tmp = JsonUtility.ToJson(json);
 			});
 
@@ -458,16 +460,16 @@ namespace RobotoSkunk {
 	}
 
 	public static class AsyncJson {
-		public static async Task<T> FromJson<T>(string json) {
-			return await Task.Run(() => JsonUtility.FromJson<T>(json));
+		public static async UniTask<T> FromJson<T>(string json) {
+			return await UniTask.RunOnThreadPool(() => JsonUtility.FromJson<T>(json));
 		}
 
-		public static async Task<string> ToJson<T>(T obj) {
-			return await Task.Run(() => JsonUtility.ToJson(obj));
+		public static async UniTask<string> ToJson<T>(T obj) {
+			return await UniTask.RunOnThreadPool(() => JsonUtility.ToJson(obj));
 		}
 
-		public static async Task FromJsonOverwrite<T>(string json, T obj) {
-			await Task.Run(() => JsonUtility.FromJsonOverwrite(json, obj));
+		public static async UniTask FromJsonOverwrite<T>(string json, T obj) {
+			await UniTask.RunOnThreadPool(() => JsonUtility.FromJsonOverwrite(json, obj));
 		}
 	}
 

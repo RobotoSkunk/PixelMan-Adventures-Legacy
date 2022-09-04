@@ -123,8 +123,8 @@ namespace RobotoSkunk.PixelMan {
 		public void SetScale(Vector2 value) {
 			if ((__opt.allowed & (PropertiesEnum.Scale | PropertiesEnum.FreeScale)) == 0) return;
 
-			if (value.x < 0f) value.x = 0f;
-			if (value.y < 0f) value.y = 0f;
+			if (value.x <= 0f) value.x = Constants.pixelToUnit;
+			if (value.y <= 0f) value.y = Constants.pixelToUnit;
 
 			if ((__opt.allowed & PropertiesEnum.FreeScale) == 0)
 				value = (value.x + value.y) / 2f * Vector2.one;

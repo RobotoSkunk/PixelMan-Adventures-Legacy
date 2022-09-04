@@ -1,5 +1,9 @@
 using UnityEngine;
 
+using RobotoSkunk;
+
+
+
 namespace RobotoSkunk.PixelMan {
 	namespace Events {
 		public static class GameEventsHandler {
@@ -55,7 +59,7 @@ namespace RobotoSkunk.PixelMan {
 		}
 	}
 
-	public class GameHandler : MonoBehaviour {
+	public class GameHandler : RSBehaviour {
 		private void OnEnable() => EnableEvents(true);
 		private void OnDisable() => EnableEvents(false);
 		private void OnDestroy() => EnableEvents(false);
@@ -109,7 +113,7 @@ namespace RobotoSkunk.PixelMan {
 		protected virtual void OnGameCheckpointRespawn() { }
 	}
 
-	public class EditorHandler : MonoBehaviour {
+	public class EditorHandler : RSBehaviour {
 		private void OnEnable() => EnableEvents(true);
 		private void OnDisable() => EnableEvents(false);
 		private void OnDestroy() => EnableEvents(false);
@@ -142,7 +146,7 @@ namespace RobotoSkunk.PixelMan {
 		protected virtual void OnEditorReady() { }
 	}
 
-	public class PhysicsHandler : MonoBehaviour {
+	public class PhysicsHandler : RSBehaviour {
 		private void OnEnable() => EnableEvents(true);
 		private void OnDisable() => EnableEvents(false);
 		private void OnDestroy() => EnableEvents(false);

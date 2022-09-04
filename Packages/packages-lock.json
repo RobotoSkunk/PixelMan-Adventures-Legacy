@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.cysharp.unitask": {
+      "version": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "f48cb4b03e6214d9a02cedfda6f26635dad001fb"
+    },
     "com.unity.2d.animation": {
       "version": "7.0.4",
       "depth": 0,
@@ -32,7 +39,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.2d.pixel-perfect": {
-      "version": "5.0.1",
+      "version": "5.0.2",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
@@ -112,7 +119,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.rider": {
-      "version": "3.0.13",
+      "version": "3.0.15",
       "depth": 0,
       "source": "registry",
       "dependencies": {

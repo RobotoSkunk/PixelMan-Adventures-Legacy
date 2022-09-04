@@ -229,7 +229,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 			Globals.onPause = true;
 
-			bool[] vals = { Globals.Editor.snap };
+			bool[] vals = { Globals.Editor.snap, Globals.Editor.handleLocally };
 
 			for (int i = 0; i < vals.Length; i++) {
 				if (i < optionsToggles.Length) optionsToggles[i].SetIsOnWithoutNotify(vals[i]);
@@ -1016,8 +1016,11 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				if (!selected[i]) continue;
 				if (!selected[i].gameObject.activeInHierarchy) continue;
 
+
 				selected[i].SetScale(RSMath.Abs(selected[i].lastProperties.scale * fixedScale));
-				selected[i].SetPosition(newResArea.center - selected[i].dist2Dragged * fixedScale);
+
+				if (!Globals.Editor.handleLocally)
+					selected[i].SetPosition(newResArea.center - selected[i].dist2Dragged * fixedScale);
 			}
 		}
 		public void EndResizing() {
@@ -1055,7 +1058,9 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				if (!selected[i].gameObject.activeInHierarchy) continue;
 
 				selected[i].SetRotation(selected[i].lastProperties.rotation - newRot);
-				selected[i].SetPosition(rotArea.center - RSMath.Rotate(selected[i].dist2Dragged, alpha));
+
+				if (!Globals.Editor.handleLocally)
+					selected[i].SetPosition(rotArea.center - RSMath.Rotate(selected[i].dist2Dragged, alpha));
 			}
 
 			rotRectArea.transform.eulerAngles = new Vector3(0f, 0f, -newRot);
@@ -1280,6 +1285,8 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			DeleteSelected();
 		}
 		public void SetSnap(bool value) => Globals.Editor.snap = value;
+		public void SetHandleLocally(bool value) => Globals.Editor.handleLocally = value;
+
 
 		public void CopyAction(InputAction.CallbackContext context) {
 			if (isOnTest) return;

@@ -1,6 +1,7 @@
 using System.Security.Cryptography;
 using System.Collections.Generic;
-using System.Threading.Tasks;
+// using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using System;
 
 using UnityEngine;
@@ -44,7 +45,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor.IO {
 		}
 
 		public static void Save(Level level, Action<bool> callback = null) {
-			Task.Run(async () => {
+			UniTask.Void(async () => {
 				bool success = true;
 
 				try {
