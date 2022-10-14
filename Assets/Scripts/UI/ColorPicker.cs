@@ -78,6 +78,9 @@ namespace RobotoSkunk.PixelMan.UI {
 
 
 		private void SetSlidersColors() {
+			float h, s, v;
+			Color.RGBToHSV(color, out h, out s, out v);
+
 			// Color.RGBToHSV(color, out hue, out saturation, out value);
 			Color c = __color;
 			c.a = 1f;
@@ -87,12 +90,14 @@ namespace RobotoSkunk.PixelMan.UI {
 			inverted.a = 1f;
 
 			#region HSV Color Channel bars
+			// Color.RGBToHSV(c, out hue, out saturation, out value);
+
 			saturationChannelBar.color = colH;
-			valueChannelBar.color = Color.HSVToRGB(hue, saturation, 1f);
+			valueChannelBar.color = Color.HSVToRGB(h, s, 1f);
 
 			saturationValueChannelSquare.color = colH;
-			svPickerCircle.rectTransform.anchoredPosition = new Vector2(saturation, value) * svContainer.sizeDelta;
-			huePicker.localRotation = Quaternion.Euler(0f, 0f, hue * 360f);
+			svPickerCircle.rectTransform.anchoredPosition = new Vector2(s, v) * svContainer.sizeDelta;
+			huePicker.localRotation = Quaternion.Euler(0f, 0f, h * 360f);
 			#endregion
 
 			#region RGB Color Channel bars

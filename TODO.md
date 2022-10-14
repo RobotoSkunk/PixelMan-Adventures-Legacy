@@ -15,7 +15,7 @@ project evolves.
 > Contribuitors:
 > - RobotoSkunk <contact@robotoskunk.com>
 
-
+- [ ] Fix color selector.
 - [ ] Finish the settings menu design.
 	- [ ] Make the settings menu work.
 	- [ ] Add support to change the game language.
