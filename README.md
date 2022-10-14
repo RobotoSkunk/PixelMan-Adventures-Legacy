@@ -1,99 +1,59 @@
+<p align="center">
+	<img width="788" height="196" alt="PixelMan Title" src="_resources/title.png" style="max-width: 90%; height: auto">
+</p>
+
 # PixelMan Adventures
-It's a simple platformer game with a pixel art style. The game is about just going from point A to point B without dying.
+A simple open source platformer game about going from point A to point B without dying.
 
-## Dependencies
-- [Unity 2021.3.0f1](https://unity3d.com/download)
-	- Android SDK, NDK and JDK.
-	- Windows IL2CPP compiler.
-	- Linux IL2CPP compiler.
-- Visual Studio 2019 or 2022, Visual Studio Code or any other IDE compatible with Unity.
-- The rest of dependencies will be downloaded automatically by Unity.
 
-## Installation
-Just clone the repository and open it with Unity Hub. Unity Hub will install everything automatically.
-```git
-> git clone https://github.com/RobotoSkunk/PixelMan-Development.git
-```
+## Development
+The game is still in development and in a very early stage, so,
+if you want to help, you can do it by contributing to the project.
+You can also help by reporting bugs or suggesting new features,
+but please understand that our focus is on completing the game
+first, so we may not be able to implement your suggestions right away.
 
-## Compile targets
-The game will be compiled for Windows, Linux and Android. IOS and MacOS are not supported at the moment.
+A few resources are available to getting involved and understanding the project:
+- There's a detailed [change log](CHANGELOG.md) available to see what's
+new in each version.
+- You can also check the [project roadmap](ROADMAP.md) to see what's coming next.
+- If you want to contribute, you can check the
+[contribution guidelines](CONTRIBUTING.md) to see how to do it.
 
-# Syntax rules
+Just a note: the game is still in early development, so the code is
+not very well organized and there are a lot of things that need to
+be improved. If you want to contribute, please keep that in mind.
 
-## Indentation
-Use tab characters for indentation. Use spaces for alignment.
+Also, the game itself it's coded using[Unity 2021.3.0f1](https://unity3d.com/download).
+Please mantain the same version to avoid any problems.
 
-```cs
-class Example : MonoBehaviour {
-	void Start() {
-		int[] array = { 1, 2, 3 };
 
-		foreach (int i in array
-			Debug.Log(i);
-	}
-}
-```
+### Versioning notes
+The game versioning is based on the [Semantic Versioning](https://semver.org/)
+standard. The versioning is based on the following format: `MAJOR.MINOR.PATCH`.
+- The `MAJOR` version is incremented when a major change is made to the game.
+- The `MINOR` version is incremented when a minor change is made to the game.
+- The `PATCH` version is incremented when a patch is made to the game.
 
-## Naming conventions
-- Start every class, function, struct or enum with a capital letter.
-- Use camelCase for naming.
-- Start every variable, parameter, constant or getter/setter with a lower case letter.
-- For enum values use all capital letters and separate them with underscores (this rule is not obligatory).
-- If you want to add a newline for brackets it's okay, but don't start a fight with the indentation.
-- Start variables with __ (two underscores) if you want to hide them using a getter/setter.
+When working on development, the versioning is based on the following
+format: `MAJOR.MINOR.PATCH-DEV`.
 
-```cs
-class Example {
-	public int __example;
+When working on a public beta, the versioning is based on the following
+format: `MAJOR.MINOR.PATCH-BETA`.
 
-	public int exampleVariable {
-		get {
-			return __example;
-		}
-		set {
-			__example = value;
-		}
-	}
 
-	void ExampleFunction() => exampleVariable = 1;
-}
-```
+## Compilation
+The game is compiled using `IL2CPP`. If you're not familiar with IL2CPP,
+you can read the [documentation](https://docs.unity3d.com/Manual/IL2CPP.html)
+to learn more about it.
 
-## Some extra tips
-- Use `#region` and `#endregion` to mark sections of code.
-- Use `#if` and `#endif` to mark sections of code that should be compiled only in certain conditions.
-- Use the phrase "don't repeat yourself" to avoid code duplication.
-- DON'T MIX CLASSES AND STRUCTS!
-- Use bitmask enums for flags.
-- Remember to use non-alloc functions every time you can.
-- Code in C# like if you're coding in C++ (remember, the game will be compiled with IL2CPP).
-- Write your code in a way that it's easy to use dinamically.
 
-```cs
-using UnityEngine;
+## Contributing
+If you want to contribute to the project, please follow the
+[syntax rules](SYNTAX_RULES.md) and the [code of conduct](CODE_OF_CONDUCT.md).
 
-[System.Flags]
-public enum Allowed {
-	None  = 0,
-	Left  = 1 << 0,
-	Right = 1 << 1,
-	Up    = 1 << 2,
-	Down  = 1 << 3,
-	Sides = Left | Right,
-	All   = ~0
-}
+We love contributions! So, feel free to contribute to the project as
+much as you want. Let's make the best platformer game ever!
 
-class Example : MonoBehaviour {
-	public Allowed allowed;
-
-	void Start() {
-		if ((allowed & Allowed.Left) != 0) {
-			Debug.Log("Left");
-		} else if ((allowed & Allowed.Right) != 0) {
-			Debug.Log("Right");
-		} else {
-			Debug.Log("None");
-		}
-	}
-}
-```
+## License
+This project is licensed under the [GNU Affero General Public License v3.0](LICENSE).

@@ -1,0 +1,30 @@
+<b>Created and produced by</b>
+Edgar Lima 
+
+<b>Developer</b>
+RobotoSkunk
+
+<b>Designers</b>
+RobotoSkunk
+NicolaOwO
+
+<b>Music by</b>
+Force94
+MarwTX
+Eli_Composer
+
+
+
+<b>Legal</b>
+
+
+<b>Music</b>
+All music used with permission from the original creators.
+Each creator has their own license for their music.
+
+<b>Fonts</b>
+Roboto font is licensed under the Apache License, Version 2.0.
+
+<b>Open Source Libraries</b>
+UniTask is licensed under the MIT License.
+XInputDotNet is licensed under the MIT License.

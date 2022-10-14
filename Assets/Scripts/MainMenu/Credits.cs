@@ -2,10 +2,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
+using TMPro;
+
 
 namespace RobotoSkunk.PixelMan.UI.MainMenu {
 	public class Credits : MonoBehaviour, IBeginDragHandler, IEndDragHandler {
 		public ScrollRect scrollRect;
+		public TextMeshProUGUI credits;
 		public float speed, padding;
 		bool dragging = false;
 
@@ -17,6 +20,7 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 		float top { get => contentHeight; }
 
 
+		private void Awake() => credits.text = Globals.creditsText;
 		private void Start() => SetContentPos(bottom);
 
 		private void Update() {

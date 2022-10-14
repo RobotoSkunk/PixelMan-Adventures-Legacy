@@ -13,10 +13,15 @@ using System;
 namespace RobotoSkunk {
 	public static class Files {
 		public static class Directories {
+			private static string _root = null;
+
 			public static string root {
 				get {
+					if (_root != null) return _root;
+
 #if UNITY_ANDROID && !UNITY_EDITOR
-					return "/storage/emulated/0/RobotoSkunk/PixelMan Adventures";
+					_root "/storage/emulated/0/Games/PixelMan Adventures";
+					return _root;
 #else
 					string folder = "/My Games/PixelMan Adventures", special = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
@@ -26,7 +31,8 @@ namespace RobotoSkunk {
 					if (special == "")
 						special = Environment.GetEnvironmentVariable("HOME") ?? Environment.GetEnvironmentVariable("HOMEPATH") ?? "";
 
-					return special + folder;
+					_root = special + folder;
+					return _root;
 #endif
 				}
 			}

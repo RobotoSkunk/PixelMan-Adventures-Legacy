@@ -67,6 +67,7 @@ namespace RobotoSkunk.PixelMan {
 		public static List<InGameObject> objects;
 		public static GameDirector director;
 		public static Dictionary<string, RSBehaviour> __behaviours = new();
+		public static string creditsText;
 
 
 		public static class Editor {
@@ -277,6 +278,9 @@ namespace RobotoSkunk.PixelMan {
 			GameDirector _director = Instantiate(Resources.Load<GameDirector>("GameDirector"));
 			_director.name = "GameDirector";
 			Globals.director = _director;
+
+			TextAsset _credits = Resources.Load<TextAsset>("Credits");
+			Globals.creditsText = _credits.text;
 		}
 
 
