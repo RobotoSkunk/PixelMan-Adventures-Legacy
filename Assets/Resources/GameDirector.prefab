@@ -3762,7 +3762,7 @@ MonoBehaviour:
       shakeStrenght: 0.5
       options: 0
     volume:
-      music: 1
+      music: 0
       fx: 1
       master: 1
     editor:

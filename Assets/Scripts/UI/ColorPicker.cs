@@ -46,14 +46,14 @@ namespace RobotoSkunk.PixelMan.UI {
 
 		[Header("Bars")]
 		public Slider sliderH;
-		public Image saturationChannelBar, valueChannelBar, svPicker;
+		public Image saturationChannelBar, valueChannelBar;
 		public Image[] alphaChannelBars;
 		public SliderRGBComponent[] rgbSliders;
 
 		[Header("Circular HSV Picker")]
 		public Image saturationValueChannelSquare;
-		public Image svPickerCircle;
-		public RectTransform huePicker, svContainer;
+		public RSRadialSlider huePicker;
+		public RSRectSlider svPicker;
 
 		[Header("Properties")]
 		public bool allowAlpha;
@@ -63,7 +63,7 @@ namespace RobotoSkunk.PixelMan.UI {
 		[HideInInspector] public ColorChangedEventInternal onValueChangedInternal = new();
 
 
-		float hue, saturation, value;
+		float h, s, v;
 
 		private Color __color;
 		public Color color {
@@ -78,26 +78,20 @@ namespace RobotoSkunk.PixelMan.UI {
 
 
 		private void SetSlidersColors() {
-			float h, s, v;
-			Color.RGBToHSV(color, out h, out s, out v);
-
-			// Color.RGBToHSV(color, out hue, out saturation, out value);
 			Color c = __color;
 			c.a = 1f;
 
-			Color colH = Color.HSVToRGB(sliderH.value, 1f, 1f);
+			Color colH = Color.HSVToRGB(h, 1f, 1f);
 			Color inverted = Color.white - c;
 			inverted.a = 1f;
 
 			#region HSV Color Channel bars
-			// Color.RGBToHSV(c, out hue, out saturation, out value);
-
 			saturationChannelBar.color = colH;
 			valueChannelBar.color = Color.HSVToRGB(h, s, 1f);
 
 			saturationValueChannelSquare.color = colH;
-			svPickerCircle.rectTransform.anchoredPosition = new Vector2(s, v) * svContainer.sizeDelta;
-			huePicker.localRotation = Quaternion.Euler(0f, 0f, h * 360f);
+			svPicker.SetValueWithoutNotify(new Vector2(s, v));
+			huePicker.SetValueWithoutNotify(h * 360f);
 			#endregion
 
 			#region RGB Color Channel bars
@@ -123,7 +117,7 @@ namespace RobotoSkunk.PixelMan.UI {
 		}
 
 		public void SetValueWithoutNotify(Color color, bool ignoreHSV2RGB = false) {
-			if (!ignoreHSV2RGB) Color.RGBToHSV(color, out hue, out saturation, out value);
+			if (!ignoreHSV2RGB) Color.RGBToHSV(color, out h, out s, out v);
 			__color = color;
 			SetSlidersColors();
 
@@ -145,28 +139,25 @@ namespace RobotoSkunk.PixelMan.UI {
 
 			if ((ColorChannel.HSV & bar.channel) != 0) {
 				if ((ColorChannel.H & bar.channel) != 0) {
-					Color.RGBToHSV(c, out hue, out _, out _);
-
-					c = Color.HSVToRGB(f, saturation, value);
+					c = Color.HSVToRGB(f, s, v);
+					h = f;
 				}
 
 				if ((ColorChannel.S & bar.channel) != 0) {
-					Color.RGBToHSV(c, out _, out saturation, out _);
-
-					c = Color.HSVToRGB(hue, f, value);
+					c = Color.HSVToRGB(h, f, v);
+					s = f;
 				}
 
 				if ((ColorChannel.V & bar.channel) != 0) {
-					Color.RGBToHSV(c, out _, out _, out value);
-
-					c = Color.HSVToRGB(hue, saturation, f);
+					c = Color.HSVToRGB(h, s, f);
+					v = f;
 				}
 			} else {
 				if ((ColorChannel.R & bar.channel) != 0) c.r = f;
 				if ((ColorChannel.G & bar.channel) != 0) c.g = f;
 				if ((ColorChannel.B & bar.channel) != 0) c.b = f;
 
-				Color.RGBToHSV(c, out hue, out saturation, out value);
+				Color.RGBToHSV(c, out h, out s, out v);
 			}
 			c.a = allowAlpha ? f : 1f;
 
@@ -174,6 +165,26 @@ namespace RobotoSkunk.PixelMan.UI {
 			InvokeChangedEvent(false);
 			UpdateHex();
 		}
+		public void GetRectSliderValue(Vector2 vec) {
+			s = vec.x;
+			v = vec.y;
+			Color c = Color.HSVToRGB(h, s, v);
+			c.a = allowAlpha ? v : 1f;
+
+			SetValueWithoutNotify(c, true);
+			InvokeChangedEvent(false);
+			UpdateHex();
+		}
+		public void GetRadialSliderValue(float ang) {
+			h = ang / 360f;
+			Color c = Color.HSVToRGB(h, s, v);
+			c.a = allowAlpha ? v : 1f;
+
+			SetValueWithoutNotify(c, true);
+			InvokeChangedEvent(false);
+			UpdateHex();
+		}
+
 
 		public void GetHexValue(string hex) {
 			if (hex.StartsWith("#")) hex = hex[1..];

@@ -723,7 +723,6 @@ MonoBehaviour:
   sliderH: {fileID: 6628045422102895621}
   saturationChannelBar: {fileID: 297713627524629971}
   valueChannelBar: {fileID: 6628045422279913140}
-  svPicker: {fileID: 297713629495823291}
   alphaChannelBars:
   - {fileID: 6628045422028989088}
   - {fileID: 6628045421968002119}
@@ -736,9 +735,8 @@ MonoBehaviour:
   - left: {fileID: 6628045420991034383}
     right: {fileID: 6628045421660278024}
   saturationValueChannelSquare: {fileID: 297713628781368310}
-  svPickerCircle: {fileID: 297713629495823291}
-  huePicker: {fileID: 297713627517559533}
-  svContainer: {fileID: 7713280414206061667}
+  huePicker: {fileID: 7531795545530189208}
+  svPicker: {fileID: 8892824414397449498}
   allowAlpha: 0
   onValueChanged:
     m_PersistentCalls:
@@ -1150,6 +1148,7 @@ GameObject:
   - component: {fileID: 297713629162273492}
   - component: {fileID: 297713629162273490}
   - component: {fileID: 297713629162273491}
+  - component: {fileID: 7531795545530189208}
   m_Layer: 0
   m_Name: HSV
   m_TagString: Untagged
@@ -1217,6 +1216,35 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 1
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7531795545530189208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297713629162273493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a38267606f0d5a64bb49fade7572dc51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handler: {fileID: 297713627517559533}
+  rectTransform: {fileID: 297713629162273492}
+  onValueChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 297713628693156312}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.UI.ColorPicker, Assembly-CSharp
+        m_MethodName: GetRadialSliderValue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &297713629370925915
 GameObject:
   m_ObjectHideFlags: 0
@@ -1812,6 +1840,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7713280414206061667}
+  - component: {fileID: 302115275922796539}
+  - component: {fileID: 5294131258672423366}
+  - component: {fileID: 8892824414397449498}
   m_Layer: 0
   m_Name: Container
   m_TagString: Untagged
@@ -1837,9 +1868,76 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 1, y: 1}
   m_SizeDelta: {x: -2, y: -2}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0}
+--- !u!222 &302115275922796539
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8708063413536764659}
+  m_CullTransparentMesh: 1
+--- !u!114 &5294131258672423366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8708063413536764659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 8229598875086543445, guid: d2a114b1be56ebe4a92b18b4001732f8, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8892824414397449498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8708063413536764659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9c8cb1fd88e2264c9883e66eb06e583, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handler: {fileID: 297713629495823292}
+  rectTransform: {fileID: 7713280414206061667}
+  onValueChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 297713628693156312}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.UI.ColorPicker, Assembly-CSharp
+        m_MethodName: GetRectSliderValue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &297713627615878797
 PrefabInstance:
   m_ObjectHideFlags: 0

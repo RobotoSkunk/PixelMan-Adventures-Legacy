@@ -15,3 +15,11 @@ If you want to see the TODO list for the current version, please check the
 - [ ] Make the main menu, obviously.
 - [ ] Add the credits menu to the game and make it work by reading the credits
 	  from a file.
+
+## Version 0.4.0-beta
+- [ ] Finish the first world.
+- [ ] Make the first bossfight.
+- [ ] Make the file system for level editor.
+	- [ ] Make the level editor save and load system.
+	- [ ] Make the level importing and exporting system.
+
