@@ -50,7 +50,7 @@ to learn more about it.
 
 ## Contributing
 If you want to contribute to the project, please follow the
-[syntax rules](SYNTAX_RULES.md) and the [code of conduct](CODE_OF_CONDUCT.md).
+[coding style](CODING_STYLE.md) and the [code of conduct](CODE_OF_CONDUCT.md).
 
 We love contributions! So, feel free to contribute to the project as
 much as you want. Let's make the best platformer game ever!
