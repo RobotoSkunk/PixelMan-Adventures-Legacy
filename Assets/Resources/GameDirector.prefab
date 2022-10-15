@@ -3922,7 +3922,7 @@ MonoBehaviour:
     general:
       lang: en
       shakeStrenght: 0.5
-      options: 0
+      options: -1
     volume:
       music: 0
       fx: 1

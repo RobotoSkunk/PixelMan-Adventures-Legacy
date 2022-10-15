@@ -15,6 +15,7 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 		public SkinSelector skinSelectorButton;
 		public Transform buttonsContainer;
 		public TextMeshProUGUI avatarName;
+		public Outline avatarOutline;
 
 		[Header("Garbage")]
 		public SpriteRenderer playerSprite;
@@ -55,6 +56,10 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 		private void Update() {
 			if (playerPreview.sprite != playerSprite.sprite) SetPreviewSprite();
 			Globals.playerData.color = playerPreview.color = colorPicker.color;
+
+			Color.RGBToHSV(colorPicker.color, out float h, out float s, out float v);
+			avatarOutline.effectColor = Color.HSVToRGB(h, s, 1f - v);
+
 
 			if (__state != __lastState) {
 				ResetAnimation();

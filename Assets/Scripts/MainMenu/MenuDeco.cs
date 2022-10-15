@@ -8,6 +8,7 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 		[Header("Components")]
 		public Animator animator;
 		public GameObject ground;
+		public SpriteRenderer playerSprite;
 
 		[Header("Properties")]
 		public float groundSpeed;
@@ -26,6 +27,7 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 				ground.transform.position += new Vector3(10f, 0f, 0f);
 
 			if ((int)Globals.playerData.skinIndex != __lastPlayerID) SetPlayerSkin();
+			playerSprite.color = Globals.playerData.color;
 		}
 
 
