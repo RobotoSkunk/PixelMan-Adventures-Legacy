@@ -6,6 +6,13 @@ If you want to see the TODO list for the current version, please check the
 [TODO list](TODO.md).
 
 ## Version 0.3.0-beta
+> Start date: 2022-10-14
+>
+> Finish date: ????-??-??
+>
+> Contribuitors:
+> - RobotoSkunk <contact@robotoskunk.com>
+
 - [ ] Add the first world to the game.
 	- [ ] Make the save system.
 	- [ ] Add at least 3 scenarios to the first world.

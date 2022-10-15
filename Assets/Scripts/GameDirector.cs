@@ -1,8 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-// using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
+using System.Text;
 
 using UnityEngine;
 using UnityEngine.UI;
@@ -55,12 +55,12 @@ namespace RobotoSkunk.PixelMan {
 
 
 	public static class Globals {
+		#region Common static variables
 		public static bool onPause = true, onEditField = false, doIntro = true, openSettings = false;
 		public static uint attempts = 0u, respawnAttempts = 0u;
 		public static PlayerCharacters[] playerCharacters;
 		public static Settings settings = new();
 		public static PlayerData playerData = new();
-		public static Settings.LangWrapper langWrapper;
 		public static float gmVolume = 1f, shakeForce = 0f;
 		public static Vector2 respawnPoint;
 		public static int checkpointId = 0, buttonSelected, mainMenuSection = 0;
@@ -70,11 +70,15 @@ namespace RobotoSkunk.PixelMan {
 		public static Dictionary<string, RSBehaviour> __behaviours = new();
 		public static string creditsText;
 
+		public static Settings.Languages languages;
+
 
 		public static class Editor {
 			public static bool snap = true, handleLocally = false;
 		}
+		#endregion
 
+		#region Setters and Getters
 		static bool __isDead = false;
 		static GameDirector.MusicClips.Type __musicType = GameDirector.MusicClips.Type.NONE;
 
@@ -105,6 +109,8 @@ namespace RobotoSkunk.PixelMan {
 
 		public static Vector2 screen { get => new(Screen.width, Screen.height); }
 		public static Rect screenRect { get => new(Vector2.zero, screen); }
+		#endregion
+
 
 		[Serializable]
 		public class Settings {
@@ -112,12 +118,10 @@ namespace RobotoSkunk.PixelMan {
 			public Volume volume;
 			public Editor editor;
 
-			[Serializable]
-			public class Volume {
+			[Serializable] public class Volume {
 				public float music = 1f, fx = 1f, master = 1f;
 			}
-			[Serializable]
-			public class General {
+			[Serializable] public class General {
 				public string lang = "en";
 				public float shakeStrenght = 0.5f;
 				public Options options;
@@ -153,31 +157,63 @@ namespace RobotoSkunk.PixelMan {
 					set => options = (options & ~Options.EnableFullscreen) | (value ? Options.EnableFullscreen : 0);
 				}
 			}
-			[Serializable]
-			public class Editor {
+			[Serializable] public class Editor {
 				public uint undoLimit, lineLength = 500;
 			}
 
-			[Serializable]
-			public class Languages {
-				public string name = "English", tag = "en";
+
+			[Serializable] public class Languages {
+				[Serializable] public class Properties {
+					[Serializable] public class Values {
+						public string code = "en";						
+						[TextArea(1, 5)] public string value = "Example";
+					}
+
+					[TextArea(1, 1)] public string field = "default.test";
+					public List<Values> values = new();
+
+					public string GetField(string code) {
+						Values _val = values.Find(m => m.code == code);
+						if (_val != null) return _val.value;
+
+						return "[LANG_DEF_ERROR]";
+					}
+				}
+
+				public List<Properties.Values> available = new();
 				public List<Properties> properties = new();
 
-				[Serializable]
-				public class Properties {
-					public string field = "default.test", value = "";
+				string GetLang() {
+					string _lang = settings.general.lang;
+					if (string.IsNullOrEmpty(_lang)) _lang = "en";
+					return _lang;
+				}
+
+				public int GetLanguageIndex(string code) {
+					for (int i = 0; i < available.Count; i++)
+						if (available[i].code == code) return i;
+
+					return 0;
+				}
+				public string GetCurrentLangName() {
+					string _lang = GetLang();
+					for (int i = 0; i < available.Count; i++)
+						if (available[i].code == _lang) return available[i].value;
+
+					return "English";
 				}
 
 				public string GetField(string fieldName) {
-					Properties _prop = properties.Find(m => m.field == fieldName);
-					if (_prop != null) return _prop.value;
-					return null;
+					Properties _prop = properties.Find(m => m.field.Trim() == fieldName.Trim());
+					if (_prop != null) return _prop.GetField(GetLang());
+
+					return "[LANG_FIELD_ERROR]";
 				}
 				public string GetField(string fieldName, string[] args) {
 					Properties _prop = properties.Find(m => m.field == fieldName);
 
 					if (_prop != null) {
-						string tmp = _prop.value;
+						string tmp = _prop.GetField(GetLang());
 
 						for (int i = 0; i < args.Length; i++)
 							tmp = tmp.Replace($"{{{i}}}", args[i]);
@@ -185,35 +221,13 @@ namespace RobotoSkunk.PixelMan {
 						return tmp;
 					}
 
-					return null;
+					return "[LANG_ERROR]";
 				}
-			}
 
-			[Serializable]
-			public class LangWrapper {
-				public List<Languages> languages;
-
-				public string GetValue(string fieldName) {
-					Languages _lang = languages.Find(m => m.tag == settings.general.lang);
-
-					if (_lang != null) return _lang.GetField(fieldName);
-					return languages[0].GetField(fieldName);
-				}
-				public string GetValue(string fieldName, params string[] args) {
-					Languages _lang = languages.Find(m => m.tag == settings.general.lang);
-
-					if (_lang != null) return _lang.GetField(fieldName, args);
-					return languages[0].GetField(fieldName, args);
-				}
-				public string GetCurrentLangName() {
-					Languages _lang = languages.Find(m => m.tag == settings.general.lang);
-
-					if (_lang != null) return _lang.name;
-					return languages[0].name;
-				}
 			}
 		}
 
+		#region Non-Static classes and structs
 		[Serializable]
 		public class PlayerData {
 			public string displayName = "Player", accessToken = "";
@@ -228,6 +242,7 @@ namespace RobotoSkunk.PixelMan {
 			public Sprite display;
 			public RuntimeAnimatorController controller;
 		}
+		#endregion
 	}
 
 
@@ -245,7 +260,7 @@ namespace RobotoSkunk.PixelMan {
 		public Globals.PlayerCharacters[] playerCharacters;
 		public List<InGameObject> objects;
 		public List<MusicClips> musicClips;
-		public Globals.Settings.LangWrapper languagesWrapper;
+		public Globals.Settings.Languages languages;
 
 		[Header("Components")]
 		public AudioSource bgAudio;
@@ -293,12 +308,12 @@ namespace RobotoSkunk.PixelMan {
 
 		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
 		public static void OnRuntimeStart() {
+			TextAsset _credits = Resources.Load<TextAsset>("Credits");
+			Globals.creditsText = _credits.text;
+
 			GameDirector _director = Instantiate(Resources.Load<GameDirector>("GameDirector"));
 			_director.name = "GameDirector";
 			Globals.director = _director;
-
-			TextAsset _credits = Resources.Load<TextAsset>("Credits");
-			Globals.creditsText = _credits.text;
 		}
 
 
@@ -306,17 +321,47 @@ namespace RobotoSkunk.PixelMan {
 			// Set values
 			Globals.objects = objects;
 			Globals.playerCharacters = playerCharacters;
-			Globals.langWrapper = languagesWrapper;
+			Globals.languages = languages;
 
 			Globals.settings = settings;
 			Globals.playerData = playerData;
 			Globals.settings.general.lang = Diagnostics.systemLanguage;
 
+			#region Parse Credits.txt
+			Globals.creditsText = Globals.creditsText.Replace("\r", "");
+			string[] _lines = Globals.creditsText.Split("\n");
+			string __tmp = "", __lang = "";
+
+			Globals.Settings.Languages.Properties _dictionary = new() {
+				field = "menu.credits",
+				values = new() {
+					new() { code = "en", value = "" },
+					new() { code = "es", value = "" },
+					new() { code = "pt", value = "" }
+				}
+			};
+
+
+			for (int i = 0; i < _lines.Length; i++) {
+				if (_lines[i].StartsWith("#lang=")) __lang = _lines[i].Replace("#lang=", "");
+				else if (_lines[i].StartsWith("#end")) {
+					if (Globals.languages.available.Find(m => m.code == __lang) != null) {
+						_dictionary.values.Find(m => m.code == __lang).value = __tmp;
+						__tmp = "";
+					}
+				} else __tmp += _lines[i] + "\n";
+			}
+
+			Globals.languages.properties.Add(_dictionary);
+			#endregion
+
+
 			// Clear memory
 			settings = null;
 			playerData = null;
 			playerCharacters = null;
-			languagesWrapper = null;
+			languages = null;
+			Globals.creditsText = null;
 
 			#region Set settings to the UI
 			bool[] _options = {
@@ -334,7 +379,7 @@ namespace RobotoSkunk.PixelMan {
 				Globals.settings.editor.undoLimit,
 				Globals.settings.editor.lineLength
 			};
-			langText.text = Globals.langWrapper.GetCurrentLangName();
+			langText.text = Globals.languages.GetCurrentLangName();
 
 			for (int i = 0; i < optionsToggles.Length; i++)
 				if (i < _options.Length) optionsToggles[i].SetIsOnWithoutNotify(_options[i]);
@@ -375,10 +420,6 @@ namespace RobotoSkunk.PixelMan {
 			// Prepare directories
 			try {
 				await Files.Directories.Prepare();
-
-				// foreach (var p in typeof(GameDirector).GetProperties()) {
-				// 	Debug.Log($"{p.Name} | {p.PropertyType}");
-				// }
 			} catch (Exception e) {
 				Debug.LogWarning(e);
 			}
@@ -403,7 +444,7 @@ namespace RobotoSkunk.PixelMan {
 
 			fps = RSTime.fps;
 
-			openDelta = Mathf.Lerp(openDelta, (!Globals.openSettings).ToInt(), 0.2f);
+			openDelta = Mathf.Lerp(openDelta, (!Globals.openSettings).ToInt(), 0.2f * RSTime.delta);
 
 			confPanels.SetActive(openDelta < 0.99f);
 			confPanels[0].anchoredPosition = new(-openDelta * (confPanels[0].rect.width + 10), 0);
@@ -460,14 +501,17 @@ namespace RobotoSkunk.PixelMan {
 		public void ToggleSettings(bool value) => Globals.openSettings = value;
 
 
-		// public void SetLanguage(int i) {
-		// 	Globals.settings.general.language = (Language)i;
+		public void SetLanguage(int i) {
+			int current = Globals.languages.GetLanguageIndex(Globals.settings.general.lang);
+			
+			current += i;
+			if (current < 0) current = Globals.languages.available.Count - 1;
+			else if (current >= Globals.languages.available.Count) current = 0;
 
-		// 	Globals.langWrapper.languages
-
-		// 	Globals.settings.general.language = (Language)i;
-		// 	LocalizationManager.Instance.ChangeLanguage((Language)i);
-		// }
+			Globals.settings.general.lang = Globals.languages.available[current].code;
+			langText.text = Globals.languages.GetCurrentLangName();
+			Events.GeneralEventsHandler.InvokeLanguageChanged();
+		}
 		#endregion
 
 

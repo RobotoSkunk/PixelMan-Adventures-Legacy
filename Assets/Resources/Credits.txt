@@ -1,3 +1,4 @@
+#lang=en
 <b>Created and produced by</b>
 Edgar Lima 
 
@@ -29,3 +30,72 @@ Roboto font is licensed under the Apache License, Version 2.0.
 UniTask is licensed under the MIT License.
 XInputDotNet is licensed under the MIT License.
 TexturePacker Importer is licensed under their own license.
+#end
+
+#lang=es
+<b>Creado y producido por</b>
+Edgar Lima
+
+<b>Desarrollador</b>
+Edgar Lima
+
+<b>Diseñadores</b>
+Edgar Lima
+NicolaOwO
+
+<b>Música por</b>
+Force94
+MarwTX
+Eli_Composer
+
+
+
+<b>LEGAL</b>
+
+
+<b>Música</b>
+Toda la música utilizada con permiso de los creadores originales.
+Cada creador tiene su propia licencia para su música.
+
+<b>Fuentes</b>
+La fuente Roboto está licenciada bajo la Licencia Apache, versión 2.0.
+
+<b>Bibliotecas de código abierto</b>
+UniTask está licenciado bajo la Licencia MIT.
+XInputDotNet está licenciado bajo la Licencia MIT.
+TexturePacker Importer está licenciado bajo su propia licencia.
+#end
+
+#lang=pt
+<b>Criado e produzido por</b>
+Edgar Lima
+
+<b>Desenvolvedor</b>
+Edgar Lima
+
+<b>Designers</b>
+Edgar Lima
+NicolaOwO
+
+<b>Música por</b>
+Force94
+MarwTX
+Eli_Composer
+
+
+
+<b>LEGAL</b>
+
+
+<b>Música</b>
+Toda a música utilizada com permissão dos criadores originais.
+Cada criador tem sua própria licença para sua música.
+
+<b>Fontes</b>
+A fonte Roboto está licenciada sob a Licença Apache, versão 2.0.
+
+<b>Bibliotecas de código aberto</b>
+UniTask está licenciado sob a Licença MIT.
+XInputDotNet está licenciado sob a Licença MIT.
+TexturePacker Importer está licenciado sob sua própria licença.
+#end

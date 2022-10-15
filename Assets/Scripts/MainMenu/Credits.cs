@@ -20,7 +20,6 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 		float top { get => contentHeight; }
 
 
-		private void Awake() => credits.text = Globals.creditsText;
 		private void Start() => SetContentPos(bottom);
 
 		private void Update() {
