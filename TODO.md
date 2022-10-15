@@ -27,5 +27,5 @@ project evolves.
 	- [ ] Make the pause menu work.
 - [ ] Add support to export levels from the level editor.
 - [ ] Add support to import levels to the game.
-- [ ] Fix weird bug with Language name in settings.
+- [x] Fix weird bug with Language name in settings.
 

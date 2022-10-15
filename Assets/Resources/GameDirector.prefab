@@ -3310,7 +3310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 0}
-  key: settings.field.shake_strength
+  key: settings.field.screen_shake
 --- !u!1 &2924157327277306355
 GameObject:
   m_ObjectHideFlags: 0
@@ -4702,7 +4702,7 @@ MonoBehaviour:
       - code: es
         value: Controles
       - code: pt
-        value: Editor
+        value: Controlos
     - field: menu.button.play
       values:
       - code: en
