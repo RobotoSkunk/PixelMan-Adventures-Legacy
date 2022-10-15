@@ -80,6 +80,8 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 				parts[i].SetActive(active);
 		}
 
+		public void OpenSettings() => Globals.openSettings = true;
+
 
 		IEnumerator DoIntro() {
 			yield return new WaitForSeconds(2.5f);

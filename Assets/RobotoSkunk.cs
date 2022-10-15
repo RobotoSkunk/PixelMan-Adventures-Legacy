@@ -445,6 +445,28 @@ namespace RobotoSkunk {
 			}
 		}
 
+		public static void SetActive(this GameObject[] array, bool enabled) {
+			foreach (GameObject gameObject in array)
+				if (gameObject)
+					gameObject.SetActive(enabled);
+		}
+		public static void SetActive(this List<GameObject> list, bool enabled) {
+			foreach (GameObject gameObject in list)
+				if (gameObject)
+					gameObject.SetActive(enabled);
+		}
+
+		public static void SetActive(this Component[] array, bool enabled) {
+			foreach (Component component in array)
+				if (component)
+					component.gameObject.SetActive(enabled);
+		}
+		public static void SetActive(this List<Component> list, bool enabled) {
+			foreach (Component component in list)
+				if (component)
+					component.gameObject.SetActive(enabled);
+		}
+
 		public static Vector4 MinMaxToVec4(this Rect rect) => new(rect.xMin, rect.yMin, rect.xMax, rect.yMax);
 
 

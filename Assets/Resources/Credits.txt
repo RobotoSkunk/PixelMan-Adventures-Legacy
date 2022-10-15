@@ -28,3 +28,4 @@ Roboto font is licensed under the Apache License, Version 2.0.
 <b>Open Source Libraries</b>
 UniTask is licensed under the MIT License.
 XInputDotNet is licensed under the MIT License.
+TexturePacker Importer is licensed under their own license.

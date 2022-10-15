@@ -11,6 +11,7 @@ using UnityEngine.InputSystem;
 using XInputDotNetPure;
 
 using RobotoSkunk.PixelMan.Events;
+using TMPro;
 
 
 
@@ -54,7 +55,7 @@ namespace RobotoSkunk.PixelMan {
 
 
 	public static class Globals {
-		public static bool onPause = true, onEditField = false, doIntro = true;
+		public static bool onPause = true, onEditField = false, doIntro = true, openSettings = false;
 		public static uint attempts = 0u, respawnAttempts = 0u;
 		public static PlayerCharacters[] playerCharacters;
 		public static Settings settings = new();
@@ -204,6 +205,12 @@ namespace RobotoSkunk.PixelMan {
 					if (_lang != null) return _lang.GetField(fieldName, args);
 					return languages[0].GetField(fieldName, args);
 				}
+				public string GetCurrentLangName() {
+					Languages _lang = languages.Find(m => m.tag == settings.general.lang);
+
+					if (_lang != null) return _lang.name;
+					return languages[0].name;
+				}
 			}
 		}
 
@@ -229,7 +236,7 @@ namespace RobotoSkunk.PixelMan {
 
 
 	public class GameDirector : MonoBehaviour {
-		[Header("Startup properties")]
+		[Header("Default properties")]
 		public Globals.Settings settings;
 		public Globals.PlayerData playerData;
 
@@ -244,11 +251,22 @@ namespace RobotoSkunk.PixelMan {
 		public AudioSource bgAudio;
 		public AudioSource musicAudio;
 
+		// Follow up the order of the components in the inspector
+		[Header("Configuration components")]
+		public TextMeshProUGUI langText;
+		public Toggle[] optionsToggles;
+		public Slider[] optionsSliders;
+		public RectTransform[] confPanels;
+		public GameObject[] confSections;
+		public ScrollRect optionsScrollRect;
+
+
 		bool onMusicFade = false;
 		int fps;
 		readonly Timer t = new();
 		Coroutine musicRoutine, shakeRoutine;
 		Rect guiRect = new(15, 65, 200, 100);
+		float openDelta = 1f;
 
 
 
@@ -288,9 +306,10 @@ namespace RobotoSkunk.PixelMan {
 			// Set values
 			Globals.objects = objects;
 			Globals.playerCharacters = playerCharacters;
+			Globals.langWrapper = languagesWrapper;
+
 			Globals.settings = settings;
 			Globals.playerData = playerData;
-			Globals.langWrapper = languagesWrapper;
 			Globals.settings.general.lang = Diagnostics.systemLanguage;
 
 			// Clear memory
@@ -298,6 +317,34 @@ namespace RobotoSkunk.PixelMan {
 			playerData = null;
 			playerCharacters = null;
 			languagesWrapper = null;
+
+			#region Set settings to the UI
+			bool[] _options = {
+				Globals.settings.general.enableFullscreen,
+				Globals.settings.general.enableVSync,
+				Globals.settings.general.enableDeviceVibration,
+				Globals.settings.general.enableControllerVibration,
+				Globals.settings.general.enableParticles
+			};
+			float[] _sliders = {
+				Globals.settings.general.shakeStrenght,
+				Globals.settings.volume.master,
+				Globals.settings.volume.music,
+				Globals.settings.volume.fx,
+				Globals.settings.editor.undoLimit,
+				Globals.settings.editor.lineLength
+			};
+			langText.text = Globals.langWrapper.GetCurrentLangName();
+
+			for (int i = 0; i < optionsToggles.Length; i++)
+				if (i < _options.Length) optionsToggles[i].SetIsOnWithoutNotify(_options[i]);
+
+			for (int i = 0; i < optionsSliders.Length; i++)
+				if (i < _sliders.Length) optionsSliders[i].SetValueWithoutNotify(_sliders[i]);
+
+			OpenPanel(0);
+			#endregion
+
 
 			// Suscribe events
 			/*GameEventsHandler.PlayerDeath += () => {
@@ -355,6 +402,12 @@ namespace RobotoSkunk.PixelMan {
 				Globals.onPause = !Globals.onPause;
 
 			fps = RSTime.fps;
+
+			openDelta = Mathf.Lerp(openDelta, (!Globals.openSettings).ToInt(), 0.2f);
+
+			confPanels.SetActive(openDelta < 0.99f);
+			confPanels[0].anchoredPosition = new(-openDelta * (confPanels[0].rect.width + 10), 0);
+			confPanels[1].anchoredPosition = new(openDelta * (confPanels[1].rect.width + 10), 0);
 		}
 
 		private void FixedUpdate() {
@@ -378,6 +431,46 @@ namespace RobotoSkunk.PixelMan {
 					GamePad.SetVibration(index, leftMotor, rightMotor);
 			}
 		}
+
+
+		#region Settings methods
+		public void SetFullscreen(bool value) {
+			Globals.settings.general.enableFullscreen = value;
+			Screen.fullScreen = value;
+		}
+		public void SetVSync(bool value) {
+			Globals.settings.general.enableVSync = value;
+			QualitySettings.vSyncCount = value ? 1 : 0;
+		}
+		public void SetDeviceVibration(bool value) => Globals.settings.general.enableDeviceVibration = value;
+		public void SetControllerVibration(bool value) => Globals.settings.general.enableControllerVibration = value;
+		public void SetParticles(bool value) => Globals.settings.general.enableParticles = value;
+
+
+		public void SetShakeStrenght(float value) => Globals.settings.general.shakeStrenght = value;
+		public void SetMasterVolume(float value) => Globals.settings.volume.master = value;
+		public void SetMusicVolume(float value) => Globals.settings.volume.music = value;
+		public void SetFxVolume(float value) => Globals.settings.volume.fx = value;
+
+
+		public void OpenPanel(int i) {
+			for (int j = 0; j < confSections.Length; j++) confSections[j].SetActive(j == i);
+			optionsScrollRect.content.anchoredPosition = new(optionsScrollRect.content.anchoredPosition.x, -50);
+		}
+		public void ToggleSettings(bool value) => Globals.openSettings = value;
+
+
+		// public void SetLanguage(int i) {
+		// 	Globals.settings.general.language = (Language)i;
+
+		// 	Globals.langWrapper.languages
+
+		// 	Globals.settings.general.language = (Language)i;
+		// 	LocalizationManager.Instance.ChangeLanguage((Language)i);
+		// }
+		#endregion
+
+
 
 		#region Coroutines
 		IEnumerator ShakeEffect(float __force, float __time) {
