@@ -45,7 +45,8 @@
         "Obj/":true,
         "ProjectSettings/":true,
         "temp/":true,
-        "Temp/":true
+        "Temp/":true,
+		"*.csproj":true
     },
 	"omnisharp.autoStart": true
 }
