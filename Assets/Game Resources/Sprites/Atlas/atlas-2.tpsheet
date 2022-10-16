@@ -1,0 +1,66 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# https://www.codeandweb.com/texturepacker/unity
+#
+# $TexturePacker:SmartUpdate:9c8372a3f04ec45307efb1a1289bad8d:177d5517bcd005cdc28a0df91a5a2969:90b99673a5ad384203f1fe5d4e78c786$
+#
+:format=40300
+:texture=atlas-2.png
+:size=256x64
+:pivotpoints=enabled
+:borders=enabled
+:alphahandling=ClearTransparentPixels
+
+avatars-avatar-0-falling-0;244;12;9;16; 0.55555556;0.4375; 0;0;0;0
+avatars-avatar-0-falling-1;241;30;10;15; 0.5;0.4; 0;0;0;0
+avatars-avatar-0-falling-2;241;47;12;16; 0.5;0.4375; 0;0;0;0
+avatars-avatar-0-idle-0;153;44;11;19; 0.54545455;0.47368421000000005; 0;0;0;0
+avatars-avatar-0-jumping-0;196;5;9;18; 0.44444444;0.5; 0;0;0;0
+avatars-avatar-0-jumping-1;173;25;13;18; 0.53846154;0.5; 0;0;0;0
+avatars-avatar-0-running-0;166;45;14;18; 0.5;0.5; 0;0;0;0
+avatars-avatar-0-running-1;211;26;11;17; 0.45454545;0.52941176; 0;0;0;0
+avatars-avatar-0-running-2;231;46;8;17; 0.375;0.52941176; 0;0;0;0
+avatars-avatar-0-running-3;182;45;12;18; 0.41666667;0.5; 0;0;0;0
+avatars-avatar-0-running-4;166;4;14;18; 0.5;0.5; 0;0;0;0
+avatars-avatar-0-running-5;219;46;10;17; 0.5;0.52941176; 0;0;0;0
+avatars-avatar-0-running-6;234;8;8;17; 0.375;0.52941176; 0;0;0;0
+avatars-avatar-0-running-7;182;5;12;18; 0.41666667;0.5; 0;0;0;0
+avatars-avatar-1-falling-0;222;7;10;17; 0.5;0.41176471000000003; 0;0;0;0
+avatars-avatar-1-falling-1;224;27;10;17; 0.6;0.41176471000000003; 0;0;0;0
+avatars-avatar-1-falling-2;207;6;13;17; 0.53846154;0.41176471000000003; 0;0;0;0
+avatars-avatar-1-idle-0;75;43;11;20; 0.45454545;0.44999999999999996; 0;0;0;0
+avatars-avatar-1-jumping-0;154;2;10;19; 0.5;0.42105263000000004; 0;0;0;0
+avatars-avatar-1-jumping-1;108;2;14;19; 0.57142857;0.42105263000000004; 0;0;0;0
+avatars-avatar-1-running-0;110;23;14;19; 0.5;0.47368421000000005; 0;0;0;0
+avatars-avatar-1-running-1;188;25;11;18; 0.45454545;0.5; 0;0;0;0
+avatars-avatar-1-running-2;201;25;8;18; 0.375;0.5; 0;0;0;0
+avatars-avatar-1-running-3;140;2;12;19; 0.41666667;0.47368421000000005; 0;0;0;0
+avatars-avatar-1-running-4;138;44;13;19; 0.38461538;0.47368421000000005; 0;0;0;0
+avatars-avatar-1-running-5;122;44;14;19; 0.5;0.47368421000000005; 0;0;0;0
+avatars-avatar-1-running-6;196;45;11;18; 0.45454545;0.5; 0;0;0;0
+avatars-avatar-1-running-7;209;45;8;18; 0.375;0.5; 0;0;0;0
+avatars-avatar-1-running-8;142;23;12;19; 0.41666667;0.47368421000000005; 0;0;0;0
+avatars-avatar-2-falling-0;37;1;17;18; 0.76470588;0.38888889000000004; 0;0;0;0
+avatars-avatar-2-falling-1;1;1;17;17; 0.70588235;0.35294117999999997; 0;0;0;0
+avatars-avatar-2-falling-2;56;1;16;18; 0.625;0.38888889000000004; 0;0;0;0
+avatars-avatar-2-idle-0;1;42;15;21; 0.66666667;0.42857143; 0;0;0;0
+avatars-avatar-2-jumping-0;59;21;15;20; 0.66666667;0.44999999999999996; 0;0;0;0
+avatars-avatar-2-jumping-1;38;43;17;20; 0.64705882;0.44999999999999996; 0;0;0;0
+avatars-avatar-2-running-0;1;20;18;20; 0.61111111;0.44999999999999996; 0;0;0;0
+avatars-avatar-2-running-1;76;22;15;19; 0.6;0.47368421000000005; 0;0;0;0
+avatars-avatar-2-running-2;124;2;14;19; 0.57142857;0.47368421000000005; 0;0;0;0
+avatars-avatar-2-running-3;41;21;16;20; 0.5625;0.44999999999999996; 0;0;0;0
+avatars-avatar-2-running-4;18;43;18;20; 0.61111111;0.44999999999999996; 0;0;0;0
+avatars-avatar-2-running-5;21;21;18;20; 0.55555556;0.44999999999999996; 0;0;0;0
+avatars-avatar-2-running-6;126;23;14;19; 0.57142857;0.47368421000000005; 0;0;0;0
+avatars-avatar-2-running-7;57;43;16;20; 0.5625;0.44999999999999996; 0;0;0;0
+avatars-avatar-3-falling-0;91;1;15;19; 0.46666667;0.47368421000000005; 0;0;0;0
+avatars-avatar-3-falling-1;88;44;15;19; 0.46666667;0.47368421000000005; 0;0;0;0
+avatars-avatar-3-idle-0;93;23;15;19; 0.46666667;0.47368421000000005; 0;0;0;0
+avatars-avatar-3-jumping-0;20;1;15;17; 0.46666667;0.52941176; 0;0;0;0
+avatars-avatar-3-running-0;93;23;15;19; 0.46666667;0.47368421000000005; 0;0;0;0
+avatars-avatar-3-running-1;105;44;15;19; 0.46666667;0.47368421000000005; 0;0;0;0
+avatars-avatar-3-running-2;74;1;15;18; 0.46666667;0.5; 0;0;0;0
+avatars-avatar-3-running-3;156;24;15;18; 0.46666667;0.5; 0;0;0;0

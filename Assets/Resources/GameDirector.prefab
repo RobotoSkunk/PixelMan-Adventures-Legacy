@@ -3939,13 +3939,13 @@ MonoBehaviour:
   audioTransitionFactor: 0.085
   playerCharacters:
   - name: Pixelar
-    display: {fileID: -1673497317, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
+    display: {fileID: -816284695, guid: 3ba13ba5ec508714fbdccb551061985e, type: 3}
     controller: {fileID: 9100000, guid: a704fed66fa6ccf4ba0c6f828459d538, type: 2}
   - name: Invader
-    display: {fileID: 67251378, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
+    display: {fileID: -713241625, guid: 3ba13ba5ec508714fbdccb551061985e, type: 3}
     controller: {fileID: 9100000, guid: 6855b228aed06e3468ac534e795d3d36, type: 2}
   - name: PixelFox
-    display: {fileID: -540359408, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
+    display: {fileID: -1497488711, guid: 3ba13ba5ec508714fbdccb551061985e, type: 3}
     controller: {fileID: 9100000, guid: 749083bc5a5de3d489c42a535555de4a, type: 2}
   objects:
   - name: Default block
@@ -3975,7 +3975,7 @@ MonoBehaviour:
   - name: Player
     gameObject: {fileID: 2795602898338667627, guid: e58f917291fbca84eb2f131834ee9d20, type: 3}
     staticGameObject: {fileID: 0}
-    preview: {fileID: -1673497317, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
+    preview: {fileID: -816284695, guid: 3ba13ba5ec508714fbdccb551061985e, type: 3}
     category: 3
     defaultProperties:
       id: 0

@@ -1,0 +1,1256 @@
+fileFormatVersion: 2
+guid: 3ba13ba5ec508714fbdccb551061985e
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: avatars-avatar-0-falling-0
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 12
+        width: 9
+        height: 16
+      alignment: 9
+      pivot: {x: 0.5555556, y: 0.4375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87a0df85650f78749b60e09e72ba5eca
+      internalID: 253202340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-0-falling-1
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 30
+        width: 10
+        height: 15
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d1d1cef6d024584f923e5aef173cef9
+      internalID: -1147626993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-0-falling-2
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 47
+        width: 12
+        height: 16
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c6ea0a0cbb8cea41b46ae9a6c98abb0
+      internalID: -1168539079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-0-idle-0
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 44
+        width: 11
+        height: 19
+      alignment: 9
+      pivot: {x: 0.54545456, y: 0.47368422}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef8b89efa64347a488dcf8afd6b51b9c
+      internalID: -816284695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-0-jumping-0
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 5
+        width: 9
+        height: 18
+      alignment: 9
+      pivot: {x: 0.44444445, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e05018c478f416469f156e0a7f92bcc
+      internalID: 1886461163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-0-jumping-1
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 25
+        width: 13
+        height: 18
+      alignment: 9
+      pivot: {x: 0.53846157, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c432a27f279c0bd42889f01fbd0d734c
+      internalID: 546693279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-0-running-0
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 45
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a551c13d7e8d42849b063f236899bac1
+      internalID: -421694802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-0-running-1
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 26
+        width: 11
+        height: 17
+      alignment: 9
+      pivot: {x: 0.45454544, y: 0.52941173}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3b92de0620f58545a0aefad3556f2d0
+      internalID: -1248689971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-0-running-2
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 46
+        width: 8
+        height: 17
+      alignment: 9
+      pivot: {x: 0.375, y: 0.52941173}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d53dccacafa76c45a1573a34447deb7
+      internalID: -1663333807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-0-running-3
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 45
+        width: 12
+        height: 18
+      alignment: 9
+      pivot: {x: 0.41666666, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f224f9278dbfac40b573028c74c5b28
+      internalID: 175072960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-0-running-4
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 4
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfa30373f9df90541a648f44e3ede3ba
+      internalID: 182428448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-0-running-5
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 46
+        width: 10
+        height: 17
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52941173}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14da216c33610804bb15b0504b7d2903
+      internalID: 1709294221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-0-running-6
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 8
+        width: 8
+        height: 17
+      alignment: 9
+      pivot: {x: 0.375, y: 0.52941173}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c7797760be5a6940a74551183692938
+      internalID: -777835268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-0-running-7
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 5
+        width: 12
+        height: 18
+      alignment: 9
+      pivot: {x: 0.41666666, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4fd95624ddcbb248915a3bae98a3393
+      internalID: 104747781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-1-falling-0
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 7
+        width: 10
+        height: 17
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4117647}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9b6eee3986358145a53aef44df4d522
+      internalID: 1606215674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-1-falling-1
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 27
+        width: 10
+        height: 17
+      alignment: 9
+      pivot: {x: 0.6, y: 0.4117647}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7559971c6fba36458c95e766e806769
+      internalID: -1118021375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-1-falling-2
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 6
+        width: 13
+        height: 17
+      alignment: 9
+      pivot: {x: 0.53846157, y: 0.4117647}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c655e551475ed3e49a88eaf1785cf0d2
+      internalID: -693464630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-1-idle-0
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 43
+        width: 11
+        height: 20
+      alignment: 9
+      pivot: {x: 0.45454544, y: 0.45}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 115700f29804e8244a2fbf9d70e7fd12
+      internalID: -713241625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-1-jumping-0
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 2
+        width: 10
+        height: 19
+      alignment: 9
+      pivot: {x: 0.5, y: 0.42105263}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39b8b59c2f3cedf4fa931f9756a5cc9e
+      internalID: -1085302285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-1-jumping-1
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 2
+        width: 14
+        height: 19
+      alignment: 9
+      pivot: {x: 0.5714286, y: 0.42105263}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e76449ede6b39784b907ea7d77c62650
+      internalID: -661941600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-1-running-0
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 23
+        width: 14
+        height: 19
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47368422}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4520739e155a6dc4793e9af86ce1b749
+      internalID: 620243336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-1-running-1
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 25
+        width: 11
+        height: 18
+      alignment: 9
+      pivot: {x: 0.45454544, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2e248a48a0362d44810f54bb659265d
+      internalID: -1565041813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-1-running-2
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 25
+        width: 8
+        height: 18
+      alignment: 9
+      pivot: {x: 0.375, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 376e4dbf7eb887a439022c894706857a
+      internalID: 1004768499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-1-running-3
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 2
+        width: 12
+        height: 19
+      alignment: 9
+      pivot: {x: 0.41666666, y: 0.47368422}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5754440fc10d924cadf1ba10eab0523
+      internalID: 1741787808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-1-running-4
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 44
+        width: 13
+        height: 19
+      alignment: 9
+      pivot: {x: 0.3846154, y: 0.47368422}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e56de731e2b064c408da73405a3d5356
+      internalID: 362978829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-1-running-5
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 44
+        width: 14
+        height: 19
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47368422}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d0892e2a5363734d9a5103e99a5a109
+      internalID: -1685013417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-1-running-6
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 45
+        width: 11
+        height: 18
+      alignment: 9
+      pivot: {x: 0.45454544, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b0b174f2283f22409539e3c5818fee4
+      internalID: -230332760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-1-running-7
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 45
+        width: 8
+        height: 18
+      alignment: 9
+      pivot: {x: 0.375, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3151389f18aea604cbbd8565f2d46e92
+      internalID: -1344863243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-1-running-8
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 23
+        width: 12
+        height: 19
+      alignment: 9
+      pivot: {x: 0.41666666, y: 0.47368422}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5c81c32ba5cfed43aaaf23d8cd60c05
+      internalID: 314287814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-2-falling-0
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 1
+        width: 17
+        height: 18
+      alignment: 9
+      pivot: {x: 0.7647059, y: 0.3888889}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11d707c479d298f44bd581318c7d6a29
+      internalID: 1412292790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-2-falling-1
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1
+        width: 17
+        height: 17
+      alignment: 9
+      pivot: {x: 0.7058824, y: 0.3529412}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85427c5766b0d7a48a86d2ac5f5a494e
+      internalID: -1983176285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-2-falling-2
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 1
+        width: 16
+        height: 18
+      alignment: 9
+      pivot: {x: 0.625, y: 0.3888889}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a10bedc80edb8054fa85495290541577
+      internalID: 368643560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-2-idle-0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 42
+        width: 15
+        height: 21
+      alignment: 9
+      pivot: {x: 0.6666667, y: 0.42857143}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8d5e146abb9b874a9119d9c777714d1
+      internalID: -1497488711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-2-jumping-0
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 21
+        width: 15
+        height: 20
+      alignment: 9
+      pivot: {x: 0.6666667, y: 0.45}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbd3927ab25172848909b2c258325f04
+      internalID: -1926418903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-2-jumping-1
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 43
+        width: 17
+        height: 20
+      alignment: 9
+      pivot: {x: 0.64705884, y: 0.45}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05a601b35756c52488184d66f445ea3f
+      internalID: 648070618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-2-running-0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 20
+        width: 18
+        height: 20
+      alignment: 9
+      pivot: {x: 0.6111111, y: 0.45}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f463baede2ecf7f4aae87ed6661920a7
+      internalID: 1464993121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-2-running-1
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 22
+        width: 15
+        height: 19
+      alignment: 9
+      pivot: {x: 0.6, y: 0.47368422}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c131c56dac1d8f44919aa3651190b06
+      internalID: 1093141666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-2-running-2
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 2
+        width: 14
+        height: 19
+      alignment: 9
+      pivot: {x: 0.5714286, y: 0.47368422}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da28ad1018381954396842b6b2b35bc7
+      internalID: -138197548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-2-running-3
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 21
+        width: 16
+        height: 20
+      alignment: 9
+      pivot: {x: 0.5625, y: 0.45}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62735206aad10b34eab8a0eb75caccd3
+      internalID: 951343173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-2-running-4
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 43
+        width: 18
+        height: 20
+      alignment: 9
+      pivot: {x: 0.6111111, y: 0.45}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0020cba5b9ca6394fabb7363219e9371
+      internalID: 2131389474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-2-running-5
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 21
+        width: 18
+        height: 20
+      alignment: 9
+      pivot: {x: 0.5555556, y: 0.45}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87c4466a6718b7744a1ff94a4b33b264
+      internalID: -2125491650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-2-running-6
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 23
+        width: 14
+        height: 19
+      alignment: 9
+      pivot: {x: 0.5714286, y: 0.47368422}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddf8cf619c33621468ea1700b86562c7
+      internalID: -86796747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-2-running-7
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 43
+        width: 16
+        height: 20
+      alignment: 9
+      pivot: {x: 0.5625, y: 0.45}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 538ba41de9808cc41b512c7f3cfc86f8
+      internalID: 391659113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-3-falling-0
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 1
+        width: 15
+        height: 19
+      alignment: 9
+      pivot: {x: 0.46666667, y: 0.47368422}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15003e11e615c594283b1c576f00670d
+      internalID: 1671061031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-3-falling-1
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 44
+        width: 15
+        height: 19
+      alignment: 9
+      pivot: {x: 0.46666667, y: 0.47368422}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78c3f937e68aa6047b9f220111342cdc
+      internalID: -1510374689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-3-idle-0
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 23
+        width: 15
+        height: 19
+      alignment: 9
+      pivot: {x: 0.46666667, y: 0.47368422}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca3ef760d47a490439cc57d04964b8ae
+      internalID: 2131786946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-3-jumping-0
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 1
+        width: 15
+        height: 17
+      alignment: 9
+      pivot: {x: 0.46666667, y: 0.52941173}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a0bca463c3fb2048bb6df5d4b1e8e72
+      internalID: 304687683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-3-running-0
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 23
+        width: 15
+        height: 19
+      alignment: 9
+      pivot: {x: 0.46666667, y: 0.47368422}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0707bf4d1f7a49b43bfee63897a16c50
+      internalID: -1235488225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-3-running-1
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 44
+        width: 15
+        height: 19
+      alignment: 9
+      pivot: {x: 0.46666667, y: 0.47368422}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38c22f6d5657e6e409ababeb5de04318
+      internalID: 1402942871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-3-running-2
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 1
+        width: 15
+        height: 18
+      alignment: 9
+      pivot: {x: 0.46666667, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84832d662f6f7ed4b944ed90ce548d1a
+      internalID: 911256601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatars-avatar-3-running-3
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 24
+        width: 15
+        height: 18
+      alignment: 9
+      pivot: {x: 0.46666667, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd17fde9bb173df47a6c8a6c7c0a19c2
+      internalID: -1902082850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5620adc5974a64343a87c5e0a4547228
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      avatars-avatar-2-falling-0: 1412292790
+      avatars-avatar-0-running-2: -1663333807
+      avatars-avatar-1-falling-1: -1118021375
+      avatars-avatar-1-running-0: 620243336
+      avatars-avatar-3-idle-0: 2131786946
+      avatars-avatar-0-running-1: -1248689971
+      avatars-avatar-1-jumping-0: -1085302285
+      avatars-avatar-2-running-6: -86796747
+      avatars-avatar-3-running-1: 1402942871
+      avatars-avatar-1-running-1: -1565041813
+      avatars-avatar-2-idle-0: -1497488711
+      avatars-avatar-3-running-2: 911256601
+      avatars-avatar-2-running-4: 2131389474
+      avatars-avatar-1-running-6: -230332760
+      avatars-avatar-0-falling-0: 253202340
+      avatars-avatar-2-running-3: 951343173
+      avatars-avatar-0-falling-2: -1168539079
+      avatars-avatar-0-jumping-0: 1886461163
+      avatars-avatar-2-running-1: 1093141666
+      avatars-avatar-3-falling-1: -1510374689
+      avatars-avatar-0-running-6: -777835268
+      avatars-avatar-2-jumping-1: 648070618
+      avatars-avatar-0-running-4: 182428448
+      avatars-avatar-3-running-3: -1902082850
+      avatars-avatar-0-running-5: 1709294221
+      avatars-avatar-0-running-0: -421694802
+      avatars-avatar-0-idle-0: -816284695
+      avatars-avatar-1-running-7: -1344863243
+      avatars-avatar-1-falling-2: -693464630
+      avatars-avatar-1-jumping-1: -661941600
+      avatars-avatar-0-falling-1: -1147626993
+      avatars-avatar-2-running-2: -138197548
+      avatars-avatar-2-running-0: 1464993121
+      avatars-avatar-3-running-0: -1235488225
+      avatars-avatar-0-running-7: 104747781
+      avatars-avatar-2-running-7: 391659113
+      avatars-avatar-3-jumping-0: 304687683
+      avatars-avatar-1-running-3: 1741787808
+      avatars-avatar-0-jumping-1: 546693279
+      avatars-avatar-1-falling-0: 1606215674
+      avatars-avatar-2-falling-1: -1983176285
+      avatars-avatar-0-running-3: 175072960
+      avatars-avatar-1-running-5: -1685013417
+      avatars-avatar-1-running-2: 1004768499
+      avatars-avatar-1-running-8: 314287814
+      avatars-avatar-3-falling-0: 1671061031
+      avatars-avatar-2-jumping-0: -1926418903
+      avatars-avatar-2-falling-2: 368643560
+      avatars-avatar-2-running-5: -2125491650
+      avatars-avatar-1-idle-0: -713241625
+      avatars-avatar-1-running-4: 362978829
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

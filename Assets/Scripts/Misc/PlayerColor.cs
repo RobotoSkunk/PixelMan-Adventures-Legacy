@@ -1,14 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-
 namespace RobotoSkunk.PixelMan.Misc {
+
+	[ExecuteInEditMode]
 	[AddComponentMenu("RobotoSkunk - Misc/Player Color")]
 	[RequireComponent(typeof(SpriteRenderer))]
 	public class PlayerColor : MonoBehaviour {
+		[Header("Components and properties")]
 		public SpriteRenderer spriteRenderer;
-		[Range(0, 16)] public float outlineSize;
+		[Range(0, 16)] public int outlineSize = 1;
+
+		[Header("Shared")]
+		public bool customOutlineColor = false;
+		public Color outlineColor = Color.black;
 
 		Color __color;
 
@@ -17,7 +21,17 @@ namespace RobotoSkunk.PixelMan.Misc {
 			set {
 				__color = value;
 				spriteRenderer.color = __color;
-				// UpdateOutline();
+
+				if (customOutlineColor) UpdateOutline(outlineColor);
+				else {
+					Color.RGBToHSV(__color, out float h, out float s, out float v);
+					v = 1 - v;
+
+					Color __tmp = Color.HSVToRGB(h, s, v);
+					__tmp.a = __color.a;
+
+					UpdateOutline(__tmp);
+				}
 			}
 		}
 
@@ -26,16 +40,22 @@ namespace RobotoSkunk.PixelMan.Misc {
 			color = spriteRenderer.color;
 		}
 
-		private void UpdateOutline() {
-			// spriteRenderer.material.SetColor("_Color", __color);
-			// MaterialPropertyBlock __block = new();
-			// spriteRenderer.GetPropertyBlock(__block);
+		private void Update() {
+			if (Application.isPlaying) return;
 
-			// __block.SetFloat("_Outline", 1f);
-			// __block.SetColor("_OutlineColor", Color.blue);
-			// __block.SetFloat("_OutlineSize", outlineSize);
+			if (!spriteRenderer) spriteRenderer = GetComponent<SpriteRenderer>();
+			color = spriteRenderer.color;
+		}
 
-			// spriteRenderer.SetPropertyBlock(__block);
+		private void UpdateOutline(Color c) {
+			MaterialPropertyBlock __block = new();
+			spriteRenderer.GetPropertyBlock(__block);
+
+			__block.SetFloat("_Outline", (c.a > 0).ToInt());
+			__block.SetColor("_OutlineColor", c);
+			__block.SetInteger("_OutlineSize", outlineSize);
+
+			spriteRenderer.SetPropertyBlock(__block);
 		}
 	}
 }

@@ -1,5 +1,6 @@
 using UnityEngine;
 
+using RobotoSkunk.PixelMan.Misc;
 using RobotoSkunk.PixelMan.Gameplay;
 
 
@@ -8,7 +9,7 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 		[Header("Components")]
 		public Animator animator;
 		public GameObject ground;
-		public SpriteRenderer playerSprite;
+		public PlayerColor playerSprite;
 
 		[Header("Properties")]
 		public float groundSpeed;

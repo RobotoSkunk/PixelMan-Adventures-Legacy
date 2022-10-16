@@ -17,10 +17,10 @@ If you want to see the TODO list for the current version, please check the
 	- [ ] Make the save system.
 	- [ ] Add at least 3 scenarios to the first world.
 	
-- [ ] Close the level editor for the moment.
+- [x] Close the level editor for the moment.
 - [x] Add the settings menu.
 - [ ] Make the main menu, obviously.
-- [ ] Add the credits menu to the game and make it work by reading the credits
+- [x] Add the credits menu to the game and make it work by reading the credits
 	  from a file.
 
 ## Version 0.4.0-beta

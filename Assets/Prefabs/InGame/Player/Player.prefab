@@ -9712,6 +9712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8c39df1dfb5b46468b82483d1211fbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flags: 0
   cam: {fileID: 4981490791665476016}
   player: {fileID: 8009474488916196579}
   orthoDefault: 5
@@ -10166,6 +10167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 793afdc305c85ca4f92dd9157d3e5791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flags: 0
   scripts:
   - {fileID: 8861255068588313322}
   - {fileID: 1995670383407584719}
@@ -10250,6 +10252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c60dd45671475df48a4f6e1be5599526, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flags: 0
   rb: {fileID: 8009474488916196579}
   pmrb: {fileID: 1995670383407584719}
   spr: {fileID: 8009474489757818013}
@@ -10356,7 +10359,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1673497317, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
+  m_Sprite: {fileID: -816284695, guid: 3ba13ba5ec508714fbdccb551061985e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -10377,7 +10380,7 @@ Animator:
   m_GameObject: {fileID: 8009474489757818011}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a704fed66fa6ccf4ba0c6f828459d538, type: 2}
+  m_Controller: {fileID: 9100000, guid: 749083bc5a5de3d489c42a535555de4a, type: 2}
   m_CullingMode: 2
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
