@@ -119,6 +119,7 @@ namespace RobotoSkunk.PixelMan {
 			public Editor editor;
 
 			[Serializable] public class Volume {
+				[Range(0f, 1f)]
 				public float music = 1f, fx = 1f, master = 1f;
 			}
 			[Serializable] public class General {

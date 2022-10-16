@@ -10,6 +10,7 @@ Shader "Sprites/RobotoSkunk/Outline2D"
 		[PerRendererData] _Outline("Outline", Float) = 0
 		[PerRendererData] _OutlineColor("Outline Color", Color) = (1,1,1,1)
 		[PerRendererData] _OutlineSize("Outline Size", int) = 1
+		[PerRendererData] _OutlineSensitivity("Outline Sensitivity", float) = 0.5
 	}
 
 	SubShader {
@@ -50,6 +51,7 @@ Shader "Sprites/RobotoSkunk/Outline2D"
 			float _Outline;
 			fixed4 _OutlineColor;
 			int _OutlineSize;
+			float _OutlineSensitivity;
 
 			v2f vert(appdata_t IN) {
 				v2f OUT;
@@ -77,8 +79,8 @@ Shader "Sprites/RobotoSkunk/Outline2D"
 				fixed4 c = SampleSpriteTexture(IN.texcoord) * IN.color;
 
 				//If outline mode is enabled and pixel does not exists, try to draw outline
-				if (_Outline > 0 && c.a == 0) {
-					float totalAlpha = 0;
+				if (_Outline > 0 && c.a < _OutlineSensitivity) {
+					float4 col = float4(0, 0, 0, 0);
 
 					[unroll(16)]
 					for (int i = 1; i < _OutlineSize + 1; i++) {
@@ -87,10 +89,14 @@ Shader "Sprites/RobotoSkunk/Outline2D"
 						fixed4 pixelLeft  = tex2D(_MainTex, IN.texcoord - fixed2(i * _MainTex_TexelSize.x, 0));
 						fixed4 pixelRight = tex2D(_MainTex, IN.texcoord + fixed2(i * _MainTex_TexelSize.x, 0));
 
-						totalAlpha += + pixelUp.a + pixelDown.a + pixelLeft.a + pixelRight.a;
+						if (pixelUp.a > 0) col += pixelUp;
+						else if (pixelDown.a > 0) col += pixelDown;
+						else if (pixelLeft.a > 0) col += pixelLeft;
+						else if (pixelRight.a > 0) col += pixelRight;
 					}
 
-					if (totalAlpha != 0) c.rgba = _OutlineColor;
+					// if (alpha != 0) c.rgba = _OutlineColor;
+					if (col.a > 0) c.rgba = col * _OutlineColor;
 				}
 
 				c.rgb *= c.a;

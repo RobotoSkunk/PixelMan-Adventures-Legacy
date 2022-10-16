@@ -9,6 +9,7 @@ namespace RobotoSkunk.PixelMan.Misc {
 		[Header("Components and properties")]
 		public SpriteRenderer spriteRenderer;
 		[Range(0, 16)] public int outlineSize = 1;
+		[Range(0, 1)] public float sensitivity = 0.5f;
 
 		[Header("Shared")]
 		public bool customOutlineColor = false;
@@ -54,6 +55,7 @@ namespace RobotoSkunk.PixelMan.Misc {
 			__block.SetFloat("_Outline", (c.a > 0).ToInt());
 			__block.SetColor("_OutlineColor", c);
 			__block.SetInteger("_OutlineSize", outlineSize);
+			__block.SetFloat("_OutlineSensitivity", sensitivity);
 
 			spriteRenderer.SetPropertyBlock(__block);
 		}

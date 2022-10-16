@@ -6,6 +6,7 @@ using UnityEngine;
 namespace RobotoSkunk.PixelMan.UI.MainMenu {
 	[System.Serializable]
 	public class Menu {
+		public string name;
 		public MenuPart[] parts;
 		readonly float minDist = 1.5f;
 
