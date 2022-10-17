@@ -844,6 +844,7 @@
                 <false/>
             </struct>
             <key type="filename">gui/generics/containers/button-1.png</key>
+            <key type="filename">gui/generics/containers/button-3.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -859,6 +860,7 @@
                 <false/>
             </struct>
             <key type="filename">gui/generics/containers/button-2.png</key>
+            <key type="filename">gui/generics/containers/button-4.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
