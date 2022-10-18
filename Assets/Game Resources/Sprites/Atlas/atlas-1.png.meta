@@ -161,8 +161,8 @@ TextureImporter:
       name: gui-generics-area-selector
       rect:
         serializedVersion: 2
-        x: 255
-        y: 123
+        x: 51
+        y: 154
         width: 3
         height: 3
       alignment: 6
@@ -1274,7 +1274,7 @@ TextureImporter:
       name: gui-generics-containers-button-2
       rect:
         serializedVersion: 2
-        x: 503
+        x: 516
         y: 56
         width: 9
         height: 9
@@ -1316,8 +1316,8 @@ TextureImporter:
       name: gui-generics-editor-cur-idle
       rect:
         serializedVersion: 2
-        x: 517
-        y: 58
+        x: 454
+        y: 104
         width: 7
         height: 7
       alignment: 0
@@ -1715,8 +1715,8 @@ TextureImporter:
       name: objects-bullet-0
       rect:
         serializedVersion: 2
-        x: 27
-        y: 152
+        x: 327
+        y: 100
         width: 10
         height: 8
       alignment: 0
@@ -2345,8 +2345,8 @@ TextureImporter:
       name: effects-sparkle-0
       rect:
         serializedVersion: 2
-        x: 456
-        y: 282
+        x: 646
+        y: 264
         width: 1
         height: 1
       alignment: 0
@@ -2366,8 +2366,8 @@ TextureImporter:
       name: effects-sparkle-1
       rect:
         serializedVersion: 2
-        x: 225
-        y: 77
+        x: 255
+        y: 123
         width: 3
         height: 3
       alignment: 0
@@ -2408,8 +2408,8 @@ TextureImporter:
       name: effects-sparkle-3
       rect:
         serializedVersion: 2
-        x: 454
-        y: 105
+        x: 40
+        y: 152
         width: 7
         height: 7
       alignment: 0
@@ -2429,8 +2429,8 @@ TextureImporter:
       name: objects-checkpoint-number-0
       rect:
         serializedVersion: 2
-        x: 334
-        y: 101
+        x: 504
+        y: 54
         width: 8
         height: 10
       alignment: 0
@@ -2450,8 +2450,8 @@ TextureImporter:
       name: objects-checkpoint-number-1
       rect:
         serializedVersion: 2
-        x: 344
-        y: 105
+        x: 527
+        y: 55
         width: 8
         height: 10
       alignment: 0
@@ -4109,27 +4109,6 @@ TextureImporter:
       name: gui-generics-symbols-task
       rect:
         serializedVersion: 2
-        x: 435
-        y: 269
-        width: 19
-        height: 14
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2585fada22606fa439ddabd7d39580da
-      internalID: 1156370434
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: gui-generics-symbols-task-completed
-      rect:
-        serializedVersion: 2
         x: 1156
         y: 18
         width: 21
@@ -4141,8 +4120,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1713bf6c530a8149925519cbbc7d956
-      internalID: -726669004
+      spriteID: 2585fada22606fa439ddabd7d39580da
+      internalID: 1156370434
       vertices: []
       indices: 
       edges: []
@@ -4172,8 +4151,8 @@ TextureImporter:
       name: gui-generics-containers-button-4
       rect:
         serializedVersion: 2
-        x: 526
-        y: 56
+        x: 27
+        y: 152
         width: 9
         height: 9
       alignment: 0
@@ -4185,6 +4164,48 @@ TextureImporter:
       bones: []
       spriteID: bff1324ab11b1c242bc6ec7c5eb7a93e
       internalID: 138462667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-symbols-clock
+      rect:
+        serializedVersion: 2
+        x: 863
+        y: 252
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 223d99e4b34d05748b4d303552af429d
+      internalID: -1542454892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-symbols-coin
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 100
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff5572126889bfc48aa98985d956a496
+      internalID: -871489896
       vertices: []
       indices: 
       edges: []
@@ -4232,7 +4253,6 @@ TextureImporter:
       objects-laser-gun-1: -40804072
       objects-swivel-gun: -972414604
       objects-switch-2: -1082922919
-      gui-generics-symbols-task-completed: -726669004
       blocks-ice: 1103790712
       objects-checkpoint-number-4: -425313185
       objects-rocket-4: -360391977
@@ -4248,14 +4268,15 @@ TextureImporter:
       objects-finish-1: -549758524
       objects-laser-dots-5: -470178122
       gui-generics-buttons-editor-zoom-reset: -86167700
-      gui-generics-symbols-editor: -292030935
+      gui-generics-symbols-coin: -871489896
       effects-sparkle-2: -139829212
-      gui-menu-dirt: -162251707
+      gui-generics-symbols-editor: -292030935
       objects-laser-gun-5: -1129219105
+      gui-menu-dirt: -162251707
       objects-finish-2: -1719403713
-      objects-switch-6: 1188731681
       objects-laser-body-0: -1606881331
       gui-generics-symbols-local: 1383188535
+      objects-switch-6: 1188731681
       objects-finish-4: 1586299187
       gui-generics-volume-bar: -1701516507
       gui-generics-xbox-button-weast: 1291757510
@@ -4362,6 +4383,7 @@ TextureImporter:
       gui-generics-color-selector-btn-rgb-1: 122996945
       gui-generics-symbols-exit: 30398175
       effects-explosion-0: 309142560
+      gui-generics-symbols-clock: -1542454892
       gui-generics-xbox-button-weast-pressed: -1161896470
       objects-bullet-1: 705424389
       gui-generics-color-selector-hue-bar-palette: -334781007

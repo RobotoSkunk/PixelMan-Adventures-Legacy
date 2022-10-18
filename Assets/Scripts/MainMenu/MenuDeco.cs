@@ -1,6 +1,6 @@
 using UnityEngine;
 
-using RobotoSkunk.PixelMan.Misc;
+using RobotoSkunk.PixelMan.Utils;
 using RobotoSkunk.PixelMan.Gameplay;
 
 

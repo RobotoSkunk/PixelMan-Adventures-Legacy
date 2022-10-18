@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace RobotoSkunk.PixelMan.Misc {
+namespace RobotoSkunk.PixelMan.Utils {
 
 	[ExecuteInEditMode]
 	[AddComponentMenu("RobotoSkunk - Misc/Player Color")]
