@@ -7,11 +7,14 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 using XInputDotNetPure;
 
 using RobotoSkunk.PixelMan.Events;
 using RobotoSkunk.PixelMan.LevelEditor;
+
+using Eflatun.SceneReference;
 
 using TMPro;
 
@@ -63,7 +66,7 @@ namespace RobotoSkunk.PixelMan {
 		public static PlayerCharacters[] playerCharacters;
 		public static Settings settings = new();
 		public static PlayerData playerData = new();
-		public static float gmVolume = 1f, shakeForce = 0f;
+		public static float gmVolume = 1f, shakeForce = 0f, loadProgress = 0f;
 		public static Vector2 respawnPoint;
 		public static int checkpointId = 0, buttonSelected, mainMenuSection = 0;
 		public static InputType inputType;
@@ -254,6 +257,10 @@ namespace RobotoSkunk.PixelMan {
 
 
 	public class GameDirector : MonoBehaviour {
+		#region Variables
+		public bool testOnLoad = false;
+		[Range(0f, 1f)] public float loadProgress = 0f;
+
 		[Header("Default properties")]
 		public Globals.Settings settings;
 		public Globals.PlayerData playerData;
@@ -269,6 +276,10 @@ namespace RobotoSkunk.PixelMan {
 		[Header("Components")]
 		public AudioSource bgAudio;
 		public AudioSource musicAudio;
+		public Canvas loadingCanvas;
+		public RectTransform loadingBar;
+		public RectTransform upperCover, lowerCover;
+		public float loadingBarSpeed = 200f;
 
 		// Follow up the order of the components in the inspector
 		[Header("Configuration components")]
@@ -280,12 +291,13 @@ namespace RobotoSkunk.PixelMan {
 		public ScrollRect optionsScrollRect;
 
 
-		bool onMusicFade = false;
+		bool onMusicFade = false, onLoad = false;
 		int fps;
 		readonly Timer t = new();
 		Coroutine musicRoutine, shakeRoutine;
 		Rect guiRect = new(15, 65, 200, 100);
-		float openDelta = 1f;
+		float openDelta = 1f, waitDelta = 0f, loadDelta = 0f, coversDelta = 1f;
+		#endregion
 
 
 
@@ -455,8 +467,24 @@ namespace RobotoSkunk.PixelMan {
 
 			GeneralEventsHandler.ShakeFx += (float __force, float __time) => {
 				if (shakeRoutine != null) StopCoroutine(shakeRoutine);
-			shakeRoutine = StartCoroutine(ShakeEffect(__force, __time));
+					shakeRoutine = StartCoroutine(ShakeEffect(__force, __time));
 			};
+
+			GeneralEventsHandler.SceneChanged += (SceneReference scene) => {
+				if (onLoad) return;
+				if (!scene.IsSafeToUse) return;
+
+				onLoad = true;
+				loadDelta = waitDelta = 0f;
+
+				UniTask.Void(async () => {
+					await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
+
+					await SceneManager.LoadSceneAsync(scene.BuildIndex);
+					onLoad = false;
+				});
+			};
+
 
 			// Avoid destroy on scenes load
 			DontDestroyOnLoad(gameObject);
@@ -477,15 +505,6 @@ namespace RobotoSkunk.PixelMan {
 		}
 
 		private void Update() {
-			if (Keyboard.current.rKey.wasPressedThisFrame)
-				GameEventsHandler.InvokeResetObject();
-
-			if (Keyboard.current.kKey.wasPressedThisFrame)
-				Globals.isDead = true;
-
-			if (Keyboard.current.tKey.wasPressedThisFrame)
-				Globals.onPause = !Globals.onPause;
-
 			fps = RSTime.fps;
 
 			openDelta = Mathf.Lerp(openDelta, (!Globals.openSettings).ToInt(), 0.2f * RSTime.delta);
@@ -493,6 +512,30 @@ namespace RobotoSkunk.PixelMan {
 			confPanels.SetActive(openDelta < 0.99f);
 			confPanels[0].anchoredPosition = new(-openDelta * (confPanels[0].rect.width + 10), 0);
 			confPanels[1].anchoredPosition = new(openDelta * (confPanels[1].rect.width + 10), 0);
+
+			Globals.loadProgress = loadProgress;
+			if (Keyboard.current.mKey.wasPressedThisFrame) onLoad = !onLoad;
+
+
+			if (onLoad) {
+				if (Globals.loadProgress == 0f) {
+					waitDelta += Time.deltaTime * loadingBarSpeed;
+					if (waitDelta >= 360f) waitDelta = 0f;
+
+					float delta = Mathf.Sin(waitDelta * Mathf.Deg2Rad);
+					loadingBar.anchoredPosition = new(delta * loadingBar.rect.size.x, 0);
+				} else {
+					loadDelta = Mathf.Lerp(loadDelta, Globals.loadProgress, 0.2f * RSTime.delta);
+					loadingBar.anchoredPosition = new(-loadingBar.rect.size.x + loadDelta * loadingBar.rect.size.x, 0);
+				}
+			}
+
+			coversDelta = Mathf.Lerp(coversDelta, (!onLoad).ToInt(), 0.25f * RSTime.delta);
+
+			loadingCanvas.gameObject.SetActive(coversDelta < 0.99f);
+			upperCover.anchoredPosition = 1.5f * new Vector2(0, upperCover.rect.height * coversDelta);
+			lowerCover.anchoredPosition = 1.5f * new Vector2(0, -lowerCover.rect.height * coversDelta);
+			
 		}
 
 		private void FixedUpdate() {
@@ -617,6 +660,8 @@ namespace RobotoSkunk.PixelMan {
 			onMusicFade = false;
 		}
 		#endregion
+
+
 
 		public void OnControlsChanged(PlayerInput obj) {
 			Globals.inputType = obj.currentControlScheme switch {

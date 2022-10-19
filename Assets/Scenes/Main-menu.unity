@@ -12056,6 +12056,7 @@ GameObject:
   - component: {fileID: 1923167739}
   - component: {fileID: 1923167738}
   - component: {fileID: 1923167737}
+  - component: {fileID: 1923167741}
   m_Layer: 0
   m_Name: Level editor
   m_TagString: Untagged
@@ -12154,7 +12155,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1923167739}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1923167741}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.Utils.SceneReferenceHandler,
+          Assembly-CSharp
+        m_MethodName: GoToScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   selectOnUp:
     useAutomatic: 0
     selectable: {fileID: 0}
@@ -12209,6 +12223,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1923167735}
   m_CullTransparentMesh: 1
+--- !u!114 &1923167741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923167735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a6511a4e8fa6474da9b805cf4eaaf50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene:
+    sceneAsset: {fileID: 102900000, guid: 8197feb57d6bf924eb1ccba7c7cd3232, type: 3}
+    sceneAssetGuidHex: 8197feb57d6bf924eb1ccba7c7cd3232
 --- !u!1 &1924956920
 GameObject:
   m_ObjectHideFlags: 0

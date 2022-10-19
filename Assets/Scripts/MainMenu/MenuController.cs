@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 
 
+
 namespace RobotoSkunk.PixelMan.UI.MainMenu {
 	[System.Serializable]
 	public class Menu {
@@ -82,6 +83,7 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 		}
 
 		public void OpenSettings() => Globals.openSettings = true;
+
 
 
 		IEnumerator DoIntro() {

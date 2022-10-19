@@ -1411,6 +1411,7 @@ GameObject:
   - component: {fileID: 130395816}
   - component: {fileID: 130395817}
   - component: {fileID: 130395818}
+  - component: {fileID: 130395819}
   m_Layer: 0
   m_Name: Button pause
   m_TagString: Untagged
@@ -1562,6 +1563,19 @@ MonoBehaviour:
           m_StringArgument: Pause
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 130395819}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.Utils.SceneReferenceHandler,
+          Assembly-CSharp
+        m_MethodName: GoToScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   selectOnUp:
     useAutomatic: 1
     selectable: {fileID: 0}
@@ -1604,6 +1618,21 @@ MonoBehaviour:
     color: {r: 1, g: 1, b: 1, a: 1}
   target: {fileID: 0}
   button: {fileID: 0}
+--- !u!114 &130395819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130395810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a6511a4e8fa6474da9b805cf4eaaf50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene:
+    sceneAsset: {fileID: 102900000, guid: 4790996502bc172498885f43c747d454, type: 3}
+    sceneAssetGuidHex: 4790996502bc172498885f43c747d454
 --- !u!1 &137148644
 GameObject:
   m_ObjectHideFlags: 0
@@ -4954,7 +4983,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 246255751}
   m_HandleRect: {fileID: 246255749}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
