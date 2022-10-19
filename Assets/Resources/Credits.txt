@@ -29,6 +29,7 @@ Roboto font is licensed under the Apache License, Version 2.0.
 <b>Open Source Libraries</b>
 UniTask is licensed under the MIT License.
 XInputDotNet is licensed under the MIT License.
+Eflatun.SceneReference is licensed under the MIT License.
 TexturePacker Importer is licensed under their own license.
 #end
 
@@ -63,6 +64,7 @@ La fuente Roboto está licenciada bajo la Licencia Apache, versión 2.0.
 <b>Bibliotecas de código abierto</b>
 UniTask está licenciado bajo la Licencia MIT.
 XInputDotNet está licenciado bajo la Licencia MIT.
+Eflatun.SceneReference está licenciado bajo la Licencia MIT.
 TexturePacker Importer está licenciado bajo su propia licencia.
 #end
 
@@ -97,5 +99,6 @@ A fonte Roboto está licenciada sob a Licença Apache, versão 2.0.
 <b>Bibliotecas de código aberto</b>
 UniTask está licenciado sob a Licença MIT.
 XInputDotNet está licenciado sob a Licença MIT.
+Eflatun.SceneReference está licenciado sob a Licença MIT.
 TexturePacker Importer está licenciado sob sua própria licença.
 #end

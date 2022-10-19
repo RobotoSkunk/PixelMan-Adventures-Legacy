@@ -4812,6 +4812,25 @@ MonoBehaviour:
         value: Salir del juego
       - code: pt
         value: Sair do jogo
+  worlds:
+  - name: Deep Caverns
+    internalId: NCN2Qw
+    bossScene: {fileID: 0}
+    scenes:
+    - name: Going deep
+      levels: []
+    - name: 
+      levels: []
+    - name: Deeper and deeper
+      levels: []
+  - name: Wild Jungle
+    internalId: qMTzv1
+    bossScene: {fileID: 0}
+    scenes: []
+  - name: Ice Land
+    internalId: VQy0lY
+    bossScene: {fileID: 0}
+    scenes: []
   bgAudio: {fileID: 3355192530202362898}
   musicAudio: {fileID: 1931014126442553692}
   langText: {fileID: 3669116986504348714}

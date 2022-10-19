@@ -1,13 +1,13 @@
 using System.Security.Cryptography;
 using System.Collections.Generic;
-// using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using System;
 
 using UnityEngine;
+using UnityEditor;
 
 
-namespace RobotoSkunk.PixelMan.LevelEditor.IO {
+namespace RobotoSkunk.PixelMan.LevelEditor {
 	[Serializable]
 	public struct Level {
 		[SerializeField]
@@ -16,6 +16,12 @@ namespace RobotoSkunk.PixelMan.LevelEditor.IO {
 
 		[Serializable]
 		public struct Metadata {
+			public string name;
+			public TextAsset levelData;
+		}
+
+		[Serializable]
+		public struct UserMetadata {
 			public string hash, name;
 			public float version;
 			public DateTime createdAt, lastModified;
@@ -31,34 +37,49 @@ namespace RobotoSkunk.PixelMan.LevelEditor.IO {
 		public DateTime createdAt;
 	}
 
+	[Serializable]
+	public class Worlds {
+		public string name, internalId;
+		public SceneAsset bossScene;
+		public GameScene[] scenes;
 
-	public static class LevelIO {
-		public static string GenerateSHA1() {
-			byte[] bytes = new byte[32];
-			RNGCryptoServiceProvider rng = new();
-			rng.GetBytes(bytes);
-
-			SHA1Managed sha1 = new();
-
-			byte[] hash = sha1.ComputeHash(bytes);
-			return BitConverter.ToString(hash).Replace("-", "");
+		[Serializable]
+		public class GameScene {
+			public string name;
+			public Level.Metadata[] levels;
 		}
+	}
 
-		public static void Save(Level level, Action<bool> callback = null) {
-			UniTask.Void(async () => {
-				bool success = true;
 
-				try {
-					var json = await AsyncJson.ToJson(level);
+	namespace IO {
+		public static class LevelIO {
+			public static string GenerateSHA1() {
+				byte[] bytes = new byte[32];
+				RNGCryptoServiceProvider rng = new();
+				rng.GetBytes(bytes);
 
-					Debug.Log(json);
-				} catch (Exception e) {
-					Debug.LogError(e);
-					success = false;
-				}
+				SHA1Managed sha1 = new();
 
-				callback?.Invoke(success);
-			});
+				byte[] hash = sha1.ComputeHash(bytes);
+				return BitConverter.ToString(hash).Replace("-", "");
+			}
+
+			public static void Save(Level level, Action<bool> callback = null) {
+				UniTask.Void(async () => {
+					bool success = true;
+
+					try {
+						var json = await AsyncJson.ToJson(level);
+
+						Debug.Log(json);
+					} catch (Exception e) {
+						Debug.LogError(e);
+						success = false;
+					}
+
+					callback?.Invoke(success);
+				});
+			}
 		}
 	}
 }

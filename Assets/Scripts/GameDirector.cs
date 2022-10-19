@@ -11,6 +11,8 @@ using UnityEngine.InputSystem;
 using XInputDotNetPure;
 
 using RobotoSkunk.PixelMan.Events;
+using RobotoSkunk.PixelMan.LevelEditor;
+
 using TMPro;
 
 
@@ -262,6 +264,7 @@ namespace RobotoSkunk.PixelMan {
 		public List<InGameObject> objects;
 		public List<MusicClips> musicClips;
 		public Globals.Settings.Languages languages;
+		public Worlds[] worlds;
 
 		[Header("Components")]
 		public AudioSource bgAudio;

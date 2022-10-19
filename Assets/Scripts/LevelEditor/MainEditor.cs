@@ -1353,7 +1353,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			historialAvailable = true;
 		}
 		IEnumerator SaveLvlRoutine() {
-			IO.Level level;
+			Level level;
 			level.objects = new();
 			level.size = 5f * Vector2.one;
 
