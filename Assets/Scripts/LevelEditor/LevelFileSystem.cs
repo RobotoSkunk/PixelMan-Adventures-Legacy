@@ -4,7 +4,7 @@ using Cysharp.Threading.Tasks;
 using System;
 
 using UnityEngine;
-using UnityEditor;
+using Eflatun.SceneReference;
 
 
 namespace RobotoSkunk.PixelMan.LevelEditor {
@@ -40,7 +40,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 	[Serializable]
 	public class Worlds {
 		public string name, internalId;
-		public SceneAsset bossScene;
+		public SceneReference bossScene;
 		public GameScene[] scenes;
 
 		[Serializable]
