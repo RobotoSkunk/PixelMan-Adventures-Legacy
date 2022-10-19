@@ -2,11 +2,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using Cysharp.Threading.Tasks;
 
+using RobotoSkunk.PixelMan.Gameplay;
+
 
 namespace RobotoSkunk.PixelMan.Utils {
 	public class LevelButton : MonoBehaviour {
 		[Header("Components")]
 		public Image preview;
+		public Image[] symbols = new Image[3];
+		public bool won, insideTimeLimit, coin;
+
 
 		Texture2D __texture;
 
@@ -28,6 +33,12 @@ namespace RobotoSkunk.PixelMan.Utils {
 
 				return UniTask.CompletedTask;
 			}).Forget();
+		}
+
+		private void Update() {
+			symbols[0].color = won ? Color.white : default;
+			symbols[1].color = insideTimeLimit ? Color.white : default;
+			symbols[2].color = coin ? Color.white : default;
 		}
 	}
 }

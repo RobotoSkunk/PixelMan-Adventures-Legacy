@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 6656405062023294776}
   - component: {fileID: 6656405062023294779}
   m_Layer: 0
-  m_Name: Checker - 0
+  m_Name: Checker - coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 6656405062140503081}
   - component: {fileID: 6656405062140503080}
   m_Layer: 0
-  m_Name: Checker - 2
+  m_Name: Checker - completed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -382,7 +382,7 @@ GameObject:
   - component: {fileID: 6656405063819058601}
   - component: {fileID: 6656405063819058600}
   m_Layer: 0
-  m_Name: Checker - 1
+  m_Name: Checker - time
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -627,3 +627,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   preview: {fileID: 4994290952815538659}
+  symbols:
+  - {fileID: 6656405062140503080}
+  - {fileID: 6656405063819058600}
+  - {fileID: 6656405062023294779}
+  won: 0
+  insideTimeLimit: 0
+  coin: 0

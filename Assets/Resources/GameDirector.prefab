@@ -449,6 +449,7 @@ GameObject:
   - component: {fileID: 4079220261435502271}
   - component: {fileID: 3049628428472850289}
   - component: {fileID: 3648349670829461455}
+  - component: {fileID: 8882927192202575747}
   m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
@@ -573,6 +574,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8882927192202575747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596229660939868214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e715f604164034895c38791128c70a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 0}
+  key: settings.button.general
 --- !u!1 &646944261746617063
 GameObject:
   m_ObjectHideFlags: 0
@@ -1836,6 +1851,7 @@ GameObject:
   - component: {fileID: 9053076910904194917}
   - component: {fileID: 9086122107058813235}
   - component: {fileID: 7760614137295743100}
+  - component: {fileID: 1308348294292138745}
   m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
@@ -1960,6 +1976,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1308348294292138745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484937624918434552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e715f604164034895c38791128c70a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 0}
+  key: generics.zoom
 --- !u!1 &1676608057501313470
 GameObject:
   m_ObjectHideFlags: 0
@@ -2645,6 +2675,7 @@ GameObject:
   - component: {fileID: 8192967065028078883}
   - component: {fileID: 4522341010514880571}
   - component: {fileID: 2815435698111532589}
+  - component: {fileID: 4364032316103721440}
   m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
@@ -2769,6 +2800,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4364032316103721440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2256812948466098466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e715f604164034895c38791128c70a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 0}
+  key: settings.button.editor
 --- !u!1 &2304479125232081175
 GameObject:
   m_ObjectHideFlags: 0
@@ -3659,8 +3704,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 137.9, y: -6.9}
-  m_SizeDelta: {x: 123.6716, y: 20}
+  m_AnchoredPosition: {x: 143.35, y: -6.9}
+  m_SizeDelta: {x: 134.57, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3274640280736664743
 GameObject:
@@ -4527,6 +4572,14 @@ MonoBehaviour:
         value: Siguiente
       - code: pt
         value: "Pr\xF3ximo"
+    - field: generics.zoom
+      values:
+      - code: en
+        value: Zoom
+      - code: es
+        value: Zoom
+      - code: pt
+        value: Zoom
     - field: settings.field.fullscreen
       values:
       - code: en
@@ -4695,6 +4748,14 @@ MonoBehaviour:
         value: Longitud de la ruta del jugador
       - code: pt
         value: "Dura\xE7\xE3o da rota do jogador"
+    - field: settings.button.general
+      values:
+      - code: en
+        value: General
+      - code: es
+        value: General
+      - code: pt
+        value: General
     - field: settings.button.controls
       values:
       - code: en
@@ -4703,6 +4764,14 @@ MonoBehaviour:
         value: Controles
       - code: pt
         value: Controlos
+    - field: settings.button.editor
+      values:
+      - code: en
+        value: Editor
+      - code: es
+        value: Editor
+      - code: pt
+        value: Editor
     - field: menu.button.play
       values:
       - code: en
@@ -5083,8 +5152,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 29.4548, y: 0}
-  m_SizeDelta: {x: -58.9096, y: 2}
+  m_AnchoredPosition: {x: 15.201, y: 0}
+  m_SizeDelta: {x: -30.401, y: 2}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &126794735136483463
 CanvasRenderer:
@@ -6430,7 +6499,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 93.8, y: 65}
+  m_AnchoredPosition: {x: 125.5, y: 65}
   m_SizeDelta: {x: 123.6716, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4220665520827320467
@@ -7475,7 +7544,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 107, y: 52.8}
+  m_AnchoredPosition: {x: 128.1, y: 52.8}
   m_SizeDelta: {x: 123.6716, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5013930317677653620
@@ -7675,7 +7744,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 28.076}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -42.292, y: -21.272}
+  m_AnchoredPosition: {x: -63.4, y: -21.272}
   m_SizeDelta: {x: -32.3123, y: 2}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &6519370114592888400
@@ -9192,7 +9261,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 37.287}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -64.94777, y: 1.9921265}
+  m_AnchoredPosition: {x: -93.52, y: 2.1}
   m_SizeDelta: {x: -36.2816, y: 2}
   m_Pivot: {x: 1.0090908, y: 0.77848876}
 --- !u!222 &8078738607615330648
@@ -9283,8 +9352,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 130.44316, y: -35.1}
-  m_SizeDelta: {x: 186.7913, y: 20}
+  m_AnchoredPosition: {x: 136.51462, y: -35.1}
+  m_SizeDelta: {x: 198.9342, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6850625505559543609
 GameObject:
@@ -10341,8 +10410,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 29.4548, y: 0}
-  m_SizeDelta: {x: -58.9096, y: 2}
+  m_AnchoredPosition: {x: 18.9074, y: 0}
+  m_SizeDelta: {x: -37.8147, y: 2}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &1415976173240361715
 CanvasRenderer:
@@ -11589,7 +11658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.8}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.8509804}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 0
