@@ -2720,7 +2720,19 @@ MonoBehaviour:
   m_Value: 0.851
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3355192528981997732}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.GameDirector, Assembly-CSharp
+        m_MethodName: SetMusicVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   snapValue: 0
   selectOnUp:
     useAutomatic: 0
@@ -4049,7 +4061,7 @@ MonoBehaviour:
       shakeStrenght: 0.5
       options: -1
     volume:
-      music: 1
+      music: 0
       fx: 1
       master: 1
     editor:
@@ -6045,7 +6057,19 @@ MonoBehaviour:
   m_Value: 0.851
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3355192528981997732}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.GameDirector, Assembly-CSharp
+        m_MethodName: SetFxVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   snapValue: 0
   selectOnUp:
     useAutomatic: 0
@@ -7484,7 +7508,19 @@ MonoBehaviour:
   m_Value: 0.851
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3355192528981997732}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.GameDirector, Assembly-CSharp
+        m_MethodName: SetMasterVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   snapValue: 0
   selectOnUp:
     useAutomatic: 0
@@ -12969,6 +13005,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2321145770132717279, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321145770132717279, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321145770132717279, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3355192528981997732}
+    - target: {fileID: 2321145770132717279, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321145770132717279, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetFullscreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321145770132717279, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RobotoSkunk.PixelMan.GameDirector, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321145770132717279, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4963112395768739760, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
       propertyPath: m_Name
       value: Fullscreen Toggle
@@ -13081,6 +13145,34 @@ PrefabInstance:
     - target: {fileID: 1631104592883507404, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321145770132717279, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321145770132717279, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321145770132717279, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3355192528981997732}
+    - target: {fileID: 2321145770132717279, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321145770132717279, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetControllerVibration
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321145770132717279, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RobotoSkunk.PixelMan.GameDirector, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321145770132717279, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4963112395768739760, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
       propertyPath: m_Name
@@ -13332,6 +13424,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2321145770132717279, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321145770132717279, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321145770132717279, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3355192528981997732}
+    - target: {fileID: 2321145770132717279, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321145770132717279, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetVSync
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321145770132717279, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RobotoSkunk.PixelMan.GameDirector, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321145770132717279, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4963112395768739760, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
       propertyPath: m_Name
       value: VSync Toggle
@@ -13444,6 +13564,34 @@ PrefabInstance:
     - target: {fileID: 1631104592883507404, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321145770132717279, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321145770132717279, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321145770132717279, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3355192528981997732}
+    - target: {fileID: 2321145770132717279, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321145770132717279, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetParticles
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321145770132717279, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RobotoSkunk.PixelMan.GameDirector, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321145770132717279, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4963112395768739760, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
       propertyPath: m_Name
@@ -13695,6 +13843,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2321145770132717279, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321145770132717279, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321145770132717279, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3355192528981997732}
+    - target: {fileID: 2321145770132717279, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321145770132717279, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetDeviceVibration
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321145770132717279, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RobotoSkunk.PixelMan.GameDirector, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321145770132717279, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4963112395768739760, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
       propertyPath: m_Name
       value: Device Vibration Toggle
@@ -13826,6 +14002,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6154138521549181990}
     m_Modifications:
+    - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3355192528981997732}
+    - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetShakeStrenght
+      objectReference: {fileID: 0}
+    - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RobotoSkunk.PixelMan.GameDirector, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4092847090791638111, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

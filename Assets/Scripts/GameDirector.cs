@@ -294,8 +294,8 @@ namespace RobotoSkunk.PixelMan {
 		bool onMusicFade = false, onLoad = false;
 		int fps;
 		readonly Timer t = new();
-		Coroutine musicRoutine, shakeRoutine;
-		Rect guiRect = new(15, 65, 200, 100);
+		Coroutine musicRoutine, shakeRoutine, saveRoutine;
+		Rect guiRect = new(10, 10, 200, 100);
 		float openDelta = 1f, waitDelta = 0f, loadDelta = 0f, coversDelta = 1f;
 		#endregion
 
@@ -506,6 +506,7 @@ namespace RobotoSkunk.PixelMan {
 
 		private void Update() {
 			fps = RSTime.fps;
+			if (!onMusicFade) musicAudio.volume = Globals.musicVolume;
 
 			openDelta = Mathf.Lerp(openDelta, (!Globals.openSettings).ToInt(), 0.2f * RSTime.delta);
 
@@ -538,18 +539,13 @@ namespace RobotoSkunk.PixelMan {
 			
 		}
 
-		private void FixedUpdate() {
-			if (!onMusicFade) musicAudio.volume = Globals.musicVolume;
+		private void OnGUI() {
+			GUI.Box(guiRect, "");
+			GUI.Label(guiRect,
+				$"<b>FPS:</b> {fps}\n" +
+				$"<b>Real FPS:</b> {RSTime.realFps}\n" +
+				$"<b>Timer</b>: {t.time}");
 		}
-
-		// private void OnGUI() {
-		// 	GUI.Box(guiRect, "");
-		// 	GUI.Label(guiRect, 
-		// 		$"<b>Default frame rate:</b> {RSTime.fixedFrameRate}\n" +
-		// 		$"<b>FPS:</b> {fps}\n" +
-		// 		$"<b>Real FPS:</b> {RSTime.realFps}\n" +
-		// 		$"<b>Timer</b>: {t.time}");
-		// }
 
 		void SetVibration(float leftMotor, float rightMotor) {
 			if (Globals.settings.general.enableControllerVibration) {
@@ -565,20 +561,43 @@ namespace RobotoSkunk.PixelMan {
 		public void SetFullscreen(bool value) {
 			Globals.settings.general.enableFullscreen = value;
 			Screen.fullScreen = value;
+			SaveSettingsMiddleware();
 		}
 		public void SetVSync(bool value) {
 			Globals.settings.general.enableVSync = value;
 			QualitySettings.vSyncCount = value ? 1 : 0;
+			SaveSettingsMiddleware();
 		}
-		public void SetDeviceVibration(bool value) => Globals.settings.general.enableDeviceVibration = value;
-		public void SetControllerVibration(bool value) => Globals.settings.general.enableControllerVibration = value;
-		public void SetParticles(bool value) => Globals.settings.general.enableParticles = value;
+		public void SetDeviceVibration(bool value) {
+			Globals.settings.general.enableDeviceVibration = value;
+			SaveSettingsMiddleware();
+		}
+		public void SetControllerVibration(bool value) {
+			Globals.settings.general.enableControllerVibration = value;
+			SaveSettingsMiddleware();
+		}
+		public void SetParticles(bool value) {
+			Globals.settings.general.enableParticles = value;
+			SaveSettingsMiddleware();
+		}
 
 
-		public void SetShakeStrenght(float value) => Globals.settings.general.shakeStrenght = value;
-		public void SetMasterVolume(float value) => Globals.settings.volume.master = value;
-		public void SetMusicVolume(float value) => Globals.settings.volume.music = value;
-		public void SetFxVolume(float value) => Globals.settings.volume.fx = value;
+		public void SetShakeStrenght(float value) {
+			Globals.settings.general.shakeStrenght = value;
+			SaveSettingsMiddleware();
+		}
+		public void SetMasterVolume(float value) {
+			Globals.settings.volume.master = value;
+			SaveSettingsMiddleware();
+		}
+		public void SetMusicVolume(float value) {
+			Globals.settings.volume.music = value;
+			SaveSettingsMiddleware();
+		}
+		public void SetFxVolume(float value) {
+			Globals.settings.volume.fx = value;
+			SaveSettingsMiddleware();
+		}
 
 
 		public void OpenPanel(int i) {
@@ -598,6 +617,11 @@ namespace RobotoSkunk.PixelMan {
 			Globals.settings.general.lang = Globals.languages.available[current].code;
 			langText.text = Globals.languages.GetCurrentLangName();
 			Events.GeneralEventsHandler.InvokeLanguageChanged();
+		}
+
+		public void SaveSettingsMiddleware() {
+			if (saveRoutine != null) StopCoroutine(saveRoutine);
+			saveRoutine = StartCoroutine(SaveSettings());
 		}
 		#endregion
 
@@ -658,6 +682,13 @@ namespace RobotoSkunk.PixelMan {
 			} 
 
 			onMusicFade = false;
+		}
+		
+		IEnumerator SaveSettings() {
+			yield return new WaitForSeconds(0.5f);
+
+			Debug.Log("Settings saved!");
+			saveRoutine = null;
 		}
 		#endregion
 
