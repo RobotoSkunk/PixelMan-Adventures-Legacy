@@ -139,7 +139,8 @@ namespace RobotoSkunk.PixelMan {
 					EnableControllerVibration = 1 << 1,
 					EnableParticles = 1 << 2,
 					EnableVSync = 1 << 3,
-					EnableFullscreen = 1 << 4
+					EnableFullscreen = 1 << 4,
+					DebugMode = 1 << 5
 				}
 
 				public bool enableDeviceVibration {
@@ -161,6 +162,11 @@ namespace RobotoSkunk.PixelMan {
 				public bool enableFullscreen {
 					get => (options & Options.EnableFullscreen) == Options.EnableFullscreen;
 					set => options = (options & ~Options.EnableFullscreen) | (value ? Options.EnableFullscreen : 0);
+				}
+
+				public bool debugMode {
+					get => (options & Options.DebugMode) == Options.DebugMode;
+					set => options = (options & ~Options.DebugMode) | (value ? Options.DebugMode : 0);
 				}
 			}
 			[Serializable] public class Editor {
@@ -293,7 +299,6 @@ namespace RobotoSkunk.PixelMan {
 
 		bool onMusicFade = false, onLoad = false;
 		int fps;
-		readonly Timer t = new();
 		Coroutine musicRoutine, shakeRoutine, saveRoutine;
 		Rect guiRect = new(10, 10, 200, 100);
 		float openDelta = 1f, waitDelta = 0f, loadDelta = 0f, coversDelta = 1f;
@@ -501,7 +506,6 @@ namespace RobotoSkunk.PixelMan {
 			await UniTask.Delay(500);
 			GameEventsHandler.InvokeLevelReady();
 			Globals.onPause = false;
-			t.Start();
 		}
 
 		private void Update() {
@@ -540,11 +544,13 @@ namespace RobotoSkunk.PixelMan {
 		}
 
 		private void OnGUI() {
+			if (!Globals.settings.general.debugMode) return;
+
 			GUI.Box(guiRect, "");
 			GUI.Label(guiRect,
 				$"<b>FPS:</b> {fps}\n" +
 				$"<b>Real FPS:</b> {RSTime.realFps}\n" +
-				$"<b>Timer</b>: {t.time}");
+				$"<b>Uptime</b>: {Time.realtimeSinceStartup}");
 		}
 
 		void SetVibration(float leftMotor, float rightMotor) {
@@ -578,6 +584,10 @@ namespace RobotoSkunk.PixelMan {
 		}
 		public void SetParticles(bool value) {
 			Globals.settings.general.enableParticles = value;
+			SaveSettingsMiddleware();
+		}
+		public void SetDebugMode(bool value) {
+			Globals.settings.general.debugMode = value;
 			SaveSettingsMiddleware();
 		}
 
@@ -648,8 +658,6 @@ namespace RobotoSkunk.PixelMan {
 
 				yield return new WaitForFixedUpdate();
 			}
-			t.Reset();
-			t.Start();
 
 			Globals.isDead = false;
 
