@@ -31,9 +31,9 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 	[Serializable]
 	public struct UserScene {
 		public string name, description;
-		public long author;
-		public long[] contributors;
-		public Level.Metadata[] levels;
+		public string author;
+		public string[] contributors;
+		public Level.UserMetadata[] levels;
 		public DateTime createdAt;
 	}
 

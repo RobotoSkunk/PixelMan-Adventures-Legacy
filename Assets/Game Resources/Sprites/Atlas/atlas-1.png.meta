@@ -161,8 +161,8 @@ TextureImporter:
       name: gui-generics-area-selector
       rect:
         serializedVersion: 2
-        x: 51
-        y: 154
+        x: 52
+        y: 152
         width: 3
         height: 3
       alignment: 6
@@ -1274,8 +1274,8 @@ TextureImporter:
       name: gui-generics-containers-button-2
       rect:
         serializedVersion: 2
-        x: 516
-        y: 56
+        x: 440
+        y: 274
         width: 9
         height: 9
       alignment: 0
@@ -2072,8 +2072,8 @@ TextureImporter:
       name: gui-generics-mini-arrow-corner
       rect:
         serializedVersion: 2
-        x: 1151
-        y: 75
+        x: 452
+        y: 280
         width: 3
         height: 3
       alignment: 0
@@ -2366,8 +2366,8 @@ TextureImporter:
       name: effects-sparkle-1
       rect:
         serializedVersion: 2
-        x: 255
-        y: 123
+        x: 33
+        y: 152
         width: 3
         height: 3
       alignment: 0
@@ -2429,8 +2429,8 @@ TextureImporter:
       name: objects-checkpoint-number-0
       rect:
         serializedVersion: 2
-        x: 504
-        y: 54
+        x: 517
+        y: 55
         width: 8
         height: 10
       alignment: 0
@@ -2450,8 +2450,8 @@ TextureImporter:
       name: objects-checkpoint-number-1
       rect:
         serializedVersion: 2
-        x: 527
-        y: 55
+        x: 504
+        y: 54
         width: 8
         height: 10
       alignment: 0
@@ -2471,8 +2471,8 @@ TextureImporter:
       name: objects-checkpoint-number-2
       rect:
         serializedVersion: 2
-        x: 214
-        y: 77
+        x: 527
+        y: 55
         width: 8
         height: 10
       alignment: 0
@@ -2492,8 +2492,8 @@ TextureImporter:
       name: objects-checkpoint-number-3
       rect:
         serializedVersion: 2
-        x: 234
-        y: 100
+        x: 214
+        y: 77
         width: 8
         height: 10
       alignment: 0
@@ -2513,8 +2513,8 @@ TextureImporter:
       name: objects-checkpoint-number-4
       rect:
         serializedVersion: 2
-        x: 1048
-        y: 193
+        x: 234
+        y: 100
         width: 8
         height: 10
       alignment: 0
@@ -2534,7 +2534,7 @@ TextureImporter:
       name: objects-checkpoint-number-5
       rect:
         serializedVersion: 2
-        x: 1038
+        x: 1048
         y: 193
         width: 8
         height: 10
@@ -2555,8 +2555,8 @@ TextureImporter:
       name: objects-checkpoint-number-6
       rect:
         serializedVersion: 2
-        x: 17
-        y: 152
+        x: 1038
+        y: 193
         width: 8
         height: 10
       alignment: 0
@@ -4151,8 +4151,8 @@ TextureImporter:
       name: gui-generics-containers-button-4
       rect:
         serializedVersion: 2
-        x: 27
-        y: 152
+        x: 540
+        y: 256
         width: 9
         height: 9
       alignment: 0
@@ -4206,6 +4206,48 @@ TextureImporter:
       bones: []
       spriteID: ff5572126889bfc48aa98985d956a496
       internalID: -871489896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-buttons-filter
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 152
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 531ce5de233fe8d4a9914f586a9a933c
+      internalID: -625341889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gui-generics-buttons-filter-order
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 210
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90ce5ff2b6a02514b9255f53680e12ff
+      internalID: -939619841
       vertices: []
       indices: 
       edges: []
@@ -4332,6 +4374,7 @@ TextureImporter:
       objects-checkpoint-number-0: 472091774
       objects-coin-4: -2062012362
       gui-generics-symbols-task: 1156370434
+      gui-generics-buttons-filter-order: -939619841
       gui-generics-symbols-achievements: -1266882107
       objects-laser-dots-0: -1664500220
       gui-generics-buttons-editor-zoom-out: -2044922546
@@ -4389,6 +4432,7 @@ TextureImporter:
       gui-generics-color-selector-hue-bar-palette: -334781007
       gui-generics-buttons-social-website: -1734289602
       gui-generics-buttons-editor-container: -640667373
+      gui-generics-buttons-filter: -625341889
       objects-bullet-0: -1117223788
       objects-finish-10: -968267306
       gui-cute-stinker: 1231714849

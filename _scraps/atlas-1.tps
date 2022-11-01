@@ -570,6 +570,46 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">gui/generics/buttons/filter-order.png</key>
+            <key type="filename">objects/checkpoint/number/0.png</key>
+            <key type="filename">objects/checkpoint/number/1.png</key>
+            <key type="filename">objects/checkpoint/number/2.png</key>
+            <key type="filename">objects/checkpoint/number/3.png</key>
+            <key type="filename">objects/checkpoint/number/4.png</key>
+            <key type="filename">objects/checkpoint/number/5.png</key>
+            <key type="filename">objects/checkpoint/number/6.png</key>
+            <key type="filename">objects/checkpoint/number/7.png</key>
+            <key type="filename">objects/checkpoint/number/8.png</key>
+            <key type="filename">objects/checkpoint/number/9.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>2,3,4,5</rect>
+                <key>scale9Paddings</key>
+                <rect>2,3,4,5</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">gui/generics/buttons/filter.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>4,3,7,5</rect>
+                <key>scale9Paddings</key>
+                <rect>4,3,7,5</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">gui/generics/buttons/icon/global.png</key>
             <key type="filename">gui/generics/buttons/icon/local.png</key>
             <struct type="IndividualSpriteSettings">
@@ -1137,30 +1177,6 @@
                 <rect>3,2,5,4</rect>
                 <key>scale9Paddings</key>
                 <rect>3,2,5,4</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">objects/checkpoint/number/0.png</key>
-            <key type="filename">objects/checkpoint/number/1.png</key>
-            <key type="filename">objects/checkpoint/number/2.png</key>
-            <key type="filename">objects/checkpoint/number/3.png</key>
-            <key type="filename">objects/checkpoint/number/4.png</key>
-            <key type="filename">objects/checkpoint/number/5.png</key>
-            <key type="filename">objects/checkpoint/number/6.png</key>
-            <key type="filename">objects/checkpoint/number/7.png</key>
-            <key type="filename">objects/checkpoint/number/8.png</key>
-            <key type="filename">objects/checkpoint/number/9.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>2,3,4,5</rect>
-                <key>scale9Paddings</key>
-                <rect>2,3,4,5</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
