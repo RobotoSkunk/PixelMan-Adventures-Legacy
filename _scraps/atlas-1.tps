@@ -377,6 +377,7 @@
             </struct>
             <key type="filename">effects/sparkle/3.png</key>
             <key type="filename">gui/generics/editor-cur-idle.png</key>
+            <key type="filename">gui/generics/symbols/sync.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -995,6 +996,21 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">gui/generics/symbols/date.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>3,2,5,5</rect>
+                <key>scale9Paddings</key>
+                <rect>3,2,5,5</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">gui/generics/symbols/editor.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -1022,6 +1038,21 @@
                 <rect>4,6,8,12</rect>
                 <key>scale9Paddings</key>
                 <rect>4,6,8,12</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">gui/generics/symbols/folder.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>10,7,19,14</rect>
+                <key>scale9Paddings</key>
+                <rect>10,7,19,14</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -1082,6 +1113,21 @@
                 <rect>5,4,9,7</rect>
                 <key>scale9Paddings</key>
                 <rect>5,4,9,7</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">gui/generics/symbols/trash-can.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>2,2,3,5</rect>
+                <key>scale9Paddings</key>
+                <rect>2,2,3,5</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
