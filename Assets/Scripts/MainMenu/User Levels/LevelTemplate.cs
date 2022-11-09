@@ -12,13 +12,14 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 		public Image syncImage;
 
 
-		[HideInInspector] public string path, lvlName, id;
-		[HideInInspector] public bool isSynced;
-		[HideInInspector] public long date;
-		[HideInInspector] public UserLevelsController controller;
+		public string path, lvlName, id;
+		public bool isSynced;
+		public long date;
+		public UserLevelsController controller;
 
 
 		protected override void Start() {
+			base.Start();
 			if (!Application.isPlaying) return;
 
 			nameText.text = UnityEngine.Random.Range(0, 1000).ToString();
