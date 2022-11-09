@@ -37,29 +37,29 @@ namespace RobotoSkunk {
 				}
 			}
 
-			public static string userData = $"{root}/user-data.json", settings = $"{root}/settings.json";
+			public static string userData = root + "/user-data.json", settings = root + "/settings.json";
 
 			public static class User {
-				public static string dir = $"{root}/user", levels = $"{dir}/levels", replays = $"{dir}/replays";
+				public static string dir = root + "/user/", levels = dir + "/levels/", replays = dir + "/replays/";
 			}
 			public static class Downloads {
-				public static string dir = $"{root}/downloads", levels = $"{dir}/levels", cache = $"{dir}/cache";
+				public static string dir = root + "/downloads/", levels = dir + "/levels/", cache = dir + "/cache/";
 			}
 
 			public static async UniTask Prepare() {
 				await UniTask.RunOnThreadPool(() => {
-					Directory.CreateDirectory($"{root}/");
+					if (!Directory.Exists(root)) Directory.CreateDirectory(root);
 
-					Directory.CreateDirectory($"{User.dir}/");
-					Directory.CreateDirectory($"{User.levels}/");
-					Directory.CreateDirectory($"{User.replays}/");
+					if (!Directory.Exists(User.dir)) Directory.CreateDirectory(User.dir);
+					if (!Directory.Exists(User.levels)) Directory.CreateDirectory(User.levels);
+					if (!Directory.Exists(User.replays)) Directory.CreateDirectory(User.replays);
 
-					Directory.CreateDirectory($"{Downloads.dir}/");
-					Directory.CreateDirectory($"{Downloads.levels}/");
-					Directory.CreateDirectory($"{Downloads.cache}/");
+					if (!Directory.Exists(Downloads.dir)) Directory.CreateDirectory(Downloads.dir);
+					if (!Directory.Exists(Downloads.levels)) Directory.CreateDirectory(Downloads.levels);
+					if (!Directory.Exists(Downloads.cache)) Directory.CreateDirectory(Downloads.cache);
 
-					File.Create(userData);
-					File.Create(settings);
+					if (!File.Exists(userData)) File.Create(userData);
+					if (!File.Exists(settings)) File.Create(settings);
 				});
 			}
 		}
@@ -79,7 +79,7 @@ namespace RobotoSkunk {
 		public static async UniTask<string> ReadFile(string path) {
 			await Directories.Prepare();
 
-			StreamReader sr = new StreamReader(path);
+			StreamReader sr = new(path);
 			string fileContent = await sr.ReadToEndAsync();
 			sr.Close();
 
@@ -89,9 +89,31 @@ namespace RobotoSkunk {
 		public static async UniTask WriteFile(string path, string data) {
 			await Directories.Prepare();
 
-			StreamWriter sw = new StreamWriter(path);
+			StreamWriter sw = new(path);
 			await sw.WriteAsync(data);
 			sw.Close();
+		}
+
+		public static async UniTask GetFilesAndDirectories(string path, List<FileInfo> files, List<DirectoryInfo> directories, Func<FileInfo, bool> fileFilter = null) {
+			await Directories.Prepare();
+
+			await UniTask.RunOnThreadPool(() => {
+				DirectoryInfo dir = new(path);
+				FileInfo[] __files = dir.GetFiles();
+				DirectoryInfo[] __dirs = dir.GetDirectories();
+
+				files.Clear();
+				directories.Clear();
+
+				foreach (DirectoryInfo directory in __dirs) {
+					directories.Add(directory);
+				}
+
+				foreach (FileInfo file in __files) {
+					if (fileFilter != null && !fileFilter(file)) continue;
+					files.Add(file);
+				}
+			});
 		}
 
 		public static async UniTask<T> FromJson<T>(string data) {

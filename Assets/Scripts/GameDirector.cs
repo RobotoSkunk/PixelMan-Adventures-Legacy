@@ -73,7 +73,7 @@ namespace RobotoSkunk.PixelMan {
 		public static List<InGameObject> objects;
 		public static GameDirector director;
 		public static Dictionary<string, RSBehaviour> __behaviours = new();
-		public static string creditsText;
+		public static string creditsText, levelPath;
 
 		public static Settings.Languages languages;
 
