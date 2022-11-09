@@ -620,6 +620,9 @@ MonoBehaviour:
   canHover: 1
   holdTime: 0.25
   isHovering: 0
+  nameText: {fileID: 5024486881061472578}
+  path: 
+  folderName: 
 --- !u!114 &5024486882835980267
 MonoBehaviour:
   m_ObjectHideFlags: 0
