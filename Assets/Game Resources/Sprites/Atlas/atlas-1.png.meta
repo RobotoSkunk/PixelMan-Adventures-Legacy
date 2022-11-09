@@ -1274,8 +1274,8 @@ TextureImporter:
       name: gui-generics-containers-button-2
       rect:
         serializedVersion: 2
-        x: 768
-        y: 46
+        x: 958
+        y: 237
         width: 9
         height: 9
       alignment: 0
@@ -4151,8 +4151,8 @@ TextureImporter:
       name: gui-generics-containers-button-4
       rect:
         serializedVersion: 2
-        x: 744
-        y: 27
+        x: 768
+        y: 46
         width: 9
         height: 9
       alignment: 0
@@ -4378,6 +4378,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: gui-generics-containers-button-5
+      rect:
+        serializedVersion: 2
+        x: 744
+        y: 27
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 3, y: 3, z: 3, w: 3}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 229a118b3962d384bbb6b0795bc9e06f
+      internalID: 2143133923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -4451,6 +4472,7 @@ TextureImporter:
       gui-generics-xbox-button-weast: 1291757510
       blocks-special-0: 1581292004
       effects-explosion-8: -1343891639
+      gui-generics-containers-button-5: 2143133923
       objects-laser-body-0: -1606881331
       gui-generics-buttons-info: 1873450837
       effects-sparkle-0: 1848512047

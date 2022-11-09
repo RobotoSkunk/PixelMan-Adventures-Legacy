@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,12 +16,15 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 		public ScrollRect scrollRect;
 		public Transform hoveringParent;
 		public Shadow shadow;
+		public Image hoveringIndicator;
 
 		[Header("Configuration")]
 		public bool isDraggable = true;
-		public float sensitivity = 10f;
+		public bool canHover = true;
 		public float holdTime = 0.25f;
 
+
+		public bool isHovering;
 		readonly float hangDistance = 3f;
 
 
@@ -28,6 +32,8 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 		bool isHanging;
 		Vector2 deltaPos;
 		RectTransform scrollRectRT;
+		GraphicRaycaster raycaster;
+		List<RaycastResult> results = new();
 
 
 		float hangDist {
@@ -42,17 +48,20 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 			if (!Application.isPlaying) return;
 			if (!scrollRect) scrollRect = GetComponentInParent<ScrollRect>();
 			if (!shadow) shadow = GetComponentInChildren<Shadow>();
+			if (!raycaster) raycaster = GetComponentInParent<GraphicRaycaster>();
 
 			scrollRectRT = scrollRect.GetComponent<RectTransform>();
+			if (!canHover) hoveringIndicator.color = Color.clear;
 		}
 
 		private void Update() {
 			if (!Application.isPlaying) return;
+
+			if (canHover) hoveringIndicator.color = isHovering ? new Color(1f, 1f, 1f, 0.5f) : Color.clear;
 			if (!isDraggable) return;
 
-			if (isHanging) {
-				hangTime += Time.deltaTime;
-			} else hangTime = 0f;
+			if (isHanging) hangTime += Time.deltaTime;
+			else hangTime = 0f;
 
 
 
@@ -64,12 +73,15 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 			else {
 				interactable = false;
 
-				float scrollTo =
-					Mathf.Clamp01((preview.position.y - scrollRectRT.rect.height * 2f) / (0.25f * scrollRectRT.rect.height))
-					-
-					(1f - Mathf.Clamp01(preview.position.y / (0.25f * scrollRectRT.rect.height)));
 
-				scrollRect.verticalScrollbar.value += 2f * scrollTo * Time.deltaTime;
+				if (preview.parent != transform) {
+					float scrollTo =
+						Mathf.Clamp01((preview.localPosition.y - scrollRectRT.rect.height * 0.75f) / (0.3f * scrollRectRT.rect.height))
+						-
+						(1f - Mathf.Clamp01(preview.localPosition.y / (0.3f * scrollRectRT.rect.height)));
+
+					scrollRect.verticalScrollbar.value += 2f * scrollTo * Time.deltaTime;
+				}
 			}
 		}
 
@@ -86,6 +98,14 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 			if (hangTime > holdTime) {
 				preview.position = ev.position + deltaPos;
 				preview.SetParent(hoveringParent);
+
+
+				SetHoveringState(results, false);
+				results.Clear();
+				ev.position = preview.position;
+				raycaster.Raycast(ev, results);
+				SetHoveringState(results, true);
+
 			} else {
 				scrollRect.OnDrag(ev);
 				isHanging = false;
@@ -103,6 +123,19 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 			hangTime = 0f;
 
 			interactable = true;
+			SetHoveringState(results, false);
+		}
+
+
+		void SetHoveringState(List<RaycastResult> results, bool toggle) {
+			if (results.Count > 0) {
+				for (int i = 0; i < results.Count; i++) {
+					if (results[i].gameObject == gameObject) continue;
+
+					CustomLevelButton button = results[i].gameObject.GetComponent<CustomLevelButton>();
+					if (button) button.isHovering = toggle;
+				}
+			}
 		}
 	}
 
@@ -111,7 +144,7 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 	[CustomEditor(typeof(CustomLevelButton), true)]
 	[CanEditMultipleObjects]
 	public class CustomLevelButtonEditor : RSButtonEditor {
-		SerializedProperty m_Preview, m_Content, m_ScrollRect, m_HoveringParent, m_Shadow, m_IsDraggable, m_Sensitivity, m_HoldTime;
+		SerializedProperty m_Preview, m_Content, m_ScrollRect, m_HoveringParent, m_Shadow, m_hoveringIndicator, m_IsDraggable, m_CanHover, m_HoldTime;
 
 		protected override void OnEnable() {
 			base.OnEnable();
@@ -121,8 +154,10 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 			m_ScrollRect = serializedObject.FindProperty("scrollRect");
 			m_HoveringParent = serializedObject.FindProperty("hoveringParent");
 			m_Shadow = serializedObject.FindProperty("shadow");
+			m_hoveringIndicator = serializedObject.FindProperty("hoveringIndicator");
+
 			m_IsDraggable = serializedObject.FindProperty("isDraggable");
-			m_Sensitivity = serializedObject.FindProperty("sensitivity");
+			m_CanHover = serializedObject.FindProperty("canHover");
 			m_HoldTime = serializedObject.FindProperty("holdTime");
 		}
 
@@ -139,10 +174,11 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 			EditorGUILayout.PropertyField(m_ScrollRect);
 			EditorGUILayout.PropertyField(m_HoveringParent);
 			EditorGUILayout.PropertyField(m_Shadow);
+			EditorGUILayout.PropertyField(m_hoveringIndicator);
 
 			EditorGUILayout.Separator();
 			EditorGUILayout.PropertyField(m_IsDraggable);
-			EditorGUILayout.PropertyField(m_Sensitivity);
+			EditorGUILayout.PropertyField(m_CanHover);
 			EditorGUILayout.PropertyField(m_HoldTime);
 
 
