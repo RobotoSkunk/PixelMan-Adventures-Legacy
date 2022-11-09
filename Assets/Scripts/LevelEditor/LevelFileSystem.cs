@@ -24,7 +24,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		public struct UserMetadata {
 			public string hash, name;
 			public float version;
-			public DateTime createdAt, lastModified;
+			public long createdAt, lastModified;
 		}
 	}
 
@@ -34,7 +34,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		public string author;
 		public string[] contributors;
 		public Level.UserMetadata[] levels;
-		public DateTime createdAt;
+		public long createdAt;
 	}
 
 	[Serializable]

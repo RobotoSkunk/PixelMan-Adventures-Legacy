@@ -130,6 +130,7 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 		void SetHoveringState(List<RaycastResult> results, bool toggle) {
 			if (results.Count > 0) {
 				for (int i = 0; i < results.Count; i++) {
+					if (!results[i].gameObject) continue;
 					if (results[i].gameObject == gameObject) continue;
 
 					CustomLevelButton button = results[i].gameObject.GetComponent<CustomLevelButton>();
