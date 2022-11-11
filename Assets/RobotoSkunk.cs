@@ -141,6 +141,20 @@ namespace RobotoSkunk {
 
 			return __tmp;
 		}
+	
+		public static bool CheckIfDirectoryIsChildOf(DirectoryInfo parent, DirectoryInfo child) {
+			bool isParent = false;
+
+			while (child.Parent != null) {
+				if (child.Parent.FullName == parent.FullName) {
+					isParent = true;
+					break;
+
+				} else child = child.Parent;
+			}
+
+			return isParent;
+		}
 	}
 
 	public static class RSTime {

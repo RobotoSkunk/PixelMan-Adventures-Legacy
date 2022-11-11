@@ -6,8 +6,12 @@ using UnityEngine;
 
 namespace RobotoSkunk.PixelMan.UI.MainMenu {
 	public class UserLevelsController : MonoBehaviour {
+		[Header("References")]
 		public LevelTemplate levelTemplate;
 		public FolderTemplate folderTemplate;
+		public FolderGoBack folderGoBack;
+
+		[Header("Components")]
 		public RectTransform content;
 		public Transform hoverParent;
 
@@ -20,31 +24,46 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 		readonly List<DirectoryInfo> folders = new();
 		readonly System.Func<FileInfo, bool> fileFilter = delegate(FileInfo file) { return file.Extension == ".pml"; };
 
-		string root;
+		DirectoryInfo root;
 
 
 		private void Start() {
-			root = Files.Directories.User.levels;
+			root = new(Files.Directories.User.levels);
 
-			LoadPath(root);
+			LoadPath(root.FullName);
 		}
 
 		public void LoadPath(string path) {
 			UniTask.Void(async () => {
+				DirectoryInfo dir = new(path);
 				foreach (Transform child in content) Destroy(child.gameObject);
 
 				await Files.GetFilesAndDirectories(path, files, folders, fileFilter);
 
+				try {
+					if (Files.CheckIfDirectoryIsChildOf(root, dir)) {
+						var go = Instantiate(folderGoBack, content);
+						go.path = dir.Parent.FullName;
+
+						go.onClick.AddListener(() => {
+							LoadPath(go.path);
+						});
+					}
+				} catch (System.Exception e) { Debug.LogError(e); }
+
 
 				foreach (DirectoryInfo folder in folders) {
-					FolderTemplate _tmp = Instantiate(folderTemplate, content);
-					_tmp.folderName = folder.Name;
-					_tmp.path = folder.FullName;
-					_tmp.hoveringParent = hoverParent;
+					try {
+						FolderTemplate _tmp = Instantiate(folderTemplate, content);
+						_tmp.folderName = folder.Name;
+						_tmp.path = folder.FullName;
+						_tmp.hoveringParent = hoverParent;
 
-					_tmp.onClick.AddListener(() => {
-						LoadPath(folder.FullName);
-					});
+						_tmp.onClick.AddListener(() => {
+							LoadPath(folder.FullName);
+						});
+
+					} catch (System.Exception e) { Debug.LogError(e); }
 				}
 
 				foreach (FileInfo file in files) {
