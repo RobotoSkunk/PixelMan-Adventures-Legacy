@@ -1377,7 +1377,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				else Debug.Log("Level save failed!");
 				
 				Debug.Log($"Output: {Files.Directories.User.levels}");
-				Debug.Log($"File hash: {IO.LevelIO.GenerateSHA1()}");
+				Debug.Log($"File hash: {IO.LevelIO.GenerateUUID()}");
 
 				saveCoroutine = null;
 			});

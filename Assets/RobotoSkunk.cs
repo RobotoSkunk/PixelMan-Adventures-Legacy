@@ -2,8 +2,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 using System.Collections.Generic;
-// using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
+using System.IO.Compression;
 using System.Diagnostics;
 using System.Text;
 using System.IO;
@@ -40,10 +40,10 @@ namespace RobotoSkunk {
 			public static string userData = root + "/user-data.json", settings = root + "/settings.json";
 
 			public static class User {
-				public static string dir = root + "/user/", levels = dir + "/levels/", replays = dir + "/replays/";
+				public static string dir = root + "/user", levels = dir + "/levels", replays = dir + "/replays";
 			}
 			public static class Downloads {
-				public static string dir = root + "/downloads/", levels = dir + "/levels/", cache = dir + "/cache/";
+				public static string dir = root + "/downloads", levels = dir + "/levels", cache = dir + "/cache";
 			}
 
 			public static async UniTask Prepare() {
@@ -155,6 +155,24 @@ namespace RobotoSkunk {
 
 			return isParent;
 		}
+
+		public static async UniTask<string> ReadFileFromZip(string zipPath, string filePath) {
+			await Directories.Prepare();
+			ZipArchive archive = ZipFile.OpenRead(zipPath);
+
+			ZipArchiveEntry entry = archive.GetEntry(filePath);
+			if (entry == null) {
+				archive.Dispose();
+				return null;
+			}
+
+			StreamReader reader = new(entry.Open());
+			string result = await reader.ReadToEndAsync();
+			reader.Close();
+			archive.Dispose();
+
+			return result;
+		}
 	}
 
 	public static class RSTime {
@@ -195,6 +213,16 @@ namespace RobotoSkunk {
 			get {
 				return defaultFPS / delta;
 			}
+		}
+
+		public static DateTime FromUnixTimestamp(long unixTimeStamp) {
+			DateTime date = new(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
+
+			return date.AddMilliseconds(unixTimeStamp).ToLocalTime();
+		}
+
+		public static long ToUnixTimestamp(DateTime date) {
+			return (long) (date - new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)).TotalMilliseconds;
 		}
 	}
 

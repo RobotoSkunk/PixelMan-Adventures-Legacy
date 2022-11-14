@@ -3,6 +3,10 @@ using System.IO;
 using Cysharp.Threading.Tasks;
 
 using UnityEngine;
+using RobotoSkunk.PixelMan.LevelEditor;
+using RobotoSkunk.PixelMan.LevelEditor.IO;
+
+
 
 namespace RobotoSkunk.PixelMan.UI.MainMenu {
 	public class UserLevelsController : MonoBehaviour {
@@ -29,6 +33,7 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 
 		private void Start() {
 			root = new(Files.Directories.User.levels);
+			Debug.Log(RSTime.ToUnixTimestamp(System.DateTime.Now));
 
 			LoadPath(root.FullName);
 		}
@@ -67,14 +72,27 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 				}
 
 				foreach (FileInfo file in files) {
-					LevelTemplate _tmp = Instantiate(levelTemplate, content);
-					_tmp.lvlName = file.Name;
-					_tmp.path = file.FullName;
-					_tmp.id = Random.Range(0, 1000);
-					_tmp.date = file.LastWriteTimeUtc.ToFileTimeUtc();
-					_tmp.isSynced = false;
-					_tmp.controller = this;
-					_tmp.hoveringParent = hoverParent;
+					try {
+						UserScene scene = await LevelFileSystem.GetMetadata(file.FullName);
+
+						LevelTemplate _tmp = Instantiate(levelTemplate, content);
+						_tmp.path = file.FullName;
+						_tmp.lvlName = scene.name;
+						_tmp.date = scene.createdAt;
+						_tmp.controller = this;
+						_tmp.hoveringParent = hoverParent;
+
+						// _tmp.lvlName = file.Name;
+						// _tmp.path = file.FullName;
+						// _tmp.id = Random.Range(0, 1000);
+						// _tmp.date = file.LastWriteTimeUtc.ToFileTimeUtc();
+						// _tmp.isSynced = false;
+						// _tmp.controller = this;
+						// _tmp.hoveringParent = hoverParent;
+
+						Debug.Log(scene.name);
+
+					} catch (System.Exception e) { Debug.LogError(e); }
 				}
 			});
 		}

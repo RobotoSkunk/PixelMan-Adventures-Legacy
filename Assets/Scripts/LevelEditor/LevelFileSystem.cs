@@ -1,4 +1,3 @@
-using System.Security.Cryptography;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using System;
@@ -22,7 +21,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 		[Serializable]
 		public struct UserMetadata {
-			public string hash, name;
+			public string uuid, name;
 			public float version;
 			public long createdAt, lastModified;
 		}
@@ -53,17 +52,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 	namespace IO {
 		public static class LevelIO {
-			public static string GenerateSHA1() {
-				byte[] bytes = new byte[32];
-				RNGCryptoServiceProvider rng = new();
-				rng.GetBytes(bytes);
-
-				SHA1Managed sha1 = new();
-
-				byte[] hash = sha1.ComputeHash(bytes);
-				return BitConverter.ToString(hash).Replace("-", "");
-			}
-
+			public static string GenerateUUID() => Guid.NewGuid().ToString();
 			public static void Save(Level level, Action<bool> callback = null) {
 				UniTask.Void(async () => {
 					bool success = true;
@@ -79,6 +68,15 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 					callback?.Invoke(success);
 				});
+			}
+		}
+
+		public static class LevelFileSystem {
+			public static async UniTask<UserScene> GetMetadata(string path) {
+				string data = await Files.ReadFileFromZip(path, "metadata.json");
+				if (data == null) return default;
+
+				return await AsyncJson.FromJson<UserScene>(data);
 			}
 		}
 	}

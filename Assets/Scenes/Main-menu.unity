@@ -10448,6 +10448,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelTemplate: {fileID: 2790462356471578408, guid: e87afc09d5be1fb41b2415117ae15d6f, type: 3}
   folderTemplate: {fileID: 3170082034375478640, guid: 49a9ea9c842da334185d43bfb3d039cb, type: 3}
+  folderGoBack: {fileID: 2004472213796376876, guid: d524264c8ec65dd4894e92bc8d1ede01, type: 3}
   content: {fileID: 1542144514}
   hoverParent: {fileID: 2063325466}
   menuController: {fileID: 1425223880}

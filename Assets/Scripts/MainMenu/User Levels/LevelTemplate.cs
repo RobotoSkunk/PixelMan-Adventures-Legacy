@@ -1,5 +1,3 @@
-using System;
-
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,7 +24,7 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 
 			nameText.text = lvlName;
 			idText.text = id == 0 ? "" : '#' + id.ToString();
-			dateText.text = DateTime.FromFileTimeUtc(date).ToString("yyyy/MM/dd HH:mm:ss");
+			dateText.text = RSTime.FromUnixTimestamp(date).ToString("yyyy/MM/dd HH:mm:ss");
 			syncImage.gameObject.SetActive(isSynced);
 		}
 
