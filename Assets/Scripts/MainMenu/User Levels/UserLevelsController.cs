@@ -33,7 +33,6 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 
 		private void Start() {
 			root = new(Files.Directories.User.levels);
-			Debug.Log(RSTime.ToUnixTimestamp(System.DateTime.Now));
 
 			LoadPath(root.FullName);
 		}
@@ -89,8 +88,6 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 						// _tmp.isSynced = false;
 						// _tmp.controller = this;
 						// _tmp.hoveringParent = hoverParent;
-
-						Debug.Log(scene.name);
 
 					} catch (System.Exception e) { Debug.LogError(e); }
 				}

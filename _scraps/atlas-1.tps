@@ -1056,6 +1056,7 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">gui/generics/symbols/folder-add.png</key>
             <key type="filename">gui/generics/symbols/folder-up.png</key>
             <key type="filename">gui/generics/symbols/folder.png</key>
             <struct type="IndividualSpriteSettings">
