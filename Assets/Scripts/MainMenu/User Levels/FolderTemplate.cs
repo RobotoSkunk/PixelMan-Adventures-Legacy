@@ -7,6 +7,7 @@ using TMPro;
 namespace RobotoSkunk.PixelMan.UI.MainMenu {
 	public class FolderTemplate : CustomLevelButton {
 		public TextMeshProUGUI nameText;
+		public RSButton deleteButton;
 
 		public string path, folderName;
 
@@ -22,12 +23,13 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 	[CustomEditor(typeof(FolderTemplate))]
 	[CanEditMultipleObjects]
 	public class FolderTemplateEditor : CustomLevelButtonEditor {
-		SerializedProperty m_nameText;
+		SerializedProperty m_nameText, m_deleteButton;
 
 		protected override void OnEnable() {
 			base.OnEnable();
 
 			m_nameText = serializedObject.FindProperty("nameText");
+			m_deleteButton = serializedObject.FindProperty("deleteButton");
 		}
 
 		public override void OnInspectorGUI() {
@@ -39,6 +41,7 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 
 			EditorGUILayout.Separator();
 			EditorGUILayout.PropertyField(m_nameText);
+			EditorGUILayout.PropertyField(m_deleteButton);
 
 
 			serializedObject.ApplyModifiedProperties();

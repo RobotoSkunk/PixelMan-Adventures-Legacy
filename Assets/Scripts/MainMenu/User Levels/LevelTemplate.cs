@@ -13,6 +13,7 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 	public class LevelTemplate : CustomLevelButton {
 		public TextMeshProUGUI nameText, idText, dateText;
 		public Image syncImage;
+		public RSButton deleteButton;
 
 		public InternalUserScene info;
 		public UserLevelsController controller;
@@ -35,7 +36,7 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 	[CustomEditor(typeof(LevelTemplate))]
 	[CanEditMultipleObjects]
 	public class LevelTemplateEditor : CustomLevelButtonEditor {
-		SerializedProperty m_nameText, m_idText, m_dateText, m_syncImage;
+		SerializedProperty m_nameText, m_idText, m_dateText, m_syncImage, m_deleteButton;
 
 		protected override void OnEnable() {
 			base.OnEnable();
@@ -44,6 +45,7 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 			m_idText = serializedObject.FindProperty("idText");
 			m_dateText = serializedObject.FindProperty("dateText");
 			m_syncImage = serializedObject.FindProperty("syncImage");
+			m_deleteButton = serializedObject.FindProperty("deleteButton");
 		}
 
 		public override void OnInspectorGUI() {
@@ -58,6 +60,7 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 			EditorGUILayout.PropertyField(m_idText);
 			EditorGUILayout.PropertyField(m_dateText);
 			EditorGUILayout.PropertyField(m_syncImage);
+			EditorGUILayout.PropertyField(m_deleteButton);
 
 
 			serializedObject.ApplyModifiedProperties();

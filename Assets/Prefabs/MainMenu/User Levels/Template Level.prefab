@@ -761,11 +761,7 @@ MonoBehaviour:
   idText: {fileID: 6064679197441725320}
   dateText: {fileID: 6064679197743734636}
   syncImage: {fileID: 6064679198509986898}
-  path: 
-  lvlName: 
-  id: 
-  isSynced: 0
-  date: 0
+  deleteButton: {fileID: 6064679198261835059}
   controller: {fileID: 0}
 --- !u!114 &6064679198359889020
 MonoBehaviour:

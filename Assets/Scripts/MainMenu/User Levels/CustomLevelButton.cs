@@ -116,13 +116,14 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 		public override void OnPointerUp(PointerEventData ev) {
 			base.OnPointerUp(ev);
 			scrollRect.OnEndDrag(ev);
+			interactable = true;
+
 			if (!isDraggable) return;
 
 			isHanging = false;
 			preview.SetParent(transform);
 			hangTime = 0f;
 
-			interactable = true;
 			SetHoveringState(results, false);
 		}
 

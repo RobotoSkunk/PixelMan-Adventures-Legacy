@@ -24,6 +24,7 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 		[Header("Components")]
 		public RectTransform content;
 		public Transform hoverParent;
+		public Popup popup;
 
 		[Header("UI")]
 		public GameObject loadingIndicator;
@@ -45,25 +46,29 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 		List<InternalUserScene> scenes = new();
 		SortType sortBy = SortType.Name;
 		float waitDelta = 0f;
+		FolderTemplate currentFolderTemplate;
+		LevelTemplate currentLevelTemplate;
 
 		public enum SortType { Name, Date, Edited, Size }
 
 
 		private void Start() {
 			root = new(Files.Directories.User.levels);
-			ToggleCreateLevel(false);
-			ToggleCreateFolder(false);
+			// ToggleCreateLevel(false);
+			// ToggleCreateFolder(false);
 			loadingIndicator.SetActive(false);
 
 			LoadPath(root.FullName);
 		}
 
 		private void Update() {
-			waitDelta += Time.deltaTime * loadingBarSpeed;
-			if (waitDelta >= 360f) waitDelta = 0f;
+			if (loadingIndicator.activeSelf) {
+				waitDelta += Time.deltaTime * loadingBarSpeed;
+				if (waitDelta >= 360f) waitDelta = 0f;
 
-			float delta = Mathf.Sin(waitDelta * Mathf.Deg2Rad);
-			loadingBar.anchoredPosition = new(delta * loadingBar.rect.size.x, 0);
+				float delta = Mathf.Sin(waitDelta * Mathf.Deg2Rad);
+				loadingBar.anchoredPosition = new(delta * loadingBar.rect.size.x, 0);
+			}
 		}
 
 
@@ -139,6 +144,12 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 							LoadPath(folder.FullName);
 						});
 
+						_tmp.deleteButton.onClick.AddListener(() => {
+							popup.open = true;
+							popup.index = 3;
+
+							currentFolderTemplate = _tmp;
+						});
 					} catch (System.Exception e) { Debug.LogError(e); }
 				}
 
@@ -148,6 +159,13 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 						_tmp.info = scene;
 						_tmp.controller = this;
 						_tmp.hoveringParent = hoverParent;
+
+						_tmp.deleteButton.onClick.AddListener(() => {
+							popup.open = true;
+							popup.index = 2;
+
+							currentLevelTemplate = _tmp;
+						});
 
 					} catch (System.Exception e) { Debug.LogError(e); }
 				}
@@ -205,12 +223,16 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 			Directory.CreateDirectory(Path.Combine(current.FullName, name));
 			ForceLoadPath(current.FullName);
 		}
-		public void DeleteFolder(string path) {
-			Directory.Delete(path, true);
+		public void DeleteFolder() {
+			if (currentFolderTemplate == null) return;
+
+			Directory.Delete(currentFolderTemplate.path, true);
 			ForceLoadPath(current.FullName);
 		}
-		public void DeleteLevel(string path) {
-			File.Delete(path);
+		public void DeleteLevel() {
+			if (currentLevelTemplate == null) return;
+
+			File.Delete(currentLevelTemplate.info.path);
 			ForceLoadPath(current.FullName);
 		}
 
@@ -249,8 +271,9 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 			levelInput.color = Color.white;
 		}
 
-		public void ToggleCreateLevel(bool toggle) => levelCreator.SetActive(toggle);
-		public void ToggleCreateFolder(bool toggle) => folderCreator.SetActive(toggle);
+		public void TogglePopup(bool toggle) => popup.open = toggle;
+		public void SetPopupIndex(int index) => popup.index = index;
+
 
 		public void SetSortingOrder(int order) {
 			int max = System.Enum.GetValues(typeof(SortType)).Length - 1;

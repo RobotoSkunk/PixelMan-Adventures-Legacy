@@ -621,6 +621,7 @@ MonoBehaviour:
   holdTime: 0.25
   isHovering: 0
   nameText: {fileID: 5024486881061472578}
+  deleteButton: {fileID: 5024486880994062598}
   path: 
   folderName: 
 --- !u!114 &5024486882835980267
