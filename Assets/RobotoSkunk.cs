@@ -173,6 +173,39 @@ namespace RobotoSkunk {
 
 			return result;
 		}
+
+		public static async UniTask<bool> WriteFileToZip(string zipPath, string filePath, string data) {
+			await Directories.Prepare();
+			ZipArchive archive = ZipFile.Open(zipPath, ZipArchiveMode.Update);
+
+			ZipArchiveEntry entry = archive.GetEntry(filePath);
+			if (entry == null) {
+				entry = archive.CreateEntry(filePath);
+			}
+
+			StreamWriter writer = new(entry.Open());
+			await writer.WriteAsync(data);
+			writer.Close();
+			archive.Dispose();
+
+			return true;
+		}
+
+		public static async UniTask<bool> DeleteFileFromZip(string zipPath, string filePath) {
+			await Directories.Prepare();
+			ZipArchive archive = ZipFile.Open(zipPath, ZipArchiveMode.Update);
+
+			ZipArchiveEntry entry = archive.GetEntry(filePath);
+			if (entry == null) {
+				archive.Dispose();
+				return false;
+			}
+
+			entry.Delete();
+			archive.Dispose();
+
+			return true;
+		}
 	}
 
 	public static class RSTime {

@@ -73,13 +73,15 @@ namespace RobotoSkunk.PixelMan {
 		public static List<InGameObject> objects;
 		public static GameDirector director;
 		public static Dictionary<string, RSBehaviour> __behaviours = new();
-		public static string creditsText, levelPath;
+		public static string creditsText;
 
 		public static Settings.Languages languages;
 
 
 		public static class Editor {
 			public static bool snap = true, handleLocally = false;
+
+			public static InternalUserScene currentScene;
 		}
 		#endregion
 
@@ -500,6 +502,14 @@ namespace RobotoSkunk.PixelMan {
 			} catch (Exception e) {
 				Debug.LogWarning(e);
 			}
+
+			// Application.logMessageReceived += (string condition, string stackTrace, LogType type) => {
+			// 	if (!Globals.settings.general.debugMode) return;
+
+			// 	if (type == LogType.Error || type == LogType.Exception) {
+					
+			// 	}
+			// };
 		}
 
 		private async void Start() {
@@ -517,9 +527,6 @@ namespace RobotoSkunk.PixelMan {
 			confPanels.SetActive(openDelta < 0.99f);
 			confPanels[0].anchoredPosition = new(-openDelta * (confPanels[0].rect.width + 10), 0);
 			confPanels[1].anchoredPosition = new(openDelta * (confPanels[1].rect.width + 10), 0);
-
-			Globals.loadProgress = loadProgress;
-			if (Keyboard.current.mKey.wasPressedThisFrame) onLoad = !onLoad;
 
 
 			if (onLoad) {
@@ -546,12 +553,16 @@ namespace RobotoSkunk.PixelMan {
 		private void OnGUI() {
 			if (!Globals.settings.general.debugMode) return;
 
-			GUI.Box(guiRect, "");
-			GUI.Label(guiRect,
-				$"<b>FPS:</b> {fps}\n" +
+			guiRect = GUI.Window(-1, guiRect, DebugWindow, "Debugger");
+		}
+
+		void DebugWindow(int id) {
+			GUILayout.Label($"<b>FPS:</b> {fps}\n" +
 				$"<b>Real FPS:</b> {RSTime.realFps}\n" +
 				$"<b>Uptime</b>: {Time.realtimeSinceStartup}");
+			GUI.DragWindow(new Rect(0, 0, Screen.width * 2, Screen.height * 2));
 		}
+
 
 		void SetVibration(float leftMotor, float rightMotor) {
 			if (Globals.settings.general.enableControllerVibration) {
