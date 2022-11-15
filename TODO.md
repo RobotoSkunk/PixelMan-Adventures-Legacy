@@ -26,6 +26,17 @@ project evolves.
 - [ ] Add the pause menu.
 	- [ ] Make the pause menu work.
 - [ ] Add support to export levels from the level editor.
-- [ ] Add support to import levels to the game.
+- [ ] Add support to import levels to the level editor.
 - [x] Fix weird bug with Language name in settings.
+- [ ] Add a users levels list.
+	- [ ] Add support to delete a level from the list.
+	- [ ] Add support to create folders in the list.
+	- [ ] Add support to delete folders in the list.
+	- [ ] Add support to move levels between folders.
+	- [ ] Add support to move folders between folders.
+	- [ ] Add support to edit a level from the list.
+		- [ ] Add support to create a new level.
+		- [ ] Add support to edit an existing level.
+		- [ ] Add support to delete a level.
+		- [ ] Add support to edit level metadata (name, description, etc).
 
