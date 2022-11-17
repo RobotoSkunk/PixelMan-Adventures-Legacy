@@ -2,6 +2,7 @@ using System.Collections.Generic;
 
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 using UnityEditor;
@@ -10,6 +11,8 @@ using UnityEditor;
 namespace RobotoSkunk.PixelMan.UI.MainMenu {
 	[AddComponentMenu("UI/RobotoSkunk/PixelMan - Custom Level Button")]
 	public class CustomLevelButton : RSButton, IDragHandler, IPointerDownHandler, IPointerUpHandler {
+		public class CustomLevelButtonEvent : UnityEvent<CustomLevelButton> { }
+
 		[Header("Layout stuff")]
 		public RectTransform preview;
 		public RectTransform content;
@@ -23,9 +26,12 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 		public bool canHover = true;
 		public float holdTime = 0.25f;
 
+		public CustomLevelButtonEvent onHoverEnd = new();
+
 
 		public bool isHovering;
 		readonly float hangDistance = 3f;
+		readonly List<RaycastResult> results = new();
 
 
 		float hangTime, delta;
@@ -33,7 +39,6 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 		Vector2 deltaPos;
 		RectTransform scrollRectRT;
 		GraphicRaycaster raycaster;
-		List<RaycastResult> results = new();
 
 
 		float hangDist {

@@ -40,10 +40,10 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 
 		readonly List<FileInfo> files = new();
 		readonly List<DirectoryInfo> folders = new();
+		readonly List<InternalUserScene> scenes = new();
 		readonly System.Func<FileInfo, bool> fileFilter = delegate(FileInfo file) { return file.Extension == ".pml"; };
 
 		DirectoryInfo root, current;
-		List<InternalUserScene> scenes = new();
 		SortType sortBy = SortType.Name;
 		float waitDelta = 0f;
 		FolderTemplate currentFolderTemplate;
@@ -89,9 +89,8 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 						try {
 							UserScene scene = await LevelFileSystem.GetMetadata(file.FullName);
 							InternalUserScene data = new() {
-								path = file.FullName,
-								data = scene,
-								size = file.Length
+								file = file,
+								data = scene
 							};
 
 							scenes.Add(data);
@@ -109,7 +108,7 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 						scenes.Sort((a, b) => a.data.lastModified.CompareTo(b.data.lastModified));
 						break;
 					case SortType.Size:
-						scenes.Sort((a, b) => a.size.CompareTo(b.size));
+						scenes.Sort((a, b) => a.file.Length.CompareTo(b.file.Length));
 						break;
 					case SortType.Name:
 					default:
@@ -136,14 +135,10 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 				foreach (DirectoryInfo folder in folders) {
 					try {
 						FolderTemplate _tmp = Instantiate(folderTemplate, content);
-						_tmp.folderName = folder.Name;
-						_tmp.path = folder.FullName;
 						_tmp.hoveringParent = hoverParent;
+						_tmp.info = folder;
 
-						_tmp.onClick.AddListener(() => {
-							LoadPath(folder.FullName);
-						});
-
+						_tmp.onClick.AddListener(() => LoadPath(folder.FullName));
 						_tmp.deleteButton.onClick.AddListener(() => {
 							popup.open = true;
 							popup.index = 3;
@@ -226,13 +221,13 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 		public void DeleteFolder() {
 			if (currentFolderTemplate == null) return;
 
-			Directory.Delete(currentFolderTemplate.path, true);
+			Directory.Delete(currentFolderTemplate.info.FullName, true);
 			ForceLoadPath(current.FullName);
 		}
 		public void DeleteLevel() {
 			if (currentLevelTemplate == null) return;
 
-			File.Delete(currentLevelTemplate.info.path);
+			File.Delete(currentLevelTemplate.info.file.FullName);
 			ForceLoadPath(current.FullName);
 		}
 

@@ -1,3 +1,5 @@
+using System.IO;
+
 using UnityEngine;
 using UnityEditor;
 
@@ -9,14 +11,14 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 		public TextMeshProUGUI nameText;
 		public RSButton deleteButton;
 
-		public string path, folderName;
+		public DirectoryInfo info;
 
 
 		protected override void Start() {
 			base.Start();
 			if (!Application.isPlaying) return;
 
-			nameText.text = folderName;
+			nameText.text = info.Name;
 		}
 	}
 

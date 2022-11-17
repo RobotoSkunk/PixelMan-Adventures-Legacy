@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using System.IO;
 using System;
 
 using UnityEngine;
 using Eflatun.SceneReference;
-
 
 namespace RobotoSkunk.PixelMan.LevelEditor {
 	[Serializable]
@@ -39,8 +39,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 	public struct InternalUserScene {
 		public UserScene data;
-		public string path;
-		public long size;
+		public FileInfo file;
 	}
 
 	[Serializable]
