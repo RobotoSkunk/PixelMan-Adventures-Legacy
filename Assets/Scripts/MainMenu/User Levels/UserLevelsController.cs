@@ -10,6 +10,8 @@ using RobotoSkunk.PixelMan.LevelEditor;
 using RobotoSkunk.PixelMan.LevelEditor.IO;
 
 
+using TMPro;
+
 
 namespace RobotoSkunk.PixelMan.UI.MainMenu {
 	public class UserLevelsController : MonoBehaviour {
@@ -22,6 +24,7 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 		public float loadingBarSpeed = 200f;
 
 		[Header("Components")]
+		public CanvasGroup contentGroup;
 		public RectTransform content;
 		public Transform hoverParent;
 		public Popup popup;
@@ -32,6 +35,8 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 		public GameObject levelCreator, folderCreator;
 		public Image levelInput, folderInput;
 		public RSButton levelButton, folderButton;
+		public TextMeshProUGUI currentPathText;
+		public Image sortModeImage;
 
 		[Header("Important")]
 		public MenuController menuController;
@@ -46,23 +51,35 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 		DirectoryInfo root, current;
 		SortType sortBy = SortType.Name;
 		float waitDelta = 0f;
+		bool invertedSort = false;
 		FolderTemplate currentFolderTemplate;
 		LevelTemplate currentLevelTemplate;
 
 		public enum SortType { Name, Date, Edited, Size }
 
+		bool __isBusy;
+
+		public bool isBusy {
+			get => __isBusy;
+			set {
+				loadingIndicator.SetActive(value);
+				contentGroup.alpha = (!value).ToInt();
+				contentGroup.interactable = !value;
+
+				__isBusy = value;
+			}
+		}
+
 
 		private void Start() {
 			root = new(Files.Directories.User.levels);
-			// ToggleCreateLevel(false);
-			// ToggleCreateFolder(false);
-			loadingIndicator.SetActive(false);
+			isBusy = false;
 
 			LoadPath(root.FullName);
 		}
 
 		private void Update() {
-			if (loadingIndicator.activeSelf) {
+			if (isBusy) {
 				waitDelta += Time.deltaTime * loadingBarSpeed;
 				if (waitDelta >= 360f) waitDelta = 0f;
 
@@ -74,11 +91,18 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 
 		public void LoadPath(string path) {
 			UniTask.Void(async () => {
-				loadingIndicator.SetActive(true);
+				isBusy = true;
 
 				#region Get and sort info
 				DirectoryInfo dir = new(path);
 				foreach (Transform child in content) Destroy(child.gameObject);
+
+				string currentPath = dir.FullName.Replace(root.FullName, "");
+
+				if (currentPath.Length > 0)
+					currentPath = currentPath[1..].Replace("\\", "/").Replace("/", " > ");
+
+				currentPathText.text = currentPath;
 
 
 				if (current != dir) {
@@ -100,35 +124,37 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 					current = dir;
 				}
 
-				switch (sortBy) {
-					case SortType.Date:
-						scenes.Sort((a, b) => a.data.createdAt.CompareTo(b.data.createdAt));
-						break;
-					case SortType.Edited:
-						scenes.Sort((a, b) => a.data.lastModified.CompareTo(b.data.lastModified));
-						break;
-					case SortType.Size:
-						scenes.Sort((a, b) => a.file.Length.CompareTo(b.file.Length));
-						break;
-					case SortType.Name:
-					default:
-						scenes.Sort((a, b) => a.data.name.CompareTo(b.data.name));
-						break;
-				}
+				await UniTask.RunOnThreadPool(() => {
+					switch (sortBy) {
+						case SortType.Date:
+							scenes.Sort((a, b) => invertedSort ? a.data.createdAt.CompareTo(b.data.createdAt) : b.data.createdAt.CompareTo(a.data.createdAt));
+							folders.Sort((a, b) => invertedSort ? a.CreationTime.CompareTo(b.CreationTime) : b.CreationTime.CompareTo(a.CreationTime));
+							break;
+						case SortType.Edited:
+							scenes.Sort((a, b) => invertedSort ? a.data.lastModified.CompareTo(b.data.lastModified) : b.data.lastModified.CompareTo(a.data.lastModified));
+							folders.Sort((a, b) => invertedSort ? a.LastWriteTime.CompareTo(b.LastWriteTime) : b.LastWriteTime.CompareTo(a.LastWriteTime));
+							break;
+						case SortType.Size:
+							scenes.Sort((a, b) => invertedSort ? a.file.Length.CompareTo(b.file.Length) : b.file.Length.CompareTo(a.file.Length));
+							folders.Sort((a, b) => invertedSort ? a.GetFiles().Length.CompareTo(b.GetFiles().Length) : b.GetFiles().Length.CompareTo(a.GetFiles().Length));
+							break;
+						case SortType.Name:
+						default:
+							scenes.Sort((a, b) => invertedSort ? a.data.name.CompareTo(b.data.name) : b.data.name.CompareTo(a.data.name));
+							folders.Sort((a, b) => invertedSort ? a.Name.CompareTo(b.Name) : b.Name.CompareTo(a.Name));
+							break;
+					}
+				});
+
 				#endregion
-
-				loadingIndicator.SetActive(false);
-
 
 				#region Create UI
 				try {
 					if (Files.CheckIfDirectoryIsChildOf(root, dir)) {
 						var go = Instantiate(folderGoBack, content);
-						go.path = dir.Parent.FullName;
+						go.info = dir.Parent;
 
-						go.onClick.AddListener(() => {
-							LoadPath(go.path);
-						});
+						go.onClick.AddListener(() => LoadPath(go.info.FullName));
 					}
 				} catch (System.Exception e) { Debug.LogError(e); }
 
@@ -136,6 +162,7 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 					try {
 						FolderTemplate _tmp = Instantiate(folderTemplate, content);
 						_tmp.hoveringParent = hoverParent;
+						_tmp.controller = this;
 						_tmp.info = folder;
 
 						_tmp.onClick.AddListener(() => LoadPath(folder.FullName));
@@ -151,9 +178,9 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 				foreach(InternalUserScene scene in scenes) {
 					try {
 						LevelTemplate _tmp = Instantiate(levelTemplate, content);
-						_tmp.info = scene;
-						_tmp.controller = this;
 						_tmp.hoveringParent = hoverParent;
+						_tmp.controller = this;
+						_tmp.info = scene;
 
 						_tmp.deleteButton.onClick.AddListener(() => {
 							popup.open = true;
@@ -165,6 +192,8 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 					} catch (System.Exception e) { Debug.LogError(e); }
 				}
 				#endregion
+
+				isBusy = false;
 			});
 		}
 		public void ForceLoadPath(string path) {
@@ -270,11 +299,18 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 		public void SetPopupIndex(int index) => popup.index = index;
 
 
+
 		public void SetSortingOrder(int order) {
 			int max = System.Enum.GetValues(typeof(SortType)).Length - 1;
 			order = Mathf.Clamp(order, 0, max);
 
 			sortBy = (SortType)order;
+			LoadPath(current.FullName);
+		}
+		public void ToggleSortingMode() {
+			invertedSort = !invertedSort;
+			sortModeImage.transform.localScale = new Vector3(1, invertedSort ? -1 : 1, 1);
+
 			LoadPath(current.FullName);
 		}
 	}

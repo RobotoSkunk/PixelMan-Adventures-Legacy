@@ -11,8 +11,6 @@ using UnityEditor;
 namespace RobotoSkunk.PixelMan.UI.MainMenu {
 	[AddComponentMenu("UI/RobotoSkunk/PixelMan - Custom Level Button")]
 	public class CustomLevelButton : RSButton, IDragHandler, IPointerDownHandler, IPointerUpHandler {
-		public class CustomLevelButtonEvent : UnityEvent<CustomLevelButton> { }
-
 		[Header("Layout stuff")]
 		public RectTransform preview;
 		public RectTransform content;
@@ -25,8 +23,6 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 		public bool isDraggable = true;
 		public bool canHover = true;
 		public float holdTime = 0.25f;
-
-		public CustomLevelButtonEvent onHoverEnd = new();
 
 
 		public bool isHovering;
@@ -110,7 +106,6 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 				ev.position = preview.position;
 				raycaster.Raycast(ev, results);
 				SetHoveringState(results, true);
-
 			} else {
 				scrollRect.OnDrag(ev);
 				isHanging = false;
@@ -124,6 +119,21 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 			interactable = true;
 
 			if (!isDraggable) return;
+			if (hangTime >= holdTime && results.Count > 0) {
+
+				for (int i = 0; i < results.Count; i++) {
+					if (!results[i].gameObject) continue;
+					if (results[i].gameObject == gameObject) continue;
+
+					CustomLevelButton button = results[i].gameObject.GetComponent<CustomLevelButton>();
+					if (button) {
+						if (!button.canHover) continue;
+
+						OnDragEnd(button);
+						break;
+					}
+				}
+			}
 
 			isHanging = false;
 			preview.SetParent(transform);
@@ -131,6 +141,8 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 
 			SetHoveringState(results, false);
 		}
+
+		protected virtual void OnDragEnd(CustomLevelButton button) { }
 
 
 		void SetHoveringState(List<RaycastResult> results, bool toggle) {

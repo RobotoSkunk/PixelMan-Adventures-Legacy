@@ -1,5 +1,7 @@
 using System.IO;
 
+using Cysharp.Threading.Tasks;
+
 using UnityEngine;
 using UnityEditor;
 
@@ -12,6 +14,7 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 		public RSButton deleteButton;
 
 		public DirectoryInfo info;
+		public UserLevelsController controller;
 
 
 		protected override void Start() {
@@ -19,6 +22,42 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 			if (!Application.isPlaying) return;
 
 			nameText.text = info.Name;
+		}
+
+		protected override void OnDragEnd(CustomLevelButton target) {
+			UniTask.Void(async () => {
+				FolderTemplate folder = target.GetComponent<FolderTemplate>();
+				FolderGoBack goBack = target.GetComponent<FolderGoBack>();
+				if (!folder && !goBack) return;
+
+				DirectoryInfo targetDir = folder ? folder.info : goBack.info;
+				if (!Directory.Exists(targetDir.FullName)) return;
+
+				controller.isBusy = true;
+				bool success = true;
+
+				await UniTask.RunOnThreadPool(() => {
+					DirectoryInfo[] dirs = targetDir.GetDirectories(info.Name);
+
+					if (dirs.Length > 0) {
+						foreach (DirectoryInfo dir in dirs) {
+							if (dir.Name == info.Name) {
+								success = false;
+								break;
+							}
+						}
+					}
+
+					if (success) info.MoveTo(Path.Combine(targetDir.FullName, info.Name));
+				});
+
+				controller.isBusy = false;
+				if (success) Destroy(gameObject);
+				else {
+					controller.popup.index = 4;
+					controller.popup.open = true;
+				}
+			});
 		}
 	}
 

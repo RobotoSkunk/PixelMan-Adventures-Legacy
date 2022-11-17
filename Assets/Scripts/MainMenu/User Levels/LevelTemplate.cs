@@ -1,3 +1,7 @@
+using System.IO;
+
+using Cysharp.Threading.Tasks;
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -31,6 +35,25 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 
 		public void OnClick() => controller.OpenLevel(info);
 		public void Test() => Debug.Log("Test");
+
+		protected override void OnDragEnd(CustomLevelButton target) {
+			UniTask.Void(async () => {
+				FolderTemplate folder = target.GetComponent<FolderTemplate>();
+				FolderGoBack goBack = target.GetComponent<FolderGoBack>();
+				if (!folder && !goBack) return;
+
+				controller.isBusy = true;
+
+				await UniTask.RunOnThreadPool(() => {
+					DirectoryInfo targetDir = folder ? folder.info : goBack.info;
+					info.file.MoveTo(Path.Combine(targetDir.FullName, info.file.Name));
+
+				});
+
+				controller.isBusy = false;
+				Destroy(gameObject);
+			});
+		}
 	}
 
 	[CustomEditor(typeof(LevelTemplate))]
