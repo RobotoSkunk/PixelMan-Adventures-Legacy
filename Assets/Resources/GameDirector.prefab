@@ -4626,6 +4626,8 @@ MonoBehaviour:
         value: Accept
       - code: es
         value: Aceptar
+      - code: es-ES
+        value: Vale
       - code: pt
         value: Aceitar
     - field: generics.cancel
@@ -4650,6 +4652,8 @@ MonoBehaviour:
         value: Go back
       - code: es
         value: "Ir atr\xE1s"
+      - code: es-ES
+        value: Retroceder
       - code: pt
         value: "Voltar atr\xE1s"
     - field: generics.continue
@@ -4908,6 +4912,151 @@ MonoBehaviour:
         value: Salir del juego
       - code: pt
         value: Sair do jogo
+    - field: menu.title.customize_character
+      values:
+      - code: en
+        value: Customize character
+      - code: es
+        value: Personalizar personaje
+      - code: pt
+        value: "Personalizar car\xE1cter"
+    - field: menu.title.select_game_mode
+      values:
+      - code: en
+        value: Select game mode
+      - code: es
+        value: Elegir modo de juego
+      - code: pt
+        value: Escolha o modo de jogo
+    - field: menu.title.select_world
+      values:
+      - code: en
+        value: Select world
+      - code: es
+        value: Elegir mundo
+      - code: pt
+        value: Escolhendo o mundo
+    - field: menu.title.custom_levels
+      values:
+      - code: en
+        value: My custom levels
+      - code: es
+        value: Mis niveles personalizados
+      - code: pt
+        value: "Os meus n\xEDveis personalizados"
+    - field: menu.button.local_levels
+      values:
+      - code: en
+        value: Local levels
+      - code: es
+        value: Niveles locales
+      - code: pt
+        value: "N\xEDveis locais"
+    - field: menu.button.online_levels
+      values:
+      - code: en
+        value: Online levels
+      - code: es
+        value: "Niveles en l\xEDnea"
+      - code: pt
+        value: "N\xEDveis online"
+    - field: menu.button.level_editor
+      values:
+      - code: en
+        value: Level editor
+      - code: es
+        value: Editor de niveles
+      - code: pt
+        value: "Editor de N\xEDvel"
+    - field: dropdown.option.name
+      values:
+      - code: en
+        value: Name
+      - code: es
+        value: Nombre
+      - code: pt
+        value: Nome
+    - field: dropdown.option.date
+      values:
+      - code: en
+        value: Date
+      - code: es
+        value: Fecha
+      - code: pt
+        value: Data
+    - field: dropdown.option.edited
+      values:
+      - code: en
+        value: Edited
+      - code: es
+        value: "Modificaci\xF3n"
+      - code: pt
+        value: Editado em
+    - field: dropdown.option.size
+      values:
+      - code: en
+        value: Size
+      - code: es
+        value: "Tama\xF1o"
+      - code: pt
+        value: Tamanho
+    - field: popup.question.stage_name
+      values:
+      - code: en
+        value: What will be the name of your stage?
+      - code: es
+        value: "\xBFC\xF3mo se llamar\xE1 tu escenario?"
+      - code: pt
+        value: "Qual ser\xE1 o nome do seu est\xE1gio?"
+    - field: popup.question.folder_name
+      values:
+      - code: en
+        value: What will be the name of your folder?
+      - code: es
+        value: "\xBFC\xF3mo se llamar\xE1 tu carpeta?"
+      - code: pt
+        value: "Qual ser\xE1 o nome da sua pasta?"
+    - field: popup.question.title.delete_stage
+      values:
+      - code: en
+        value: Are you sure to delete this stage?
+      - code: es
+        value: "\xBFEst\xE1s seguro de eliminar este nivel?"
+      - code: pt
+        value: Tem a certeza de apagar esta etapa?
+    - field: popup.question.subtitle.delete_stage
+      values:
+      - code: en
+        value: (This cannot be undone)
+      - code: es
+        value: (Esto no se puede deshacer)
+      - code: pt
+        value: "(Isto n\xE3o pode ser desfeito)"
+    - field: popup.question.title.delete_folder
+      values:
+      - code: en
+        value: Are you sure to delete this folder?
+      - code: es
+        value: "\xBFEst\xE1s seguro de eliminar esta carpeta?"
+      - code: pt
+        value: Tem a certeza de que quer apagar esta pasta?
+    - field: popup.question.subtitle.delete_folder
+      values:
+      - code: en
+        value: (This cannot be undone and will delete everything inside it)
+      - code: es
+        value: "(Esto no se puede deshacer y eliminar\xE1 todo lo que contenga)"
+      - code: pt
+        value: "(Isto n\xE3o pode ser desfeito e apagar\xE1 tudo o que nele est\xE1
+          contido)"
+    - field: popup.error.folder_already_exists
+      values:
+      - code: en
+        value: There's a folder with the same name.
+      - code: es
+        value: Hay una carpeta con el mismo nombre.
+      - code: pt
+        value: Existe uma pasta com o mesmo nome.
   worlds:
   - name: Deep Caverns
     internalId: NCN2Qw

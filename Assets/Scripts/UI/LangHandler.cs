@@ -15,8 +15,8 @@ namespace RobotoSkunk.PixelMan.UI {
 			Events.GeneralEventsHandler.LangChanged += UpdateText;
 		}
 
-		private void Start() => text.text = Globals.languages.GetField(key);
-		public void UpdateText() => text.text = Globals.languages.GetField(key);
+		private void Start() => UpdateText();
 		private void OnDestroy() => Events.GeneralEventsHandler.LangChanged -= UpdateText;
+		public void UpdateText() => text.text = Globals.languages.GetField(key);
 	}
 }
