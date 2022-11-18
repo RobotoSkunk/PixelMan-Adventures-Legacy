@@ -1,6 +1,7 @@
 using System.Collections;
 
 using UnityEngine;
+using UnityEngine.UI;
 
 
 
@@ -30,10 +31,12 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 
 	public class MenuController : MonoBehaviour {
 		public Menu[] menus;
-		public GameObject[] parts;
+		public CanvasGroup group;
+		// public GameObject[] parts;
 
 		[Header("Intro stuff")]
-		public RectTransform text1, text2, introPanel;
+		public RectTransform introPanel;
+		public RectTransform text1, text2;
 
 		bool moveTexts;
 
@@ -47,7 +50,8 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 				UpdatePositions(true);
 			} else {
 				StartCoroutine(DoIntro());
-				SetActiveParts(false);
+				// SetActiveParts(false);
+				group.interactable = false;
 			}
 		}
 
@@ -77,10 +81,10 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 			UpdateActiveMenu();
 		}
 
-		void SetActiveParts(bool active) {
-			for (int i = 0; i < parts.Length; i++)
-				parts[i].SetActive(active);
-		}
+		// void SetActiveParts(bool active) {
+		// 	for (int i = 0; i < parts.Length; i++)
+		// 		parts[i].SetActive(active);
+		// }
 
 		public void OpenSettings() => Globals.openSettings = true;
 
@@ -96,7 +100,8 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 			yield return new WaitForSeconds(1.8f);
 			moveTexts = false;
 			introPanel.gameObject.SetActive(false);
-			SetActiveParts(true);
+			// SetActiveParts(true);
+			group.interactable = true;
 			UpdateActiveMenu();
 			UpdatePositions(true);
 
