@@ -189,6 +189,11 @@ namespace RobotoSkunk.PixelMan {
 						Values _val = values.Find(m => m.code == code);
 						if (_val != null) return _val.value;
 
+						string _defCode = code.Split('-')[0];
+						Values _secondTry = values.Find(m => m.code.StartsWith(_defCode));
+
+						if (_secondTry != null) return _secondTry.value;
+
 						return "[LANG_DEF_ERROR]";
 					}
 				}
@@ -491,6 +496,11 @@ namespace RobotoSkunk.PixelMan {
 				});
 			};
 
+			// GeneralEventsHandler.LangChanged += () => {
+			// 	Debug.Log(Globals.languages.GetField("default.test.1"));
+			// 	Debug.Log(Globals.languages.GetField("default.test.2", new string[1]{ "mrrrr" }));
+			// };
+
 
 			// Avoid destroy on scenes load
 			DontDestroyOnLoad(gameObject);
@@ -509,12 +519,6 @@ namespace RobotoSkunk.PixelMan {
 					
 			// 	}
 			// };
-		}
-
-		private async void Start() {
-			await UniTask.Delay(500);
-			GameEventsHandler.InvokeLevelReady();
-			Globals.onPause = false;
 		}
 
 		private void Update() {

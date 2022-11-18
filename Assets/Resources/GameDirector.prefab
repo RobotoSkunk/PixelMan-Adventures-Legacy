@@ -4573,6 +4573,8 @@ MonoBehaviour:
       value: English
     - code: es
       value: "Espa\xF1ol"
+    - code: es-ES
+      value: Castellano
     - code: pt
       value: "Portugu\xEAs"
     properties:
@@ -4582,6 +4584,8 @@ MonoBehaviour:
         value: Hello world!
       - code: es
         value: "\xA1Hola mundo!"
+      - code: es-ES
+        value: "\xA1Hola mundo en castellano!"
       - code: pt
         value: "Ol\xE1 Mundo!"
     - field: default.test.2
