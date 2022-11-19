@@ -4596,6 +4596,14 @@ MonoBehaviour:
         value: "Versi\xF3n del juego: {0}"
       - code: pt
         value: "Vers\xE3o do jogo: {0}"
+    - field: intro.presents
+      values:
+      - code: en
+        value: Presents...
+      - code: es
+        value: Presenta...
+      - code: pt
+        value: Apresenta...
     - field: generics.pause
       values:
       - code: en
