@@ -40,7 +40,7 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 
 		[Header("Important")]
 		public MenuController menuController;
-		public int activeMenu;
+		public int overviewMenu;
 
 
 		readonly List<FileInfo> files = new();
@@ -187,6 +187,10 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 							popup.index = 2;
 
 							currentLevelTemplate = _tmp;
+						});
+						_tmp.onClick.AddListener(() => {
+							Globals.Editor.currentScene = scene;
+							menuController.SetMenu(overviewMenu);
 						});
 
 					} catch (System.Exception e) { Debug.LogError(e); }

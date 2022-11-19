@@ -8,11 +8,13 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 	public class Menu {
 		public string name;
 		public MenuPart[] parts;
+		public GameObject[] controllers;
 		readonly float minDist = 1.5f;
 
 
 		public void SetActive(bool active) {
 			for (int i = 0; i < parts.Length; i++) parts[i].isOpen = active;
+			for (int i = 0; i < controllers.Length; i++) controllers[i].SetActive(active);
 		}
 
 		public void SetPositions(bool ignoreDelta = false) {
@@ -28,13 +30,16 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 	}
 
 	public class MenuController : MonoBehaviour {
+		public delegate void MenuEvent();
+
 		public Menu[] menus;
 		public CanvasGroup group;
-		// public GameObject[] parts;
 
 		[Header("Intro stuff")]
 		public RectTransform introPanel;
 		public RectTransform text1, text2;
+
+		public event MenuEvent OnMenuChange = delegate { };
 
 		bool moveTexts;
 
@@ -48,7 +53,6 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 				UpdatePositions(true);
 			} else {
 				StartCoroutine(DoIntro());
-				// SetActiveParts(false);
 				group.interactable = false;
 			}
 		}
@@ -76,13 +80,10 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 		
 		public void SetMenu(int menu) {
 			Globals.mainMenuSection = menu;
+			OnMenuChange();
+
 			UpdateActiveMenu();
 		}
-
-		// void SetActiveParts(bool active) {
-		// 	for (int i = 0; i < parts.Length; i++)
-		// 		parts[i].SetActive(active);
-		// }
 
 		public void OpenSettings() => Globals.openSettings = true;
 
@@ -98,7 +99,6 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 			yield return new WaitForSeconds(1.8f);
 			moveTexts = false;
 			introPanel.gameObject.SetActive(false);
-			// SetActiveParts(true);
 			group.interactable = true;
 			UpdateActiveMenu();
 			UpdatePositions(true);
