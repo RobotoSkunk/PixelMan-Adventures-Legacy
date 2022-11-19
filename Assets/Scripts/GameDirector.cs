@@ -72,7 +72,7 @@ namespace RobotoSkunk.PixelMan {
 		public static List<InGameObject> objects;
 		public static GameDirector director;
 		public static Dictionary<string, RSBehaviour> __behaviours = new();
-		public static string creditsText;
+		public static string creditsText, loadingText;
 
 		public static Settings.Languages languages;
 
@@ -293,6 +293,7 @@ namespace RobotoSkunk.PixelMan {
 		public RectTransform loadingBar;
 		public RectTransform upperCover, lowerCover;
 		public float loadingBarSpeed = 200f;
+		public TextMeshProUGUI loadingText;
 
 		// Follow up the order of the components in the inspector
 		[Header("Configuration components")]
@@ -487,7 +488,11 @@ namespace RobotoSkunk.PixelMan {
 				if (!scene.IsSafeToUse) return;
 
 				Globals.onLoad = true;
+				Globals.loadProgress = 0f;
 				loadDelta = waitDelta = 0f;
+
+				int rnd = UnityEngine.Random.Range(1, 7);
+				Globals.loadingText = Globals.languages.GetField("loading.phrase." + rnd, new string[] { Environment.UserName });
 
 				UniTask.Void(async () => {
 					await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
@@ -534,6 +539,8 @@ namespace RobotoSkunk.PixelMan {
 
 
 			if (Globals.onLoad) {
+				if (loadingText.text != Globals.loadingText) loadingText.text = Globals.loadingText;
+
 				if (Globals.loadProgress == 0f) {
 					waitDelta += Time.deltaTime * loadingBarSpeed;
 					if (waitDelta >= 360f) waitDelta = 0f;

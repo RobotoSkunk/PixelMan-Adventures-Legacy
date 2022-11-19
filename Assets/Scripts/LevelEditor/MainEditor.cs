@@ -186,6 +186,8 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		#region Unity methods
 		private void Start() {
 			Globals.onLoad = true;
+			Globals.loadingText = Globals.languages.GetField("loading.load_objects");
+
 			g_Material = grids.material;
 			cursorPos = Globals.screen / 2f;
 			Globals.musicType = GameDirector.MusicClips.Type.EDITOR;
@@ -247,30 +249,32 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			playersPos = new List<Vector3>[lineRenderers.Length];
 			for (int i = 0; i < playersPos.Length; i++) playersPos[i] = new List<Vector3>();
 
-			UniTask.Void(async () => {
-				Level.UserMetadata metadata = Globals.Editor.currentLevel;
-				InternalUserScene scene = Globals.Editor.currentScene;
+			if (Globals.Editor.currentScene.file != null) {
+				UniTask.Void(async () => {
+					Level.UserMetadata metadata = Globals.Editor.currentLevel;
+					InternalUserScene scene = Globals.Editor.currentScene;
 
-				Level level = await LevelFileSystem.GetLevel(scene.file.FullName, metadata.uuid);
-				int i = 0, chunkSize = 0;
+					Level level = await LevelFileSystem.GetLevel(scene.file.FullName, metadata.uuid);
+					int i = 0, chunkSize = 0;
 
-				foreach (InGameObjectProperties data in level.objects) {
-					int id = (int)data.id;
-					InGameObjectBehaviour tmp = CreateObject(id, data.position, data.scale, data.rotation);
-					tmp.properties = data;
+					foreach (InGameObjectProperties data in level.objects) {
+						int id = (int)data.id;
+						InGameObjectBehaviour tmp = CreateObject(id, data.position, data.scale, data.rotation);
+						tmp.properties = data;
 
-					Globals.loadProgress = (float)i / level.objects.Count;
-					i++; chunkSize++;
+						Globals.loadProgress = (float)i / level.objects.Count;
+						i++; chunkSize++;
 
-					if (chunkSize >= Constants.chunkSize) {
-						await UniTask.Delay(100);
-						chunkSize = 0;
+						if (chunkSize >= Constants.chunkSize) {
+							await UniTask.Delay(100);
+							chunkSize = 0;
+						}
 					}
-				}
 
-				Globals.onLoad = editorIsBusy = false;
-				Globals.loadProgress = 0f;
-			});
+					Globals.onLoad = editorIsBusy = false;
+					Globals.loadProgress = 0f;
+				});
+			}
 		}
 
 		private void Update() {
@@ -1381,6 +1385,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		IEnumerator SaveLvlRoutine() {
 			Globals.onLoad = true;
 			Globals.loadProgress = 0f;
+			Globals.loadingText = Globals.languages.GetField("loading.saving_level");
 			editorIsBusy = true;
 
 			Level level = new () {
@@ -1407,9 +1412,9 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 			UniTask.Void(async () => {
 				Globals.loadProgress = 0f;
+				Globals.loadingText = Globals.languages.GetField("loading.almost_done");
 				bool success = await LevelIO.Save(level);
 
-				Debug.Log(success ? "Level saved" : "Something went wrong");
 				saveCoroutine = null;
 
 				Globals.onLoad = false;

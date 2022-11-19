@@ -8454,6 +8454,7 @@ GameObject:
   - component: {fileID: 663928085}
   - component: {fileID: 663928084}
   - component: {fileID: 663928086}
+  - component: {fileID: 663928087}
   m_Layer: 0
   m_Name: Title
   m_TagString: Untagged
@@ -8478,7 +8479,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 65.00006, y: 0}
+  m_AnchoredPosition: {x: 65, y: 0}
   m_SizeDelta: {x: -130, y: 43}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &663928084
@@ -8596,6 +8597,20 @@ MonoBehaviour:
   isOpen: 0
   rectTransform: {fileID: 0}
   startPos: {x: 0, y: 0}
+--- !u!114 &663928087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663928082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e715f604164034895c38791128c70a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 663928084}
+  key: menu.title.stage_overview
 --- !u!1 &665189091
 GameObject:
   m_ObjectHideFlags: 0
