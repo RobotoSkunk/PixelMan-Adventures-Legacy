@@ -13,6 +13,7 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 		public TextMeshProUGUI createdAt, timeSpent;
 
 		[HideInInspector] public Level.UserMetadata data;
+		[HideInInspector] public UserStageMenuController controller;
 
 
 		private void Start() {
@@ -22,5 +23,10 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 		}
 
 		public void SetCurrentLevel() => Globals.Editor.currentLevel = data;
+		public void DeleteLevel() {
+			SetCurrentLevel();
+			controller.TogglePopup(true);
+			controller.SetPopupIndex(1);
+		}
 	}
 }

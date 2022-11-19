@@ -51,6 +51,7 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 
 				UpdateActiveMenu();
 				UpdatePositions(true);
+				OnMenuChange();
 			} else {
 				StartCoroutine(DoIntro());
 				group.interactable = false;

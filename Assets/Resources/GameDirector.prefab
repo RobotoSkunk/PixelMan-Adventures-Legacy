@@ -5016,6 +5016,14 @@ MonoBehaviour:
         value: "\xBFC\xF3mo se llamar\xE1 tu escenario?"
       - code: pt
         value: "Qual ser\xE1 o nome do seu est\xE1gio?"
+    - field: popup.question.level_name
+      values:
+      - code: en
+        value: What will be the name of your level?
+      - code: es
+        value: "\xBFC\xF3mo se llamar\xE1 tu nivel?"
+      - code: pt
+        value: "Qual ser\xE1 o nome do seu n\xEDvel?"
     - field: popup.question.folder_name
       values:
       - code: en
@@ -5029,9 +5037,17 @@ MonoBehaviour:
       - code: en
         value: Are you sure to delete this stage?
       - code: es
-        value: "\xBFEst\xE1s seguro de eliminar este nivel?"
+        value: "\xBFEst\xE1s seguro de eliminar este escenario?"
       - code: pt
         value: Tem a certeza de apagar esta etapa?
+    - field: popup.question.title.delete_level
+      values:
+      - code: en
+        value: Are you sure to delete this level?
+      - code: es
+        value: "\xBFEst\xE1s seguro de eliminar este nivel?"
+      - code: pt
+        value: "Tem a certeza de apagar este n\xEDvel?"
     - field: popup.question.subtitle.delete_stage
       values:
       - code: en
@@ -5067,7 +5083,7 @@ MonoBehaviour:
         value: Existe uma pasta com o mesmo nome.
   worlds:
   - name: Deep Caverns
-    internalId: NCN2Qw
+    uuid: 
     bossScene:
       sceneAsset: {fileID: 0}
       sceneAssetGuidHex: 00000000000000000000000000000000
@@ -5079,13 +5095,13 @@ MonoBehaviour:
     - name: Deeper and deeper
       levels: []
   - name: Wild Jungle
-    internalId: qMTzv1
+    uuid: 
     bossScene:
       sceneAsset: {fileID: 0}
       sceneAssetGuidHex: 00000000000000000000000000000000
     scenes: []
   - name: Ice Land
-    internalId: VQy0lY
+    uuid: 
     bossScene:
       sceneAsset: {fileID: 0}
       sceneAssetGuidHex: 00000000000000000000000000000000

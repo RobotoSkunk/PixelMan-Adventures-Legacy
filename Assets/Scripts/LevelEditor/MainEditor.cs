@@ -4,12 +4,15 @@ using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem.UI;
 
+using Cysharp.Threading.Tasks;
+
 using System.Collections.Generic;
 using System.Collections;
 using System.Linq;
 
 using RobotoSkunk.PixelMan.Events;
 using RobotoSkunk.PixelMan.Gameplay;
+using RobotoSkunk.PixelMan.LevelEditor.IO;
 
 
 namespace RobotoSkunk.PixelMan.LevelEditor {
@@ -134,7 +137,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		Material g_Material;
 		Vector2 navSpeed, dragNavOrigin, cursorToWorld, resRefPnt;
 		float newZoom = 1f, zoomSpeed, msAlpha, rotHandle;
-		bool somePanelEnabled, wasMultiselecting, isOnTest, wasEditing;
+		bool somePanelEnabled, wasMultiselecting, isOnTest, wasEditing, editorIsBusy = true;
 		uint undoIndex, undoLimit;
 		int sid;
 		Coroutine inspectorCoroutine;
@@ -173,7 +176,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			get => Globals.objects[selectedId];
 		}
 		bool userReady {
-			get => !hoverUI && curInWindow;
+			get => !hoverUI && curInWindow && !editorIsBusy;
 		}
 		bool userIsDragging {
 			get => onRotate || onResize || onDrag || onMultiselection || onDragNavigation;
@@ -182,6 +185,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 		#region Unity methods
 		private void Start() {
+			Globals.onLoad = true;
 			g_Material = grids.material;
 			cursorPos = Globals.screen / 2f;
 			Globals.musicType = GameDirector.MusicClips.Type.EDITOR;
@@ -242,6 +246,31 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 			playersPos = new List<Vector3>[lineRenderers.Length];
 			for (int i = 0; i < playersPos.Length; i++) playersPos[i] = new List<Vector3>();
+
+			UniTask.Void(async () => {
+				Level.UserMetadata metadata = Globals.Editor.currentLevel;
+				InternalUserScene scene = Globals.Editor.currentScene;
+
+				Level level = await LevelFileSystem.GetLevel(scene.file.FullName, metadata.uuid);
+				int i = 0, chunkSize = 0;
+
+				foreach (InGameObjectProperties data in level.objects) {
+					int id = (int)data.id;
+					InGameObjectBehaviour tmp = CreateObject(id, data.position, data.scale, data.rotation);
+					tmp.properties = data;
+
+					Globals.loadProgress = (float)i / level.objects.Count;
+					i++; chunkSize++;
+
+					if (chunkSize >= Constants.chunkSize) {
+						await UniTask.Delay(100);
+						chunkSize = 0;
+					}
+				}
+
+				Globals.onLoad = editorIsBusy = false;
+				Globals.loadProgress = 0f;
+			});
 		}
 
 		private void Update() {
@@ -1161,10 +1190,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		}
 		public void TestButton(string text) => Debug.Log(text);
 
-		public void SaveLevel() {
-			if (saveCoroutine == null)
-				saveCoroutine = StartCoroutine(SaveLvlRoutine());
-		}
+		public void SaveLevel() => saveCoroutine ??= StartCoroutine(SaveLvlRoutine());
 		#endregion
 
 		#region Input System
@@ -1353,9 +1379,14 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			historialAvailable = true;
 		}
 		IEnumerator SaveLvlRoutine() {
-			Level level;
-			level.objects = new();
-			level.size = 5f * Vector2.one;
+			Globals.onLoad = true;
+			Globals.loadProgress = 0f;
+			editorIsBusy = true;
+
+			Level level = new () {
+				objects = new(),
+				size = 5f * Vector2.one
+			};
 
 			int chunkIndex = 0;
 
@@ -1370,16 +1401,19 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 					chunkIndex = 0;
 					yield return new WaitForSeconds(0.1f);
 				}
+
+				Globals.loadProgress = (float) i / objCache.Count;
 			}
 
-			IO.LevelIO.Save(level, (bool success) => {
-				if (success) Debug.Log("Level saved!");
-				else Debug.Log("Level save failed!");
-				
-				Debug.Log($"Output: {Files.Directories.User.levels}");
-				Debug.Log($"File hash: {IO.LevelIO.GenerateUUID()}");
+			UniTask.Void(async () => {
+				Globals.loadProgress = 0f;
+				bool success = await LevelIO.Save(level);
 
+				Debug.Log(success ? "Level saved" : "Something went wrong");
 				saveCoroutine = null;
+
+				Globals.onLoad = false;
+				editorIsBusy = false;
 			});
 
 			yield return null;

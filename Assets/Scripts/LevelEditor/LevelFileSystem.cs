@@ -59,21 +59,20 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 	namespace IO {
 		public static class LevelIO {
 			public static string GenerateUUID() => Guid.NewGuid().ToString();
-			public static void Save(Level level, Action<bool> callback = null) {
-				UniTask.Void(async () => {
-					bool success = true;
+			public static async UniTask<bool> Save(Level level) {
+				bool success = true;
 
-					try {
-						var json = await AsyncJson.ToJson(level);
+				try {
+					string path = Globals.Editor.currentScene.file.FullName;
+					string uuid = Globals.Editor.currentLevel.uuid;
 
-						Debug.Log(json);
-					} catch (Exception e) {
-						Debug.LogError(e);
-						success = false;
-					}
+					await LevelFileSystem.WriteLevel(path, level, uuid);
+				} catch (Exception e) {
+					Debug.LogError(e);
+					success = false;
+				}
 
-					callback?.Invoke(success);
-				});
+				return success;
 			}
 		}
 
@@ -88,6 +87,19 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			public static async UniTask WriteMetadata(string path, UserScene data) {
 				string json = await AsyncJson.ToJson(data);
 				await Files.WriteFileToZip(path, "metadata.json", json);
+			}
+
+			public static async UniTask WriteLevel(string path, Level level, string uuid) {
+				string json = await AsyncJson.ToJson(level);
+				await Files.CreateFileToZip(path, uuid + ".json");
+				await Files.WriteFileToZip(path, uuid + ".json", json);
+			}
+
+			public static async UniTask<Level> GetLevel(string path, string uuid) {
+				string data = await Files.ReadFileFromZip(path, uuid + ".json");
+				if (data == null) return default;
+
+				return await AsyncJson.FromJson<Level>(data);
 			}
 		}
 	}

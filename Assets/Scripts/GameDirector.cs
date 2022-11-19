@@ -60,7 +60,7 @@ namespace RobotoSkunk.PixelMan {
 
 	public static class Globals {
 		#region Common static variables
-		public static bool onPause = true, onEditField = false, doIntro = true, openSettings = false;
+		public static bool onPause = true, onEditField = false, doIntro = true, openSettings = false, onLoad = false;
 		public static uint attempts = 0u, respawnAttempts = 0u;
 		public static PlayerCharacters[] playerCharacters;
 		public static Settings settings = new();
@@ -304,7 +304,7 @@ namespace RobotoSkunk.PixelMan {
 		public ScrollRect optionsScrollRect;
 
 
-		bool onMusicFade = false, onLoad = false;
+		bool onMusicFade = false;
 		int fps;
 		Coroutine musicRoutine, shakeRoutine, saveRoutine;
 		Rect guiRect = new(10, 10, 200, 100);
@@ -483,17 +483,17 @@ namespace RobotoSkunk.PixelMan {
 			};
 
 			GeneralEventsHandler.SceneChanged += (SceneReference scene) => {
-				if (onLoad) return;
+				if (Globals.onLoad) return;
 				if (!scene.IsSafeToUse) return;
 
-				onLoad = true;
+				Globals.onLoad = true;
 				loadDelta = waitDelta = 0f;
 
 				UniTask.Void(async () => {
 					await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
 
 					await SceneManager.LoadSceneAsync(scene.BuildIndex);
-					onLoad = false;
+					Globals.onLoad = false;
 				});
 			};
 
@@ -533,7 +533,7 @@ namespace RobotoSkunk.PixelMan {
 			confPanels[1].anchoredPosition = new(openDelta * (confPanels[1].rect.width + 10), 0);
 
 
-			if (onLoad) {
+			if (Globals.onLoad) {
 				if (Globals.loadProgress == 0f) {
 					waitDelta += Time.deltaTime * loadingBarSpeed;
 					if (waitDelta >= 360f) waitDelta = 0f;
@@ -546,7 +546,7 @@ namespace RobotoSkunk.PixelMan {
 				}
 			}
 
-			coversDelta = Mathf.Lerp(coversDelta, (!onLoad).ToInt(), 0.25f * RSTime.delta);
+			coversDelta = Mathf.Lerp(coversDelta, (!Globals.onLoad).ToInt(), 0.25f * RSTime.delta);
 
 			loadingCanvas.gameObject.SetActive(coversDelta < 0.99f);
 			upperCover.anchoredPosition = 1.5f * new Vector2(0, upperCover.rect.height * coversDelta);
