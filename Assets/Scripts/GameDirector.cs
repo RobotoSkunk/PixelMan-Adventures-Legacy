@@ -81,6 +81,7 @@ namespace RobotoSkunk.PixelMan {
 			public static bool snap = true, handleLocally = false;
 
 			public static InternalUserScene currentScene;
+			public static Level.UserMetadata currentLevel;
 		}
 		#endregion
 

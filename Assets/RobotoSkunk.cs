@@ -184,6 +184,7 @@ namespace RobotoSkunk {
 			}
 
 			StreamWriter writer = new(entry.Open());
+			writer.BaseStream.SetLength(0);
 			await writer.WriteAsync(data);
 			writer.Close();
 			archive.Dispose();

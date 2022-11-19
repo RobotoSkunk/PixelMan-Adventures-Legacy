@@ -15,7 +15,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 		[Serializable]
 		public struct Metadata {
-			public string name;
+			public string uuid, name;
 			public TextAsset levelData;
 		}
 
@@ -23,7 +23,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		public struct UserMetadata {
 			public string uuid, name;
 			public float version;
-			public long createdAt, lastModified;
+			public long createdAt, lastModified, timeSpent;
 		}
 	}
 
@@ -33,7 +33,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		public string name, description;
 		public string author;
 		public string[] contributors;
-		public Level.UserMetadata[] levels;
+		public List<Level.UserMetadata> levels;
 		public long createdAt, lastModified;
 	}
 
@@ -44,7 +44,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 	[Serializable]
 	public class Worlds {
-		public string name, internalId;
+		public string name, uuid;
 		public SceneReference bossScene;
 		public GameScene[] scenes;
 
@@ -83,6 +83,11 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				if (data == null) return default;
 
 				return await AsyncJson.FromJson<UserScene>(data);
+			}
+
+			public static async UniTask WriteMetadata(string path, UserScene data) {
+				string json = await AsyncJson.ToJson(data);
+				await Files.WriteFileToZip(path, "metadata.json", json);
 			}
 		}
 	}

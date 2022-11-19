@@ -204,6 +204,7 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 			current = null;
 			LoadPath(path);
 		}
+		public void ForceReload() => LoadPath(current.FullName);
 
 
 		public void OpenLevel(InternalUserScene scene) {
@@ -230,13 +231,13 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 				ZipArchiveEntry entry = archive.CreateEntry("metadata.json");
 
 				StreamWriter writer = new(entry.Open());
-				writer.Write(data);
+				await writer.WriteAsync(data);
 				writer.Close();
 
 				archive.Dispose();
 				stream.Close();
 
-				ForceLoadPath(current.FullName);
+				ForceReload();
 			});
 		}
 		public void CreateFolder(string name) {
@@ -249,19 +250,19 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 
 
 			Directory.CreateDirectory(Path.Combine(current.FullName, name));
-			ForceLoadPath(current.FullName);
+			ForceReload();
 		}
 		public void DeleteFolder() {
 			if (currentFolderTemplate == null) return;
 
 			Directory.Delete(currentFolderTemplate.info.FullName, true);
-			ForceLoadPath(current.FullName);
+			ForceReload();
 		}
 		public void DeleteLevel() {
 			if (currentLevelTemplate == null) return;
 
 			File.Delete(currentLevelTemplate.info.file.FullName);
-			ForceLoadPath(current.FullName);
+			ForceReload();
 		}
 
 
