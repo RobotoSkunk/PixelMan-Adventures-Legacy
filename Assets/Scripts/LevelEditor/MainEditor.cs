@@ -18,6 +18,7 @@ using RobotoSkunk.PixelMan.LevelEditor.IO;
 namespace RobotoSkunk.PixelMan.LevelEditor {
 	[System.Serializable]
 	public class PanelStruct {
+		public CanvasGroup group;
 		public RectTransform rectTransforms;
 		public Image switchImage;
 		public Selectable defaultSelected, outSelected;
@@ -274,6 +275,9 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 					Globals.onLoad = editorIsBusy = false;
 					Globals.loadProgress = 0f;
 				});
+			} else {
+				Globals.onLoad = editorIsBusy = false;
+				Globals.loadProgress = 0f;
 			}
 		}
 
@@ -780,6 +784,12 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			Globals.onPause = !enabled;
 			Globals.isDead = false;
 			Globals.respawnAttempts = 0;
+
+			for (int i = 0; i < panels.Length; i++) {
+				panels[i].group.interactable = !enabled;
+				panels[i].group.blocksRaycasts = !enabled;
+				panels[i].group.alpha = (!enabled).ToInt();
+			}
 
 			if (enabled) {
 				UpdateColliders(false);

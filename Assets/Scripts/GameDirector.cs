@@ -52,7 +52,32 @@ namespace RobotoSkunk.PixelMan {
 			public const uint player = 1;
 		}
 		public static class Colors {
-			public static Color green = new(0.32f, 0.96f, 0.25f);
+			readonly static int __green = 0x52F540, __orange = 0xFF8836;
+
+			public static Color orange {
+				get {
+					Color c = new() {
+						r = (__orange >> 16 & 0xFF) / 255f,
+						g = (__orange >> 8 & 0xFF) / 255f,
+						b = (__orange & 0xFF) / 255f,
+						a = 1f
+					};
+
+					return c;
+				}
+			}
+			public static Color green {
+				get {
+					Color c = new() {
+						r = (__green >> 16 & 0xFF) / 255f,
+						g = (__green >> 8 & 0xFF) / 255f,
+						b = (__green & 0xFF) / 255f,
+						a = 1f
+					};
+
+					return c;
+				}
+			}
 		}
 	}
 

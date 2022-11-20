@@ -137,7 +137,19 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2772014221584353271}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.UI.MainMenu.StageLevel, Assembly-CSharp
+        m_MethodName: SetName
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnSubmit:
     m_PersistentCalls:
       m_Calls: []
@@ -997,7 +1009,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6037862050727022046}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2772014221584353271}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.UI.MainMenu.StageLevel, Assembly-CSharp
+        m_MethodName: MoveUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   selectOnUp:
     useAutomatic: 0
     selectable: {fileID: 0}
@@ -1759,7 +1783,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6037862051453929591}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2772014221584353271}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.UI.MainMenu.StageLevel, Assembly-CSharp
+        m_MethodName: DeleteLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   selectOnUp:
     useAutomatic: 0
     selectable: {fileID: 0}
@@ -2096,7 +2132,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6037862051676585655}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2772014221584353271}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.UI.MainMenu.StageLevel, Assembly-CSharp
+        m_MethodName: MoveDown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   selectOnUp:
     useAutomatic: 0
     selectable: {fileID: 0}

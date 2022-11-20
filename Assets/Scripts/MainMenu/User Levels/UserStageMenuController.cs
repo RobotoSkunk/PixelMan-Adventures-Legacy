@@ -1,5 +1,6 @@
 using Cysharp.Threading.Tasks;
 using System;
+using System.Collections.Generic;
 
 using UnityEngine;
 
@@ -23,6 +24,8 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 		public RSInputField description;
 		public Transform levelsParent;
 
+		bool isBusy;
+
 
 		private void Awake() => menu.OnMenuChange += UpdateInfo;
 		private void OnDestroy() => menu.OnMenuChange -= UpdateInfo;
@@ -42,17 +45,98 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 			for (int i = 0; i < scene.data.levels.Count; i++) {
 				StageLevel level = Instantiate(levelPrefab, levelsParent);
 				level.data = scene.data.levels[i];
+				level.controller = this;
 			}
 		}
 
 		public void SetName(string name) => Globals.Editor.currentScene.data.name = name;
 		public void SetDescription(string description) => Globals.Editor.currentScene.data.description = description;
+		public void SetLevelName(string uuid, string name) {
+			InternalUserScene scene = Globals.Editor.currentScene;
+			List<Level.UserMetadata> levels = scene.data.levels;
 
-		public void Save() {
+			for (int i = 0; i < scene.data.levels.Count; i++) {
+				if (levels[i].uuid == uuid) {
+					Level.UserMetadata level = levels[i];
+					level.name = name;
+
+					levels[i] = level;
+					break;
+				}
+			}
+
+			Save();
+		}
+		public void DeleteLevel() {
 			UniTask.Void(async () => {
 				InternalUserScene scene = Globals.Editor.currentScene;
+				List<Level.UserMetadata> levels = scene.data.levels;
 
-				await LevelFileSystem.WriteMetadata(scene.file.FullName, scene.data);
+				for (int i = 0; i < scene.data.levels.Count; i++) {
+					if (levels[i].uuid == Globals.Editor.currentLevel.uuid) {
+						levels.RemoveAt(i);
+						break;
+					}
+				}
+
+				await SaveAsync();
+				LoadLevels();
+				await Files.DeleteFileFromZip(scene.file.FullName, Globals.Editor.currentLevel.uuid + ".json");
+			});
+		}
+		public void MoveLevelUp() {
+			if (isBusy) return;
+			UniTask.Void(async () => {
+				InternalUserScene scene = Globals.Editor.currentScene;
+				List<Level.UserMetadata> levels = scene.data.levels;
+
+				for (int i = 0; i < scene.data.levels.Count; i++) {
+					if (levels[i].uuid == Globals.Editor.currentLevel.uuid) {
+						if (i == 0) return;
+
+						(levels[i - 1], levels[i]) = (levels[i], levels[i - 1]);
+						break;
+					}
+				}
+
+				await SaveAsync();
+				LoadLevels();
+			});
+		}
+		public void MoveLevelDown() {
+			if (isBusy) return;
+			UniTask.Void(async () => {
+				InternalUserScene scene = Globals.Editor.currentScene;
+				List<Level.UserMetadata> levels = scene.data.levels;
+
+				for (int i = 0; i < scene.data.levels.Count; i++) {
+					if (levels[i].uuid == Globals.Editor.currentLevel.uuid) {
+						if (i == levels.Count - 1) return;
+
+						(levels[i + 1], levels[i]) = (levels[i], levels[i + 1]);
+						break;
+					}
+				}
+
+				await SaveAsync();
+				LoadLevels();
+			});
+		}
+
+
+		public async UniTask SaveAsync() {
+			if (isBusy) return;
+			isBusy = true;
+
+			InternalUserScene scene = Globals.Editor.currentScene;
+
+			await LevelFileSystem.WriteMetadata(scene.file.FullName, scene.data);
+			isBusy = false;
+		}
+		public void Save() => UniTask.Void(async () => await SaveAsync());
+		public void SaveAndReload() {
+			UniTask.Void(async () => {
+				await SaveAsync();
 				userLevelsController.ForceReload();
 			});
 		}
@@ -76,7 +160,7 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 
 			UniTask.Void(async () => {
 				await LevelFileSystem.WriteLevel(scene.file.FullName, level, metadata.uuid);
-				Save();
+				await SaveAsync();
 			});
 		}
 

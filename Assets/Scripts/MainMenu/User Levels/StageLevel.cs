@@ -28,5 +28,15 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 			controller.TogglePopup(true);
 			controller.SetPopupIndex(1);
 		}
+
+		public void SetName(string name) => controller.SetLevelName(data.uuid, name);
+		public void MoveUp() {
+			SetCurrentLevel();
+			controller.MoveLevelUp();
+		}
+		public void MoveDown() {
+			SetCurrentLevel();
+			controller.MoveLevelDown();
+		}
 	}
 }
