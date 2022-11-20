@@ -208,8 +208,15 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 
 
 		public void OpenLevel(InternalUserScene scene) {
-			Globals.Editor.currentScene = scene;
-			menuController.SetMenu(1);
+			UniTask.Void(async () => {
+				InternalUserScene metadata = new() {
+					data = await LevelFileSystem.GetMetadata(scene.file.FullName),
+					file = scene.file
+				};
+
+				Globals.Editor.currentScene = metadata;
+				menuController.SetMenu(1);
+			});
 		}
 
 		public void CreateLevel(string name) {
