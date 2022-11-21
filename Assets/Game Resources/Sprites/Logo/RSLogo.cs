@@ -1,13 +1,24 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
+using Cysharp.Threading.Tasks;
+using Eflatun.SceneReference;
+
 
 public class RSLogo : MonoBehaviour {
 	[Header("Components")]
 	public Animator animator;
+	public SceneReference mainMenuScene;
 
-	[Header("Shared")]
-	public bool loaded;
+	private void Start() {
+		UniTask.Void(async () => {
+			animator.SetBool("Loaded", false);
+			await UniTask.Delay(1000);
 
-	private void FixedUpdate() {
-		animator.SetBool("Loaded", loaded);
+			animator.SetBool("Loaded", true);
+			await UniTask.Delay(1000);
+
+			SceneManager.LoadScene(mainMenuScene.BuildIndex);
+		});
 	}
 }

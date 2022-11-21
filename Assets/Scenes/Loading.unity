@@ -770,7 +770,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1785966597}
-  loaded: 0
+  mainMenuScene:
+    sceneAsset: {fileID: 102900000, guid: 4790996502bc172498885f43c747d454, type: 3}
+    sceneAssetGuidHex: 4790996502bc172498885f43c747d454
 --- !u!95 &1785966597
 Animator:
   serializedVersion: 4
