@@ -1,8 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+#if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.UI;
+#endif
+
 
 namespace RobotoSkunk.PixelMan.UI {
 	[AddComponentMenu("UI/RobotoSkunk - Button")]
@@ -42,6 +45,7 @@ namespace RobotoSkunk.PixelMan.UI {
 		}
 	}
 
+	#if UNITY_EDITOR
 	[CustomEditor(typeof(RSButton), true)]
 	[CanEditMultipleObjects]
 	public class RSButtonEditor : ButtonEditor {
@@ -72,4 +76,5 @@ namespace RobotoSkunk.PixelMan.UI {
 			serializedObject.ApplyModifiedProperties();
 		}
 	}
+	#endif
 }

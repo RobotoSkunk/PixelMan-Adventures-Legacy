@@ -1,10 +1,14 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+#if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.UI;
+#endif
 
 using TMPro;
+
+
 
 namespace RobotoSkunk.PixelMan.UI {
 	[AddComponentMenu("UI/RobotoSkunk - Dropdown")]
@@ -44,6 +48,7 @@ namespace RobotoSkunk.PixelMan.UI {
 		}
 	}
 
+	#if UNITY_EDITOR
 	[CustomEditor(typeof(RSDropdown), true)]
 	[CanEditMultipleObjects]
 	public class RSDropdownEditor : TMPro.EditorUtilities.DropdownEditor {
@@ -74,4 +79,5 @@ namespace RobotoSkunk.PixelMan.UI {
 			serializedObject.ApplyModifiedProperties();
 		}
 	}
+	#endif
 }

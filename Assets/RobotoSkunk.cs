@@ -440,7 +440,7 @@ namespace RobotoSkunk {
 		public static void Vibrate(long milliseconds) {
 			try {
 				if (type == Type.Android) vibrator.Call("vibrate", milliseconds);
-				else if (SystemInfo.deviceType == DeviceType.Handheld) Handheld.Vibrate();
+				// else if (SystemInfo.deviceType == DeviceType.Handheld) Handheld.Vibrate();
 			} catch (Exception err) {
 				UnityEngine.Debug.LogWarning(err);
 			}

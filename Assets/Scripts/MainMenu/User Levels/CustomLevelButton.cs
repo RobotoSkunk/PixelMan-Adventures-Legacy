@@ -159,7 +159,7 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 	}
 
 
-
+	#if UNITY_EDITOR
 	[CustomEditor(typeof(CustomLevelButton), true)]
 	[CanEditMultipleObjects]
 	public class CustomLevelButtonEditor : RSButtonEditor {
@@ -204,4 +204,5 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 			serializedObject.ApplyModifiedProperties();
 		}
 	}
+	#endif
 }

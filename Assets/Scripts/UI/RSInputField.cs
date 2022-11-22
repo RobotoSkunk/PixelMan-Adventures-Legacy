@@ -3,11 +3,15 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
+using TMPro;
+
+#if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.UI;
 
-using TMPro;
 using TMPro.EditorUtilities;
+#endif
+
 
 namespace RobotoSkunk.PixelMan.UI {
 	[AddComponentMenu("UI/RobotoSkunk - Input Field")]
@@ -55,6 +59,7 @@ namespace RobotoSkunk.PixelMan.UI {
 		}
 	}
 
+	#if UNITY_EDITOR
 	[CustomEditor(typeof(RSInputField), true)]
 	[CanEditMultipleObjects]
 	public class RSInputFieldEditor : TMP_InputFieldEditor {
@@ -85,4 +90,5 @@ namespace RobotoSkunk.PixelMan.UI {
 			serializedObject.ApplyModifiedProperties();
 		}
 	}
+	#endif
 }

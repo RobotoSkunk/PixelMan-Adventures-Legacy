@@ -61,6 +61,7 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 		}
 	}
 
+	#if UNITY_EDITOR
 	[CustomEditor(typeof(FolderTemplate))]
 	[CanEditMultipleObjects]
 	public class FolderTemplateEditor : CustomLevelButtonEditor {
@@ -88,4 +89,5 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 			serializedObject.ApplyModifiedProperties();
 		}
 	}
+	#endif
 }

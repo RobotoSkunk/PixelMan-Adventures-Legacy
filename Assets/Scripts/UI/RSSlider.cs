@@ -1,8 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+#if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.UI;
+#endif
+
 
 namespace RobotoSkunk.PixelMan.UI {
 	[AddComponentMenu("UI/RobotoSkunk - Slider")]
@@ -50,6 +53,7 @@ namespace RobotoSkunk.PixelMan.UI {
 		}
 	}
 
+	#if UNITY_EDITOR
 	[CustomEditor(typeof(RSSlider), true)]
 	[CanEditMultipleObjects]
 	public class RSSliderEditor : SliderEditor {
@@ -82,4 +86,5 @@ namespace RobotoSkunk.PixelMan.UI {
 			serializedObject.ApplyModifiedProperties();
 		}
 	}
+	#endif
 }
