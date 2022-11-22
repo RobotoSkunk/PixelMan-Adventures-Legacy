@@ -414,6 +414,74 @@ namespace RobotoSkunk.PixelMan {
 			Globals.settings = settings;
 			Globals.settings.general.lang = Diagnostics.systemLanguage;
 
+			#region Parse Credits.txt
+			Globals.creditsText = Globals.creditsText.Replace("\r", "");
+			string[] _lines = Globals.creditsText.Split("\n");
+			string __tmp = "", __lang = "", __sample = "";
+
+			Globals.Settings.Languages.Properties _dictionary = new() {
+				field = "menu.credits",
+				values = new() {
+					new() { code = "en", value = "" },
+					new() { code = "es", value = "" },
+					new() { code = "pt", value = "" }
+				}
+			};
+
+
+			for (int i = 0; i < _lines.Length; i++) {
+				if (_lines[i].StartsWith("#lang=")) __lang = _lines[i].Replace("#lang=", "");
+				else if (_lines[i].StartsWith("#end")) {
+					if (Globals.languages.available.Find(m => m.code == __lang) != null) {
+						_dictionary.values.Find(m => m.code == __lang).value = __tmp;
+
+						__sample = __tmp;
+						__tmp = "";
+					}
+				} else __tmp += _lines[i] + "\n";
+			}
+
+			Globals.languages.properties.Add(_dictionary);
+			#endregion
+
+			#region Small easter egg
+			Globals.languages.available.Add(new() { code = "mrrrr", value = "Mrrrrrr!" });
+
+			for (int i = 0; i < Globals.languages.properties.Count; i++) {
+				if (Globals.languages.properties[i].field == "menu.credits") {
+					string _mrrrr = "";
+					string[] _sampleLines = __sample.Split("\n");
+
+					for (int j = 0; j < _sampleLines.Length; j++) {
+						if (_sampleLines[j].StartsWith("<b>")) {
+							_mrrrr += "<b>M" + new string('r', UnityEngine.Random.Range(10, 25)) + "</b>\n";
+							continue;
+						}
+
+						if (_sampleLines[j].Length > 0) {
+							_mrrrr += "M" + new string('r', UnityEngine.Random.Range(10, 25)) + "\n";
+							continue;
+						}
+
+						_mrrrr += "\n";
+					}
+
+
+					Globals.languages.properties[i].values.Add(new() {
+						code = "mrrrr",
+						value = _mrrrr
+					});
+
+					continue;
+				}
+
+				Globals.languages.properties[i].values.Add(new() {
+					code = "mrrrr",
+					value = "M" + new string('r', UnityEngine.Random.Range(5, 10)) + "!"
+				});
+			}
+			#endregion
+
 			UniTask.Void(async () => {
 				string settingsJson = await Files.ReadFile(Files.Directories.settings);
 				string userDataJson = await Files.ReadFile(Files.Directories.userData);
@@ -423,76 +491,6 @@ namespace RobotoSkunk.PixelMan {
 
 				if (!string.IsNullOrEmpty(userDataJson))
 					Globals.playerData = await AsyncJson.FromJson<Globals.PlayerData>(userDataJson);
-
-
-
-				#region Parse Credits.txt
-				Globals.creditsText = Globals.creditsText.Replace("\r", "");
-				string[] _lines = Globals.creditsText.Split("\n");
-				string __tmp = "", __lang = "", __sample = "";
-
-				Globals.Settings.Languages.Properties _dictionary = new() {
-					field = "menu.credits",
-					values = new() {
-						new() { code = "en", value = "" },
-						new() { code = "es", value = "" },
-						new() { code = "pt", value = "" }
-					}
-				};
-
-
-				for (int i = 0; i < _lines.Length; i++) {
-					if (_lines[i].StartsWith("#lang=")) __lang = _lines[i].Replace("#lang=", "");
-					else if (_lines[i].StartsWith("#end")) {
-						if (Globals.languages.available.Find(m => m.code == __lang) != null) {
-							_dictionary.values.Find(m => m.code == __lang).value = __tmp;
-
-							__sample = __tmp;
-							__tmp = "";
-						}
-					} else __tmp += _lines[i] + "\n";
-				}
-
-				Globals.languages.properties.Add(_dictionary);
-				#endregion
-
-				#region Small easter egg
-				Globals.languages.available.Add(new() { code = "mrrrr", value = "Mrrrrrr!" });
-
-				for (int i = 0; i < Globals.languages.properties.Count; i++) {
-					if (Globals.languages.properties[i].field == "menu.credits") {
-						string _mrrrr = "";
-						string[] _sampleLines = __sample.Split("\n");
-
-						for (int j = 0; j < _sampleLines.Length; j++) {
-							if (_sampleLines[j].StartsWith("<b>")) {
-								_mrrrr += "<b>M" + new string('r', UnityEngine.Random.Range(10, 25)) + "</b>\n";
-								continue;
-							}
-
-							if (_sampleLines[j].Length > 0) {
-								_mrrrr += "M" + new string('r', UnityEngine.Random.Range(10, 25)) + "\n";
-								continue;
-							}
-
-							_mrrrr += "\n";
-						}
-
-
-						Globals.languages.properties[i].values.Add(new() {
-							code = "mrrrr",
-							value = _mrrrr
-						});
-
-						continue;
-					}
-
-					Globals.languages.properties[i].values.Add(new() {
-						code = "mrrrr",
-						value = "M" + new string('r', UnityEngine.Random.Range(5, 10)) + "!"
-					});
-				}
-				#endregion
 
 				settings = null;
 				Globals.creditsText = null;
@@ -720,7 +718,10 @@ namespace RobotoSkunk.PixelMan {
 		}
 
 		public void SetVSyncInternal(bool value) => QualitySettings.vSyncCount = value.ToInt();
-		public void SetFullScreenInternal(bool value) => Screen.fullScreen = value;
+		public void SetFullScreenInternal(bool value) {
+			Screen.fullScreen = value;
+			if (value) Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, true);
+		}
 		#endregion
 
 
