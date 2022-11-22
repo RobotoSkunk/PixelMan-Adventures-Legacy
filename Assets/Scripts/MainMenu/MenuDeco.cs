@@ -28,7 +28,7 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 				ground.transform.position += new Vector3(10f, 0f, 0f);
 
 			if ((int)Globals.playerData.skinIndex != __lastPlayerID) SetPlayerSkin();
-			playerSprite.color = Globals.playerData.color;
+			playerSprite.color = Globals.playerData.Color;
 		}
 
 

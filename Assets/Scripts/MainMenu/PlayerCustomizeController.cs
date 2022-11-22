@@ -1,9 +1,14 @@
 using System;
+using System.Collections;
+
+using Cysharp.Threading.Tasks;
+
 using UnityEngine;
 using UnityEngine.UI;
 
 using TMPro;
 
+using RobotoSkunk.PixelMan.Events;
 using RobotoSkunk.PixelMan.Gameplay;
 
 
@@ -25,9 +30,12 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 		private Player.State __state, __lastState;
 		private readonly float maxPrevSize = 17f;
 
+		Coroutine saveRoutine;
+
 
 		private void Start() {
-			playerPreview.color = colorPicker.color = Globals.playerData.color;
+			playerPreview.color = Globals.playerData.Color;
+			colorPicker.SetValueWithoutNotify(Globals.playerData.Color);
 
 			SetState(Player.State.IDLE);
 			SetPreviewPlayer();
@@ -55,17 +63,23 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 
 		private void Update() {
 			if (playerPreview.sprite != playerSprite.sprite) SetPreviewSprite();
-			Globals.playerData.color = playerPreview.color = colorPicker.color;
-
-			Color.RGBToHSV(colorPicker.color, out float h, out float s, out float v);
-			avatarOutline.effectColor = Color.HSVToRGB(h, s, 1f - v);
-
 
 			if (__state != __lastState) {
 				ResetAnimation();
 				__lastState = __state;
 			}
 		}
+
+		private void OnEnable() => GeneralEventsHandler.SettingsLoaded += SettingsLoaded;
+		private void OnDestroy() => GeneralEventsHandler.SettingsLoaded -= SettingsLoaded;
+
+		void SettingsLoaded() {
+			SetSkin((int)Globals.playerData.skinIndex);
+			SetColor(Globals.playerData.Color);
+
+			colorPicker.SetValueWithoutNotify(Globals.playerData.Color);
+		}
+
 
 		void SetPreviewSprite() {
 			if (playerSprite.sprite == null) return;
@@ -101,6 +115,30 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 		public void SetSkin(int index) {
 			Globals.playerData.skinIndex = (uint)index;
 			SetPreviewPlayer();
+			SaveMiddleware();
+		}
+		public void SetColor(Color color) {
+			Globals.playerData.Color = playerPreview.color = color;
+
+			Color.RGBToHSV(color, out float h, out float s, out float v);
+			avatarOutline.effectColor = Color.HSVToRGB(h, s, 1f - v);
+
+			SaveMiddleware();
+		}
+
+		public void SaveMiddleware() {
+			if (saveRoutine != null) StopCoroutine(saveRoutine);
+			saveRoutine = StartCoroutine(Save());
+		}
+
+		IEnumerator Save() {
+			yield return new WaitForSeconds(0.5f);
+
+			UniTask.Void(async () => {
+				await Globals.playerData.Save();
+
+				saveRoutine = null;
+			});
 		}
 	}
 }

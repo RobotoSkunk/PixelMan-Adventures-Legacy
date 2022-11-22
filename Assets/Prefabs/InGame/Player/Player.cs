@@ -44,15 +44,15 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 		public enum State { IDLE, RUNNING, JUMPING, FALLING }
 
 		private void Awake() {
-			Globals.playerData.color.a = 1f;
-			spr.color = Globals.playerData.color;
+			// Globals.playerData.Color.a = 1f;
+			spr.color = Globals.playerData.Color;
 
 			Globals.PlayerCharacters ps = Globals.playerCharacters.ClampIndex((int)Globals.playerData.skinIndex);
 			spr.sprite = ps.display;
 			anim.runtimeAnimatorController = ps.controller;
 
 			ParticleSystem.MainModule particleMain = deathParticles.main;
-			particleMain.startColor = Globals.playerData.color;
+			particleMain.startColor = Globals.playerData.Color;
 
 			rb.velocity = Vector2.zero;
 			rb.gravityScale = 0f;

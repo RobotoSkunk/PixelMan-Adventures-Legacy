@@ -38,23 +38,25 @@ namespace RobotoSkunk.PixelMan {
 		}
 
 		public static class GeneralEventsHandler {
+			public delegate void Default();
 			public delegate void AudioEvent(AudioClip clip);
 			public delegate void MusicEvent(GameDirector.MusicClips.Type type);
 			public delegate void ShakeEvent(float force, float time);
-			public delegate void LangEvent();
 			public delegate void SceneEvent(SceneReference scene);
 
 			public static event AudioEvent PlayOnBG = delegate { };
 			public static event MusicEvent ChgMusic = delegate { };
 			public static event ShakeEvent ShakeFx = delegate { };
-			public static event LangEvent LangChanged = delegate { };
+			public static event Default LangChanged = delegate { };
 			public static event SceneEvent SceneChanged = delegate { };
+			public static event Default SettingsLoaded = delegate { };
 
 			public static void PlayOnBackground(AudioClip clip) => PlayOnBG(clip);
 			public static void ChangeMusic(GameDirector.MusicClips.Type type) => ChgMusic(type);
 			public static void SetShake(float force, float time) => ShakeFx(force, time);
 			public static void InvokeLanguageChanged() => LangChanged();
 			public static void ChangeScene(SceneReference scene) => SceneChanged(scene);
+			public static void InvokeSettingsLoaded() => SettingsLoaded();
 		}
 
 		public static class PhysicsEventsHandler {

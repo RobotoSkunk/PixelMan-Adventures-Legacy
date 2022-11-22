@@ -200,6 +200,11 @@ namespace RobotoSkunk.PixelMan {
 				public uint undoLimit, lineLength = 500;
 			}
 
+			public async UniTask Save() {
+				string json = await AsyncJson.ToJson(settings);
+				await Files.WriteFile(Files.Directories.settings, json);
+			}
+
 
 			[Serializable] public class Languages {
 				[Serializable] public class Properties {
@@ -228,7 +233,13 @@ namespace RobotoSkunk.PixelMan {
 				public List<Properties> properties = new();
 
 				string GetLang() {
-					string _lang = settings.general.lang;
+					string _lang = "en";
+
+					if (settings != null) {
+						if (settings.general != null)
+							_lang = settings.general.lang;
+					}
+
 					if (string.IsNullOrEmpty(_lang)) _lang = "en";
 					return _lang;
 				}
@@ -275,9 +286,28 @@ namespace RobotoSkunk.PixelMan {
 		[Serializable]
 		public class PlayerData {
 			public string displayName = "Player", accessToken = "";
-			public Color color = Color.white;
-			public uint skinIndex = 0u;
+			// public Color color = Color.white;
+			public uint color = 0xFFFFFF, skinIndex = 0u;
 			public int fun = 0;
+
+			public Color Color {
+				get {
+					Color c = new() {
+						r = ((color >> 16) & 0xFF) / 255f,
+						g = ((color >> 8) & 0xFF) / 255f,
+						b = ((color >> 0) & 0xFF) / 255f,
+						a = 1f
+					};
+
+					return c;
+				}
+				set => color = (uint)((int)(value.r * 255f) << 16) | (uint)((int)(value.g * 255f) << 8) | (uint)((int)(value.b * 255f) << 0);
+			}
+
+			public async UniTask Save() {
+				string json = await AsyncJson.ToJson(playerData);
+				await Files.WriteFile(Files.Directories.userData, json);
+			}
 		}
 
 		[Serializable]
@@ -371,127 +401,145 @@ namespace RobotoSkunk.PixelMan {
 		}
 
 
-		private async void Awake() {
+		private void Awake() {
+			// Avoid destroy on scenes load
+			DontDestroyOnLoad(gameObject);
+
 			// Set values
 			Globals.objects = objects;
 			Globals.playerCharacters = playerCharacters;
 			Globals.languages = languages;
 
-			Globals.settings = settings;
 			Globals.playerData = playerData;
+			Globals.settings = settings;
 			Globals.settings.general.lang = Diagnostics.systemLanguage;
 
-			#region Parse Credits.txt
-			Globals.creditsText = Globals.creditsText.Replace("\r", "");
-			string[] _lines = Globals.creditsText.Split("\n");
-			string __tmp = "", __lang = "", __sample = "";
+			UniTask.Void(async () => {
+				string settingsJson = await Files.ReadFile(Files.Directories.settings);
+				string userDataJson = await Files.ReadFile(Files.Directories.userData);
 
-			Globals.Settings.Languages.Properties _dictionary = new() {
-				field = "menu.credits",
-				values = new() {
-					new() { code = "en", value = "" },
-					new() { code = "es", value = "" },
-					new() { code = "pt", value = "" }
+				if (!string.IsNullOrEmpty(settingsJson))
+					Globals.settings = await AsyncJson.FromJson<Globals.Settings>(settingsJson);
+
+				if (!string.IsNullOrEmpty(userDataJson))
+					Globals.playerData = await AsyncJson.FromJson<Globals.PlayerData>(userDataJson);
+
+
+
+				#region Parse Credits.txt
+				Globals.creditsText = Globals.creditsText.Replace("\r", "");
+				string[] _lines = Globals.creditsText.Split("\n");
+				string __tmp = "", __lang = "", __sample = "";
+
+				Globals.Settings.Languages.Properties _dictionary = new() {
+					field = "menu.credits",
+					values = new() {
+						new() { code = "en", value = "" },
+						new() { code = "es", value = "" },
+						new() { code = "pt", value = "" }
+					}
+				};
+
+
+				for (int i = 0; i < _lines.Length; i++) {
+					if (_lines[i].StartsWith("#lang=")) __lang = _lines[i].Replace("#lang=", "");
+					else if (_lines[i].StartsWith("#end")) {
+						if (Globals.languages.available.Find(m => m.code == __lang) != null) {
+							_dictionary.values.Find(m => m.code == __lang).value = __tmp;
+
+							__sample = __tmp;
+							__tmp = "";
+						}
+					} else __tmp += _lines[i] + "\n";
 				}
-			};
 
+				Globals.languages.properties.Add(_dictionary);
+				#endregion
 
-			for (int i = 0; i < _lines.Length; i++) {
-				if (_lines[i].StartsWith("#lang=")) __lang = _lines[i].Replace("#lang=", "");
-				else if (_lines[i].StartsWith("#end")) {
-					if (Globals.languages.available.Find(m => m.code == __lang) != null) {
-						_dictionary.values.Find(m => m.code == __lang).value = __tmp;
+				#region Small easter egg
+				Globals.languages.available.Add(new() { code = "mrrrr", value = "Mrrrrrr!" });
 
-						__sample = __tmp;
-						__tmp = "";
-					}
-				} else __tmp += _lines[i] + "\n";
-			}
+				for (int i = 0; i < Globals.languages.properties.Count; i++) {
+					if (Globals.languages.properties[i].field == "menu.credits") {
+						string _mrrrr = "";
+						string[] _sampleLines = __sample.Split("\n");
 
-			Globals.languages.properties.Add(_dictionary);
-			#endregion
+						for (int j = 0; j < _sampleLines.Length; j++) {
+							if (_sampleLines[j].StartsWith("<b>")) {
+								_mrrrr += "<b>M" + new string('r', UnityEngine.Random.Range(10, 25)) + "</b>\n";
+								continue;
+							}
 
-			#region Small easter egg
-			Globals.languages.available.Add(new() { code = "mrrrr", value = "Mrrrrrr!" });
+							if (_sampleLines[j].Length > 0) {
+								_mrrrr += "M" + new string('r', UnityEngine.Random.Range(10, 25)) + "\n";
+								continue;
+							}
 
-			for (int i = 0; i < Globals.languages.properties.Count; i++) {
-				if (Globals.languages.properties[i].field == "menu.credits") {
-					string _mrrrr = "";
-					string[] _sampleLines = __sample.Split("\n");
-
-					for (int j = 0; j < _sampleLines.Length; j++) {
-						if (_sampleLines[j].StartsWith("<b>")) {
-							_mrrrr += "<b>M" + new string('r', UnityEngine.Random.Range(10, 25)) + "</b>\n";
-							continue;
+							_mrrrr += "\n";
 						}
 
-						if (_sampleLines[j].Length > 0) {
-							_mrrrr += "M" + new string('r', UnityEngine.Random.Range(10, 25)) + "\n";
-							continue;
-						}
 
-						_mrrrr += "\n";
+						Globals.languages.properties[i].values.Add(new() {
+							code = "mrrrr",
+							value = _mrrrr
+						});
+
+						continue;
 					}
-
 
 					Globals.languages.properties[i].values.Add(new() {
 						code = "mrrrr",
-						value = _mrrrr
+						value = "M" + new string('r', UnityEngine.Random.Range(5, 10)) + "!"
 					});
-
-					continue;
 				}
+				#endregion
 
-				Globals.languages.properties[i].values.Add(new() {
-					code = "mrrrr",
-					value = "M" + new string('r', UnityEngine.Random.Range(5, 10)) + "!"
-				});
-			}
-			#endregion
+				settings = null;
+				Globals.creditsText = null;
+
+				SetLanguage(Globals.languages.GetLanguageIndex(Globals.settings.general.lang));
+				SetFullScreenInternal(Globals.settings.general.enableFullscreen);
+				SetVSyncInternal(Globals.settings.general.enableVSync);
+
+				#region Set settings to the UI
+				bool[] _options = {
+					Globals.settings.general.enableFullscreen,
+					Globals.settings.general.enableVSync,
+					Globals.settings.general.enableDeviceVibration,
+					Globals.settings.general.enableControllerVibration,
+					Globals.settings.general.enableParticles
+				};
+				float[] _sliders = {
+					Globals.settings.general.shakeStrenght,
+					Globals.settings.volume.master,
+					Globals.settings.volume.music,
+					Globals.settings.volume.fx,
+					Globals.settings.editor.undoLimit,
+					Globals.settings.editor.lineLength
+				};
+				langText.text = Globals.languages.GetCurrentLangName();
+
+				for (int i = 0; i < optionsToggles.Length; i++)
+					if (i < _options.Length) optionsToggles[i].SetIsOnWithoutNotify(_options[i]);
+
+				for (int i = 0; i < optionsSliders.Length; i++)
+					if (i < _sliders.Length) optionsSliders[i].SetValueWithoutNotify(_sliders[i]);
+
+				OpenPanel(0);
+				#endregion
+
+				GeneralEventsHandler.InvokeSettingsLoaded();
+			});
 
 
 			// Clear memory
-			settings = null;
 			playerData = null;
 			playerCharacters = null;
 			languages = null;
-			Globals.creditsText = null;
-
-			#region Set settings to the UI
-			bool[] _options = {
-				Globals.settings.general.enableFullscreen,
-				Globals.settings.general.enableVSync,
-				Globals.settings.general.enableDeviceVibration,
-				Globals.settings.general.enableControllerVibration,
-				Globals.settings.general.enableParticles
-			};
-			float[] _sliders = {
-				Globals.settings.general.shakeStrenght,
-				Globals.settings.volume.master,
-				Globals.settings.volume.music,
-				Globals.settings.volume.fx,
-				Globals.settings.editor.undoLimit,
-				Globals.settings.editor.lineLength
-			};
-			langText.text = Globals.languages.GetCurrentLangName();
-
-			for (int i = 0; i < optionsToggles.Length; i++)
-				if (i < _options.Length) optionsToggles[i].SetIsOnWithoutNotify(_options[i]);
-
-			for (int i = 0; i < optionsSliders.Length; i++)
-				if (i < _sliders.Length) optionsSliders[i].SetValueWithoutNotify(_sliders[i]);
-
-			OpenPanel(0);
-			#endregion
 
 
-			// Suscribe events
-			/*GameEventsHandler.PlayerDeath += () => {
-				t.Stop();
 
-				StartCoroutine(ResetObjects());
-			};*/
-
+			#region Suscribe events
 			GeneralEventsHandler.PlayOnBG += (AudioClip clip) => bgAudio.PlayOneShot(clip);
 
 			GeneralEventsHandler.ChgMusic += (MusicClips.Type type) => {
@@ -533,16 +581,6 @@ namespace RobotoSkunk.PixelMan {
 			// };
 
 
-			// Avoid destroy on scenes load
-			DontDestroyOnLoad(gameObject);
-
-			// Prepare directories
-			try {
-				await Files.Directories.Prepare();
-			} catch (Exception e) {
-				Debug.LogWarning(e);
-			}
-
 			// Application.logMessageReceived += (string condition, string stackTrace, LogType type) => {
 			// 	if (!Globals.settings.general.debugMode) return;
 
@@ -550,6 +588,7 @@ namespace RobotoSkunk.PixelMan {
 					
 			// 	}
 			// };
+			#endregion
 		}
 
 		private void Update() {
@@ -613,12 +652,11 @@ namespace RobotoSkunk.PixelMan {
 		#region Settings methods
 		public void SetFullscreen(bool value) {
 			Globals.settings.general.enableFullscreen = value;
-			Screen.fullScreen = value;
+			SetFullScreenInternal(value);
 			SaveSettingsMiddleware();
 		}
 		public void SetVSync(bool value) {
-			Globals.settings.general.enableVSync = value;
-			QualitySettings.vSyncCount = value ? 1 : 0;
+			SetVSyncInternal(value);
 			SaveSettingsMiddleware();
 		}
 		public void SetDeviceVibration(bool value) {
@@ -680,6 +718,9 @@ namespace RobotoSkunk.PixelMan {
 			if (saveRoutine != null) StopCoroutine(saveRoutine);
 			saveRoutine = StartCoroutine(SaveSettings());
 		}
+
+		public void SetVSyncInternal(bool value) => QualitySettings.vSyncCount = value.ToInt();
+		public void SetFullScreenInternal(bool value) => Screen.fullScreen = value;
 		#endregion
 
 
@@ -742,8 +783,11 @@ namespace RobotoSkunk.PixelMan {
 		IEnumerator SaveSettings() {
 			yield return new WaitForSeconds(0.5f);
 
-			Debug.Log("Settings saved!");
-			saveRoutine = null;
+			UniTask.Void(async () => {
+				await Globals.settings.Save();
+
+				saveRoutine = null;
+			});
 		}
 		#endregion
 

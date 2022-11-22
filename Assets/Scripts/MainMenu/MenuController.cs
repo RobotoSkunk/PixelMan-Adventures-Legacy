@@ -34,6 +34,7 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 
 		public Menu[] menus;
 		public CanvasGroup group;
+		public Popup popup;
 
 		[Header("Intro stuff")]
 		public RectTransform introPanel;
@@ -106,5 +107,12 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 
 			Globals.doIntro = false;
 		}
+
+		public void CloseGame() => Application.Quit();
+		public void OpenPopup(int index) {
+			popup.index = index;
+			popup.open = true;
+		}
+		public void ClosePopup() => popup.open = false;
 	}
 }
