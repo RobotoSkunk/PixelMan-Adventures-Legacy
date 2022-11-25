@@ -482,24 +482,11 @@ namespace RobotoSkunk.PixelMan {
 			}
 			#endregion
 
-			UniTask.Void(async () => {
-				string settingsJson = await Files.ReadFile(Files.Directories.settings);
-				string userDataJson = await Files.ReadFile(Files.Directories.userData);
-
-				if (!string.IsNullOrEmpty(settingsJson))
-					Globals.settings = await AsyncJson.FromJson<Globals.Settings>(settingsJson);
-
-				if (!string.IsNullOrEmpty(userDataJson))
-					Globals.playerData = await AsyncJson.FromJson<Globals.PlayerData>(userDataJson);
-
-				settings = null;
-				Globals.creditsText = null;
-
+			GeneralEventsHandler.SettingsLoaded += () => {
 				SetLanguage(Globals.languages.GetLanguageIndex(Globals.settings.general.lang));
 				SetFullScreenInternal(Globals.settings.general.enableFullscreen);
 				SetVSyncInternal(Globals.settings.general.enableVSync);
 
-				#region Set settings to the UI
 				bool[] _options = {
 					Globals.settings.general.enableFullscreen,
 					Globals.settings.general.enableVSync,
@@ -522,19 +509,15 @@ namespace RobotoSkunk.PixelMan {
 
 				for (int i = 0; i < optionsSliders.Length; i++)
 					if (i < _sliders.Length) optionsSliders[i].SetValueWithoutNotify(_sliders[i]);
-
-				OpenPanel(0);
-				#endregion
-
-				GeneralEventsHandler.InvokeSettingsLoaded();
-			});
-
+			};
+			OpenPanel(0);
 
 			// Clear memory
 			playerData = null;
 			playerCharacters = null;
 			languages = null;
-
+			settings = null;
+			Globals.creditsText = null;
 
 
 			#region Suscribe events
