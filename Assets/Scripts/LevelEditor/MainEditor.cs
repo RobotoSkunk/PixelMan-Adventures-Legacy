@@ -1254,7 +1254,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		public void OnShowRightPanel(InputAction.CallbackContext context) => PanelsTrigger(context.ReadValue<float>(), 1);
 
 		public void SubmitEditor(InputAction.CallbackContext context) {
-			if (isOnTest) return;
+			if (isOnTest || editorIsBusy) return;
 			bool isTrue = context.ReadValue<float>() > 0.5f;
 
 			onSubmit = isTrue && userReady && context.action.phase == InputActionPhase.Performed;
@@ -1302,13 +1302,13 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 
 		public void UndoAction(InputAction.CallbackContext context) {
-			if (isOnTest) return;
+			if (isOnTest || editorIsBusy) return;
 			if (Globals.onEditField || context.action.phase != InputActionPhase.Started) return;
 
 			Undo();
 		}
 		public void RedoAction(InputAction.CallbackContext context) {
-			if (isOnTest) return;
+			if (isOnTest || editorIsBusy) return;
 			if (Globals.onEditField || context.action.phase != InputActionPhase.Started) return;
 
 			Redo();
@@ -1319,13 +1319,19 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			DeselectAll();
 		}
 		public void DeleteSelectedAction(InputAction.CallbackContext context) {
-			if (isOnTest) return;
+			if (isOnTest || editorIsBusy) return;
 			if (Globals.onEditField || context.action.phase != InputActionPhase.Started) return;
 
 			DeleteSelected();
 		}
 		public void SetSnap(bool value) => Globals.Editor.snap = value;
 		public void SetHandleLocally(bool value) => Globals.Editor.handleLocally = value;
+		public void SaveAction(InputAction.CallbackContext context) {
+			if (isOnTest || editorIsBusy) return;
+			if (Globals.onEditField || context.action.phase != InputActionPhase.Started) return;
+
+			SaveLevel();
+		}
 
 
 		public void CopyAction(InputAction.CallbackContext context) {
