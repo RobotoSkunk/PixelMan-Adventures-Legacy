@@ -28,6 +28,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		[System.Serializable]
 		public class InspectorEvent : UnityEvent<Section, Section.PropertyField> { }
 
+		public GameObject defaultText;
 		public Section[] sections;
 
 		[SerializeField] InspectorEvent onChange = new();
@@ -56,7 +57,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		public void PrepareInspector(InGameObjectBehaviour[] objs) {
 			PropertiesEnum allowed = PropertiesEnum.All;
 
-			int nmb = 0;
+			// int nmb = 0;
 			InGameObjectProperties? lastProp = null;
 			PropertiesEnum isDifferent = 0;
 
@@ -65,7 +66,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				if (!objs[i].gameObject.activeInHierarchy) continue;
 
 				allowed &= objs[i].options.allowed | PropertiesEnum.Position;
-				nmb++;
+				// nmb++;
 
 				// First the inspector checks which sections can be shown and which can't.
 				if (!lastProp.HasValue) lastProp = objs[i].properties;
@@ -90,7 +91,9 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			}
 
 			// Then the inspector sets the values of the sections and property fields.
-			if (nmb > 0) {
+			defaultText.SetActive(isDifferent == PropertiesEnum.None);
+
+			if (isDifferent != PropertiesEnum.None) {
 				for (int i = 0; i < sections.Length; i++) {
 					bool toUse = (sections[i].purpose & allowed) == sections[i].purpose;
 
@@ -141,6 +144,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 					}
 				}
+
 			} else DisableAll();
 		}
 
