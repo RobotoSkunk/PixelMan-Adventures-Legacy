@@ -9284,7 +9284,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
       propertyPath: snapValue
-      value: 0.1
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
       propertyPath: m_MaxValue
@@ -9783,7 +9783,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
       propertyPath: snapValue
-      value: 0.1
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
       propertyPath: m_MaxValue
@@ -13859,7 +13859,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
       propertyPath: snapValue
-      value: 0.1
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
       propertyPath: m_MaxValue

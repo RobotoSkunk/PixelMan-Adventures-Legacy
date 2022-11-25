@@ -589,6 +589,20 @@ namespace RobotoSkunk {
 		public static int ToInt4Bytes(this Color color) => (int) (color.r * 255) << 24 | (int) (color.g * 255) << 16 | (int) (color.b * 255) << 8 | (int) (color.a * 255);
 
 
+		public static float ToSafeFloat(this string str) {
+			if (float.TryParse(str, out float result))
+				return result;
+
+			return 0f;
+		}
+		public static int ToSafeInt(this string str) {
+			if (int.TryParse(str, out int result))
+				return result;
+
+			return 0;
+		}
+
+
 		public static float ToFloat(this string str) {
 			try {
 				return float.Parse(str);

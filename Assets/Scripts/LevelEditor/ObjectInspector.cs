@@ -4,6 +4,25 @@ using UnityEngine.Events;
 using RobotoSkunk.PixelMan.UI;
 
 
+/*
+	Tengo un pinche desmadre aquí.
+	
+	I tried to explain this the most I can, but I'm not sure if you can understand it.
+	Good luck.
+
+
+	This is the inspector for the objects in the level editor. The way it works it's pretty easy to understand (I hope).
+
+	The inspector works with three classes:
+	- ObjectInspector: This is the inspector itself. It's the one that shows the properties of the selected object.
+	- ObjectInspector.Section: This is a section of the inspector. It's the one that shows the properties of a specific component.
+	- ObjectInspector.Section.PropertyField: This is a property field, the user here can change the value of the property.
+
+	When the MainEditor calls the inspector, it reloads, displays and hides all the sections and property fields.
+	When the user changes a value, the inspector calls the MainEditor to change the value of the property.
+*/
+
+
 namespace RobotoSkunk.PixelMan.LevelEditor {
 	public class ObjectInspector : MonoBehaviour {
 		[System.Serializable]
@@ -13,6 +32,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 		[SerializeField] InspectorEvent onChange = new();
 
+		// Here the inspector prepares itself to control the sections and property fields.
 		private void Start() {
 			for (int i = 0; i < sections.Length; i++) {
 				sections[i].SetUp();
@@ -22,15 +42,17 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			}
 		}
 
-
+		// Sends the changes to the MainEditor... obviously.
 		void SendChanges(Section section, Section.PropertyField field) => onChange.Invoke(section, field);
 
+		// This disables all the sections and property fields.
 		void DisableAll() {
 			for (int i = 0; i < sections.Length; i++) {
 				sections[i].obj.SetActive(false);
 			}
 		}
 
+		// This function is called by the MainEditor to show the sections and property fields of the selected(s) object(s).
 		public void PrepareInspector(InGameObjectBehaviour[] objs) {
 			PropertiesEnum allowed = PropertiesEnum.All;
 
@@ -45,6 +67,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				allowed &= objs[i].options.allowed | PropertiesEnum.Position;
 				nmb++;
 
+				// First the inspector checks which sections can be shown and which can't.
 				if (!lastProp.HasValue) lastProp = objs[i].properties;
 				else {
 					InGameObjectProperties __lst = lastProp.Value, __act = objs[i].properties;
@@ -66,6 +89,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				}
 			}
 
+			// Then the inspector sets the values of the sections and property fields.
 			if (nmb > 0) {
 				for (int i = 0; i < sections.Length; i++) {
 					bool toUse = (sections[i].purpose & allowed) == sections[i].purpose;
@@ -120,6 +144,8 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			} else DisableAll();
 		}
 
+
+		// Changes the selected object(s) render order.
 		public void Add2RenderOrder(int value) {
 			for (int i = 0; i < sections.Length; i++) {
 				if (sections[i].purpose != PropertiesEnum.RenderOrder) continue;
@@ -153,6 +179,9 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			}
 
 
+			#region Setters
+			// The setters calls each field's setter.
+
 			public void SetValue(bool b) => fields[0].SetBool(b);
 			public void SetValue(float x) => SetValue(x, x);
 			public void SetValue(float x, float y) {
@@ -176,6 +205,10 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				for (int i = 0; i < fields.Length; i++)
 					fields[i].SetDiff();
 			}
+			#endregion
+
+			#region Getters
+			// The same as above, but for getting the values.
 
 			public Vector2 GetVector2() {
 				if (fields.Length == 1)
@@ -189,6 +222,10 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 			public float GetFloat() => fields[0].GetFloat();
 			public float GetInt() => fields[0].GetInt();
+			#endregion
+
+			#region Adders
+			// You guessed it, the same as above, but for adding values.
 
 			public void AddFloat(float value) {
 				for (int i = 0; i < fields.Length; i++)
@@ -198,8 +235,9 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				for (int i = 0; i < fields.Length; i++)
 					fields[i].AddInt(value);
 			}
+			#endregion
 
-
+			// Tells the Inspector to update the values.
 			void SendEvent(PropertyField field) => onChange.Invoke(this, field);
 
 
@@ -219,6 +257,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				public RSInputField inputField;
 				public RSSlider slider;
 				public RSToggle toggle;
+				public float value;
 
 				[System.NonSerialized]
 				public PropertyEvent onChange = new();
@@ -228,6 +267,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 					if (slider != null) {
 						slider.onValueChanged.AddListener((value) => {
+							this.value = slider.value;
 							Slider2Field();
 							SendEvent();
 						});
@@ -235,6 +275,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 					if (inputField != null) {
 						inputField.onEndEdit.AddListener((value) => {
+							this.value = value.ToSafeFloat();
 							Field2Slider();
 							SendEvent();
 						});
@@ -245,7 +286,12 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				}
 
 
+				#region Setters
+				// The setters calls each field's setter to display the value.
+
 				public void SetFloat(float value) {
+					this.value = value;
+
 					if (inputField != null)
 						inputField.SetTextWithoutNotify(value.ToString());
 
@@ -256,8 +302,13 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 					if (toggle != null)
 						toggle.SetIsOnWithoutNotify(value);
 				}
-				public void SetInt(int value) => SetFloat(value);
+				public void SetInt(int value) {
+					this.value = value;
+					SetFloat(value);
+				}
 				public void SetDiff() {
+					value = 0f;
+
 					if (inputField != null)
 						inputField.SetTextWithoutNotify("- - - -");
 
@@ -267,33 +318,20 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 					if (toggle != null)
 						toggle.SetIsOnWithoutNotify(false);
 				}
+				#endregion
 
-
-				public float GetFloat() {
-					if (slider != null)
-						return slider.value;
-
-					if (inputField != null)
-						return inputField.text.ToFloat();
-
-					return default;
-				}
-				public int GetInt() {
-					if (slider != null)
-						return (int)slider.value;
-
-					if (inputField != null)
-						return inputField.text.ToInt();
-
-					return default;
-				}
+				#region Getters
+				public float GetFloat() => value;
+				public int GetInt() => (int)value;
 				public bool GetBool() {
 					if (toggle != null)
 						return toggle.isOn;
 
 					return default;
 				}
+				#endregion
 
+				#region Adders
 				public void AddFloat(float value) {
 					float f = GetFloat();
 					f += value;
@@ -306,18 +344,22 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 					SetInt(i);
 				}
+				#endregion
 
 
+				#region Converters
 				public void Slider2Field() {
 					if (inputField != null && slider != null)
-						inputField.SetTextWithoutNotify(slider.value.ToString());
+						inputField.SetTextWithoutNotify(value.ToString());
 				}
 				public void Field2Slider() {
 					if (inputField != null && slider != null)
 						slider.SetValueWithoutNotify(inputField.text.ToFloat());
 				}
+				#endregion
 
 
+				// Tells the section to tell the inspector to update the values... yeah, that's the way it is.
 				void SendEvent() => onChange.Invoke(this);
 
 				public enum Axis { x, y, z, w }
