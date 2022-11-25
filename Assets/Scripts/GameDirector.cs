@@ -66,10 +66,10 @@ namespace RobotoSkunk.PixelMan {
 	}
 
 
-
+	// Globals class be like: https://i.imgur.com/lclhxpR.jpeg
 	public static class Globals {
 		#region Common static variables
-		public static bool onPause = true, onEditField = false, doIntro = true, openSettings = false, onLoad = false;
+		public static bool onPause = true, onEditField = false, doIntro = true, openSettings = false, onLoad = false, gotCoin = false;
 		public static uint attempts = 0u, respawnAttempts = 0u;
 		public static PlayerCharacters[] playerCharacters;
 		public static Settings settings = new();
