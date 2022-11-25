@@ -218,7 +218,7 @@ namespace RobotoSkunk {
 				return false;
 			}
 
-			entry = archive.CreateEntry(filePath);
+			archive.CreateEntry(filePath);
 			archive.Dispose();
 
 			return true;
@@ -582,6 +582,11 @@ namespace RobotoSkunk {
 		}
 
 		public static Vector4 MinMaxToVec4(this Rect rect) => new(rect.xMin, rect.yMin, rect.xMax, rect.yMax);
+
+		public static Color FromInt(this Color _, int color) => new((color >> 16 & 0xFF) / 255f, (color >> 8 & 0xFF) / 255f, (color & 0xFF) / 255f, 1f);
+		public static Color FromInt4Bytes(this Color _, int color) => new((color >> 24 & 0xFF) / 255f, (color >> 16 & 0xFF) / 255f, (color >> 8 & 0xFF) / 255f, (color & 0xFF) / 255f);
+		public static int ToInt(this Color color) => (int) (color.r * 255) << 16 | (int) (color.g * 255) << 8 | (int) (color.b * 255);
+		public static int ToInt4Bytes(this Color color) => (int) (color.r * 255) << 24 | (int) (color.g * 255) << 16 | (int) (color.b * 255) << 8 | (int) (color.a * 255);
 
 
 		public static float ToFloat(this string str) {

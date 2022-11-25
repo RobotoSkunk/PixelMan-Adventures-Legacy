@@ -18,6 +18,8 @@ using Eflatun.SceneReference;
 using TMPro;
 
 
+using RobotoSkunk;
+
 
 namespace RobotoSkunk.PixelMan {
 	namespace UI {
@@ -55,28 +57,10 @@ namespace RobotoSkunk.PixelMan {
 			readonly static int __green = 0x52F540, __orange = 0xFF8836;
 
 			public static Color orange {
-				get {
-					Color c = new() {
-						r = (__orange >> 16 & 0xFF) / 255f,
-						g = (__orange >> 8 & 0xFF) / 255f,
-						b = (__orange & 0xFF) / 255f,
-						a = 1f
-					};
-
-					return c;
-				}
+				get => new Color().FromInt(__orange);
 			}
 			public static Color green {
-				get {
-					Color c = new() {
-						r = (__green >> 16 & 0xFF) / 255f,
-						g = (__green >> 8 & 0xFF) / 255f,
-						b = (__green & 0xFF) / 255f,
-						a = 1f
-					};
-
-					return c;
-				}
+				get => new Color().FromInt(__green);
 			}
 		}
 	}
@@ -291,17 +275,8 @@ namespace RobotoSkunk.PixelMan {
 			public int fun = 0;
 
 			public Color Color {
-				get {
-					Color c = new() {
-						r = ((color >> 16) & 0xFF) / 255f,
-						g = ((color >> 8) & 0xFF) / 255f,
-						b = ((color >> 0) & 0xFF) / 255f,
-						a = 1f
-					};
-
-					return c;
-				}
-				set => color = (uint)((int)(value.r * 255f) << 16) | (uint)((int)(value.g * 255f) << 8) | (uint)((int)(value.b * 255f) << 0);
+				get => new Color().FromInt((int)color);
+				set => color = (uint)value.ToInt();
 			}
 
 			public async UniTask Save() {
