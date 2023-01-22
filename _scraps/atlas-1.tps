@@ -2,9 +2,9 @@
 <data version="1.0">
     <struct type="Settings">
         <key>fileFormatVersion</key>
-        <int>5</int>
+        <int>6</int>
         <key>texturePackerVersion</key>
-        <string>6.0.2</string>
+        <string>7.0.0</string>
         <key>autoSDSettings</key>
         <array>
             <struct type="AutoSDSettings">
@@ -127,8 +127,8 @@
                 <filename>../Assets/Game Resources/Sprites/Atlas/atlas-1.tpsheet</filename>
             </struct>
         </map>
-        <key>multiPack</key>
-        <false/>
+        <key>multiPackMode</key>
+        <enum type="SettingsBase::MultiPackMode">MultiPackOff</enum>
         <key>forceIdenticalLayout</key>
         <false/>
         <key>outputFormat</key>
@@ -173,8 +173,80 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
+            <key type="filename">blocks/beams/0.png</key>
+            <key type="filename">blocks/cobblestone/0.png</key>
+            <key type="filename">blocks/dirt/0.png</key>
+            <key type="filename">gui/generics/buttons/info.png</key>
+            <key type="filename">gui/generics/symbols/settings.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>5,5,9,9</rect>
+                <key>scale9Paddings</key>
+                <rect>5,5,9,9</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">blocks/beams/1.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>4,5,9,9</rect>
+                <key>scale9Paddings</key>
+                <rect>4,5,9,9</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">blocks/beams/10.png</key>
+            <key type="filename">blocks/beams/11.png</key>
+            <key type="filename">blocks/beams/12.png</key>
+            <key type="filename">blocks/beams/13.png</key>
+            <key type="filename">blocks/beams/14.png</key>
+            <key type="filename">blocks/beams/9.png</key>
+            <key type="filename">blocks/cobblestone/31.png</key>
+            <key type="filename">blocks/cobblestone/32.png</key>
+            <key type="filename">blocks/cobblestone/33.png</key>
+            <key type="filename">blocks/cobblestone/34.png</key>
+            <key type="filename">blocks/cobblestone/35.png</key>
+            <key type="filename">blocks/cobblestone/36.png</key>
+            <key type="filename">blocks/cobblestone/37.png</key>
+            <key type="filename">blocks/cobblestone/38.png</key>
+            <key type="filename">blocks/cobblestone/39.png</key>
+            <key type="filename">blocks/cobblestone/40.png</key>
+            <key type="filename">blocks/cobblestone/41.png</key>
+            <key type="filename">blocks/cobblestone/42.png</key>
+            <key type="filename">blocks/cobblestone/43.png</key>
+            <key type="filename">blocks/cobblestone/44.png</key>
+            <key type="filename">blocks/cobblestone/45.png</key>
+            <key type="filename">blocks/cobblestone/46.png</key>
             <key type="filename">blocks/default.png</key>
+            <key type="filename">blocks/dirt/15.png</key>
             <key type="filename">blocks/ice.png</key>
+            <key type="filename">blocks/minimalistic/0.png</key>
+            <key type="filename">blocks/minimalistic/1.png</key>
+            <key type="filename">blocks/minimalistic/10.png</key>
+            <key type="filename">blocks/minimalistic/11.png</key>
+            <key type="filename">blocks/minimalistic/12.png</key>
+            <key type="filename">blocks/minimalistic/13.png</key>
+            <key type="filename">blocks/minimalistic/14.png</key>
+            <key type="filename">blocks/minimalistic/2.png</key>
+            <key type="filename">blocks/minimalistic/3.png</key>
+            <key type="filename">blocks/minimalistic/4.png</key>
+            <key type="filename">blocks/minimalistic/5.png</key>
+            <key type="filename">blocks/minimalistic/6.png</key>
+            <key type="filename">blocks/minimalistic/7.png</key>
+            <key type="filename">blocks/minimalistic/8.png</key>
+            <key type="filename">blocks/minimalistic/9.png</key>
             <key type="filename">blocks/special/0.png</key>
             <key type="filename">blocks/special/1.png</key>
             <key type="filename">objects/killzone.png</key>
@@ -189,6 +261,422 @@
                 <rect>4,4,8,8</rect>
                 <key>scale9Paddings</key>
                 <rect>4,4,8,8</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">blocks/beams/2.png</key>
+            <key type="filename">blocks/beams/3.png</key>
+            <key type="filename">objects/coin/0.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>4,4,9,9</rect>
+                <key>scale9Paddings</key>
+                <rect>4,4,9,9</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">blocks/beams/4.png</key>
+            <key type="filename">blocks/cobblestone/13.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>4,5,8,9</rect>
+                <key>scale9Paddings</key>
+                <rect>4,5,8,9</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">blocks/beams/5.png</key>
+            <key type="filename">blocks/beams/6.png</key>
+            <key type="filename">blocks/beams/7.png</key>
+            <key type="filename">blocks/beams/8.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>4,4,9,8</rect>
+                <key>scale9Paddings</key>
+                <rect>4,4,9,8</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">blocks/cobblestone/1.png</key>
+            <key type="filename">blocks/dirt/1.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.470588,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>4,5,9,9</rect>
+                <key>scale9Paddings</key>
+                <rect>4,5,9,9</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">blocks/cobblestone/10.png</key>
+            <key type="filename">blocks/cobblestone/9.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.470588,0.529412</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>4,4,9,9</rect>
+                <key>scale9Paddings</key>
+                <rect>4,4,9,9</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">blocks/cobblestone/11.png</key>
+            <key type="filename">blocks/cobblestone/12.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.529412,0.529412</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>4,4,9,9</rect>
+                <key>scale9Paddings</key>
+                <rect>4,4,9,9</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">blocks/cobblestone/14.png</key>
+            <key type="filename">blocks/dirt/10.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>5,4,9,8</rect>
+                <key>scale9Paddings</key>
+                <rect>5,4,9,8</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">blocks/cobblestone/15.png</key>
+            <key type="filename">blocks/cobblestone/16.png</key>
+            <key type="filename">blocks/cobblestone/17.png</key>
+            <key type="filename">blocks/cobblestone/18.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.470588</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>4,4,8,9</rect>
+                <key>scale9Paddings</key>
+                <rect>4,4,8,9</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">blocks/cobblestone/19.png</key>
+            <key type="filename">blocks/cobblestone/20.png</key>
+            <key type="filename">blocks/cobblestone/21.png</key>
+            <key type="filename">blocks/cobblestone/22.png</key>
+            <key type="filename">blocks/dirt/12.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.470588,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>4,4,9,8</rect>
+                <key>scale9Paddings</key>
+                <rect>4,4,9,8</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">blocks/cobblestone/2.png</key>
+            <key type="filename">blocks/dirt/2.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.470588</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>5,4,9,9</rect>
+                <key>scale9Paddings</key>
+                <rect>5,4,9,9</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">blocks/cobblestone/23.png</key>
+            <key type="filename">blocks/cobblestone/24.png</key>
+            <key type="filename">blocks/cobblestone/25.png</key>
+            <key type="filename">blocks/cobblestone/26.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.529412</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>4,4,8,9</rect>
+                <key>scale9Paddings</key>
+                <rect>4,4,8,9</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">blocks/cobblestone/27.png</key>
+            <key type="filename">blocks/cobblestone/28.png</key>
+            <key type="filename">blocks/cobblestone/29.png</key>
+            <key type="filename">blocks/cobblestone/30.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.529412,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>4,4,9,8</rect>
+                <key>scale9Paddings</key>
+                <rect>4,4,9,8</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">blocks/cobblestone/3.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.529412,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>4,5,9,9</rect>
+                <key>scale9Paddings</key>
+                <rect>4,5,9,9</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">blocks/cobblestone/4.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.529412</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>5,4,9,9</rect>
+                <key>scale9Paddings</key>
+                <rect>5,4,9,9</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">blocks/cobblestone/5.png</key>
+            <key type="filename">blocks/cobblestone/6.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.529412,0.470588</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>4,4,9,9</rect>
+                <key>scale9Paddings</key>
+                <rect>4,4,9,9</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">blocks/cobblestone/7.png</key>
+            <key type="filename">blocks/cobblestone/8.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.470588,0.470588</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>4,4,9,9</rect>
+                <key>scale9Paddings</key>
+                <rect>4,4,9,9</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">blocks/dirt/11.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.444444</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>4,5,8,9</rect>
+                <key>scale9Paddings</key>
+                <rect>4,5,8,9</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">blocks/dirt/13.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.555556</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>4,5,8,9</rect>
+                <key>scale9Paddings</key>
+                <rect>4,5,8,9</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">blocks/dirt/14.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.555556,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>5,4,9,8</rect>
+                <key>scale9Paddings</key>
+                <rect>5,4,9,8</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">blocks/dirt/3.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.555556,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>5,5,9,9</rect>
+                <key>scale9Paddings</key>
+                <rect>5,5,9,9</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">blocks/dirt/4.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.526316,0.588235</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>5,4,9,9</rect>
+                <key>scale9Paddings</key>
+                <rect>5,4,9,9</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">blocks/dirt/5.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.555556,0.444444</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>5,5,9,9</rect>
+                <key>scale9Paddings</key>
+                <rect>5,5,9,9</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">blocks/dirt/6.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.444444,0.470588</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>5,4,9,9</rect>
+                <key>scale9Paddings</key>
+                <rect>5,4,9,9</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">blocks/dirt/7.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.444444,0.555556</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>5,5,9,9</rect>
+                <key>scale9Paddings</key>
+                <rect>5,5,9,9</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">blocks/dirt/8.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.555556,0.555556</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>5,5,9,9</rect>
+                <key>scale9Paddings</key>
+                <rect>5,5,9,9</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">blocks/dirt/9.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.578947</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>4,5,8,9</rect>
+                <key>scale9Paddings</key>
+                <rect>4,5,8,9</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -624,22 +1112,6 @@
                 <rect>3,3,6,6</rect>
                 <key>scale9Paddings</key>
                 <rect>3,3,6,6</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">gui/generics/buttons/info.png</key>
-            <key type="filename">gui/generics/symbols/settings.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>5,5,9,9</rect>
-                <key>scale9Paddings</key>
-                <rect>5,5,9,9</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -1318,21 +1790,6 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">objects/coin/0.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>4,4,9,9</rect>
-                <key>scale9Paddings</key>
-                <rect>4,4,9,9</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
             <key type="filename">objects/coin/1.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -1851,13 +2308,19 @@
                 <false/>
             </struct>
         </map>
-        <key>fileList</key>
-        <array>
-            <filename>blocks</filename>
-            <filename>gui</filename>
-            <filename>objects</filename>
-            <filename>effects</filename>
-        </array>
+        <key>fileLists</key>
+        <map type="SpriteSheetMap">
+            <key>default</key>
+            <struct type="SpriteSheet">
+                <key>files</key>
+                <array>
+                    <filename>blocks</filename>
+                    <filename>gui</filename>
+                    <filename>objects</filename>
+                    <filename>effects</filename>
+                </array>
+            </struct>
+        </map>
         <key>ignoreFileList</key>
         <array/>
         <key>replaceList</key>

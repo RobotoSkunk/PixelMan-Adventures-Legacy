@@ -119,8 +119,8 @@ TextureImporter:
       name: blocks-default
       rect:
         serializedVersion: 2
-        x: 1189
-        y: 271
+        x: 930
+        y: 208
         width: 16
         height: 16
       alignment: 0
@@ -141,7 +141,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 5
+        y: 109
         width: 270
         height: 282
       alignment: 8
@@ -162,7 +162,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 347
-        y: 276
+        y: 380
         width: 3
         height: 3
       alignment: 6
@@ -182,8 +182,8 @@ TextureImporter:
       name: gui-generics-buttons-back
       rect:
         serializedVersion: 2
-        x: 633
-        y: 25
+        x: 210
+        y: 118
         width: 133
         height: 43
       alignment: 1
@@ -203,8 +203,8 @@ TextureImporter:
       name: gui-generics-buttons-credits
       rect:
         serializedVersion: 2
-        x: 633
-        y: 70
+        x: 198
+        y: 163
         width: 133
         height: 43
       alignment: 8
@@ -224,8 +224,8 @@ TextureImporter:
       name: gui-generics-buttons-editor-help
       rect:
         serializedVersion: 2
-        x: 988
-        y: 41
+        x: 633
+        y: 218
         width: 32
         height: 32
       alignment: 0
@@ -245,8 +245,8 @@ TextureImporter:
       name: gui-generics-buttons-editor-hide
       rect:
         serializedVersion: 2
-        x: 890
-        y: 250
+        x: 534
+        y: 83
         width: 46
         height: 31
       alignment: 4
@@ -266,8 +266,8 @@ TextureImporter:
       name: gui-generics-buttons-editor-objects
       rect:
         serializedVersion: 2
-        x: 701
-        y: 1
+        x: 695
+        y: 270
         width: 32
         height: 22
       alignment: 5
@@ -287,8 +287,8 @@ TextureImporter:
       name: gui-generics-buttons-editor-options
       rect:
         serializedVersion: 2
-        x: 667
-        y: 1
+        x: 788
+        y: 210
         width: 32
         height: 22
       alignment: 5
@@ -308,8 +308,8 @@ TextureImporter:
       name: gui-generics-buttons-editor-pause
       rect:
         serializedVersion: 2
-        x: 1011
-        y: 105
+        x: 633
+        y: 184
         width: 32
         height: 32
       alignment: 0
@@ -329,8 +329,8 @@ TextureImporter:
       name: gui-generics-buttons-editor-properties
       rect:
         serializedVersion: 2
-        x: 633
-        y: 1
+        x: 754
+        y: 206
         width: 32
         height: 22
       alignment: 5
@@ -350,8 +350,8 @@ TextureImporter:
       name: gui-generics-buttons-editor-redo
       rect:
         serializedVersion: 2
-        x: 1110
-        y: 142
+        x: 769
+        y: 86
         width: 28
         height: 28
       alignment: 0
@@ -371,8 +371,8 @@ TextureImporter:
       name: gui-generics-buttons-editor-save
       rect:
         serializedVersion: 2
-        x: 1
-        y: 2
+        x: 633
+        y: 150
         width: 32
         height: 32
       alignment: 0
@@ -392,8 +392,8 @@ TextureImporter:
       name: gui-generics-buttons-editor-settings
       rect:
         serializedVersion: 2
-        x: 454
-        y: 74
+        x: 630
+        y: 116
         width: 32
         height: 32
       alignment: 0
@@ -413,8 +413,8 @@ TextureImporter:
       name: gui-generics-buttons-editor-show
       rect:
         serializedVersion: 2
-        x: 489
-        y: 71
+        x: 486
+        y: 95
         width: 46
         height: 31
       alignment: 4
@@ -434,8 +434,8 @@ TextureImporter:
       name: gui-generics-buttons-editor-stop
       rect:
         serializedVersion: 2
-        x: 1110
-        y: 112
+        x: 754
+        y: 176
         width: 28
         height: 28
       alignment: 0
@@ -455,8 +455,8 @@ TextureImporter:
       name: gui-generics-buttons-editor-test
       rect:
         serializedVersion: 2
-        x: 1107
-        y: 82
+        x: 754
+        y: 146
         width: 28
         height: 28
       alignment: 0
@@ -476,8 +476,8 @@ TextureImporter:
       name: gui-generics-buttons-editor-undo
       rect:
         serializedVersion: 2
-        x: 1098
-        y: 185
+        x: 754
+        y: 116
         width: 28
         height: 28
       alignment: 0
@@ -497,8 +497,8 @@ TextureImporter:
       name: gui-generics-buttons-editor-zoom-in
       rect:
         serializedVersion: 2
-        x: 1127
-        y: 45
+        x: 822
+        y: 212
         width: 25
         height: 25
       alignment: 0
@@ -518,8 +518,8 @@ TextureImporter:
       name: gui-generics-buttons-editor-zoom-out
       rect:
         serializedVersion: 2
-        x: 1123
-        y: 235
+        x: 774
+        y: 59
         width: 25
         height: 25
       alignment: 0
@@ -539,8 +539,8 @@ TextureImporter:
       name: gui-generics-buttons-editor-zoom-reset
       rect:
         serializedVersion: 2
-        x: 1118
-        y: 262
+        x: 784
+        y: 120
         width: 25
         height: 25
       alignment: 0
@@ -560,8 +560,8 @@ TextureImporter:
       name: gui-generics-buttons-left
       rect:
         serializedVersion: 2
-        x: 1188
-        y: 111
+        x: 957
+        y: 310
         width: 14
         height: 14
       alignment: 0
@@ -581,8 +581,8 @@ TextureImporter:
       name: gui-generics-buttons-minus
       rect:
         serializedVersion: 2
-        x: 1192
-        y: 86
+        x: 957
+        y: 326
         width: 14
         height: 14
       alignment: 0
@@ -602,8 +602,8 @@ TextureImporter:
       name: gui-generics-buttons-pause
       rect:
         serializedVersion: 2
-        x: 952
-        y: 69
+        x: 565
+        y: 15
         width: 34
         height: 34
       alignment: 0
@@ -623,8 +623,8 @@ TextureImporter:
       name: gui-generics-buttons-plus
       rect:
         serializedVersion: 2
-        x: 1190
-        y: 27
+        x: 957
+        y: 342
         width: 14
         height: 14
       alignment: 0
@@ -644,8 +644,8 @@ TextureImporter:
       name: gui-generics-buttons-profile
       rect:
         serializedVersion: 2
-        x: 958
-        y: 244
+        x: 331
+        y: 175
         width: 133
         height: 43
       alignment: 3
@@ -666,7 +666,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 261
-        y: 237
+        y: 341
         width: 14
         height: 14
       alignment: 0
@@ -686,8 +686,8 @@ TextureImporter:
       name: gui-generics-buttons-social-fb
       rect:
         serializedVersion: 2
-        x: 905
-        y: 22
+        x: 528
+        y: 14
         width: 35
         height: 35
       alignment: 0
@@ -707,8 +707,8 @@ TextureImporter:
       name: gui-generics-buttons-social-gh
       rect:
         serializedVersion: 2
-        x: 757
-        y: 9
+        x: 491
+        y: 25
         width: 35
         height: 35
       alignment: 0
@@ -728,8 +728,8 @@ TextureImporter:
       name: gui-generics-buttons-social-tw
       rect:
         serializedVersion: 2
-        x: 794
-        y: 9
+        x: 441
+        y: 12
         width: 35
         height: 35
       alignment: 0
@@ -749,8 +749,8 @@ TextureImporter:
       name: gui-generics-buttons-social-website
       rect:
         serializedVersion: 2
-        x: 831
-        y: 9
+        x: 454
+        y: 49
         width: 35
         height: 35
       alignment: 0
@@ -770,8 +770,8 @@ TextureImporter:
       name: gui-generics-buttons-social-yt
       rect:
         serializedVersion: 2
-        x: 868
-        y: 22
+        x: 606
+        y: 79
         width: 35
         height: 35
       alignment: 0
@@ -791,8 +791,8 @@ TextureImporter:
       name: gui-generics-buttons-T1
       rect:
         serializedVersion: 2
-        x: 635
-        y: 112
+        x: 1
+        y: 103
         width: 28
         height: 35
       alignment: 5
@@ -812,8 +812,8 @@ TextureImporter:
       name: gui-generics-buttons-T2
       rect:
         serializedVersion: 2
-        x: 238
-        y: 19
+        x: 344
+        y: 3
         width: 46
         height: 53
       alignment: 5
@@ -834,7 +834,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 156
+        y: 260
         width: 14
         height: 14
       alignment: 0
@@ -855,7 +855,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 537
-        y: 135
+        y: 239
         width: 14
         height: 14
       alignment: 0
@@ -875,8 +875,8 @@ TextureImporter:
       name: gui-generics-color-selector-btn-hex-0
       rect:
         serializedVersion: 2
-        x: 220
-        y: 7
+        x: 583
+        y: 3
         width: 32
         height: 10
       alignment: 0
@@ -896,8 +896,8 @@ TextureImporter:
       name: gui-generics-color-selector-btn-hex-1
       rect:
         serializedVersion: 2
-        x: 868
-        y: 8
+        x: 159
+        y: 379
         width: 33
         height: 12
       alignment: 9
@@ -917,8 +917,8 @@ TextureImporter:
       name: gui-generics-color-selector-btn-hsv1-0
       rect:
         serializedVersion: 2
-        x: 1113
-        y: 1
+        x: 827
+        y: 86
         width: 28
         height: 16
       alignment: 0
@@ -938,8 +938,8 @@ TextureImporter:
       name: gui-generics-color-selector-btn-hsv1-1
       rect:
         serializedVersion: 2
-        x: 401
-        y: 2
+        x: 715
+        y: 4
         width: 29
         height: 18
       alignment: 9
@@ -959,8 +959,8 @@ TextureImporter:
       name: gui-generics-color-selector-btn-hsv2-0
       rect:
         serializedVersion: 2
-        x: 903
-        y: 6
+        x: 617
+        y: 1
         width: 30
         height: 14
       alignment: 0
@@ -980,8 +980,8 @@ TextureImporter:
       name: gui-generics-color-selector-btn-hsv2-1
       rect:
         serializedVersion: 2
-        x: 501
-        y: 6
+        x: 649
+        y: 4
         width: 31
         height: 16
       alignment: 9
@@ -1001,8 +1001,8 @@ TextureImporter:
       name: gui-generics-color-selector-btn-rgb-0
       rect:
         serializedVersion: 2
-        x: 1025
-        y: 3
+        x: 665
+        y: 314
         width: 32
         height: 10
       alignment: 0
@@ -1022,8 +1022,8 @@ TextureImporter:
       name: gui-generics-color-selector-btn-rgb-1
       rect:
         serializedVersion: 2
-        x: 159
-        y: 275
+        x: 305
+        y: 44
         width: 33
         height: 12
       alignment: 9
@@ -1043,8 +1043,8 @@ TextureImporter:
       name: gui-generics-color-selector-color-bar-container
       rect:
         serializedVersion: 2
-        x: 224
-        y: 86
+        x: 314
+        y: 106
         width: 128
         height: 16
       alignment: 0
@@ -1064,8 +1064,8 @@ TextureImporter:
       name: gui-generics-color-selector-color-bar-flat
       rect:
         serializedVersion: 2
-        x: 354
-        y: 34
+        x: 305
+        y: 58
         width: 122
         height: 10
       alignment: 0
@@ -1085,8 +1085,8 @@ TextureImporter:
       name: gui-generics-color-selector-gradient-bar-palette
       rect:
         serializedVersion: 2
-        x: 354
-        y: 46
+        x: 305
+        y: 70
         width: 122
         height: 10
       alignment: 0
@@ -1106,8 +1106,8 @@ TextureImporter:
       name: gui-generics-color-selector-handler
       rect:
         serializedVersion: 2
-        x: 871
-        y: 131
+        x: 744
+        y: 44
         width: 5
         height: 3
       alignment: 7
@@ -1127,8 +1127,8 @@ TextureImporter:
       name: gui-generics-color-selector-h-picker
       rect:
         serializedVersion: 2
-        x: 914
-        y: 61
+        x: 582
+        y: 54
         width: 16
         height: 4
       alignment: 0
@@ -1148,8 +1148,8 @@ TextureImporter:
       name: gui-generics-color-selector-hue-bar-palette
       rect:
         serializedVersion: 2
-        x: 354
-        y: 58
+        x: 305
+        y: 82
         width: 122
         height: 10
       alignment: 0
@@ -1170,7 +1170,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 537
-        y: 143
+        y: 247
         width: 126
         height: 126
       alignment: 0
@@ -1190,8 +1190,8 @@ TextureImporter:
       name: gui-generics-color-selector-picker
       rect:
         serializedVersion: 2
-        x: 608
-        y: 136
+        x: 849
+        y: 104
         width: 5
         height: 5
       alignment: 0
@@ -1211,8 +1211,8 @@ TextureImporter:
       name: gui-generics-color-selector-sv-palette
       rect:
         serializedVersion: 2
-        x: 286
-        y: 6
+        x: 466
+        y: 140
         width: 66
         height: 66
       alignment: 0
@@ -1232,8 +1232,8 @@ TextureImporter:
       name: gui-generics-color-selector-transparency-checker-bar
       rect:
         serializedVersion: 2
-        x: 230
-        y: 74
+        x: 302
+        y: 94
         width: 122
         height: 10
       alignment: 0
@@ -1253,8 +1253,8 @@ TextureImporter:
       name: gui-generics-containers-button-1
       rect:
         serializedVersion: 2
-        x: 921
-        y: 200
+        x: 951
+        y: 8
         width: 15
         height: 15
       alignment: 0
@@ -1274,7 +1274,7 @@ TextureImporter:
       name: gui-generics-containers-button-2
       rect:
         serializedVersion: 2
-        x: 88
+        x: 762
         y: 278
         width: 9
         height: 9
@@ -1296,7 +1296,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 435
-        y: 273
+        y: 377
         width: 9
         height: 14
       alignment: 0
@@ -1316,8 +1316,8 @@ TextureImporter:
       name: gui-generics-editor-cur-idle
       rect:
         serializedVersion: 2
-        x: 1127
-        y: 73
+        x: 201
+        y: 133
         width: 7
         height: 7
       alignment: 0
@@ -1337,8 +1337,8 @@ TextureImporter:
       name: gui-generics-symbols-achievements
       rect:
         serializedVersion: 2
-        x: 1140
-        y: 150
+        x: 801
+        y: 68
         width: 24
         height: 24
       alignment: 0
@@ -1358,8 +1358,8 @@ TextureImporter:
       name: gui-generics-symbols-exit
       rect:
         serializedVersion: 2
-        x: 980
-        y: 213
+        x: 333
+        y: 167
         width: 16
         height: 24
       alignment: 0
@@ -1379,8 +1379,8 @@ TextureImporter:
       name: gui-generics-symbols-play
       rect:
         serializedVersion: 2
-        x: 1143
-        y: 1
+        x: 956
+        y: 134
         width: 15
         height: 14
       alignment: 0
@@ -1400,8 +1400,8 @@ TextureImporter:
       name: gui-generics-volume-bar
       rect:
         serializedVersion: 2
-        x: 503
-        y: 24
+        x: 214
+        y: 8
         width: 128
         height: 32
       alignment: 0
@@ -1421,8 +1421,8 @@ TextureImporter:
       name: gui-generics-xbox-button-east
       rect:
         serializedVersion: 2
-        x: 1163
-        y: 69
+        x: 825
+        y: 104
         width: 22
         height: 22
       alignment: 0
@@ -1442,8 +1442,8 @@ TextureImporter:
       name: gui-generics-xbox-button-east-pressed
       rect:
         serializedVersion: 2
-        x: 1140
-        y: 124
+        x: 799
+        y: 94
         width: 24
         height: 24
       alignment: 0
@@ -1463,8 +1463,8 @@ TextureImporter:
       name: gui-generics-xbox-button-north
       rect:
         serializedVersion: 2
-        x: 1154
-        y: 191
+        x: 753
+        y: 230
         width: 22
         height: 22
       alignment: 0
@@ -1484,8 +1484,8 @@ TextureImporter:
       name: gui-generics-xbox-button-north-pressed
       rect:
         serializedVersion: 2
-        x: 1140
-        y: 98
+        x: 811
+        y: 128
         width: 24
         height: 24
       alignment: 0
@@ -1505,8 +1505,8 @@ TextureImporter:
       name: gui-generics-xbox-button-south
       rect:
         serializedVersion: 2
-        x: 1154
-        y: 45
+        x: 47
+        y: 164
         width: 22
         height: 22
       alignment: 0
@@ -1526,8 +1526,8 @@ TextureImporter:
       name: gui-generics-xbox-button-south-pressed
       rect:
         serializedVersion: 2
-        x: 1137
-        y: 72
+        x: 808
+        y: 154
         width: 24
         height: 24
       alignment: 0
@@ -1547,8 +1547,8 @@ TextureImporter:
       name: gui-generics-xbox-button-weast
       rect:
         serializedVersion: 2
-        x: 47
-        y: 60
+        x: 429
+        y: 58
         width: 22
         height: 22
       alignment: 0
@@ -1568,8 +1568,8 @@ TextureImporter:
       name: gui-generics-xbox-button-weast-pressed
       rect:
         serializedVersion: 2
-        x: 1128
-        y: 181
+        x: 815
+        y: 184
         width: 24
         height: 24
       alignment: 0
@@ -1590,7 +1590,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 260
-        y: 104
+        y: 208
         width: 275
         height: 183
       alignment: 0
@@ -1610,8 +1610,8 @@ TextureImporter:
       name: gui-generics-xbox-trigger-left
       rect:
         serializedVersion: 2
-        x: 1150
-        y: 261
+        x: 841
+        y: 173
         width: 21
         height: 26
       alignment: 0
@@ -1631,8 +1631,8 @@ TextureImporter:
       name: gui-generics-xbox-trigger-right
       rect:
         serializedVersion: 2
-        x: 1144
-        y: 17
+        x: 849
+        y: 201
         width: 21
         height: 26
       alignment: 0
@@ -1653,7 +1653,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 353
-        y: 271
+        y: 375
         width: 80
         height: 16
       alignment: 0
@@ -1674,7 +1674,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 664
-        y: 220
+        y: 324
         width: 197
         height: 49
       alignment: 0
@@ -1694,8 +1694,8 @@ TextureImporter:
       name: objects-BOOM
       rect:
         serializedVersion: 2
-        x: 354
-        y: 70
+        x: 353
+        y: 124
         width: 98
         height: 49
       alignment: 9
@@ -1715,8 +1715,8 @@ TextureImporter:
       name: objects-bullet-0
       rect:
         serializedVersion: 2
-        x: 851
-        y: 217
+        x: 64
+        y: 323
         width: 10
         height: 8
       alignment: 0
@@ -1736,8 +1736,8 @@ TextureImporter:
       name: objects-bullet-1
       rect:
         serializedVersion: 2
-        x: 327
-        y: 104
+        x: 62
+        y: 363
         width: 10
         height: 8
       alignment: 0
@@ -1757,8 +1757,8 @@ TextureImporter:
       name: objects-gravity-switch
       rect:
         serializedVersion: 2
-        x: 1166
-        y: 111
+        x: 667
+        y: 236
         width: 20
         height: 20
       alignment: 0
@@ -1779,7 +1779,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 238
-        y: 209
+        y: 313
         width: 28
         height: 28
       alignment: 0
@@ -1799,8 +1799,8 @@ TextureImporter:
       name: objects-killzone
       rect:
         serializedVersion: 2
-        x: 1178
-        y: 202
+        x: 912
+        y: 244
         width: 16
         height: 16
       alignment: 0
@@ -1820,8 +1820,8 @@ TextureImporter:
       name: objects-rocket-launcher
       rect:
         serializedVersion: 2
-        x: 928
-        y: 138
+        x: 539
+        y: 51
         width: 41
         height: 30
       alignment: 9
@@ -1841,8 +1841,8 @@ TextureImporter:
       name: objects-saw
       rect:
         serializedVersion: 2
-        x: 868
-        y: 59
+        x: 584
+        y: 116
         width: 44
         height: 44
       alignment: 0
@@ -1862,8 +1862,8 @@ TextureImporter:
       name: objects-saw-base
       rect:
         serializedVersion: 2
-        x: 986
-        y: 11
+        x: 707
+        y: 294
         width: 34
         height: 28
       alignment: 9
@@ -1883,8 +1883,8 @@ TextureImporter:
       name: objects-spike
       rect:
         serializedVersion: 2
-        x: 931
-        y: 218
+        x: 912
+        y: 226
         width: 16
         height: 16
       alignment: 0
@@ -1904,8 +1904,8 @@ TextureImporter:
       name: objects-swivel-gun
       rect:
         serializedVersion: 2
-        x: 927
-        y: 170
+        x: 813
+        y: 239
         width: 37
         height: 23
       alignment: 9
@@ -1925,8 +1925,8 @@ TextureImporter:
       name: objects-trampoline-0
       rect:
         serializedVersion: 2
-        x: 1166
-        y: 93
+        x: 746
+        y: 6
         width: 24
         height: 16
       alignment: 0
@@ -1947,7 +1947,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 62
-        y: 269
+        y: 373
         width: 24
         height: 18
       alignment: 9
@@ -1967,8 +1967,8 @@ TextureImporter:
       name: objects-trampoline-2
       rect:
         serializedVersion: 2
-        x: 1152
-        y: 215
+        x: 837
+        y: 133
         width: 24
         height: 20
       alignment: 9
@@ -1988,8 +1988,8 @@ TextureImporter:
       name: objects-trampoline-3
       rect:
         serializedVersion: 2
-        x: 1150
-        y: 237
+        x: 752
+        y: 25
         width: 24
         height: 22
       alignment: 9
@@ -2009,8 +2009,8 @@ TextureImporter:
       name: gui-generics-symbols-settings
       rect:
         serializedVersion: 2
-        x: 946
-        y: 250
+        x: 749
+        y: 293
         width: 19
         height: 19
       alignment: 0
@@ -2030,8 +2030,8 @@ TextureImporter:
       name: gui-generics-buttons-editor-container
       rect:
         serializedVersion: 2
-        x: 1011
-        y: 139
+        x: 643
+        y: 82
         width: 32
         height: 32
       alignment: 0
@@ -2051,8 +2051,8 @@ TextureImporter:
       name: gui-generics-mini-arrow
       rect:
         serializedVersion: 2
-        x: 277
-        y: 249
+        x: 813
+        y: 235
         width: 3
         height: 2
       alignment: 0
@@ -2073,7 +2073,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 537
-        y: 130
+        y: 234
         width: 3
         height: 3
       alignment: 0
@@ -2093,8 +2093,8 @@ TextureImporter:
       name: blocks-ice
       rect:
         serializedVersion: 2
-        x: 1187
-        y: 68
+        x: 929
+        y: 62
         width: 16
         height: 16
       alignment: 0
@@ -2114,8 +2114,8 @@ TextureImporter:
       name: blocks-special-0
       rect:
         serializedVersion: 2
-        x: 1183
-        y: 9
+        x: 915
+        y: 24
         width: 16
         height: 16
       alignment: 0
@@ -2135,8 +2135,8 @@ TextureImporter:
       name: blocks-special-1
       rect:
         serializedVersion: 2
-        x: 1178
-        y: 184
+        x: 915
+        y: 42
         width: 16
         height: 16
       alignment: 0
@@ -2156,8 +2156,8 @@ TextureImporter:
       name: effects-explosion-0
       rect:
         serializedVersion: 2
-        x: 878
-        y: 105
+        x: 534
+        y: 116
         width: 48
         height: 44
       alignment: 9
@@ -2177,8 +2177,8 @@ TextureImporter:
       name: effects-explosion-1
       rect:
         serializedVersion: 2
-        x: 878
-        y: 151
+        x: 392
+        y: 10
         width: 47
         height: 46
       alignment: 9
@@ -2199,7 +2199,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 227
+        y: 331
         width: 59
         height: 60
       alignment: 9
@@ -2220,7 +2220,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 84
+        y: 188
         width: 72
         height: 70
       alignment: 9
@@ -2240,8 +2240,8 @@ TextureImporter:
       name: effects-explosion-4
       rect:
         serializedVersion: 2
-        x: 779
-        y: 46
+        x: 216
+        y: 42
         width: 87
         height: 74
       alignment: 9
@@ -2262,7 +2262,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 537
-        y: 58
+        y: 162
         width: 94
         height: 83
       alignment: 9
@@ -2282,8 +2282,8 @@ TextureImporter:
       name: effects-explosion-6
       rect:
         serializedVersion: 2
-        x: 665
-        y: 115
+        x: 1
+        y: 2
         width: 112
         height: 103
       alignment: 9
@@ -2303,8 +2303,8 @@ TextureImporter:
       name: effects-explosion-7
       rect:
         serializedVersion: 2
-        x: 779
-        y: 122
+        x: 115
+        y: 11
         width: 97
         height: 96
       alignment: 9
@@ -2324,8 +2324,8 @@ TextureImporter:
       name: effects-explosion-8
       rect:
         serializedVersion: 2
-        x: 863
-        y: 196
+        x: 665
+        y: 239
         width: 111
         height: 91
       alignment: 9
@@ -2345,8 +2345,8 @@ TextureImporter:
       name: effects-sparkle-0
       rect:
         serializedVersion: 2
-        x: 868
-        y: 132
+        x: 677
+        y: 83
         width: 1
         height: 1
       alignment: 0
@@ -2366,8 +2366,8 @@ TextureImporter:
       name: effects-sparkle-1
       rect:
         serializedVersion: 2
-        x: 684
-        y: 213
+        x: 874
+        y: 46
         width: 3
         height: 3
       alignment: 0
@@ -2387,8 +2387,8 @@ TextureImporter:
       name: effects-sparkle-2
       rect:
         serializedVersion: 2
-        x: 932
-        y: 60
+        x: 865
+        y: 193
         width: 5
         height: 5
       alignment: 0
@@ -2408,8 +2408,8 @@ TextureImporter:
       name: effects-sparkle-3
       rect:
         serializedVersion: 2
-        x: 454
-        y: 109
+        x: 528
+        y: 51
         width: 7
         height: 7
       alignment: 0
@@ -2429,8 +2429,8 @@ TextureImporter:
       name: objects-checkpoint-number-0
       rect:
         serializedVersion: 2
-        x: 47
-        y: 48
+        x: 149
+        y: 381
         width: 8
         height: 10
       alignment: 0
@@ -2450,8 +2450,8 @@ TextureImporter:
       name: objects-checkpoint-number-1
       rect:
         serializedVersion: 2
-        x: 769
-        y: 46
+        x: 88
+        y: 381
         width: 8
         height: 10
       alignment: 0
@@ -2471,8 +2471,8 @@ TextureImporter:
       name: objects-checkpoint-number-2
       rect:
         serializedVersion: 2
-        x: 768
-        y: 79
+        x: 47
+        y: 152
         width: 8
         height: 10
       alignment: 0
@@ -2492,8 +2492,8 @@ TextureImporter:
       name: objects-checkpoint-number-3
       rect:
         serializedVersion: 2
-        x: 768
-        y: 91
+        x: 249
+        y: 318
         width: 8
         height: 10
       alignment: 0
@@ -2513,8 +2513,8 @@ TextureImporter:
       name: objects-checkpoint-number-4
       rect:
         serializedVersion: 2
-        x: 768
-        y: 103
+        x: 527
+        y: 329
         width: 8
         height: 10
       alignment: 0
@@ -2534,8 +2534,8 @@ TextureImporter:
       name: objects-checkpoint-number-5
       rect:
         serializedVersion: 2
-        x: 249
-        y: 214
+        x: 540
+        y: 363
         width: 8
         height: 10
       alignment: 0
@@ -2555,8 +2555,8 @@ TextureImporter:
       name: objects-checkpoint-number-6
       rect:
         serializedVersion: 2
-        x: 540
-        y: 259
+        x: 910
+        y: 343
         width: 8
         height: 10
       alignment: 0
@@ -2576,8 +2576,8 @@ TextureImporter:
       name: objects-checkpoint-number-7
       rect:
         serializedVersion: 2
-        x: 537
-        y: 153
+        x: 453
+        y: 144
         width: 8
         height: 10
       alignment: 0
@@ -2597,8 +2597,8 @@ TextureImporter:
       name: objects-checkpoint-number-8
       rect:
         serializedVersion: 2
-        x: 214
-        y: 81
+        x: 537
+        y: 257
         width: 8
         height: 10
       alignment: 0
@@ -2619,7 +2619,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 274
-        y: 253
+        y: 357
         width: 8
         height: 10
       alignment: 0
@@ -2639,8 +2639,8 @@ TextureImporter:
       name: objects-checkpoint-post
       rect:
         serializedVersion: 2
-        x: 478
-        y: 38
+        x: 784
+        y: 147
         width: 22
         height: 31
       alignment: 9
@@ -2660,8 +2660,8 @@ TextureImporter:
       name: objects-checkpoint-sign
       rect:
         serializedVersion: 2
-        x: 1128
-        y: 207
+        x: 852
+        y: 229
         width: 22
         height: 26
       alignment: 7
@@ -2681,8 +2681,8 @@ TextureImporter:
       name: objects-coin-0
       rect:
         serializedVersion: 2
-        x: 665
-        y: 210
+        x: 334
+        y: 124
         width: 17
         height: 17
       alignment: 0
@@ -2702,8 +2702,8 @@ TextureImporter:
       name: objects-coin-1
       rect:
         serializedVersion: 2
-        x: 935
-        y: 1
+        x: 951
+        y: 25
         width: 14
         height: 17
       alignment: 9
@@ -2723,8 +2723,8 @@ TextureImporter:
       name: objects-coin-2
       rect:
         serializedVersion: 2
-        x: 952
-        y: 195
+        x: 453
+        y: 156
         width: 10
         height: 17
       alignment: 9
@@ -2745,7 +2745,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 654
-        y: 252
+        y: 356
         width: 6
         height: 17
       alignment: 0
@@ -2765,8 +2765,8 @@ TextureImporter:
       name: objects-coin-4
       rect:
         serializedVersion: 2
-        x: 522
-        y: 234
+        x: 478
+        y: 30
         width: 10
         height: 17
       alignment: 9
@@ -2786,8 +2786,8 @@ TextureImporter:
       name: objects-coin-5
       rect:
         serializedVersion: 2
-        x: 1192
-        y: 252
+        x: 691
+        y: 294
         width: 14
         height: 17
       alignment: 9
@@ -2807,8 +2807,8 @@ TextureImporter:
       name: objects-finish-0
       rect:
         serializedVersion: 2
-        x: 1102
-        y: 45
+        x: 744
+        y: 79
         width: 23
         height: 35
       alignment: 9
@@ -2828,8 +2828,8 @@ TextureImporter:
       name: objects-finish-1
       rect:
         serializedVersion: 2
-        x: 1098
-        y: 215
+        x: 729
+        y: 190
         width: 23
         height: 35
       alignment: 9
@@ -2849,8 +2849,8 @@ TextureImporter:
       name: objects-finish-10
       rect:
         serializedVersion: 2
-        x: 1093
-        y: 252
+        x: 858
+        y: 296
         width: 23
         height: 35
       alignment: 9
@@ -2870,8 +2870,8 @@ TextureImporter:
       name: objects-finish-2
       rect:
         serializedVersion: 2
-        x: 1088
-        y: 8
+        x: 729
+        y: 153
         width: 23
         height: 35
       alignment: 9
@@ -2891,8 +2891,8 @@ TextureImporter:
       name: objects-finish-3
       rect:
         serializedVersion: 2
-        x: 1085
-        y: 142
+        x: 729
+        y: 116
         width: 23
         height: 35
       alignment: 9
@@ -2912,8 +2912,8 @@ TextureImporter:
       name: objects-finish-4
       rect:
         serializedVersion: 2
-        x: 1082
-        y: 105
+        x: 719
+        y: 42
         width: 23
         height: 35
       alignment: 9
@@ -2933,8 +2933,8 @@ TextureImporter:
       name: objects-finish-5
       rect:
         serializedVersion: 2
-        x: 1073
-        y: 207
+        x: 719
+        y: 79
         width: 23
         height: 35
       alignment: 9
@@ -2954,8 +2954,8 @@ TextureImporter:
       name: objects-finish-6
       rect:
         serializedVersion: 2
-        x: 896
-        y: 213
+        x: 704
+        y: 190
         width: 23
         height: 35
       alignment: 9
@@ -2975,8 +2975,8 @@ TextureImporter:
       name: objects-finish-7
       rect:
         serializedVersion: 2
-        x: 998
-        y: 203
+        x: 704
+        y: 153
         width: 23
         height: 35
       alignment: 9
@@ -2996,8 +2996,8 @@ TextureImporter:
       name: objects-finish-8
       rect:
         serializedVersion: 2
-        x: 1023
-        y: 207
+        x: 704
+        y: 116
         width: 23
         height: 35
       alignment: 9
@@ -3017,8 +3017,8 @@ TextureImporter:
       name: objects-finish-9
       rect:
         serializedVersion: 2
-        x: 1048
-        y: 195
+        x: 852
+        y: 257
         width: 23
         height: 35
       alignment: 9
@@ -3038,8 +3038,8 @@ TextureImporter:
       name: objects-laser-body-0
       rect:
         serializedVersion: 2
-        x: 518
-        y: 244
+        x: 207
+        y: 124
         width: 1
         height: 7
       alignment: 4
@@ -3059,8 +3059,8 @@ TextureImporter:
       name: objects-laser-body-1
       rect:
         serializedVersion: 2
-        x: 1118
-        y: 253
+        x: 774
+        y: 50
         width: 1
         height: 7
       alignment: 4
@@ -3081,7 +3081,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 504
-        y: 271
+        y: 375
         width: 384
         height: 1
       alignment: 4
@@ -3102,7 +3102,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 502
-        y: 274
+        y: 378
         width: 384
         height: 1
       alignment: 4
@@ -3123,7 +3123,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 500
-        y: 277
+        y: 381
         width: 384
         height: 1
       alignment: 4
@@ -3144,7 +3144,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 498
-        y: 280
+        y: 384
         width: 384
         height: 1
       alignment: 4
@@ -3165,7 +3165,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 496
-        y: 283
+        y: 387
         width: 384
         height: 1
       alignment: 4
@@ -3186,7 +3186,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 494
-        y: 286
+        y: 390
         width: 384
         height: 1
       alignment: 4
@@ -3206,8 +3206,8 @@ TextureImporter:
       name: objects-laser-gun-0
       rect:
         serializedVersion: 2
-        x: 1022
-        y: 15
+        x: 815
+        y: 264
         width: 35
         height: 28
       alignment: 9
@@ -3227,8 +3227,8 @@ TextureImporter:
       name: objects-laser-gun-1
       rect:
         serializedVersion: 2
-        x: 1059
-        y: 45
+        x: 778
+        y: 264
         width: 35
         height: 28
       alignment: 9
@@ -3248,8 +3248,8 @@ TextureImporter:
       name: objects-laser-gun-10
       rect:
         serializedVersion: 2
-        x: 1065
-        y: 75
+        x: 645
+        y: 52
         width: 35
         height: 28
       alignment: 9
@@ -3269,8 +3269,8 @@ TextureImporter:
       name: objects-laser-gun-2
       rect:
         serializedVersion: 2
-        x: 1048
-        y: 165
+        x: 682
+        y: 26
         width: 35
         height: 28
       alignment: 9
@@ -3290,8 +3290,8 @@ TextureImporter:
       name: objects-laser-gun-3
       rect:
         serializedVersion: 2
-        x: 1045
-        y: 135
+        x: 682
+        y: 56
         width: 35
         height: 28
       alignment: 9
@@ -3311,8 +3311,8 @@ TextureImporter:
       name: objects-laser-gun-4
       rect:
         serializedVersion: 2
-        x: 1045
-        y: 105
+        x: 677
+        y: 86
         width: 35
         height: 28
       alignment: 9
@@ -3332,8 +3332,8 @@ TextureImporter:
       name: objects-laser-gun-5
       rect:
         serializedVersion: 2
-        x: 1022
-        y: 45
+        x: 667
+        y: 206
         width: 35
         height: 28
       alignment: 9
@@ -3353,8 +3353,8 @@ TextureImporter:
       name: objects-laser-gun-6
       rect:
         serializedVersion: 2
-        x: 1028
-        y: 75
+        x: 667
+        y: 176
         width: 35
         height: 28
       alignment: 9
@@ -3374,8 +3374,8 @@ TextureImporter:
       name: objects-laser-gun-7
       rect:
         serializedVersion: 2
-        x: 1011
-        y: 173
+        x: 667
+        y: 146
         width: 35
         height: 28
       alignment: 9
@@ -3395,8 +3395,8 @@ TextureImporter:
       name: objects-laser-gun-8
       rect:
         serializedVersion: 2
-        x: 432
-        y: 4
+        x: 664
+        y: 116
         width: 35
         height: 28
       alignment: 9
@@ -3416,8 +3416,8 @@ TextureImporter:
       name: objects-laser-gun-9
       rect:
         serializedVersion: 2
-        x: 974
-        y: 165
+        x: 645
+        y: 22
         width: 35
         height: 28
       alignment: 9
@@ -3437,8 +3437,8 @@ TextureImporter:
       name: objects-laser-gun-outline
       rect:
         serializedVersion: 2
-        x: 942
-        y: 35
+        x: 606
+        y: 47
         width: 37
         height: 30
       alignment: 9
@@ -3458,8 +3458,8 @@ TextureImporter:
       name: objects-laser-line
       rect:
         serializedVersion: 2
-        x: 235
-        y: 115
+        x: 840
+        y: 44
         width: 6
         height: 1
       alignment: 4
@@ -3479,8 +3479,8 @@ TextureImporter:
       name: objects-platform-large
       rect:
         serializedVersion: 2
-        x: 354
-        y: 22
+        x: 456
+        y: 128
         width: 76
         height: 10
       alignment: 0
@@ -3500,8 +3500,8 @@ TextureImporter:
       name: objects-platform-medium
       rect:
         serializedVersion: 2
-        x: 921
-        y: 236
+        x: 478
+        y: 13
         width: 46
         height: 10
       alignment: 0
@@ -3521,8 +3521,8 @@ TextureImporter:
       name: objects-platform-short
       rect:
         serializedVersion: 2
-        x: 616
-        y: 131
+        x: 892
+        y: 343
         width: 16
         height: 10
       alignment: 0
@@ -3542,8 +3542,8 @@ TextureImporter:
       name: objects-preview-checkpoint
       rect:
         serializedVersion: 2
-        x: 206
-        y: 24
+        x: 582
+        y: 60
         width: 22
         height: 54
       alignment: 9
@@ -3563,8 +3563,8 @@ TextureImporter:
       name: objects-preview-gravity-switch
       rect:
         serializedVersion: 2
-        x: 469
-        y: 4
+        x: 744
+        y: 49
         width: 28
         height: 28
       alignment: 0
@@ -3584,8 +3584,8 @@ TextureImporter:
       name: objects-preview-mobile-saw
       rect:
         serializedVersion: 2
-        x: 1113
-        y: 19
+        x: 784
+        y: 180
         width: 29
         height: 24
       alignment: 0
@@ -3606,7 +3606,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 36
+        y: 140
         width: 44
         height: 46
       alignment: 9
@@ -3626,8 +3626,8 @@ TextureImporter:
       name: objects-rocket-0
       rect:
         serializedVersion: 2
-        x: 254
-        y: 1
+        x: 834
+        y: 155
         width: 30
         height: 16
       alignment: 9
@@ -3647,8 +3647,8 @@ TextureImporter:
       name: objects-rocket-1
       rect:
         serializedVersion: 2
-        x: 534
-        y: 6
+        x: 682
+        y: 8
         width: 31
         height: 16
       alignment: 9
@@ -3668,8 +3668,8 @@ TextureImporter:
       name: objects-rocket-2
       rect:
         serializedVersion: 2
-        x: 369
-        y: 4
+        x: 778
+        y: 41
         width: 30
         height: 16
       alignment: 9
@@ -3690,7 +3690,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 509
-        y: 253
+        y: 357
         width: 29
         height: 16
       alignment: 9
@@ -3710,8 +3710,8 @@ TextureImporter:
       name: objects-rocket-4
       rect:
         serializedVersion: 2
-        x: 567
-        y: 6
+        x: 719
+        y: 24
         width: 31
         height: 16
       alignment: 9
@@ -3731,8 +3731,8 @@ TextureImporter:
       name: objects-rocket-5
       rect:
         serializedVersion: 2
-        x: 600
-        y: 6
+        x: 690
+        y: 252
         width: 31
         height: 16
       alignment: 9
@@ -3752,8 +3752,8 @@ TextureImporter:
       name: objects-rocket-6
       rect:
         serializedVersion: 2
-        x: 965
-        y: 195
+        x: 729
+        y: 273
         width: 31
         height: 16
       alignment: 9
@@ -3773,8 +3773,8 @@ TextureImporter:
       name: objects-static-gun
       rect:
         serializedVersion: 2
-        x: 244
-        y: 104
+        x: 193
+        y: 143
         width: 14
         height: 18
       alignment: 9
@@ -3794,8 +3794,8 @@ TextureImporter:
       name: objects-switch-0
       rect:
         serializedVersion: 2
-        x: 1178
-        y: 220
+        x: 873
+        y: 110
         width: 14
         height: 21
       alignment: 9
@@ -3815,8 +3815,8 @@ TextureImporter:
       name: objects-switch-1
       rect:
         serializedVersion: 2
-        x: 1178
-        y: 45
+        x: 857
+        y: 89
         width: 14
         height: 21
       alignment: 9
@@ -3836,8 +3836,8 @@ TextureImporter:
       name: objects-switch-2
       rect:
         serializedVersion: 2
-        x: 1167
-        y: 4
+        x: 850
+        y: 63
         width: 14
         height: 21
       alignment: 9
@@ -3857,8 +3857,8 @@ TextureImporter:
       name: objects-switch-3
       rect:
         serializedVersion: 2
-        x: 1176
-        y: 243
+        x: 877
+        y: 259
         width: 14
         height: 21
       alignment: 9
@@ -3878,8 +3878,8 @@ TextureImporter:
       name: objects-switch-4
       rect:
         serializedVersion: 2
-        x: 741
-        y: 12
+        x: 877
+        y: 236
         width: 14
         height: 21
       alignment: 9
@@ -3899,8 +3899,8 @@ TextureImporter:
       name: objects-switch-5
       rect:
         serializedVersion: 2
-        x: 1173
-        y: 266
+        x: 876
+        y: 213
         width: 14
         height: 21
       alignment: 9
@@ -3921,7 +3921,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 275
-        y: 266
+        y: 370
         width: 14
         height: 21
       alignment: 9
@@ -3941,8 +3941,8 @@ TextureImporter:
       name: objects-switch-7
       rect:
         serializedVersion: 2
-        x: 862
-        y: 108
+        x: 429
+        y: 82
         width: 14
         height: 21
       alignment: 9
@@ -3962,8 +3962,8 @@ TextureImporter:
       name: gui-generics-buttons-icon-global
       rect:
         serializedVersion: 2
-        x: 1166
-        y: 155
+        x: 778
+        y: 19
         width: 20
         height: 20
       alignment: 0
@@ -3983,8 +3983,8 @@ TextureImporter:
       name: gui-generics-buttons-icon-local
       rect:
         serializedVersion: 2
-        x: 1166
-        y: 133
+        x: 710
+        y: 227
         width: 20
         height: 20
       alignment: 0
@@ -4004,8 +4004,8 @@ TextureImporter:
       name: gui-generics-buttons-info
       rect:
         serializedVersion: 2
-        x: 875
-        y: 210
+        x: 849
+        y: 112
         width: 19
         height: 19
       alignment: 0
@@ -4025,8 +4025,8 @@ TextureImporter:
       name: gui-generics-symbols-editor
       rect:
         serializedVersion: 2
-        x: 951
-        y: 5
+        x: 778
+        y: 234
         width: 33
         height: 28
       alignment: 0
@@ -4046,8 +4046,8 @@ TextureImporter:
       name: gui-generics-symbols-local
       rect:
         serializedVersion: 2
-        x: 928
-        y: 105
+        x: 491
+        y: 62
         width: 41
         height: 31
       alignment: 0
@@ -4067,8 +4067,8 @@ TextureImporter:
       name: gui-generics-symbols-locked
       rect:
         serializedVersion: 2
-        x: 1059
-        y: 10
+        x: 863
+        y: 340
         width: 27
         height: 33
       alignment: 0
@@ -4088,8 +4088,8 @@ TextureImporter:
       name: gui-generics-symbols-online
       rect:
         serializedVersion: 2
-        x: 914
-        y: 67
+        x: 448
+        y: 86
         width: 36
         height: 36
       alignment: 0
@@ -4109,8 +4109,8 @@ TextureImporter:
       name: gui-generics-symbols-task
       rect:
         serializedVersion: 2
-        x: 1167
-        y: 27
+        x: 827
+        y: 68
         width: 21
         height: 16
       alignment: 0
@@ -4130,8 +4130,8 @@ TextureImporter:
       name: gui-generics-containers-button-3
       rect:
         serializedVersion: 2
-        x: 633
-        y: 95
+        x: 947
+        y: 358
         width: 15
         height: 15
       alignment: 0
@@ -4151,8 +4151,8 @@ TextureImporter:
       name: gui-generics-containers-button-4
       rect:
         serializedVersion: 2
-        x: 863
-        y: 234
+        x: 742
+        y: 227
         width: 9
         height: 9
       alignment: 0
@@ -4172,8 +4172,8 @@ TextureImporter:
       name: gui-generics-symbols-clock
       rect:
         serializedVersion: 2
-        x: 863
-        y: 256
+        x: 520
+        y: 342
         width: 13
         height: 13
       alignment: 0
@@ -4193,8 +4193,8 @@ TextureImporter:
       name: gui-generics-symbols-coin
       rect:
         serializedVersion: 2
-        x: 339
-        y: 104
+        x: 100
+        y: 100
         width: 13
         height: 13
       alignment: 0
@@ -4214,8 +4214,8 @@ TextureImporter:
       name: gui-generics-buttons-filter
       rect:
         serializedVersion: 2
-        x: 17
-        y: 156
+        x: 614
+        y: 235
         width: 14
         height: 10
       alignment: 0
@@ -4235,8 +4235,8 @@ TextureImporter:
       name: gui-generics-buttons-filter-order
       rect:
         serializedVersion: 2
-        x: 149
-        y: 277
+        x: 665
+        y: 302
         width: 8
         height: 10
       alignment: 0
@@ -4256,8 +4256,8 @@ TextureImporter:
       name: gui-generics-containers-dropdown-1
       rect:
         serializedVersion: 2
-        x: 684
-        y: 219
+        x: 17
+        y: 260
         width: 15
         height: 8
       alignment: 0
@@ -4277,8 +4277,8 @@ TextureImporter:
       name: gui-generics-containers-dropdown-2
       rect:
         serializedVersion: 2
-        x: 998
-        y: 195
+        x: 811
+        y: 121
         width: 9
         height: 5
       alignment: 0
@@ -4298,8 +4298,8 @@ TextureImporter:
       name: gui-generics-symbols-date
       rect:
         serializedVersion: 2
-        x: 231
-        y: 104
+        x: 115
+        y: 110
         width: 11
         height: 9
       alignment: 0
@@ -4320,7 +4320,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 343
-        y: 281
+        y: 385
         width: 7
         height: 6
       alignment: 0
@@ -4340,8 +4340,8 @@ TextureImporter:
       name: gui-generics-symbols-trash-can
       rect:
         serializedVersion: 2
-        x: 921
-        y: 225
+        x: 1
+        y: 92
         width: 7
         height: 9
       alignment: 0
@@ -4361,8 +4361,8 @@ TextureImporter:
       name: gui-generics-symbols-folder
       rect:
         serializedVersion: 2
-        x: 971
-        y: 105
+        x: 601
+        y: 17
         width: 38
         height: 28
       alignment: 0
@@ -4382,8 +4382,8 @@ TextureImporter:
       name: gui-generics-containers-button-5
       rect:
         serializedVersion: 2
-        x: 879
-        y: 250
+        x: 655
+        y: 252
         width: 9
         height: 9
       alignment: 0
@@ -4403,8 +4403,8 @@ TextureImporter:
       name: gui-generics-symbols-folder-up
       rect:
         serializedVersion: 2
-        x: 971
-        y: 135
+        x: 778
+        y: 294
         width: 38
         height: 28
       alignment: 0
@@ -4424,8 +4424,8 @@ TextureImporter:
       name: gui-generics-symbols-folder-add
       rect:
         serializedVersion: 2
-        x: 988
-        y: 75
+        x: 818
+        y: 294
         width: 38
         height: 28
       alignment: 0
@@ -4445,8 +4445,8 @@ TextureImporter:
       name: gui-generics-symbols-arrow
       rect:
         serializedVersion: 2
-        x: 1048
-        y: 234
+        x: 296
+        y: 106
         width: 16
         height: 8
       alignment: 0
@@ -4462,6 +4462,1959 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: blocks-beams-0
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 193
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 735d652d43b49824688e4a5e9aca1e01
+      internalID: 679754456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-beams-1
+      rect:
+        serializedVersion: 2
+        x: 839
+        y: 4
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85931b22e7c49b14d9e4ca98cb295868
+      internalID: -863810165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-beams-10
+      rect:
+        serializedVersion: 2
+        x: 951
+        y: 62
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66327b14f8e01c140b2837997eaf9152
+      internalID: -1876364258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-beams-11
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da2c14109181a68469e54a5d3eed878b
+      internalID: -1497692883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-beams-12
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 206
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd6c973670035cf4780037cda216afe5
+      internalID: -1980825054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-beams-13
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 188
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9d0d0701376e9d459e8d3e3a43d70e2
+      internalID: -1015162387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-beams-14
+      rect:
+        serializedVersion: 2
+        x: 947
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fb9106a21171864da7117253b4fd1c4
+      internalID: 170451204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-beams-2
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 193
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b2b297c9590b5e489d5b62a1f01fba0
+      internalID: 993032118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-beams-3
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 70
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e647db2096693524488b0d0d7a05b43b
+      internalID: -1094226260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-beams-4
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 95
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd03914cda7ea9b4a9a5d3b6626a8ca4
+      internalID: -12339936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-beams-5
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 208
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7f80ce8637c8d044a30304fb3da3b37
+      internalID: 1788615718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-beams-6
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 190
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c792d0ec8773fb4691fb38fa6841cbc
+      internalID: -2122788529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-beams-7
+      rect:
+        serializedVersion: 2
+        x: 910
+        y: 60
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66d2f1419a1359d46ae9e9201bc382fd
+      internalID: 390609384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-beams-8
+      rect:
+        serializedVersion: 2
+        x: 910
+        y: 78
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36479647a74ba4548950d821ada652a2
+      internalID: 251947415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-beams-9
+      rect:
+        serializedVersion: 2
+        x: 951
+        y: 44
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76fc17f4bfba74c40a6c6852af602f54
+      internalID: 1461020570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-0
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 28
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5f33873214d5194182b07768709b8db
+      internalID: 241481456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-1
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 1
+        width: 17
+        height: 18
+      alignment: 9
+      pivot: {x: 0.47058824, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f4c049ebdc51b243a3ae65467af2f29
+      internalID: 1090649467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-10
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 301
+        width: 17
+        height: 17
+      alignment: 9
+      pivot: {x: 0.47058824, y: 0.47058824}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82dedeaeeadd5e04b809ceb69abc962a
+      internalID: 785121672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-11
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 282
+        width: 17
+        height: 17
+      alignment: 9
+      pivot: {x: 0.52941173, y: 0.47058824}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40cc7b4f0620b1c45a9b602cec177eb4
+      internalID: 1019775523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-12
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 134
+        width: 17
+        height: 17
+      alignment: 9
+      pivot: {x: 0.52941173, y: 0.47058824}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ad3b04a9c2670040852225ed0d85f7c
+      internalID: -833395108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-13
+      rect:
+        serializedVersion: 2
+        x: 887
+        y: 155
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6294038cbbbf7ac4cbb039313df4f9e9
+      internalID: 2026965722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-14
+      rect:
+        serializedVersion: 2
+        x: 884
+        y: 175
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aee0a970025b5694c8fb77bb460a2367
+      internalID: -703348934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-15
+      rect:
+        serializedVersion: 2
+        x: 909
+        y: 96
+        width: 16
+        height: 17
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52941173}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 545bd3fb8a2fe4641b270759d099de16
+      internalID: -1622405799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-16
+      rect:
+        serializedVersion: 2
+        x: 909
+        y: 115
+        width: 16
+        height: 17
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52941173}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b81bec955a3f4c340a2ba4b1dbe26c59
+      internalID: 1628229927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-17
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 374
+        width: 16
+        height: 17
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52941173}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed03056f054d9df479fc1ed44b0ed5ba
+      internalID: 677659073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-18
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 171
+        width: 16
+        height: 17
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52941173}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eae2b7c5a81765442a2e37561ad2ff02
+      internalID: -607139305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-19
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 153
+        width: 17
+        height: 16
+      alignment: 9
+      pivot: {x: 0.47058824, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c130e088940f5c4088837b3688ff369
+      internalID: 1547893066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-2
+      rect:
+        serializedVersion: 2
+        x: 859
+        y: 25
+        width: 18
+        height: 17
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52941173}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f65eb1640e66e24280ad89e7cff1631
+      internalID: 427784503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-20
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 321
+        width: 17
+        height: 16
+      alignment: 9
+      pivot: {x: 0.47058824, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fa77e14f2df7cd4c9122452012d905d
+      internalID: -1509656183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-21
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 303
+        width: 17
+        height: 16
+      alignment: 9
+      pivot: {x: 0.47058824, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3e2c213f954e9547b76f37a2ff6c733
+      internalID: -812563587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-22
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 285
+        width: 17
+        height: 16
+      alignment: 9
+      pivot: {x: 0.47058824, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 735158d1bd60fba488444dc8e4d27b31
+      internalID: -32956234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-23
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 266
+        width: 16
+        height: 17
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47058824}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28fd75ce6abca4746aaeb4832a41fb92
+      internalID: 2125878528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-24
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 134
+        width: 16
+        height: 17
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47058824}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65b2e2d945cea6546834b514c59eb796
+      internalID: 490312552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-25
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 13
+        width: 16
+        height: 17
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47058824}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d585cb066ced8c4b869438339db701c
+      internalID: 822946286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-26
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 32
+        width: 16
+        height: 17
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47058824}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28cdc42f45563994ba79765563957ae5
+      internalID: 1616435087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-27
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 1
+        width: 17
+        height: 16
+      alignment: 9
+      pivot: {x: 0.5294118, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9304ce0ff2c3d664c98dfa208c2cb968
+      internalID: 909235470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-28
+      rect:
+        serializedVersion: 2
+        x: 893
+        y: 248
+        width: 17
+        height: 16
+      alignment: 9
+      pivot: {x: 0.5294118, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13b23bcb5d23c514a9b458556b3025f6
+      internalID: -960321316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-29
+      rect:
+        serializedVersion: 2
+        x: 893
+        y: 230
+        width: 17
+        height: 16
+      alignment: 9
+      pivot: {x: 0.5294118, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d75d5d15a97924b448e232e08502c12a
+      internalID: 235358175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-3
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 8
+        width: 17
+        height: 18
+      alignment: 9
+      pivot: {x: 0.5294118, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 353b493fe16439144b3ab0e3ce8fe39f
+      internalID: -1222246079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-30
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 212
+        width: 17
+        height: 16
+      alignment: 9
+      pivot: {x: 0.5294118, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9d574d3cc800c94980910a62e00aed7
+      internalID: 1672364932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-31
+      rect:
+        serializedVersion: 2
+        x: 947
+        y: 98
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80dd8261ae2fb4d4384c17391b3ccc29
+      internalID: -500402828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-32
+      rect:
+        serializedVersion: 2
+        x: 945
+        y: 116
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53fda68949f508c47bbb5dc3fe1a0ed8
+      internalID: 1929979569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-33
+      rect:
+        serializedVersion: 2
+        x: 947
+        y: 375
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78fd362ae908ea9458500f9d9d0b0dc3
+      internalID: -1425230099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-34
+      rect:
+        serializedVersion: 2
+        x: 942
+        y: 170
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bd5d19433008df41ac5cbbf2ebfb383
+      internalID: -2110585334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-35
+      rect:
+        serializedVersion: 2
+        x: 942
+        y: 152
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c803888e2637ff64d8b026b5dcd607eb
+      internalID: -1583579230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-36
+      rect:
+        serializedVersion: 2
+        x: 938
+        y: 249
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdeeaabfa6e7c2c419cee3fc4aa2e520
+      internalID: 913745847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-37
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 267
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea5d84757294e2b4b96f0bb93c627853
+      internalID: -245023187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-38
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 285
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79fd2d464d5a99d48af2af15308dab7c
+      internalID: 430610332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-39
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 303
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ec2107b2ab662b478e08a2b5eb44e2a
+      internalID: -951344321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-4
+      rect:
+        serializedVersion: 2
+        x: 870
+        y: 51
+        width: 18
+        height: 17
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47058824}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f264430dc8ec654fbe7121a12483766
+      internalID: -1154339748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-40
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 321
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e92f20d70fe6d7f448ec7169610e8101
+      internalID: -1302091868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-41
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 339
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5eedf348e9b7fd54eabd920ce815b15f
+      internalID: 2034874871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-42
+      rect:
+        serializedVersion: 2
+        x: 938
+        y: 134
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e15ef49ef3ade442ad860132ddedf19
+      internalID: -428217981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-43
+      rect:
+        serializedVersion: 2
+        x: 933
+        y: 8
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88a56782f937f1941816340b88205252
+      internalID: 757345034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-44
+      rect:
+        serializedVersion: 2
+        x: 933
+        y: 26
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d874f6077897b14483d816fd3109a5f
+      internalID: 674494921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-45
+      rect:
+        serializedVersion: 2
+        x: 933
+        y: 44
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee407548dfcdc704998ac7b2c65bbe21
+      internalID: 755554066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-46
+      rect:
+        serializedVersion: 2
+        x: 930
+        y: 226
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa033cfc6761e6043abe7caf0eb6023d
+      internalID: -1645867429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-5
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 355
+        width: 17
+        height: 17
+      alignment: 9
+      pivot: {x: 0.52941173, y: 0.52941173}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4f70149eeca04a48b82b3ad78b408c2
+      internalID: -1247360234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-6
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 374
+        width: 17
+        height: 17
+      alignment: 9
+      pivot: {x: 0.52941173, y: 0.52941173}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a43a0e691ff87db45abc6b71770020ad
+      internalID: 890086013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-7
+      rect:
+        serializedVersion: 2
+        x: 890
+        y: 51
+        width: 17
+        height: 17
+      alignment: 9
+      pivot: {x: 0.47058824, y: 0.52941173}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 681083e37ae9ae442954dfe4294ccf4b
+      internalID: 717494153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-8
+      rect:
+        serializedVersion: 2
+        x: 889
+        y: 115
+        width: 17
+        height: 17
+      alignment: 9
+      pivot: {x: 0.47058824, y: 0.52941173}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 283ce2b8fcce8b14ba233ed0c31de2ad
+      internalID: -1623988466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-cobblestone-9
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 320
+        width: 17
+        height: 17
+      alignment: 9
+      pivot: {x: 0.47058824, y: 0.47058824}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7e7ea410d5270348b281a6acbebda3f
+      internalID: -131173169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-dirt-0
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 48
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c752742ebea290d42aeb5d63df18b21f
+      internalID: 1523936504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-dirt-1
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 24
+        width: 17
+        height: 18
+      alignment: 9
+      pivot: {x: 0.47058824, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 396b60e49a4c33a4088d0842006e75fe
+      internalID: -146659186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-dirt-10
+      rect:
+        serializedVersion: 2
+        x: 877
+        y: 7
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2df38cf74f796f04cb69c7446a8627fb
+      internalID: 1453006740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-dirt-11
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 31
+        width: 16
+        height: 18
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5555556}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 742a7164a2777524cb34a71d9aa44d61
+      internalID: -1320298652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-dirt-12
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 208
+        width: 17
+        height: 16
+      alignment: 9
+      pivot: {x: 0.47058824, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ad3b4c33881c4648aabd0570c7fdae4
+      internalID: -425994192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-dirt-13
+      rect:
+        serializedVersion: 2
+        x: 859
+        y: 5
+        width: 16
+        height: 18
+      alignment: 9
+      pivot: {x: 0.5, y: 0.44444445}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9535d3e93d119ed4d973b8ea5c2c583d
+      internalID: -285269726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-dirt-14
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 1
+        width: 18
+        height: 16
+      alignment: 9
+      pivot: {x: 0.5555556, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 424ca4829a55f76438ad802a55763955
+      internalID: 700089287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-dirt-15
+      rect:
+        serializedVersion: 2
+        x: 930
+        y: 190
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fa0d3b738b3b3c4092998bc0f07ebc7
+      internalID: -459996978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-dirt-2
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 44
+        width: 18
+        height: 17
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52941173}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 751a702c6c8428243bb13aa03ee0e21f
+      internalID: 118218449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-dirt-3
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 173
+        width: 18
+        height: 18
+      alignment: 9
+      pivot: {x: 0.5555556, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad15299b924ed3648b393b28de507a95
+      internalID: -821601162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-dirt-4
+      rect:
+        serializedVersion: 2
+        x: 866
+        y: 153
+        width: 19
+        height: 17
+      alignment: 9
+      pivot: {x: 0.5263158, y: 0.4117647}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f460ef6998857f343b774155900c880c
+      internalID: -412249100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-dirt-5
+      rect:
+        serializedVersion: 2
+        x: 863
+        y: 133
+        width: 18
+        height: 18
+      alignment: 9
+      pivot: {x: 0.5555556, y: 0.5555556}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b010e64ca69573c4b9f692f8e6ff41e4
+      internalID: -1296028004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-dirt-6
+      rect:
+        serializedVersion: 2
+        x: 866
+        y: 70
+        width: 18
+        height: 17
+      alignment: 9
+      pivot: {x: 0.44444445, y: 0.52941173}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 121e4eb46c10ed148bb6b4a42712dfc3
+      internalID: -1680230887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-dirt-7
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 21
+        width: 18
+        height: 18
+      alignment: 9
+      pivot: {x: 0.44444445, y: 0.44444445}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0b21bf9c1f021743a6c6fc1a78c28d7
+      internalID: 1492394045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-dirt-8
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 48
+        width: 18
+        height: 18
+      alignment: 9
+      pivot: {x: 0.5555556, y: 0.44444445}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c654fd652a3a5fe4682d1fa2c0ff4fdd
+      internalID: 1578968524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-dirt-9
+      rect:
+        serializedVersion: 2
+        x: 873
+        y: 89
+        width: 16
+        height: 19
+      alignment: 9
+      pivot: {x: 0.5, y: 0.42105263}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f7856ac2f91a10419fdd11bb5633a37
+      internalID: -1955151895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-minimalistic-0
+      rect:
+        serializedVersion: 2
+        x: 929
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4e22d862117a0047b8c6bf3d0e06052
+      internalID: 1606537590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-minimalistic-1
+      rect:
+        serializedVersion: 2
+        x: 929
+        y: 357
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acc274d526b006c49a098e089d391545
+      internalID: -1310164180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-minimalistic-10
+      rect:
+        serializedVersion: 2
+        x: 921
+        y: 280
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80358252dd2c9e349ae983aaec15d8fb
+      internalID: 1892414966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-minimalistic-11
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 262
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e017920577c45c4a82791aa5ae27a1a
+      internalID: -1552414434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-minimalistic-12
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 134
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bfe4b04b41c9994ca13637e87811372
+      internalID: -884836421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-minimalistic-13
+      rect:
+        serializedVersion: 2
+        x: 915
+        y: 6
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d54451ceac03fd4390814edbf3eefea
+      internalID: -414239418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-minimalistic-14
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 356
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a25096f479abd974691d66befa901ba7
+      internalID: 1918951636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-minimalistic-2
+      rect:
+        serializedVersion: 2
+        x: 929
+        y: 375
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebcb492048ab70e4fb672415d51433be
+      internalID: 1610655900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-minimalistic-3
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 98
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0059354141b958543897fd3dee10322a
+      internalID: -1412937547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-minimalistic-4
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 116
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9992ce3fa608cbc468a984fd31e24d68
+      internalID: -695985486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-minimalistic-5
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 154
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d572589b6dca9241b2d101acd8562e1
+      internalID: 970304805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-minimalistic-6
+      rect:
+        serializedVersion: 2
+        x: 921
+        y: 334
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0da9b100ca84f2b4a8c0e36d3d00e034
+      internalID: -1993633763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-minimalistic-7
+      rect:
+        serializedVersion: 2
+        x: 923
+        y: 172
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8d453dd8dcd0e846b763479bfc3a170
+      internalID: 372186562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-minimalistic-8
+      rect:
+        serializedVersion: 2
+        x: 921
+        y: 316
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfded699d77da754bb5547b7cd5dc8fd
+      internalID: -1179080193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blocks-minimalistic-9
+      rect:
+        serializedVersion: 2
+        x: 921
+        y: 298
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5d9f75f9fd283f43b343033b558d085
+      internalID: -1214310821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -4473,9 +6426,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      blocks-beams-1: -863810165
+      blocks-cobblestone-42: -428217981
       objects-preview-mobile-saw: -1356139352
       objects-preview-gravity-switch: 766971812
       objects-saw: -72321222
+      blocks-cobblestone-43: 757345034
+      blocks-cobblestone-1: 1090649467
       gui-generics-buttons-editor-options: -1359528598
       objects-laser-dots-1: 1916936138
       effects-explosion-7: 745975159
@@ -4486,6 +6443,7 @@ TextureImporter:
       gui-generics-buttons-plus: -520602335
       gui-generics-buttons-editor-show: 434883368
       objects-switch-0: 1351357549
+      blocks-beams-5: 1788615718
       gui-generics-xbox-trigger-right: -929569765
       objects-preview-checkpoint: 1702807011
       effects-explosion-3: 1750234691
@@ -4493,14 +6451,20 @@ TextureImporter:
       objects-finish-9: -1546476962
       gui-generics-area-selector: -1504070027
       gui-generics-buttons-editor-save: -315829979
-      objects-switch-3: 1631768075
+      blocks-cobblestone-36: 913745847
       objects-laser-gun-9: 850159109
+      objects-switch-3: 1631768075
       objects-platform-short: -29291623
+      blocks-cobblestone-26: 1616435087
       objects-platform-medium: -1707511188
       gui-generics-symbols-folder: -1292842182
       objects-laser-gun-0: -758162439
+      blocks-minimalistic-13: -414239418
       objects-finish-7: -1914078096
+      blocks-cobblestone-29: 235358175
+      blocks-beams-13: -1015162387
       objects-laser-gun-4: -194026279
+      blocks-cobblestone-24: 490312552
       gui-generics-buttons-toggle-on: -563814930
       gui-generics-buttons-editor-properties: -1176678625
       objects-laser-gun-1: -40804072
@@ -4514,97 +6478,153 @@ TextureImporter:
       objects-checkpoint-number-5: 1491565091
       gui-generics-buttons-toggle-off: -800540760
       gui-generics-xbox-trigger-left: -378977240
+      blocks-beams-6: -2122788529
       gui-generics-containers-button-1: 653004664
       gui-generics-buttons-social-gh: 1236875773
+      blocks-minimalistic-14: 1918951636
       gui-title: -696897440
       gui-generics-xbox-button-south-pressed: 48113091
       gui-generics-symbols-arrow: -1631886219
       objects-finish-1: -549758524
       objects-laser-dots-5: -470178122
       gui-generics-buttons-editor-zoom-reset: -86167700
-      gui-generics-symbols-coin: -871489896
+      blocks-cobblestone-21: -812563587
       effects-sparkle-2: -139829212
+      gui-generics-symbols-coin: -871489896
       gui-generics-symbols-date: -1427551039
       objects-laser-gun-5: -1129219105
       gui-generics-symbols-editor: -292030935
-      objects-finish-2: -1719403713
+      blocks-cobblestone-34: -2110585334
       gui-menu-dirt: -162251707
+      blocks-cobblestone-10: 785121672
       gui-generics-symbols-local: 1383188535
-      objects-switch-6: 1188731681
-      objects-finish-4: 1586299187
+      blocks-cobblestone-33: -1425230099
+      blocks-cobblestone-19: 1547893066
+      blocks-dirt-0: 1523936504
       gui-generics-volume-bar: -1701516507
-      gui-generics-xbox-button-weast: 1291757510
+      objects-finish-4: 1586299187
       blocks-special-0: 1581292004
       effects-explosion-8: -1343891639
       gui-generics-containers-button-5: 2143133923
-      objects-laser-body-0: -1606881331
+      gui-generics-xbox-button-weast: 1291757510
+      blocks-minimalistic-8: -1179080193
       gui-generics-buttons-info: 1873450837
       effects-sparkle-0: 1848512047
       gui-generics-buttons-T2: 1146535247
+      blocks-cobblestone-7: 717494153
+      blocks-dirt-14: 700089287
+      objects-laser-body-0: -1606881331
+      blocks-dirt-3: -821601162
+      blocks-dirt-5: -1296028004
+      objects-finish-2: -1719403713
       objects-gravity-switch-particles: 155663615
+      blocks-beams-7: 390609384
       gui-generics-color-selector-btn-rgb-0: -294569085
       gui-generics-color-selector-btn-hsv1-0: -360627970
       objects-laser-gun-10: -194806617
+      objects-switch-6: 1188731681
+      blocks-beams-14: 170451204
+      blocks-cobblestone-13: 2026965722
       effects-explosion-4: 812568506
       objects-coin-2: 1048260316
+      blocks-dirt-4: -412249100
       gui-generics-symbols-folder-up: 1722172792
+      blocks-cobblestone-32: 1929979569
       objects-checkpoint-number-7: 903826311
-      objects-static-gun: -799368360
+      blocks-beams-2: 993032118
       gui-generics-buttons-pause: -1113978040
       objects-laser-dots-4: 840889973
       gui-generics-color-selector-btn-hex-1: 1154323618
       gui-generics-containers-dropdown-1: -2034675813
       objects-rocket-1: 1454338972
+      objects-static-gun: -799368360
       gui-generics-containers-button-3: 1672939519
-      objects-coin-5: -524433059
+      blocks-cobblestone-14: -703348934
+      blocks-cobblestone-40: -1302091868
       gui-generics-buttons-left: -1391307328
       gui-generics-buttons-back: -1255911101
-      objects-checkpoint-number-8: -2051476929
+      blocks-dirt-11: -1320298652
+      blocks-minimalistic-6: -1993633763
+      blocks-beams-3: -1094226260
       gui-generics-symbols-folder-add: -247402253
       gui-generics-xbox-controller: -1304000428
+      objects-checkpoint-number-8: -2051476929
       gui-generics-symbols-locked: 340076058
       objects-platform-large: -1463061962
+      objects-coin-5: -524433059
+      blocks-cobblestone-15: -1622405799
       gui-generics-buttons-editor-undo: 667344800
+      blocks-minimalistic-0: 1606537590
       objects-laser-gun-2: -233399494
+      blocks-beams-10: -1876364258
       objects-laser-line: 771680316
       gui-generics-buttons-minus: 1598409594
+      blocks-minimalistic-2: 1610655900
       gui-generics-buttons-T1: -1222942605
       objects-killzone: -1619722049
+      blocks-minimalistic-9: -1214310821
       objects-checkpoint-number-2: -1184349429
+      blocks-cobblestone-23: 2125878528
       objects-coin-3: 544599981
+      blocks-cobblestone-41: 2034874871
       gui-generics-buttons-editor-test: -250386631
       gui-generics-containers-dropdown-2: -920759993
       gui-generics-mini-arrow: -973643613
+      blocks-cobblestone-11: 1019775523
       gui-generics-buttons-editor-zoom-in: -1286464795
       objects-trampoline-1: -686183199
+      blocks-cobblestone-31: -500402828
+      blocks-beams-12: -1980825054
       gui-generics-buttons-icon-global: 735751020
       objects-switch-5: 1463929810
       objects-checkpoint-post: 657425723
       objects-finish-6: -462701123
+      blocks-cobblestone-2: 427784503
       objects-coin-0: -1854563452
+      blocks-cobblestone-45: 755554066
       objects-coin-1: 467007493
       gui-generics-color-selector-picker: 763494557
-      objects-finish-3: -558981056
+      blocks-minimalistic-4: -695985486
+      blocks-dirt-7: 1492394045
       gui-generics-color-selector-transparency-checker-bar: 68122156
       objects-laser-gun-outline: 241166358
-      objects-switch-7: -1581118815
+      objects-finish-3: -558981056
       gui-generics-buttons-editor-hide: 519071301
+      objects-switch-7: -1581118815
       objects-checkpoint-number-0: 472091774
       objects-coin-4: -2062012362
+      blocks-minimalistic-10: 1892414966
+      blocks-minimalistic-7: 372186562
+      blocks-cobblestone-5: -1247360234
       gui-generics-symbols-task: 1156370434
       gui-generics-buttons-filter-order: -939619841
       gui-generics-symbols-achievements: -1266882107
-      objects-laser-dots-0: -1664500220
+      blocks-dirt-10: 1453006740
+      blocks-cobblestone-27: 909235470
+      blocks-cobblestone-16: 1628229927
+      blocks-cobblestone-39: -951344321
       gui-generics-buttons-editor-zoom-out: -2044922546
       gui-generics-xbox-button-north-pressed: -1765211814
       gui-generics-buttons-editor-redo: 709878959
+      objects-laser-dots-0: -1664500220
       gui-generics-color-selector-btn-hex-0: 1441351297
       gui-generics-buttons-editor-help: -953385279
       gui-generics-symbols-online: -1922010337
+      blocks-dirt-9: -1955151895
+      blocks-cobblestone-17: 677659073
+      blocks-dirt-2: 118218449
+      blocks-cobblestone-38: 430610332
+      blocks-cobblestone-6: 890086013
+      blocks-minimalistic-3: -1412937547
       objects-BOOM: -664286575
+      blocks-cobblestone-12: -833395108
       objects-checkpoint-number-1: -881409798
+      blocks-cobblestone-22: -32956234
+      blocks-dirt-13: -285269726
+      blocks-cobblestone-18: -607139305
       objects-checkpoint-sign: 2108409677
       objects-preview-saw-base: -1149907282
+      blocks-cobblestone-4: -1154339748
       gui-generics-color-selector-btn-hsv1-1: 1353082819
       gui-generics-xbox-button-south: 1906842448
       objects-rocket-6: -1785178062
@@ -4617,16 +6637,21 @@ TextureImporter:
       objects-laser-gun-7: -1457573058
       gui-generics-editor-cur-idle: -973353001
       objects-laser-gun-8: 559168260
+      blocks-minimalistic-12: -884836421
       objects-checkpoint-number-9: 1997685284
       objects-finish-5: -1139740779
+      blocks-cobblestone-0: 241481456
       gui-generics-color-selector-btn-hsv2-1: -1790476286
       gui-generics-xbox-button-east: -1692920314
       effects-explosion-5: 68072735
       objects-checkpoint-number-6: 1425259511
       gui-generics-symbols-sync: 2065889900
+      blocks-minimalistic-11: -1552414434
       objects-laser-gun-6: 1586943571
       objects-switch-4: 1212057106
       objects-rocket-2: -749852808
+      blocks-minimalistic-1: -1310164180
+      blocks-cobblestone-44: 674494921
       objects-laser-dots-2: -2096427929
       blocks-default: -1079774194
       gui-generics-color-selector-btn-hsv2-0: 1830238394
@@ -4635,44 +6660,64 @@ TextureImporter:
       gui-generics-buttons-icon-local: -149137318
       objects-trampoline-3: -1546612423
       effects-sparkle-1: -1057568552
+      blocks-dirt-15: -459996978
       effects-explosion-2: -618974925
+      blocks-dirt-1: -146659186
       gui-generics-color-selector-h-picker: -271658700
       gui-generics-symbols-play: 2091085726
+      blocks-minimalistic-5: 970304805
+      blocks-beams-8: 251947415
       gui-generics-xbox-button-north: -664683458
       gui-generics-color-selector-color-bar-container: -182551486
       objects-rocket-0: -1364836496
+      blocks-cobblestone-30: 1672364932
+      blocks-beams-4: -12339936
       objects-trampoline-0: -1216480209
       gui-generics-color-selector-btn-rgb-1: 122996945
       gui-generics-symbols-exit: 30398175
       effects-explosion-0: 309142560
       gui-generics-symbols-clock: -1542454892
       gui-generics-xbox-button-weast-pressed: -1161896470
+      blocks-dirt-8: 1578968524
       objects-bullet-1: 705424389
+      blocks-cobblestone-46: -1645867429
       gui-generics-color-selector-hue-bar-palette: -334781007
       gui-generics-buttons-social-website: -1734289602
       gui-generics-buttons-editor-container: -640667373
       gui-generics-buttons-filter: -625341889
       objects-bullet-0: -1117223788
+      blocks-cobblestone-9: -131173169
       objects-finish-10: -968267306
+      blocks-cobblestone-35: -1583579230
       gui-cute-stinker: 1231714849
       gui-generics-buttons-editor-pause: 18266927
       objects-rocket-3: -1226176407
       gui-generics-symbols-trash-can: -1879992286
       gui-generics-color-selector-color-bar-flat: -736451581
       effects-explosion-6: 2039203346
+      blocks-dirt-6: -1680230887
       gui-generics-buttons-social-tw: 762597615
+      blocks-cobblestone-8: -1623988466
       gui-generics-color-selector-sv-palette: -1026755271
-      objects-spike: 1272456788
+      blocks-dirt-12: -425994192
+      blocks-cobblestone-37: -245023187
       gui-generics-containers-button-2: 567913625
+      objects-spike: 1272456788
+      blocks-beams-9: 1461020570
+      blocks-cobblestone-25: 822946286
+      blocks-cobblestone-3: -1222246079
       objects-finish-8: 763082713
+      blocks-cobblestone-20: -1509656183
       objects-checkpoint-number-3: -844177018
+      blocks-beams-11: -1497692883
       objects-rocket-5: -1092705391
       gui-generics-buttons-social-yt: 1317596138
       gui-generics-buttons-editor-settings: -1704998907
       gui-generics-buttons-editor-stop: 762406547
+      gui-generics-containers-slider-1: 854489077
+      blocks-beams-0: 679754456
       gui-generics-mini-arrow-corner: -45520716
       objects-finish-0: 1754850399
-      gui-generics-containers-slider-1: 854489077
       objects-gravity-switch: -1102216038
       blocks-special-1: 1797328346
       gui-generics-buttons-social-fb: -1025946489
@@ -4680,6 +6725,7 @@ TextureImporter:
       gui-generics-color-selector-gradient-bar-palette: -1933248331
       objects-switch-1: -1138316201
       gui-generics-symbols-settings: 458632354
+      blocks-cobblestone-28: -960321316
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

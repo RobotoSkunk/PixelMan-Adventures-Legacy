@@ -15900,6 +15900,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfaceadef776de5489d043fee4b51e6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultText: {fileID: 123969733}
   sections:
   - name: Position
     purpose: 1
@@ -16011,7 +16012,6 @@ MonoBehaviour:
       slider: {fileID: 0}
       toggle: {fileID: 12928180}
       value: 0
-  defaultText: {fileID: 123969733}
   onChange:
     m_PersistentCalls:
       m_Calls:
