@@ -40,6 +40,7 @@ sysinfo.txt
 
 # Snyk shits
 .dccache
+.iac-data
 
 # Eflatun.SceneReference auto-generated map file
 **/[Aa]ssets/Resources/Eflatun/SceneReference/SceneGuidToPathMap.generated.json
