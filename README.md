@@ -24,7 +24,7 @@ Just a note: the game is still in early development, so the code is
 not very well organized and there are a lot of things that need to
 be improved. If you want to contribute, please keep that in mind.
 
-Also, the game itself it's coded using[Unity 2021.3.0f1](https://unity3d.com/download).
+Also, the game itself it's coded using[Unity 2021.3.19f1](https://unity3d.com/download).
 Please mantain the same version to avoid any problems.
 
 
