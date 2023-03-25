@@ -21,7 +21,9 @@ namespace RobotoSkunk {
 
 #if UNITY_ANDROID && !UNITY_EDITOR
 					_root "/storage/emulated/0/Games/PixelMan Adventures";
-					return _root;
+#elif UNITY_STANDALONE_LINUX || UNITY_EDITOR_LINUX
+					string home = Environment.GetEnvironmentVariable("HOME");
+					_root = home + "/.local/share/PixelMan Adventures";
 #else
 					string folder = "/My Games/PixelMan Adventures", special = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
@@ -32,8 +34,8 @@ namespace RobotoSkunk {
 						special = Environment.GetEnvironmentVariable("HOME") ?? Environment.GetEnvironmentVariable("HOMEPATH") ?? "";
 
 					_root = special + folder;
-					return _root;
 #endif
+					return _root;
 				}
 			}
 
