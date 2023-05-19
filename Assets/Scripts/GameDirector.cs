@@ -8,10 +8,6 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-#if !(UNITYEDITOR_LINUX || UNITY_STANDALONE_LINUX)
-using XInputDotNetPure;
-#endif
-
 using RobotoSkunk.PixelMan.Events;
 using RobotoSkunk.PixelMan.LevelEditor;
 
@@ -598,14 +594,11 @@ namespace RobotoSkunk.PixelMan {
 
 
 		void SetVibration(float leftMotor, float rightMotor) {
-			#if !(UNITY_EDITOR_LINUX || UNITY_STANDALONE_LINUX)
 			if (Globals.settings.general.enableControllerVibration) {
-				PlayerIndex[] enums = (PlayerIndex[])Enum.GetValues(typeof(PlayerIndex));
-
-				foreach (PlayerIndex index in enums)
-					GamePad.SetVibration(index, leftMotor, rightMotor);
+				foreach (Gamepad pad in Gamepad.all) {
+					pad.SetMotorSpeeds(leftMotor, rightMotor);
+				}
 			}
-			#endif
 		}
 
 
