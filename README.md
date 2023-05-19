@@ -28,20 +28,6 @@ Also, the game itself it's coded using[Unity](https://unity3d.com/download).
 Please mantain the same version that Unity Hub uses to open the project.
 
 
-### Versioning notes
-The game versioning is based on the [Semantic Versioning](https://semver.org/)
-standard. The versioning is based on the following format: `MAJOR.MINOR.PATCH`.
-- The `MAJOR` version is incremented when a major change is made to the game.
-- The `MINOR` version is incremented when a minor change is made to the game.
-- The `PATCH` version is incremented when a patch is made to the game.
-
-When working on development, the versioning is based on the following
-format: `MAJOR.MINOR.PATCH-DEV`.
-
-When working on a public beta, the versioning is based on the following
-format: `MAJOR.MINOR.PATCH-BETA`.
-
-
 ## Compilation
 The game is compiled using `IL2CPP`. If you're not familiar with IL2CPP,
 you can read the [documentation](https://docs.unity3d.com/Manual/IL2CPP.html)

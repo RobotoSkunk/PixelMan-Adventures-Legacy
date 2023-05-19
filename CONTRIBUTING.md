@@ -58,3 +58,16 @@ want to contribute, please check the roadmap to see what you can do. If
 you want to add something to the roadmap, please open an issue and
 discuss it with us first.
 
+### Versioning notes
+The game versioning is based on the [Semantic Versioning](https://semver.org/)
+standard. The versioning is based on the following format: `MAJOR.MINOR.PATCH`.
+- The `MAJOR` version is incremented when a major change is made to the game.
+- The `MINOR` version is incremented when a minor change is made to the game.
+- The `PATCH` version is incremented when a patch is made to the game.
+
+When working on development, the versioning is based on the following
+format: `MAJOR.MINOR.PATCH-DEV`.
+
+When working on a public beta, the versioning is based on the following
+format: `MAJOR.MINOR.PATCH-BETA`.
+
