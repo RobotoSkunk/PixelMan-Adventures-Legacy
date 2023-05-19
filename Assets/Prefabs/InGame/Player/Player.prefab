@@ -10372,7 +10372,7 @@ MonoBehaviour:
   rigidbody: {fileID: 8009474488916196579}
   pixelManRigidbody: {fileID: 1995670383407584719}
   spriteRenderer: {fileID: 8009474489757818013}
-  boxCollider: {fileID: 2145347875039296668}
+  boxCollider: {fileID: 8009474488916196578}
   audioSource: {fileID: 1812400675351063183}
   animator: {fileID: 5182439856068789001}
   deathParticles: {fileID: 7892300943647491314}
@@ -10391,7 +10391,7 @@ MonoBehaviour:
     useOutsideNormalAngle: 0
     layerMask:
       serializedVersion: 2
-      m_Bits: 72
+      m_Bits: 8
     minDepth: 0
     maxDepth: 0
     minNormalAngle: 0
