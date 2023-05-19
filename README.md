@@ -1,4 +1,4 @@
-<p align="center">
+<p style="text-align: center">
 	<img width="788" height="196" alt="PixelMan Title" src="_resources/title.png" style="max-width: 90%; height: auto">
 </p>
 
@@ -24,8 +24,8 @@ Just a note: the game is still in early development, so the code is
 not very well organized and there are a lot of things that need to
 be improved. If you want to contribute, please keep that in mind.
 
-Also, the game itself it's coded using[Unity 2021.3.19f1](https://unity3d.com/download).
-Please mantain the same version to avoid any problems.
+Also, the game itself it's coded using[Unity](https://unity3d.com/download).
+Please mantain the same version that Unity Hub uses to open the project.
 
 
 ### Versioning notes
