@@ -22,6 +22,7 @@ using System.Diagnostics;
 using System.IO;
 using System;
 
+
 namespace RobotoSkunk {
 	public static class Diagnostics {
 		public static string deviceData =

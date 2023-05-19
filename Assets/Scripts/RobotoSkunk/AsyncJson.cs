@@ -17,11 +17,8 @@
 */
 
 using UnityEngine;
-using UnityEngine.UI;
 
-using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
-using System;
 
 
 namespace RobotoSkunk {
