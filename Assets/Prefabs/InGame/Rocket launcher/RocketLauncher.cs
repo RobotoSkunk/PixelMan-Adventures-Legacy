@@ -19,6 +19,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 namespace RobotoSkunk.PixelMan.Gameplay {
 	public class RocketLauncher : GameHandler {
 		[Header("Components")]
@@ -33,6 +34,7 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 		float time = 1f, ang, newAng;
 		readonly List<RaycastHit2D> lineResults = new();
 		readonly List<GameObject> players = new();
+
 
 		protected override void OnGameReady() {
 			GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Player");

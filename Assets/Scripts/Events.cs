@@ -16,9 +16,9 @@
 	along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-using UnityEngine;
+using System.Collections.Generic;
 
-using RobotoSkunk;
+using UnityEngine;
 
 using Eflatun.SceneReference;
 
@@ -139,6 +139,35 @@ namespace RobotoSkunk.PixelMan {
 		/// </summary>
 		protected virtual void OnGameCheckpointRespawn() { }
 	}
+
+	public class GameHandlerBehaviourExtended : GameHandler {
+		protected readonly List<GameObject> players = new();
+
+		protected override void OnGameReady() {
+			GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Player");
+			players.Clear();
+
+			foreach (GameObject g in gameObjects) players.Add(g);
+		}
+
+
+		protected GameObject NearestPlayer() {
+			GameObject target = null;
+			float distance = Constants.worldLimit;
+
+			foreach (GameObject player in players) {
+				float playerDistance = Vector2.Distance(transform.position, player.transform.position);
+
+				if (playerDistance < distance) {
+					target = player;
+					distance = playerDistance;
+				}
+			}
+
+			return target;
+		}
+	}
+
 
 	public class EditorHandler : RSBehaviour {
 		private void OnEnable() => EnableEvents(true);

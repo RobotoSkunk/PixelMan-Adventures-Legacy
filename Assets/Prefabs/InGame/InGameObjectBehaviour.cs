@@ -160,17 +160,27 @@ namespace RobotoSkunk.PixelMan {
 	public struct InGameObjectProperties {
 		[Header("Generic")]
 		public uint id;
-		public Vector2 position, scale;
+		public Vector2 position;
+		public Vector2 scale;
 		public float rotation;
 
 		[Header("Advanced")]
 		public int renderOrder;
 		public uint skinIndex;
-		public float speed, wakeTime, reloadTime;
-		public bool invertGravity, spawnSaw;
+
+		public float speed;
+		public float wakeTime;
+		public float reloadTime;
+
+		public bool invertGravity;
+		public bool spawnSaw;
+		public bool isFake;
+
 		public Direction direction;
 		public DirectionH directionHorizontal;
 		public DirectionV directionVertical;
+
+
 
 		public int orderInLayer {
 			get => Mathf.Clamp(renderOrder, -Constants.orderLimit, Constants.orderLimit) * 10;
@@ -207,6 +217,7 @@ namespace RobotoSkunk.PixelMan {
 		DirectionV = 1 << 10,
 		Direction = 1 << 11,
 		SpawnSaw = 1 << 12,
+		IsFake = 1 << 13,
 
 		All = ~0
 	}

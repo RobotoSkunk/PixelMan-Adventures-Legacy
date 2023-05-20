@@ -16,19 +16,64 @@
 	along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+using System.Collections.Generic;
 using UnityEngine;
 
+using RobotoSkunk.PixelMan.Events;
 
-namespace RobotoSkunk.PixelMan.Gameplay {
-	public class Block : MonoBehaviour {
-		public struct BlockData {
-			public Sprite sprite;
-			public float angle;
-		}
 
+namespace RobotoSkunk.PixelMan.Gameplay
+{
+	public class Block : GameHandlerBehaviourExtended
+	{
+		[Header("Generic Properties")]
 		public InGameObjectBehaviour behaviour;
 		public SpriteRenderer spriteRenderer;
-		public Sprite defSpr;
-		public BlockData[] data = new BlockData[47];
+		public BoxCollider2D boxCollider;
+
+		// [Header("Sprite renderer and data")]
+		// public Sprite defaultSprite;
+		// public BlockData[] data = new BlockData[47];
+
+
+		// public struct BlockData
+		// {
+		// 	public Sprite sprite;
+		// 	public float angle;
+		// }
+
+
+		private void Start()
+		{
+			if (!behaviour.properties.isFake) {
+				Destroy(this);
+				return;
+			}
+
+			boxCollider.enabled = false;
+		}
+
+		private void Update()
+		{
+			if (behaviour.properties.isFake) {
+				// Fade out the block if the player is close
+				GameObject nearestPlayer = NearestPlayer();
+
+				if (nearestPlayer != null) {
+					float distance = Vector2.Distance(nearestPlayer.transform.position, transform.position);
+
+
+					Color currentColor = spriteRenderer.color;
+
+					if (distance < 5f) {
+						currentColor.a = Mathf.Lerp(currentColor.a, 0f, RSTime.delta * 0.5f);
+					} else {
+						currentColor.a = Mathf.Lerp(currentColor.a, 1f, RSTime.delta * 0.5f);
+					}
+
+					spriteRenderer.color = currentColor;
+				}
+			}
+		}
 	}
 }
