@@ -16,65 +16,74 @@
 	along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-using UnityEngine;
-
-using RobotoSkunk.PixelMan;
 
 
-namespace RobotoSkunk {
-	public class RSBehaviour : MonoBehaviour {
-		public Flags flags;
+//////////////////////////////////////////////////////////////////////
+/*
+	This code is going to be deleted soon. All of the content of this
+	file is deprecated and should not be used anymore.
+*/
+//////////////////////////////////////////////////////////////////////
 
-		[System.Flags]
-		public enum Flags {
-			NONE              = 0,
+// using UnityEngine;
 
-			Player            = 1 << 0,
-			Trampoline        = 1 << 1,
-			GravitySwitch     = 1 << 2,
-			Switch            = 1 << 3,
-			Killzone          = 1 << 4,
-			Platform          = 1 << 5,
-			Ignore            = 1 << 6,
-			IceBLock          = 1 << 7,
-			Laser             = 1 << 8,
-			Bullet            = 1 << 9,
-			Rocket            = 1 << 10,
-			IntelligentRocket = 1 << 11,
-			EditorObject      = 1 << 12,
-			Coin              = 1 << 13,
+// using RobotoSkunk.PixelMan;
 
-			ALL               = ~0
-		}
 
-		private void Awake() {
-			string uid = gameObject.GetInstanceID().ToString();
-			Globals.__behaviours.Add(uid, this);
-		}
+// namespace RobotoSkunk {
+// 	public class RSBehaviour : MonoBehaviour {
+// 		public Flags flags;
 
-		private void OnDestroy() {
-			string uid = gameObject.GetInstanceID().ToString();
-			Globals.__behaviours.Remove(uid);
-		}
-	}
+// 		[System.Flags]
+// 		public enum Flags {
+// 			NONE              = 0,
 
-	public static class RSBehaviourExtensions {
-		public static bool CompareFlags(this GameObject gameObject, RSBehaviour.Flags flags) {
-			RSBehaviour b = Globals.__behaviours[gameObject.GetInstanceID().ToString()];
+// 			Player            = 1 << 0,
+// 			Trampoline        = 1 << 1,
+// 			GravitySwitch     = 1 << 2,
+// 			Switch            = 1 << 3,
+// 			Killzone          = 1 << 4,
+// 			Platform          = 1 << 5,
+// 			Ignore            = 1 << 6,
+// 			IceBLock          = 1 << 7,
+// 			Laser             = 1 << 8,
+// 			Bullet            = 1 << 9,
+// 			Rocket            = 1 << 10,
+// 			IntelligentRocket = 1 << 11,
+// 			EditorObject      = 1 << 12,
+// 			Coin              = 1 << 13,
 
-			if (b == null) 
-				throw new System.Exception("Current gameObject has no RSBehaviour component");
+// 			ALL               = ~0
+// 		}
 
-			return (b.flags & flags) == flags;
-		}
+// 		private void Awake() {
+// 			string uid = gameObject.GetInstanceID().ToString();
+// 			Globals.__behaviours.Add(uid, this);
+// 		}
 
-		public static bool HasFlags(this GameObject gameObject, RSBehaviour.Flags flags) {
-			RSBehaviour b = Globals.__behaviours[gameObject.GetInstanceID().ToString()];
+// 		private void OnDestroy() {
+// 			string uid = gameObject.GetInstanceID().ToString();
+// 			Globals.__behaviours.Remove(uid);
+// 		}
+// 	}
 
-			if (b == null) 
-				throw new System.Exception("Current gameObject has no RSBehaviour component");
+// 	public static class RSBehaviourExtensions {
+// 		public static bool CompareFlags(this GameObject gameObject, RSBehaviour.Flags flags) {
+// 			RSBehaviour b = Globals.__behaviours[gameObject.GetInstanceID().ToString()];
 
-			return (b.flags & flags) != 0;
-		}
-	}
-}
+// 			if (b == null) 
+// 				throw new System.Exception("Current gameObject has no RSBehaviour component");
+
+// 			return (b.flags & flags) == flags;
+// 		}
+
+// 		public static bool HasFlags(this GameObject gameObject, RSBehaviour.Flags flags) {
+// 			RSBehaviour b = Globals.__behaviours[gameObject.GetInstanceID().ToString()];
+
+// 			if (b == null) 
+// 				throw new System.Exception("Current gameObject has no RSBehaviour component");
+
+// 			return (b.flags & flags) != 0;
+// 		}
+// 	}
+// }

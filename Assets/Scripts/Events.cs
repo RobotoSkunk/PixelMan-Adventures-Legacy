@@ -86,7 +86,7 @@ namespace RobotoSkunk.PixelMan {
 		}
 	}
 
-	public class GameObjectBehaviour : RSBehaviour {
+	public class GameObjectBehaviour : MonoBehaviour {
 		private void OnEnable() => EnableEvents(true);
 		private void OnDisable() => EnableEvents(false);
 		private void OnDestroy() => EnableEvents(false);
@@ -169,7 +169,7 @@ namespace RobotoSkunk.PixelMan {
 	}
 
 
-	public class EditorHandler : RSBehaviour {
+	public class EditorHandler : MonoBehaviour {
 		private void OnEnable() => EnableEvents(true);
 		private void OnDisable() => EnableEvents(false);
 		private void OnDestroy() => EnableEvents(false);
@@ -202,7 +202,7 @@ namespace RobotoSkunk.PixelMan {
 		protected virtual void OnEditorReady() { }
 	}
 
-	public class PhysicsHandler : RSBehaviour {
+	public class PhysicsHandler : MonoBehaviour {
 		private void OnEnable() => EnableEvents(true);
 		private void OnDisable() => EnableEvents(false);
 		private void OnDestroy() => EnableEvents(false);
