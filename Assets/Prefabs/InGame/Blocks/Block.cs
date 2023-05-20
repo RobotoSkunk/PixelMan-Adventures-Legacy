@@ -16,15 +16,12 @@
 	along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-using System.Collections.Generic;
 using UnityEngine;
-
-using RobotoSkunk.PixelMan.Events;
 
 
 namespace RobotoSkunk.PixelMan.Gameplay
 {
-	public class Block : GameObjectBehaviourExtended
+	public class Block : GameObjectBehaviour
 	{
 		[Header("Generic Properties")]
 		public InGameObjectBehaviour behaviour;
@@ -43,6 +40,9 @@ namespace RobotoSkunk.PixelMan.Gameplay
 		// }
 
 
+		bool playerIsNear = false;
+
+
 		private void Start()
 		{
 			if (!behaviour.properties.isFake) {
@@ -50,29 +50,32 @@ namespace RobotoSkunk.PixelMan.Gameplay
 				return;
 			}
 
-			boxCollider.enabled = false;
+			boxCollider.isTrigger = true;
 		}
 
 		private void Update()
 		{
-			if (behaviour.properties.isFake) {
-				// Fade out the block if the player is close
-				GameObject nearestPlayer = NearestPlayer();
+			if (spriteRenderer.isVisible && behaviour.properties.isFake) {
+				Color currentColor = spriteRenderer.color;
 
-				if (nearestPlayer != null) {
-					float distance = Vector2.Distance(nearestPlayer.transform.position, transform.position);
+				currentColor.a = Mathf.Lerp(currentColor.a, playerIsNear ? 0.5f : 0f, Time.deltaTime * 5f);
+
+				spriteRenderer.color = currentColor;
+			}
+		}
 
 
-					Color currentColor = spriteRenderer.color;
+		private void OnTriggerEnter2D(Collider2D other)
+		{
+			if (other.CompareTag("Player")) {
+				playerIsNear = true;
+			}
+		}
 
-					if (distance < 5f) {
-						currentColor.a = Mathf.Lerp(currentColor.a, 0f, RSTime.delta * 0.5f);
-					} else {
-						currentColor.a = Mathf.Lerp(currentColor.a, 1f, RSTime.delta * 0.5f);
-					}
-
-					spriteRenderer.color = currentColor;
-				}
+		private void OnTriggerExit2D(Collider2D other)
+		{
+			if (other.CompareTag("Player")) {
+				playerIsNear = false;
 			}
 		}
 	}

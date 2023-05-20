@@ -20,8 +20,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace RobotoSkunk.PixelMan.Gameplay {
-	public class RocketLauncher : GameObjectBehaviour {
+namespace RobotoSkunk.PixelMan.Gameplay
+{
+	public class RocketLauncher : GameObjectBehaviourExtended
+	{
 		[Header("Components")]
 		public SpriteRenderer spriteRenderer;
 		public AudioSource audioSource;
@@ -33,43 +35,39 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 
 		float time = 1f, ang, newAng;
 		readonly List<RaycastHit2D> lineResults = new();
-		readonly List<GameObject> players = new();
 
 
-		protected override void OnGameReady() {
-			GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Player");
-			players.Clear();
-
-			foreach (GameObject g in gameObjects) players.Add(g);
+		protected override void OnGameReady()
+		{
+			base.OnGameReady();
 			time = launcherBehaviour.properties.safeReloadTime;
 		}
 
-		protected override void OnGameResetObject() {
+		protected override void OnGameResetObject()
+		{
 			time = launcherBehaviour.properties.safeReloadTime;
 			ang = newAng = 0f;
 			transform.rotation = Quaternion.Euler(0f, 0f, 0f);
 		}
 
-		private void FixedUpdate() {
-			if (Globals.onPause) return;
+		private void FixedUpdate()
+		{
+			if (Globals.onPause) {
+				return;
+			}
 
 			bool onCount = false;
 
 			if (!Globals.isDead) {
-				GameObject target = null;
-				float b = Constants.worldLimit;
-
-				foreach (GameObject c in players) {
-					float d = Vector2.Distance(transform.position, c.transform.position);
-
-					if (d < b) {
-						target = c;
-						b = d;
-					}
-				}
+				GameObject target = NearestPlayer();
 
 				if (target) {
-					int lineBuffer = Physics2D.Linecast(transform.position, target.transform.position, lineFilter, lineResults);
+					int lineBuffer = Physics2D.Linecast(
+						transform.position,
+						target.transform.position,
+						lineFilter,
+						lineResults
+					);
 
 					if (lineBuffer == 0) {
 						newAng = RSMath.Direction(transform.position, target.transform.position) * Mathf.Rad2Deg;

@@ -19,8 +19,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RobotoSkunk.PixelMan.Gameplay {
-	public class SwivelGun : GameObjectBehaviour {
+
+namespace RobotoSkunk.PixelMan.Gameplay
+{
+	public class SwivelGun : GameObjectBehaviourExtended
+	{
 		[Header("Components")]
 		public SpriteRenderer spriteRenderer;
 		public AudioSource audioSource;
@@ -32,24 +35,26 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 
 		float time = 1f, ang;
 		readonly List<RaycastHit2D> lineResults = new();
-		readonly List<GameObject> players = new();
 
-		protected override void OnGameReady() {
-			GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Player");
-			players.Clear();
 
-			foreach (GameObject g in gameObjects) players.Add(g);
+		protected override void OnGameReady()
+		{
+			base.OnGameReady();
 			time = gunBehaviour.properties.safeReloadTime;
 		}
 
-		protected override void OnGameResetObject() {
+		protected override void OnGameResetObject()
+		{
 			time = gunBehaviour.properties.safeReloadTime;
 			ang = 0f;
 			transform.rotation = Quaternion.Euler(0f, 0f, 0f);
 		}
 
-		private void FixedUpdate() {
-			if (Globals.onPause) return;
+		private void FixedUpdate()
+		{
+			if (Globals.onPause) {
+				return;
+			}
 
 			bool onCount = false;
 
@@ -67,7 +72,13 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 				}
 
 				if (target) {
-					int lineBuffer = Physics2D.Linecast(transform.position, target.transform.position, lineFilter, lineResults);
+					int lineBuffer = Physics2D.Linecast(
+						transform.position,
+						target.transform.position,
+						lineFilter,
+						lineResults
+					);
+
 
 					if (lineBuffer == 0) {
 						float __z = RSMath.Direction(transform.position, target.transform.position) * Mathf.Rad2Deg;
@@ -95,7 +106,9 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 				}
 			}
 
-			if (!onCount) time = gunBehaviour.properties.safeReloadTime;
+			if (!onCount) {
+				time = gunBehaviour.properties.safeReloadTime;
+			}
 		}
 	}
 }
