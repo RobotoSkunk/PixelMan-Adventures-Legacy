@@ -19,7 +19,7 @@
 using UnityEngine;
 
 namespace RobotoSkunk.PixelMan.Gameplay {
-	public class PlayerCamera : GameHandler {
+	public class PlayerCamera : GameObjectBehaviour {
 		[Header("Components")]
 		public Camera cam;
 		public Rigidbody2D player;

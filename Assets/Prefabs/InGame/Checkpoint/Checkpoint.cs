@@ -23,7 +23,7 @@ using RobotoSkunk.PixelMan.Events;
 
 
 namespace RobotoSkunk.PixelMan.Gameplay {
-	public class Checkpoint : GameHandler {
+	public class Checkpoint : GameObjectBehaviour {
 		[Header("Components")]
 		public BoxCollider2D boxCollider;
 		public SpriteRenderer counterContainer, counter;

@@ -20,7 +20,7 @@ using UnityEngine;
 
 
 namespace RobotoSkunk.PixelMan.Gameplay {
-	public class SawBase : GameHandler {
+	public class SawBase : GameObjectBehaviour {
 		[Header("Components")]
 		public SpriteRenderer sprRend;
 		public GameObject children;

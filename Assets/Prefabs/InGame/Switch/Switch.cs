@@ -21,7 +21,7 @@ using UnityEngine;
 using RobotoSkunk.PixelMan.Events;
 
 namespace RobotoSkunk.PixelMan.Gameplay {
-	public class Switch : GameHandler {
+	public class Switch : GameObjectBehaviour {
 		[Header("Components")]
 		public Animator anim;
 		public AudioSource audioSource;

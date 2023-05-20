@@ -19,7 +19,7 @@
 using UnityEngine;
 
 namespace RobotoSkunk.PixelMan.Gameplay {
-	public class PauseHandler : GameHandler {
+	public class PauseHandler : GameObjectBehaviour {
 		[Header("Components")]
 		public Animator animator;
 		public ParticleSystem particle;

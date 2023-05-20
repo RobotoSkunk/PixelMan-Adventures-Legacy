@@ -20,7 +20,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace RobotoSkunk.PixelMan.Gameplay {
-	public class SwivelGun : GameHandler {
+	public class SwivelGun : GameObjectBehaviour {
 		[Header("Components")]
 		public SpriteRenderer spriteRenderer;
 		public AudioSource audioSource;

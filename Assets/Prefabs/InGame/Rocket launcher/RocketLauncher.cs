@@ -21,7 +21,7 @@ using UnityEngine;
 
 
 namespace RobotoSkunk.PixelMan.Gameplay {
-	public class RocketLauncher : GameHandler {
+	public class RocketLauncher : GameObjectBehaviour {
 		[Header("Components")]
 		public SpriteRenderer spriteRenderer;
 		public AudioSource audioSource;

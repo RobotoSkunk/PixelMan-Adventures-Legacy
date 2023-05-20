@@ -24,7 +24,7 @@ using RobotoSkunk.PixelMan.Events;
 
 
 namespace RobotoSkunk.PixelMan.Gameplay {
-	public class LaserGun : GameHandler {
+	public class LaserGun : GameObjectBehaviour {
 		[Header("Components")]
 		public AudioSource audioSource;
 		public SpriteRenderer gun, dotedLine, normalLine, laser, outline;

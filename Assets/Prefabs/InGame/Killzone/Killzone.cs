@@ -20,7 +20,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace RobotoSkunk.PixelMan.Gameplay {
-	public class Killzone : GameHandler {
+	public class Killzone : GameObjectBehaviour {
 		[Header("Components")]
 		public SpriteRenderer sprRend;
 

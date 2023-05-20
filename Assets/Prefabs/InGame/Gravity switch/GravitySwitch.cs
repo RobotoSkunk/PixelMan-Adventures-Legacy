@@ -20,7 +20,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace RobotoSkunk.PixelMan.Gameplay {
-	public class GravitySwitch : GameHandler {
+	public class GravitySwitch : GameObjectBehaviour {
 		[Header("Components")]
 		public CircleCollider2D col;
 		public SpriteRenderer sprParticles, loadSprite;

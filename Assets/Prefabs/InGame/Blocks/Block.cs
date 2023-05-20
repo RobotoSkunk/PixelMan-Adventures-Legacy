@@ -24,7 +24,7 @@ using RobotoSkunk.PixelMan.Events;
 
 namespace RobotoSkunk.PixelMan.Gameplay
 {
-	public class Block : GameHandlerBehaviourExtended
+	public class Block : GameObjectBehaviourExtended
 	{
 		[Header("Generic Properties")]
 		public InGameObjectBehaviour behaviour;

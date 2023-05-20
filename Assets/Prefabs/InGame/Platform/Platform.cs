@@ -19,7 +19,7 @@
 using UnityEngine;
 
 namespace RobotoSkunk.PixelMan.Gameplay {
-	public class Platform : GameHandler {
+	public class Platform : GameObjectBehaviour {
 		[Header("Properties")]
 		public Rigidbody2D rb;
 		public BoxCollider2D col;

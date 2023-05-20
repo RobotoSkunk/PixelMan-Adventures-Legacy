@@ -86,7 +86,7 @@ namespace RobotoSkunk.PixelMan {
 		}
 	}
 
-	public class GameHandler : RSBehaviour {
+	public class GameObjectBehaviour : RSBehaviour {
 		private void OnEnable() => EnableEvents(true);
 		private void OnDisable() => EnableEvents(false);
 		private void OnDestroy() => EnableEvents(false);
@@ -140,7 +140,7 @@ namespace RobotoSkunk.PixelMan {
 		protected virtual void OnGameCheckpointRespawn() { }
 	}
 
-	public class GameHandlerBehaviourExtended : GameHandler {
+	public class GameObjectBehaviourExtended : GameObjectBehaviour {
 		protected readonly List<GameObject> players = new();
 
 		protected override void OnGameReady() {

@@ -22,7 +22,7 @@ using UnityEngine;
 using RobotoSkunk.PixelMan.Events;
 
 namespace RobotoSkunk.PixelMan.Gameplay {
-	public class Rocket : GameHandler {
+	public class Rocket : GameObjectBehaviour {
 		[Header("Components")]
 		public Rigidbody2D rb;
 		public Animator animator;

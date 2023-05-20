@@ -24,7 +24,7 @@ using RobotoSkunk.PixelMan.Events;
 
 
 namespace RobotoSkunk.PixelMan.Gameplay {
-	public class SpecialBlock : GameHandler {
+	public class SpecialBlock : GameObjectBehaviour {
 		[Header("Components")]
 		public BoxCollider2D box;
 		public SpriteRenderer spriteRenderer;

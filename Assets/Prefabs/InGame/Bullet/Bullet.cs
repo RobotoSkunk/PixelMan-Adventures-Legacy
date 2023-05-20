@@ -22,7 +22,7 @@ using UnityEngine;
 using RobotoSkunk.PixelMan.Events;
 
 namespace RobotoSkunk.PixelMan.Gameplay {
-	public class Bullet : GameHandler {
+	public class Bullet : GameObjectBehaviour {
 		[Header("Components")]
 		public Rigidbody2D rb;
 		public SpriteRenderer spriteRenderer;

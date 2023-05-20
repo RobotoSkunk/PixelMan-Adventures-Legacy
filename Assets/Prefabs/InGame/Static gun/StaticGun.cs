@@ -19,7 +19,7 @@
 using UnityEngine;
 
 namespace RobotoSkunk.PixelMan.Gameplay {
-	public class StaticGun : GameHandler {
+	public class StaticGun : GameObjectBehaviour {
 		[Header("Components")]
 		public SpriteRenderer spriteRenderer;
 		public AudioSource audioSource;

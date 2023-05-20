@@ -21,7 +21,7 @@ using UnityEngine;
 
 
 namespace RobotoSkunk.PixelMan.Gameplay {
-	public class Coin : GameHandler {
+	public class Coin : GameObjectBehaviour {
 		public Animator animator;
 		public SpriteRenderer spriteRenderer;
 		public ParticleSystem particles;

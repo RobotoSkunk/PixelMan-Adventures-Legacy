@@ -20,7 +20,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace RobotoSkunk.PixelMan.Gameplay {
-	public class Finish : GameHandler {
+	public class Finish : GameObjectBehaviour {
 		[Header("Components")]
 		public Animator anim;
 		public BoxCollider2D col;

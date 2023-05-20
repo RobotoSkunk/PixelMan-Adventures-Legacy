@@ -26,7 +26,7 @@ using RobotoSkunk.PixelMan.Events;
 
 namespace RobotoSkunk.PixelMan.Gameplay
 {
-	public class Player : GameHandler
+	public class Player : GameObjectBehaviour
 	{
 		#pragma warning disable IDE0044
 		// Excuse: The inspector can't show the variables if they are readonly.
