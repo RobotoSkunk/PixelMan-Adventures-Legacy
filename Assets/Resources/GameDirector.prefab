@@ -4082,7 +4082,7 @@ MonoBehaviour:
   playerData:
     displayName: Player
     accessToken: 
-    color: {r: 1, g: 1, b: 1, a: 1}
+    color: 16777215
     skinIndex: 0
     fun: 0
   audioTransitionFactor: 0.085
@@ -4114,6 +4114,7 @@ MonoBehaviour:
       reloadTime: 0
       invertGravity: 0
       spawnSaw: 0
+      isFake: 0
       direction: 0
       directionHorizontal: 0
       directionVertical: 0
@@ -4138,6 +4139,7 @@ MonoBehaviour:
       reloadTime: 0
       invertGravity: 0
       spawnSaw: 0
+      isFake: 0
       direction: 0
       directionHorizontal: 0
       directionVertical: 0
@@ -4162,6 +4164,7 @@ MonoBehaviour:
       reloadTime: 0
       invertGravity: 0
       spawnSaw: 0
+      isFake: 0
       direction: 0
       directionHorizontal: 0
       directionVertical: 0
@@ -4186,6 +4189,7 @@ MonoBehaviour:
       reloadTime: 0
       invertGravity: 0
       spawnSaw: 0
+      isFake: 0
       direction: 0
       directionHorizontal: 0
       directionVertical: 0
@@ -4210,6 +4214,7 @@ MonoBehaviour:
       reloadTime: 0
       invertGravity: 0
       spawnSaw: 0
+      isFake: 0
       direction: 0
       directionHorizontal: 0
       directionVertical: 0
@@ -4234,6 +4239,7 @@ MonoBehaviour:
       reloadTime: 0
       invertGravity: 0
       spawnSaw: 0
+      isFake: 0
       direction: 0
       directionHorizontal: 0
       directionVertical: 0
@@ -4258,6 +4264,7 @@ MonoBehaviour:
       reloadTime: 0
       invertGravity: 0
       spawnSaw: 0
+      isFake: 0
       direction: 0
       directionHorizontal: 0
       directionVertical: 0
@@ -4282,6 +4289,7 @@ MonoBehaviour:
       reloadTime: 0
       invertGravity: 0
       spawnSaw: 0
+      isFake: 0
       direction: 0
       directionHorizontal: 0
       directionVertical: 0
@@ -4306,6 +4314,7 @@ MonoBehaviour:
       reloadTime: 0
       invertGravity: 0
       spawnSaw: 1
+      isFake: 0
       direction: 0
       directionHorizontal: 0
       directionVertical: 0
@@ -4330,6 +4339,7 @@ MonoBehaviour:
       reloadTime: 0
       invertGravity: 0
       spawnSaw: 0
+      isFake: 0
       direction: 0
       directionHorizontal: 0
       directionVertical: 0
@@ -4354,6 +4364,7 @@ MonoBehaviour:
       reloadTime: 0
       invertGravity: 0
       spawnSaw: 0
+      isFake: 0
       direction: 0
       directionHorizontal: 0
       directionVertical: 0
@@ -4378,6 +4389,7 @@ MonoBehaviour:
       reloadTime: 0
       invertGravity: 0
       spawnSaw: 0
+      isFake: 0
       direction: 0
       directionHorizontal: 0
       directionVertical: 0
@@ -4402,6 +4414,7 @@ MonoBehaviour:
       reloadTime: 1
       invertGravity: 0
       spawnSaw: 0
+      isFake: 0
       direction: 0
       directionHorizontal: 0
       directionVertical: 0
@@ -4426,6 +4439,7 @@ MonoBehaviour:
       reloadTime: 1
       invertGravity: 0
       spawnSaw: 0
+      isFake: 0
       direction: 0
       directionHorizontal: 0
       directionVertical: 0
@@ -4450,6 +4464,7 @@ MonoBehaviour:
       reloadTime: 1
       invertGravity: 0
       spawnSaw: 0
+      isFake: 0
       direction: 0
       directionHorizontal: 0
       directionVertical: 0
@@ -4474,6 +4489,7 @@ MonoBehaviour:
       reloadTime: 0
       invertGravity: 0
       spawnSaw: 0
+      isFake: 0
       direction: 3
       directionHorizontal: 0
       directionVertical: 0
@@ -4498,6 +4514,7 @@ MonoBehaviour:
       reloadTime: 1
       invertGravity: 0
       spawnSaw: 0
+      isFake: 0
       direction: 0
       directionHorizontal: 0
       directionVertical: 0
@@ -4522,6 +4539,7 @@ MonoBehaviour:
       reloadTime: 1
       invertGravity: 0
       spawnSaw: 0
+      isFake: 0
       direction: 0
       directionHorizontal: 0
       directionVertical: 0
@@ -4546,6 +4564,7 @@ MonoBehaviour:
       reloadTime: 1
       invertGravity: 0
       spawnSaw: 0
+      isFake: 0
       direction: 0
       directionHorizontal: 0
       directionVertical: 0
@@ -7627,6 +7646,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 25
   m_TargetDisplay: 0
@@ -8501,6 +8521,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 1000
   m_TargetDisplay: 0
@@ -13345,6 +13366,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 2316424826796273913}
     m_Modifications:
     - target: {fileID: 1631104592883507404, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
@@ -13464,6 +13486,9 @@ PrefabInstance:
       value: Fullscreen Toggle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
 --- !u!114 &1006686590066941598 stripped
 MonoBehaviour:
@@ -13486,6 +13511,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 4841701496467714260}
     m_Modifications:
     - target: {fileID: 1631104592883507404, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
@@ -13605,6 +13631,9 @@ PrefabInstance:
       value: Controller Vibration Toggle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
 --- !u!114 &1751025657390226227 stripped
 MonoBehaviour:
@@ -13627,6 +13656,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 7802607609087294226}
     m_Modifications:
     - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
@@ -13742,6 +13772,9 @@ PrefabInstance:
       value: Historial Size Slider
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
 --- !u!224 &182787244501662337 stripped
 RectTransform:
@@ -13764,6 +13797,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 149747367153750802}
     m_Modifications:
     - target: {fileID: 1631104592883507404, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
@@ -13883,6 +13917,9 @@ PrefabInstance:
       value: VSync Toggle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
 --- !u!114 &2007010713627269113 stripped
 MonoBehaviour:
@@ -13905,6 +13942,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 3223796437698036331}
     m_Modifications:
     - target: {fileID: 1631104592883507404, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
@@ -14024,6 +14062,9 @@ PrefabInstance:
       value: Particles Toggle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
 --- !u!114 &2073331990218883515 stripped
 MonoBehaviour:
@@ -14046,6 +14087,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 7733129088797929333}
     m_Modifications:
     - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
@@ -14161,6 +14203,9 @@ PrefabInstance:
       value: Player Path Length Slider
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
 --- !u!114 &5540851456168174740 stripped
 MonoBehaviour:
@@ -14183,6 +14228,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 7640264224492656288}
     m_Modifications:
     - target: {fileID: 1631104592883507404, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
@@ -14302,6 +14348,9 @@ PrefabInstance:
       value: Device Vibration Toggle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
 --- !u!114 &5902443067510794806 stripped
 MonoBehaviour:
@@ -14324,6 +14373,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 8882915716260602763}
     m_Modifications:
     - target: {fileID: 1631104592883507404, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
@@ -14443,6 +14493,9 @@ PrefabInstance:
       value: Toggle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
 --- !u!224 &7830146375006760510 stripped
 RectTransform:
@@ -14454,6 +14507,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 6154138521549181990}
     m_Modifications:
     - target: {fileID: 3183825699254361493, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
@@ -14577,6 +14631,9 @@ PrefabInstance:
       value: Shake Slider
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6166c1239731e9f4da3143d320e0f03d, type: 3}
 --- !u!224 &5003573696904041674 stripped
 RectTransform:

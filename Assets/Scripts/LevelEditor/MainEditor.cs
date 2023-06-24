@@ -1449,6 +1449,8 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				Globals.loadingText = Globals.languages.GetField("loading.almost_done");
 				bool success = await LevelIO.Save(level);
 
+				await UniTask.Delay(1000);
+
 				saveCoroutine = null;
 
 				Globals.onLoad = false;
