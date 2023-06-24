@@ -61,7 +61,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 	}
 
 	[Serializable]
-	public class Worlds {
+	public sealed class Worlds {
 		public string name, uuid;
 		public SceneReference bossScene;
 		public GameScene[] scenes;
@@ -118,6 +118,58 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				if (data == null) return default;
 
 				return await AsyncJson.FromJson<Level>(data);
+			}
+
+
+			/// <summary>
+			/// Filters out invalid characters from a level or stage name.
+			/// </summary>
+			public static string FilterLevelName(string name)
+			{
+				// Verify if the user is being a smartass
+				if (string.IsNullOrEmpty(name) || string.IsNullOrWhiteSpace(name)) {
+					return "Unnamed";
+				}
+
+				// Remove unnecessary whitespace
+				name = name.Trim();
+
+				// Limit the name to 32 characters
+				if (name.Length > 32) {
+					name = name[..32];
+				}
+
+				return name;
+			}
+
+			/// <summary>
+			/// Filters out invalid characters from a directory name.
+			/// </summary>
+			public static string FilterDirectoryName(string name)
+			{
+				// Repeat the same as above
+				name = FilterLevelName(name);
+
+				// Remove invalid characters
+				#if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
+				string[] invalidChars = {
+					"<", ">", ":", "\"", "/", "\\", "|", "?", "*"
+				};
+				#else
+				string[] invalidChars = {
+					"/"
+				};
+				#endif
+
+				foreach (string c in invalidChars) {
+					name = name.Replace(c, "");
+				}
+
+				if (string.IsNullOrEmpty(name) || string.IsNullOrWhiteSpace(name)) {
+					return "Unnamed";
+				}
+
+				return name;
 			}
 		}
 	}
