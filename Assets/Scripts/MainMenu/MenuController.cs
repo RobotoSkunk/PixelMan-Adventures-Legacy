@@ -110,7 +110,7 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 
 
 		IEnumerator DoIntro() {
-			yield return new WaitForSeconds(2.5f);
+			yield return new WaitForSeconds(1f);
 			Globals.musicType = GameDirector.MusicClips.Type.MAIN_MENU;
 
 			yield return new WaitForSeconds(1.8f);

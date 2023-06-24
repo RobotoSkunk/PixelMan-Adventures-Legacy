@@ -90,7 +90,7 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 
 
 		private void Start() {
-			root = new(Files.Directories.User.levels);
+			root = new(Files.Directories.levels);
 			isBusy = false;
 
 			LoadPath(root.FullName);

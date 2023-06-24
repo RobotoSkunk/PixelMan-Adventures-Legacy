@@ -40,7 +40,7 @@ namespace RobotoSkunk {
 					_root "/storage/emulated/0/Games/PixelMan Adventures";
 #elif UNITY_STANDALONE_LINUX || UNITY_EDITOR_LINUX
 					string home = Environment.GetEnvironmentVariable("HOME");
-					_root = home + "/.local/share/PixelMan Adventures";
+					_root = Path.Join(home, "/.local/share/PixelMan Adventures");
 #else
 					string folder = "/My Games/PixelMan Adventures", special = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
@@ -56,40 +56,88 @@ namespace RobotoSkunk {
 				}
 			}
 
-			public static string userData = root + "/user-data.json", settings = root + "/settings.json";
-
-			public static class User {
-				public static string dir = root + "/user", levels = dir + "/levels", replays = dir + "/replays";
-			}
-			public static class Downloads {
-				public static string dir = root + "/downloads", levels = dir + "/levels", cache = dir + "/cache";
+			public static string home {
+				get => _root;
 			}
 
-			public static async UniTask Prepare() {
-				await UniTask.RunOnThreadPool(() => {
-					if (!Directory.Exists(root)) Directory.CreateDirectory(root);
 
-					if (!Directory.Exists(User.dir)) Directory.CreateDirectory(User.dir);
-					if (!Directory.Exists(User.levels)) Directory.CreateDirectory(User.levels);
-					if (!Directory.Exists(User.replays)) Directory.CreateDirectory(User.replays);
+			/// <summary>
+			/// Common user data like username, account ID, etc.
+			/// </summary>
+			public static readonly string userData = Path.Join(root, "/user-data.json");
 
-					if (!Directory.Exists(Downloads.dir)) Directory.CreateDirectory(Downloads.dir);
-					if (!Directory.Exists(Downloads.levels)) Directory.CreateDirectory(Downloads.levels);
-					if (!Directory.Exists(Downloads.cache)) Directory.CreateDirectory(Downloads.cache);
+			/// <summary>
+			/// Game settings file
+			/// </summary>
+			public static readonly string settings = Path.Join(root, "/settings.json");
 
-					if (!File.Exists(userData)) File.Create(userData);
-					if (!File.Exists(settings)) File.Create(settings);
+			/// <summary>
+			/// Downloaded levels
+			/// </summary>
+			public static readonly string downloads = Path.Join(root, "/downloads");
+
+			/// <summary>
+			/// All user's stored replays
+			/// </summary>
+			public static readonly string replays = Path.Join(root, "/replays");
+
+			/// <summary>
+			/// User's levels
+			/// </summary>
+			public static readonly string levels = Path.Join(root, "/levels");
+
+
+			public static async UniTask Prepare()
+			{
+				await UniTask.RunOnThreadPool(() =>
+				{
+					// If root doesn't exist, create it recursively
+
+					if (!Directory.Exists(root)) {
+						string[] dirs = root.Replace('\\', '/').Split('/');
+						string path = "";
+
+						foreach (string dir in dirs) {
+							path += dir + "/";
+							if (!Directory.Exists(path)) {
+								Directory.CreateDirectory(path);
+							}
+						}
+					}
+
+					string[] directories = {
+						downloads,
+						replays,
+						levels
+					};
+
+					string[] files = {
+						userData,
+						settings
+					};
+
+					foreach (string dir in directories) {
+						if (!Directory.Exists(dir)) {
+							Directory.CreateDirectory(dir);
+						}
+					}
+
+					foreach (string file in files) {
+						if (!File.Exists(file)) {
+							File.Create(file);
+						}
+					}
 				});
 			}
 		}
 
-		public static string B64ToStr(string data) {
+		public static string Base64ToString(string data) {
 			byte[] bits = Convert.FromBase64String(data);
 			string result = Encoding.ASCII.GetString(bits);
 			return result;
 		}
 
-		public static string StrToB64(string data) {
+		public static string StringToBase64(string data) {
 			byte[] bits = Encoding.ASCII.GetBytes(data);
 			string result = Convert.ToBase64String(bits);
 			return result;
