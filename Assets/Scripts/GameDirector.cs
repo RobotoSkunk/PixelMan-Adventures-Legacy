@@ -36,7 +36,7 @@ using TMPro;
 
 namespace RobotoSkunk.PixelMan
 {
-	public class GameDirector : MonoBehaviour
+	public sealed class GameDirector : MonoBehaviour
 	{
 		#region Variables
 		public bool testOnLoad = false;
@@ -233,7 +233,7 @@ namespace RobotoSkunk.PixelMan
 					Globals.settings.volume.master,
 					Globals.settings.volume.music,
 					Globals.settings.volume.fx,
-					Globals.settings.editor.undoLimit,
+					Globals.settings.editor.historialSize,
 					Globals.settings.editor.lineLength
 				};
 				langText.text = Globals.languages.GetCurrentLangName();

@@ -157,7 +157,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		Vector2 navSpeed, dragNavOrigin, cursorToWorld, resRefPnt;
 		float newZoom = 1f, zoomSpeed, msAlpha, rotHandle;
 		bool somePanelEnabled, wasMultiselecting, isOnTest, wasEditing, editorIsBusy = true;
-		uint undoIndex, undoLimit;
+		uint undoIndex;
 		int sid;
 		Coroutine inspectorCoroutine;
 		// GameObject[] players;
@@ -247,7 +247,6 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				panels[1].content.Add(tmp.button);
 			}
 
-			undoLimit = Globals.settings.editor.undoLimit;
 			undoIndex = 0;
 			ChangeInspectorSection(0);
 			UpdateButtons();
@@ -677,7 +676,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				undoRedo.RemoveRange(undoDiff, (int)undoIndex);
 
 				undoIndex = 0;
-			} else if (undoRedo.Count == undoLimit) undoRedo.RemoveAt(0);
+			} else if (undoRedo.Count == Globals.settings.editor.historialSize) undoRedo.RemoveAt(0);
 
 			undoRedo.Add(undoBuffer);
 			UpdateButtons();

@@ -35,7 +35,10 @@ namespace RobotoSkunk.PixelMan
 		[Serializable]
 		public struct IntelliNav
 		{
-			[Tooltip("When enabled, the script will find automatically some available selectable if selectable field is null.")]
+			[Tooltip(
+				"When enabled, the script will find automatically" +
+				"some available selectable if selectable field is null."
+			)]
 			public bool useAutomatic;
 			public Selectable selectable;
 			public Vector3 addRotation;
@@ -43,18 +46,44 @@ namespace RobotoSkunk.PixelMan
 	}
 
 
-
+	/// <summary>
+	/// A set of constants for the game.
+	/// </summary>
 	public static class Constants
 	{
+		/// <summary>
+		/// The maximum world size in X and Y axis.
+		/// </summary>
 		public const float worldLimit = 1000f;
+
+		/// <summary>
+		/// The impulse force of trampolines.
+		/// </summary>
 		public const float trampolineForce = 25f;
+
+		/// <summary>
+		/// The maximum velocity of the player.
+		/// </summary>
 		public const float maxVelocity = 40f;
+
+		/// <summary>
+		/// A simple constant to convert pixels to units.
+		/// </summary>
 		public const float pixelToUnit = 1f / 16f;
 
+		/// <summary>
+		/// The maximum range of sprite sorting in Infinite and -Infinite.
+		/// </summary>
 		public const int orderLimit = 3200;
+
+		/// <summary>
+		/// The maximum chunk loading size.
+		/// </summary>
 		public const int chunkSize = 32;
 
-
+		/// <summary>
+		/// The hypotenuse of the world.
+		/// </summary>
 		public static float worldHypotenuse
 		{
 			get {
@@ -64,14 +93,21 @@ namespace RobotoSkunk.PixelMan
 			}
 		}
 
+		/// <summary>
+		/// A set of constants IDs.
+		/// </summary>
 		public static class InternalIDs
 		{
 			public const uint player = 1;
 		}
 
+		/// <summary>
+		/// Converts static hexadecimal colors to Unity's Color class.
+		/// </summary>
 		public static class Colors
 		{
-			readonly static int __green = 0x52F540, __orange = 0xFF8836;
+			readonly static int __green = 0x52F540;
+			readonly static int __orange = 0xFF8836;
 
 
 			public static Color orange
@@ -88,51 +124,176 @@ namespace RobotoSkunk.PixelMan
 
 
 	// Globals class be like: https://i.imgur.com/lclhxpR.jpeg
+
+	/// <summary>
+	/// A set of global variables for the game.
+	/// </summary>
 	public static class Globals {
 		#region Common static variables
+
+		#region Boolean variables
 		/// <summary>
 		/// If true, the game is paused.
 		/// </summary>
 		public static bool onPause = true;
+
+		/// <summary>
+		/// Tells if the user is editing a field.
+		/// </summary>
 		public static bool onEditField = false;
+
+		/// <summary>
+		/// If true, the main menu should execute the intro animation.
+		/// </summary>
 		public static bool doIntro = true;
+
+		/// <summary>
+		/// Opens the settings menu.
+		/// </summary>
 		public static bool openSettings = false;
+
+		/// <summary>
+		/// If true, the game is loading a scene.
+		/// </summary>
 		public static bool onLoad = false;
+
+		/// <summary>
+		/// The player has got the coin?
+		/// </summary>
 		public static bool gotCoin = false;
+		#endregion
 
+		#region Unsigned integer variables
+		/// <summary>
+		/// The attempt counter.
+		/// </summary>
 		public static uint attempts = 0u;
+
+		/// <summary>
+		/// The respawn attempt counter.
+		/// </summary>
 		public static uint respawnAttempts = 0u;
+		#endregion
 
+		#region Float variables
+		/// <summary>
+		/// The game volume set by the game itself (for example transitions).
+		/// </summary>
 		public static float gmVolume = 1f;
+
+		/// <summary>
+		/// The camera's shake force.
+		/// </summary>
 		public static float shakeForce = 0f;
+
+		/// <summary>
+		/// The load progress of the scene or anything else. It's used by the loading screen.
+		/// </summary>
+		/// <remarks>
+		/// The value is between 0 and 1.
+		/// If the value is 0, the loading screen will display a generic loading bar.
+		/// </remarks>
 		public static float loadProgress = 0f;
+		#endregion
 
+		#region Integer variables
+		/// <summary>
+		/// The ID of the active checkpoint.
+		/// </summary>
 		public static int checkpointId = 0;
+
+		/// <summary>
+		/// The ID of the current selected button.
+		/// </summary>
 		public static int buttonSelected;
+
+		/// <summary>
+		/// The index of the main menu active section.
+		/// </summary>
 		public static int mainMenuSection = 0;
+		#endregion
 
+		#region String variables
+		/// <summary>
+		/// The whole credits text.
+		/// </summary>
+		/// <remarks>
+		/// This variable is temporary and only loaded once.
+		/// </remarks>
 		public static string creditsText;
+
+		/// <summary>
+		/// A text display for the loading screen.
+		/// </summary>
 		public static string loadingText;
+		#endregion
 
-
+		#region Spaguetti variables
+		/// <summary>
+		/// All available player characters.
+		/// </summary>
 		public static PlayerCharacters[] playerCharacters;
+
+		/// <summary>
+		/// The whole settings object.
+		/// </summary>
 		public static Settings settings = new();
+
+		/// <summary>
+		/// The whole player data object.
+		/// </summary>
 		public static PlayerData playerData = new();
 
+		/// <summary>
+		/// The coordinates of the respawn point.
+		/// </summary>
 		public static Vector2 respawnPoint;
+
+		/// <summary>
+		/// What is the current input type?
+		/// </summary>
 		public static InputType inputType;
+
+		/// <summary>
+		/// All the available objects for the game.
+		/// </summary>
 		public static List<InGameObject> objects;
+
+		/// <summary>
+		/// The director object of the game.
+		/// </summary>
 		public static GameDirector director;
-		// public static Dictionary<string, RSBehaviour> __behaviours = new();
 
+		/// <summary>
+		/// All the available languages in the game.
+		/// </summary>
 		public static Settings.Languages languages;
+		#endregion
 
 
+		/// <summary>
+		/// Editor's only variables.
+		/// </summary>
 		public static class Editor
 		{
-			public static bool snap = true, handleLocally = false;
+			/// <summary>
+			/// If true, all the objects will be snapped to the grid.
+			/// </summary>
+			public static bool snap = true;
 
+			/// <summary>
+			/// If true, all the selected objects transformations will be applied with their own pivot.
+			/// </summary>
+			public static bool handleLocally = false;
+
+			/// <summary>
+			/// The current's stage metadata.
+			/// </summary>
 			public static InternalUserScene currentScene;
+
+			/// <summary>
+			/// The current's level metadata.
+			/// </summary>
 			public static Level.UserMetadata currentLevel;
 		}
 		#endregion
@@ -144,17 +305,28 @@ namespace RobotoSkunk.PixelMan
 		static GameDirector.MusicClips.Type __musicType = GameDirector.MusicClips.Type.NONE;
 
 
+		/// <summary>
+		/// Tells the game that the files system is ready.
+		/// </summary>
+		/// <remarks>
+		/// This method is called by the <see cref="GameDirector"/> class once.
+		/// </remarks>
 		public static void SetFilesReady()
 		{
 			__filesReady = true;
 		}
 
+		/// <summary>
+		/// Is the files system ready?
+		/// </summary>
 		public static bool filesReady
 		{
 			get => __filesReady;
 		}
 
-
+		/// <summary>
+		/// Is the player dead?
+		/// </summary>
 		public static bool isDead
 		{
 			get => __isDead;
@@ -169,6 +341,9 @@ namespace RobotoSkunk.PixelMan
 			}
 		}
 
+		/// <summary>
+		/// The current music type.
+		/// </summary>
 		public static GameDirector.MusicClips.Type musicType
 		{
 			get => __musicType;
@@ -178,29 +353,46 @@ namespace RobotoSkunk.PixelMan
 			}
 		}
 
-
+		/// <summary>
+		/// The current music volume.
+		/// </summary>
 		public static float musicVolume { get => settings.volume.music * settings.volume.master * gmVolume; }
+
+		/// <summary>
+		/// The current FX volume.
+		/// </summary>
 		public static float fxVolume { get => settings.volume.fx * settings.volume.master; }
 
+		/// <summary>
+		/// The client's screen size.
+		/// </summary>
 		public static Vector2 screen { get => new(Screen.width, Screen.height); }
+
+		/// <summary>
+		/// The client's screen rectangle.
+		/// </summary>
 		public static Rect screenRect { get => new(Vector2.zero, screen); }
 		#endregion
 
 
+		/// <summary>
+		/// A set of settings for the game.
+		/// </summary>
 		[Serializable]
-		public class Settings
+		public sealed class Settings
 		{
 			public General general;
 			public Volume volume;
 			public Editor editor;
 
-			[Serializable] public class Volume
+			[Serializable] public sealed class Volume
 			{
-				[Range(0f, 1f)]
-				public float music = 1f, fx = 1f, master = 1f;
+				[Range(0f, 1f)] public float music = 1f;
+				[Range(0f, 1f)] public float fx = 1f;
+				[Range(0f, 1f)] public float master = 1f;
 			}
 
-			[Serializable] public class General
+			[Serializable] public sealed class General
 			{
 				public string lang = "en";
 				public float shakeStrenght = 0.5f;
@@ -255,31 +447,60 @@ namespace RobotoSkunk.PixelMan
 				}
 			}
 
-			[Serializable] public class Editor
+			[Serializable] public sealed class Editor
 			{
-				public uint undoLimit, lineLength = 500;
+				/// <summary>
+				/// The maximum size for the undo/redo history.
+				/// </summary>
+				public uint historialSize;
+
+				/// <summary>
+				/// The maximum points for the player's path.
+				/// </summary>
+				public uint lineLength = 500;
 			}
 
+
+			/// <summary>
+			/// Saves the current settings to the disk.
+			/// </summary>
 			public async UniTask Save()
 			{
 				string json = await AsyncJson.ToJson(settings);
 				await Files.WriteFile(Files.Directories.settings, json);
 			}
 
-
+			/// <summary>
+			/// Controls the language settings.
+			/// </summary>
 			[Serializable] public class Languages
 			{
+				public List<Properties.Values> available = new();
+				public List<Properties> properties = new();
+
+
+				/// <summary>
+				/// A set of properties for the language.
+				/// </summary>
 				[Serializable] public class Properties
 				{
+					[TextArea(1, 1)] public string field = "default.test";
+					public List<Values> values = new();
+	
+
+					/// <summary>
+					/// A set of values for the language.
+					/// </summary>
 					[Serializable] public class Values
 					{
 						public string code = "en";						
 						[TextArea(1, 5)] public string value = "Example";
 					}
 
-					[TextArea(1, 1)] public string field = "default.test";
-					public List<Values> values = new();
 
+					/// <summary>
+					/// Gets the translation of a field.
+					/// </summary>
 					public string GetField(string code)
 					{
 						Values _val = values.Find(m => m.code == code);
@@ -300,9 +521,10 @@ namespace RobotoSkunk.PixelMan
 					}
 				}
 
-				public List<Properties.Values> available = new();
-				public List<Properties> properties = new();
 
+				/// <summary>
+				/// Gets the current language code.
+				/// </summary>
 				string GetLang()
 				{
 					string _lang = "en";
@@ -318,6 +540,9 @@ namespace RobotoSkunk.PixelMan
 					return _lang;
 				}
 
+				/// <summary>
+				/// Gets the current language index.
+				/// </summary>
 				public int GetLanguageIndex(string code)
 				{
 					for (int i = 0; i < available.Count; i++) {
@@ -329,6 +554,9 @@ namespace RobotoSkunk.PixelMan
 					return 0;
 				}
 
+				/// <summary>
+				/// Gets the current language human-readable name.
+				/// </summary>
 				public string GetCurrentLangName()
 				{
 					string _lang = GetLang();
@@ -342,6 +570,9 @@ namespace RobotoSkunk.PixelMan
 					return "English";
 				}
 
+				/// <summary>
+				/// Gets the translation of a field.
+				/// </summary>
 				public string GetField(string fieldName)
 				{
 					Properties _prop = properties.Find(m => m.field.Trim() == fieldName.Trim());
@@ -353,6 +584,9 @@ namespace RobotoSkunk.PixelMan
 					return "[LANG_FIELD_ERROR]";
 				}
 
+				/// <summary>
+				/// Gets the translation of a field with arguments.
+				/// </summary>
 				public string GetField(string fieldName, string[] args)
 				{
 					Properties _prop = properties.Find(m => m.field == fieldName);
@@ -369,9 +603,9 @@ namespace RobotoSkunk.PixelMan
 
 					return "[LANG_ERROR]";
 				}
-
 			}
 		}
+
 
 		#region Non-Static classes and structs
 		[Serializable]
