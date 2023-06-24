@@ -30,9 +30,11 @@ using RobotoSkunk.PixelMan.LevelEditor;
 namespace RobotoSkunk.PixelMan
 {
 
-	namespace UI {
+	namespace UI
+	{
 		[Serializable]
-		public struct IntelliNav {
+		public struct IntelliNav
+		{
 			[Tooltip("When enabled, the script will find automatically some available selectable if selectable field is null.")]
 			public bool useAutomatic;
 			public Selectable selectable;
@@ -42,15 +44,19 @@ namespace RobotoSkunk.PixelMan
 
 
 
-	public static class Constants {
-		public const float worldLimit = 1000f,
-			trampolineForce = 25f,
-			maxVelocity = 40f,
-			pixelToUnit = 1f / 16f;
+	public static class Constants
+	{
+		public const float worldLimit = 1000f;
+		public const float trampolineForce = 25f;
+		public const float maxVelocity = 40f;
+		public const float pixelToUnit = 1f / 16f;
+
 		public const int orderLimit = 3200;
 		public const int chunkSize = 32;
 
-		public static float worldHypotenuse {
+
+		public static float worldHypotenuse
+		{
 			get {
 				float ww = worldLimit * worldLimit;
 
@@ -58,16 +64,23 @@ namespace RobotoSkunk.PixelMan
 			}
 		}
 
-		public static class InternalIDs {
+		public static class InternalIDs
+		{
 			public const uint player = 1;
 		}
-		public static class Colors {
+
+		public static class Colors
+		{
 			readonly static int __green = 0x52F540, __orange = 0xFF8836;
 
-			public static Color orange {
+
+			public static Color orange
+			{
 				get => new Color().FromInt(__orange);
 			}
-			public static Color green {
+
+			public static Color green
+			{
 				get => new Color().FromInt(__green);
 			}
 		}
@@ -86,7 +99,6 @@ namespace RobotoSkunk.PixelMan
 		public static bool openSettings = false;
 		public static bool onLoad = false;
 		public static bool gotCoin = false;
-		public static bool loadedFiles = false;
 
 		public static uint attempts = 0u;
 		public static uint respawnAttempts = 0u;
@@ -116,7 +128,8 @@ namespace RobotoSkunk.PixelMan
 		public static Settings.Languages languages;
 
 
-		public static class Editor {
+		public static class Editor
+		{
 			public static bool snap = true, handleLocally = false;
 
 			public static InternalUserScene currentScene;
@@ -126,10 +139,25 @@ namespace RobotoSkunk.PixelMan
 
 		#region Setters and Getters
 		static bool __isDead = false;
+		static bool __filesReady = false;
+
 		static GameDirector.MusicClips.Type __musicType = GameDirector.MusicClips.Type.NONE;
 
-		public static bool isDead {
-			get { return __isDead; }
+
+		public static void SetFilesReady()
+		{
+			__filesReady = true;
+		}
+
+		public static bool filesReady
+		{
+			get => __filesReady;
+		}
+
+
+		public static bool isDead
+		{
+			get => __isDead;
 			set {
 				if (value && !__isDead) {
 					GameEventsHandler.InvokePlayerDeath();
@@ -141,8 +169,9 @@ namespace RobotoSkunk.PixelMan
 			}
 		}
 
-		public static GameDirector.MusicClips.Type musicType {
-			get { return __musicType; }
+		public static GameDirector.MusicClips.Type musicType
+		{
+			get => __musicType;
 			set {
 				if (value != __musicType) GeneralEventsHandler.ChangeMusic(value);
 				__musicType = value;
@@ -159,16 +188,20 @@ namespace RobotoSkunk.PixelMan
 
 
 		[Serializable]
-		public class Settings {
+		public class Settings
+		{
 			public General general;
 			public Volume volume;
 			public Editor editor;
 
-			[Serializable] public class Volume {
+			[Serializable] public class Volume
+			{
 				[Range(0f, 1f)]
 				public float music = 1f, fx = 1f, master = 1f;
 			}
-			[Serializable] public class General {
+
+			[Serializable] public class General
+			{
 				public string lang = "en";
 				public float shakeStrenght = 0.5f;
 				public Options options;
@@ -184,45 +217,62 @@ namespace RobotoSkunk.PixelMan
 					DebugMode = 1 << 5
 				}
 
-				public bool enableDeviceVibration {
+
+				public bool enableDeviceVibration
+				{
 					get => (options & Options.EnableDeviceVibration) == Options.EnableDeviceVibration;
 					set => options = (options & ~Options.EnableDeviceVibration) | (value ? Options.EnableDeviceVibration : 0);
 				}
-				public bool enableControllerVibration {
+
+				public bool enableControllerVibration
+				{
 					get => (options & Options.EnableControllerVibration) == Options.EnableControllerVibration;
 					set => options = (options & ~Options.EnableControllerVibration) | (value ? Options.EnableControllerVibration : 0);
 				}
-				public bool enableParticles {
+
+				public bool enableParticles
+				{
 					get => (options & Options.EnableParticles) == Options.EnableParticles;
 					set => options = (options & ~Options.EnableParticles) | (value ? Options.EnableParticles : 0);
 				}
-				public bool enableVSync {
+
+				public bool enableVSync
+				{
 					get => (options & Options.EnableVSync) == Options.EnableVSync;
 					set => options = (options & ~Options.EnableVSync) | (value ? Options.EnableVSync : 0);
 				}
-				public bool enableFullscreen {
+
+				public bool enableFullscreen
+				{
 					get => (options & Options.EnableFullscreen) == Options.EnableFullscreen;
 					set => options = (options & ~Options.EnableFullscreen) | (value ? Options.EnableFullscreen : 0);
 				}
 
-				public bool debugMode {
+				public bool debugMode
+				{
 					get => (options & Options.DebugMode) == Options.DebugMode;
 					set => options = (options & ~Options.DebugMode) | (value ? Options.DebugMode : 0);
 				}
 			}
-			[Serializable] public class Editor {
+
+			[Serializable] public class Editor
+			{
 				public uint undoLimit, lineLength = 500;
 			}
 
-			public async UniTask Save() {
+			public async UniTask Save()
+			{
 				string json = await AsyncJson.ToJson(settings);
 				await Files.WriteFile(Files.Directories.settings, json);
 			}
 
 
-			[Serializable] public class Languages {
-				[Serializable] public class Properties {
-					[Serializable] public class Values {
+			[Serializable] public class Languages
+			{
+				[Serializable] public class Properties
+				{
+					[Serializable] public class Values
+					{
 						public string code = "en";						
 						[TextArea(1, 5)] public string value = "Example";
 					}
@@ -230,14 +280,21 @@ namespace RobotoSkunk.PixelMan
 					[TextArea(1, 1)] public string field = "default.test";
 					public List<Values> values = new();
 
-					public string GetField(string code) {
+					public string GetField(string code)
+					{
 						Values _val = values.Find(m => m.code == code);
-						if (_val != null) return _val.value;
+
+						if (_val != null) {
+							return _val.value;
+						}
+
 
 						string _defCode = code.Split('-')[0];
 						Values _secondTry = values.Find(m => m.code.StartsWith(_defCode));
 
-						if (_secondTry != null) return _secondTry.value;
+						if (_secondTry != null) {
+							return _secondTry.value;
+						}
 
 						return "[LANG_DEF_ERROR]";
 					}
@@ -246,46 +303,66 @@ namespace RobotoSkunk.PixelMan
 				public List<Properties.Values> available = new();
 				public List<Properties> properties = new();
 
-				string GetLang() {
+				string GetLang()
+				{
 					string _lang = "en";
 
-					if (settings != null) {
-						if (settings.general != null)
-							_lang = settings.general.lang;
+					if (settings != null && settings.general != null) {
+						_lang = settings.general.lang;
 					}
 
-					if (string.IsNullOrEmpty(_lang)) _lang = "en";
+					if (string.IsNullOrEmpty(_lang)) {
+						_lang = "en";
+					}
+
 					return _lang;
 				}
 
-				public int GetLanguageIndex(string code) {
-					for (int i = 0; i < available.Count; i++)
-						if (available[i].code == code) return i;
+				public int GetLanguageIndex(string code)
+				{
+					for (int i = 0; i < available.Count; i++) {
+						if (available[i].code == code) {
+							return i;
+						}
+					}
 
 					return 0;
 				}
-				public string GetCurrentLangName() {
+
+				public string GetCurrentLangName()
+				{
 					string _lang = GetLang();
-					for (int i = 0; i < available.Count; i++)
-						if (available[i].code == _lang) return available[i].value;
+
+					for (int i = 0; i < available.Count; i++) {
+						if (available[i].code == _lang) {
+							return available[i].value;
+						}
+					}
 
 					return "English";
 				}
 
-				public string GetField(string fieldName) {
+				public string GetField(string fieldName)
+				{
 					Properties _prop = properties.Find(m => m.field.Trim() == fieldName.Trim());
-					if (_prop != null) return _prop.GetField(GetLang());
+
+					if (_prop != null) {
+						return _prop.GetField(GetLang());
+					}
 
 					return "[LANG_FIELD_ERROR]";
 				}
-				public string GetField(string fieldName, string[] args) {
+
+				public string GetField(string fieldName, string[] args)
+				{
 					Properties _prop = properties.Find(m => m.field == fieldName);
 
 					if (_prop != null) {
 						string tmp = _prop.GetField(GetLang());
 
-						for (int i = 0; i < args.Length; i++)
+						for (int i = 0; i < args.Length; i++) {
 							tmp = tmp.Replace($"{{{i}}}", args[i]);
+						}
 
 						return tmp;
 					}
@@ -298,25 +375,34 @@ namespace RobotoSkunk.PixelMan
 
 		#region Non-Static classes and structs
 		[Serializable]
-		public class PlayerData {
-			public string displayName = "Player", accessToken = "";
-			// public Color color = Color.white;
-			public uint color = 0xFFFFFF, skinIndex = 0u;
+		public class PlayerData
+		{
+			public string displayName = "Player";
+			public string accessToken = "";
+
+			public uint color = 0xFFFFFF;
+			public uint skinIndex = 0u;
+
 			public int fun = 0;
 
-			public Color Color {
+
+			public Color Color
+			{
 				get => new Color().FromInt((int)color);
 				set => color = (uint)value.ToInt();
 			}
 
-			public async UniTask Save() {
+			public async UniTask Save()
+			{
 				string json = await AsyncJson.ToJson(playerData);
 				await Files.WriteFile(Files.Directories.userData, json);
 			}
 		}
 
+
 		[Serializable]
-		public struct PlayerCharacters {
+		public struct PlayerCharacters
+		{
 			public string name;
 			public Sprite display;
 			public RuntimeAnimatorController controller;

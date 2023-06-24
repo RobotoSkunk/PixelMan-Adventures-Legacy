@@ -194,7 +194,7 @@ namespace RobotoSkunk.PixelMan
 			#endregion
 
 
-
+			#region Load user data
 			UniTask.Void(async () =>
 			{
 				// Load settings and user data
@@ -210,6 +210,10 @@ namespace RobotoSkunk.PixelMan
 				if (!string.IsNullOrEmpty(userDataJson)) {
 					Globals.playerData = await AsyncJson.FromJson<Globals.PlayerData>(userDataJson);
 				}
+
+
+				// Tell the rest of the game that the files are ready
+				Globals.SetFilesReady();
 
 
 				// Set values
@@ -234,12 +238,19 @@ namespace RobotoSkunk.PixelMan
 				};
 				langText.text = Globals.languages.GetCurrentLangName();
 
-				for (int i = 0; i < optionsToggles.Length; i++)
-					if (i < _options.Length) optionsToggles[i].SetIsOnWithoutNotify(_options[i]);
+				for (int i = 0; i < optionsToggles.Length; i++) {
+					if (i < _options.Length) {
+						optionsToggles[i].SetIsOnWithoutNotify(_options[i]);
+					}
+				}
 
-				for (int i = 0; i < optionsSliders.Length; i++)
-					if (i < _sliders.Length) optionsSliders[i].SetValueWithoutNotify(_sliders[i]);
+				for (int i = 0; i < optionsSliders.Length; i++) {
+					if (i < _sliders.Length) {
+						optionsSliders[i].SetValueWithoutNotify(_sliders[i]);
+					}
+				}
 			});
+			#endregion
 
 			OpenPanel(0);
 

@@ -17,7 +17,10 @@
 */
 
 using System.Collections.Generic;
+using System.Collections;
+
 using Cysharp.Threading.Tasks;
+
 using System.IO.Compression;
 using System.IO;
 
@@ -93,7 +96,7 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 			root = new(Files.Directories.levels);
 			isBusy = false;
 
-			LoadPath(root.FullName);
+			StartCoroutine(WaitForDirectoriesPreparation());
 		}
 
 		private void Update() {
@@ -218,6 +221,7 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 				isBusy = false;
 			});
 		}
+
 		public void ForceLoadPath(string path) {
 			current = null;
 			LoadPath(path);
@@ -287,41 +291,6 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 			ForceReload();
 		}
 
-
-
-		// public void CheckFolderName(string name) {
-		// 	string[] invalidChars = new string[] { "\\", "/", ":", "*", "?", "\"", "<", ">", "|" };
-		// 	name = name.Trim();
-
-		// 	if (name.Length == 0 || name.Length > 200) {
-		// 		folderButton.interactable = false;
-		// 		folderInput.color = Color.red;
-		// 		return;
-		// 	}
-
-		// 	foreach (string invalidChar in invalidChars)
-		// 		if (name.Contains(invalidChar)) {
-		// 			folderButton.interactable = false;
-		// 			folderInput.color = Color.red;
-		// 			return;
-		// 		}
-
-		// 	folderButton.interactable = true;
-		// 	folderInput.color = Color.white;
-		// }
-		// public void CheckLevelName(string name) {
-			// name = name.Trim();
-
-			// if (name.Length == 0 || name.Length > 32) {
-			// 	levelButton.interactable = false;
-			// 	levelInput.color = Color.red;
-			// 	return;
-			// }
-
-			// levelButton.interactable = true;
-			// levelInput.color = Color.white;
-		// }
-
 		public void TogglePopup(bool toggle) => popup.open = toggle;
 		public void SetPopupIndex(int index) => popup.index = index;
 
@@ -340,5 +309,16 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 
 			LoadPath(current.FullName);
 		}
+
+
+		#region Coroutines
+		IEnumerator WaitForDirectoriesPreparation() {
+			while (!Globals.filesReady) {
+				yield return new WaitForEndOfFrame();
+			}
+
+			LoadPath(root.FullName);
+		}
+		#endregion
 	}
 }
