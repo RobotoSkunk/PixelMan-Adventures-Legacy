@@ -109,7 +109,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 			public static async UniTask WriteLevel(string path, Level level, string uuid) {
 				string json = await AsyncJson.ToJson(level);
-				await Files.CreateFileToZip(path, uuid + ".json");
+				Files.CreateFileToZip(path, uuid + ".json");
 				await Files.WriteFileToZip(path, uuid + ".json", json);
 			}
 

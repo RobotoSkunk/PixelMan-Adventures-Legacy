@@ -34,7 +34,6 @@ using Eflatun.SceneReference;
 using TMPro;
 
 
-using RobotoSkunk;
 
 
 namespace RobotoSkunk.PixelMan {
@@ -473,7 +472,26 @@ namespace RobotoSkunk.PixelMan {
 			}
 			#endregion
 
-			GeneralEventsHandler.SettingsLoaded += () => {
+
+
+			UniTask.Void(async () =>
+			{
+				// Load settings and user data
+				await Files.Directories.Prepare();
+
+				string settingsJson = await Files.ReadFile(Files.Directories.settings);
+				string userDataJson = await Files.ReadFile(Files.Directories.userData);
+
+				if (!string.IsNullOrEmpty(settingsJson)) {
+					Globals.settings = await AsyncJson.FromJson<Globals.Settings>(settingsJson);
+				}
+
+				if (!string.IsNullOrEmpty(userDataJson)) {
+					Globals.playerData = await AsyncJson.FromJson<Globals.PlayerData>(userDataJson);
+				}
+
+
+				// Set values
 				SetLanguage(Globals.languages.GetLanguageIndex(Globals.settings.general.lang));
 				SetFullScreenInternal(Globals.settings.general.enableFullscreen);
 				SetVSyncInternal(Globals.settings.general.enableVSync);
@@ -500,7 +518,8 @@ namespace RobotoSkunk.PixelMan {
 
 				for (int i = 0; i < optionsSliders.Length; i++)
 					if (i < _sliders.Length) optionsSliders[i].SetValueWithoutNotify(_sliders[i]);
-			};
+			});
+
 			OpenPanel(0);
 
 			// Clear memory

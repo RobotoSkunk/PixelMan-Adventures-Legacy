@@ -19,19 +19,6 @@ namespace RobotoSkunk.PixelMan {
 				animator.SetBool("Loaded", false);
 				await UniTask.Delay(1000);
 
-
-				string settingsJson = await Files.ReadFile(Files.Directories.settings);
-				string userDataJson = await Files.ReadFile(Files.Directories.userData);
-
-				if (!string.IsNullOrEmpty(settingsJson))
-					Globals.settings = await AsyncJson.FromJson<Globals.Settings>(settingsJson);
-
-				if (!string.IsNullOrEmpty(userDataJson))
-					Globals.playerData = await AsyncJson.FromJson<Globals.PlayerData>(userDataJson);
-
-				
-				GeneralEventsHandler.InvokeSettingsLoaded();
-
 				animator.SetBool("Loaded", true);
 				await UniTask.Delay(1000);
 

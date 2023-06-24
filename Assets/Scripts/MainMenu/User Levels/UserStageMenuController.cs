@@ -99,7 +99,7 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 
 				await SaveAsync();
 				LoadLevels();
-				await Files.DeleteFileFromZip(scene.file.FullName, Globals.Editor.currentLevel.uuid + ".json");
+				Files.DeleteFileFromZip(scene.file.FullName, Globals.Editor.currentLevel.uuid + ".json");
 			});
 		}
 		public void MoveLevelUp() {
