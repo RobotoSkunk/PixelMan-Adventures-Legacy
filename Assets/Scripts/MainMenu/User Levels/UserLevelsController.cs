@@ -237,10 +237,10 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 			});
 		}
 
+
 		public void CreateLevel(string name) {
 			UniTask.Void(async () => {
-				name = name.Trim();
-				if (name.Length == 0 || name.Length > 32) return;
+				name = LevelFileSystem.FilterLevelName(name);
 
 				UserScene scene = new() {
 					createdAt = RSTime.ToUnixTimestamp(System.DateTime.Now),
@@ -265,24 +265,21 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 				ForceReload();
 			});
 		}
+
 		public void CreateFolder(string name) {
-			string[] invalidChars = new string[] { "\\", "/", ":", "*", "?", "\"", "<", ">", "|" };
-			name = name.Trim();
-
-			if (name.Length == 0 || name.Length > 200) return;
-			foreach (string invalidChar in invalidChars)
-				if (name.Contains(invalidChar)) return;
-
+			name = LevelFileSystem.FilterDirectoryName(name);
 
 			Directory.CreateDirectory(Path.Combine(current.FullName, name));
 			ForceReload();
 		}
+
 		public void DeleteFolder() {
 			if (currentFolderTemplate == null) return;
 
 			Directory.Delete(currentFolderTemplate.info.FullName, true);
 			ForceReload();
 		}
+
 		public void DeleteLevel() {
 			if (currentLevelTemplate == null) return;
 
@@ -292,38 +289,38 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 
 
 
-		public void CheckFolderName(string name) {
-			string[] invalidChars = new string[] { "\\", "/", ":", "*", "?", "\"", "<", ">", "|" };
-			name = name.Trim();
+		// public void CheckFolderName(string name) {
+		// 	string[] invalidChars = new string[] { "\\", "/", ":", "*", "?", "\"", "<", ">", "|" };
+		// 	name = name.Trim();
 
-			if (name.Length == 0 || name.Length > 200) {
-				folderButton.interactable = false;
-				folderInput.color = Color.red;
-				return;
-			}
+		// 	if (name.Length == 0 || name.Length > 200) {
+		// 		folderButton.interactable = false;
+		// 		folderInput.color = Color.red;
+		// 		return;
+		// 	}
 
-			foreach (string invalidChar in invalidChars)
-				if (name.Contains(invalidChar)) {
-					folderButton.interactable = false;
-					folderInput.color = Color.red;
-					return;
-				}
+		// 	foreach (string invalidChar in invalidChars)
+		// 		if (name.Contains(invalidChar)) {
+		// 			folderButton.interactable = false;
+		// 			folderInput.color = Color.red;
+		// 			return;
+		// 		}
 
-			folderButton.interactable = true;
-			folderInput.color = Color.white;
-		}
-		public void CheckLevelName(string name) {
-			name = name.Trim();
+		// 	folderButton.interactable = true;
+		// 	folderInput.color = Color.white;
+		// }
+		// public void CheckLevelName(string name) {
+			// name = name.Trim();
 
-			if (name.Length == 0 || name.Length > 32) {
-				levelButton.interactable = false;
-				levelInput.color = Color.red;
-				return;
-			}
+			// if (name.Length == 0 || name.Length > 32) {
+			// 	levelButton.interactable = false;
+			// 	levelInput.color = Color.red;
+			// 	return;
+			// }
 
-			levelButton.interactable = true;
-			levelInput.color = Color.white;
-		}
+			// levelButton.interactable = true;
+			// levelInput.color = Color.white;
+		// }
 
 		public void TogglePopup(bool toggle) => popup.open = toggle;
 		public void SetPopupIndex(int index) => popup.index = index;
