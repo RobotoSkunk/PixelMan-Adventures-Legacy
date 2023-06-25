@@ -226,7 +226,8 @@ namespace RobotoSkunk.PixelMan
 					Globals.settings.general.enableVSync,
 					Globals.settings.general.enableDeviceVibration,
 					Globals.settings.general.enableControllerVibration,
-					Globals.settings.general.enableParticles
+					Globals.settings.general.enableParticles,
+					Globals.settings.general.debugMode
 				};
 				float[] _sliders = {
 					Globals.settings.general.shakeStrenght,
@@ -265,32 +266,46 @@ namespace RobotoSkunk.PixelMan
 			#region Suscribe events
 			GeneralEventsHandler.PlayOnBG += (AudioClip clip) => bgAudio.PlayOneShot(clip);
 
-			GeneralEventsHandler.ChgMusic += (MusicClips.Type type) => {
+			GeneralEventsHandler.ChgMusic += (MusicClips.Type type) =>
+			{
 				MusicClips mc = musicClips.Find(m => m.type == type);
 
 				if (mc != null) {
-					if (musicRoutine != null) StopCoroutine(musicRoutine);
+					if (musicRoutine != null) {
+						StopCoroutine(musicRoutine);
+					}
+
 					musicRoutine = StartCoroutine(ChangeMusic(mc.GetClip()));
 				}
 			};
 
-			GeneralEventsHandler.ShakeFx += (float __force, float __time) => {
-				if (shakeRoutine != null) StopCoroutine(shakeRoutine);
-					shakeRoutine = StartCoroutine(ShakeEffect(__force, __time));
+			GeneralEventsHandler.ShakeFx += (float __force, float __time) =>
+			{
+				if (shakeRoutine != null) {
+					StopCoroutine(shakeRoutine);
+				}
+
+				shakeRoutine = StartCoroutine(ShakeEffect(__force, __time));
 			};
 
-			GeneralEventsHandler.SceneChanged += (SceneReference scene) => {
-				if (Globals.onLoad) return;
-				if (!scene.IsSafeToUse) return;
+			GeneralEventsHandler.SceneChanged += (SceneReference scene) =>
+			{
+				if (Globals.onLoad) {
+					return;
+				}
+				if (!scene.IsSafeToUse) {
+					return;
+				}
 
 				Globals.onLoad = true;
 				Globals.loadProgress = 0f;
 				loadDelta = waitDelta = 0f;
 
 				int rnd = UnityEngine.Random.Range(1, 7);
-				Globals.loadingText = Globals.languages.GetField("loading.phrase." + rnd, new string[] { Environment.UserName });
+				Globals.loadingText = Globals.languages.GetField("loading.phrase." + rnd, Environment.UserName);
 
-				UniTask.Void(async () => {
+				UniTask.Void(async () =>
+				{
 					await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
 
 					await SceneManager.LoadSceneAsync(scene.BuildIndex);
@@ -309,23 +324,33 @@ namespace RobotoSkunk.PixelMan
 			#endregion
 		}
 
-		private void Update() {
+		private void Update()
+		{
 			fps = RSTime.fps;
-			if (!onMusicFade) musicAudio.volume = Globals.musicVolume;
+			if (!onMusicFade) {
+				musicAudio.volume = Globals.musicVolume;
+			}
 
+			#region Configuration panels
 			openDelta = Mathf.Lerp(openDelta, (!Globals.openSettings).ToInt(), 0.2f * RSTime.delta);
 
 			confPanels.SetActive(openDelta < 0.99f);
 			confPanels[0].anchoredPosition = new(-openDelta * (confPanels[0].rect.width + 10), 0);
 			confPanels[1].anchoredPosition = new(openDelta * (confPanels[1].rect.width + 10), 0);
+			#endregion
 
 
+			#region Loading screen
 			if (Globals.onLoad) {
-				if (loadingText.text != Globals.loadingText) loadingText.text = Globals.loadingText;
+				if (loadingText.text != Globals.loadingText) {
+					loadingText.text = Globals.loadingText;
+				}
 
 				if (Globals.loadProgress == 0f) {
 					waitDelta += Time.deltaTime * loadingBarSpeed;
-					if (waitDelta >= 360f) waitDelta = 0f;
+					if (waitDelta >= 360f) {
+						waitDelta = 0f;
+					}
 
 					float delta = Mathf.Sin(waitDelta * Mathf.Deg2Rad);
 					loadingBar.anchoredPosition = new(delta * loadingBar.rect.size.x, 0);
@@ -340,24 +365,32 @@ namespace RobotoSkunk.PixelMan
 			loadingCanvas.gameObject.SetActive(coversDelta < 0.99f);
 			upperCover.anchoredPosition = 1.5f * new Vector2(0, upperCover.rect.height * coversDelta);
 			lowerCover.anchoredPosition = 1.5f * new Vector2(0, -lowerCover.rect.height * coversDelta);
-			
+			#endregion
 		}
 
-		private void OnGUI() {
-			if (!Globals.settings.general.debugMode) return;
+		private void OnGUI()
+		{
+			if (!Globals.settings.general.debugMode) {
+				return;
+			}
 
 			guiRect = GUI.Window(-1, guiRect, DebugWindow, "Debugger");
 		}
 
-		void DebugWindow(int id) {
-			GUILayout.Label($"<b>FPS:</b> {fps}\n" +
-				$"<b>Real FPS:</b> {RSTime.realFps}\n" +
-				$"<b>Uptime</b>: {Time.realtimeSinceStartup}");
-			GUI.DragWindow(new Rect(0, 0, Screen.width * 2, Screen.height * 2));
+		void DebugWindow(int id)
+		{
+			GUILayout.Label(string.Concat(
+				"<b>FPS:</b> ", fps, $"\n",
+				"<b>Real FPS:</b> ", RSTime.realFps, $"\n",
+				"<b>Uptime</b>: ", Time.realtimeSinceStartup
+			));
+
+			GUI.DragWindow(Globals.screenRect);
 		}
 
 
-		void SetVibration(float leftMotor, float rightMotor) {
+		void SetVibration(float leftMotor, float rightMotor)
+		{
 			if (Globals.settings.general.enableControllerVibration) {
 				foreach (Gamepad pad in Gamepad.all) {
 					pad.SetMotorSpeeds(leftMotor, rightMotor);
@@ -367,88 +400,128 @@ namespace RobotoSkunk.PixelMan
 
 
 		#region Settings methods
-		public void SetFullscreen(bool value) {
+		public void SetFullscreen(bool value)
+		{
 			Globals.settings.general.enableFullscreen = value;
 			SetFullScreenInternal(value);
 			SaveSettingsMiddleware();
 		}
-		public void SetVSync(bool value) {
+
+		public void SetVSync(bool value)
+		{
 			SetVSyncInternal(value);
 			SaveSettingsMiddleware();
 		}
-		public void SetDeviceVibration(bool value) {
+
+		public void SetDeviceVibration(bool value)
+		{
 			Globals.settings.general.enableDeviceVibration = value;
 			SaveSettingsMiddleware();
 		}
-		public void SetControllerVibration(bool value) {
+
+		public void SetControllerVibration(bool value)
+		{
 			Globals.settings.general.enableControllerVibration = value;
 			SaveSettingsMiddleware();
 		}
-		public void SetParticles(bool value) {
+
+		public void SetParticles(bool value)
+		{
 			Globals.settings.general.enableParticles = value;
 			SaveSettingsMiddleware();
 		}
-		public void SetDebugMode(bool value) {
+
+		public void SetDebugMode(bool value)
+		{
 			Globals.settings.general.debugMode = value;
 			SaveSettingsMiddleware();
 		}
 
 
-		public void SetShakeStrenght(float value) {
+		public void SetShakeStrenght(float value)
+		{
 			Globals.settings.general.shakeStrenght = value;
 			SaveSettingsMiddleware();
 		}
-		public void SetMasterVolume(float value) {
+
+		public void SetMasterVolume(float value)
+		{
 			Globals.settings.volume.master = value;
 			SaveSettingsMiddleware();
 		}
-		public void SetMusicVolume(float value) {
+
+		public void SetMusicVolume(float value)
+		{
 			Globals.settings.volume.music = value;
 			SaveSettingsMiddleware();
 		}
-		public void SetFxVolume(float value) {
+
+		public void SetFxVolume(float value)
+		{
 			Globals.settings.volume.fx = value;
 			SaveSettingsMiddleware();
 		}
 
 
-		public void OpenPanel(int i) {
-			for (int j = 0; j < confSections.Length; j++) confSections[j].SetActive(j == i);
+		public void OpenPanel(int i)
+		{
+			for (int j = 0; j < confSections.Length; j++) {
+				confSections[j].SetActive(j == i);
+			}
+
 			optionsScrollRect.content.anchoredPosition = new(optionsScrollRect.content.anchoredPosition.x, -50);
 		}
+
 		public void ToggleSettings(bool value) => Globals.openSettings = value;
 
 
-		public void SetLanguage(int i) {
+		public void SetLanguage(int i)
+		{
 			int current = Globals.languages.GetLanguageIndex(Globals.settings.general.lang);
-			
-			current += i;
-			if (current < 0) current = Globals.languages.available.Count - 1;
-			else if (current >= Globals.languages.available.Count) current = 0;
+			current += i;			
+
+			if (current < 0) {
+				current = Globals.languages.available.Count - 1;
+
+			} else if (current >= Globals.languages.available.Count) {
+				current = 0;
+			}
 
 			Globals.settings.general.lang = Globals.languages.available[current].code;
 			langText.text = Globals.languages.GetCurrentLangName();
-			Events.GeneralEventsHandler.InvokeLanguageChanged();
+			GeneralEventsHandler.InvokeLanguageChanged();
 		}
 
-		public void SaveSettingsMiddleware() {
-			if (saveRoutine != null) StopCoroutine(saveRoutine);
+		public void SaveSettingsMiddleware()
+		{
+			if (saveRoutine != null) {
+				StopCoroutine(saveRoutine);
+			}
+
 			saveRoutine = StartCoroutine(SaveSettings());
 		}
 
+
 		public void SetVSyncInternal(bool value) => QualitySettings.vSyncCount = value.ToInt();
+
 		public void SetFullScreenInternal(bool value) {
 			Screen.fullScreen = value;
-			if (value) Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, true);
+			if (value) {
+				Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, true);
+			}
 		}
 		#endregion
 
 
 
 		#region Coroutines
-		IEnumerator ShakeEffect(float __force, float __time) {
+		IEnumerator ShakeEffect(float __force, float __time)
+		{
 			Globals.shakeForce = Mathf.Clamp01(__force * Globals.settings.general.shakeStrenght);
-			if (Globals.settings.general.enableDeviceVibration) Device.Vibrate((long)(__time * 1000f));
+			if (Globals.settings.general.enableDeviceVibration) {
+				Device.Vibrate((long)(__time * 1000f));
+			}
+
 			SetVibration(__force, __force);
 
 			yield return new WaitForSeconds(__time);
@@ -457,23 +530,29 @@ namespace RobotoSkunk.PixelMan
 			Globals.shakeForce = 0f;
 		}
 
-		IEnumerator ResetObjects() {
+		IEnumerator ResetObjects()
+		{
 			float time = 1f;
 
 			while (time > 0) {
-				if (!Globals.onPause)
+				if (!Globals.onPause) {
 					time -= Time.fixedDeltaTime;
+				}
 
 				yield return new WaitForFixedUpdate();
 			}
 
 			Globals.isDead = false;
 
-			if (Globals.respawnAttempts > 0) GameEventsHandler.InvokeBackToCheckpoint();
-			else GameEventsHandler.InvokeResetObject();
+			if (Globals.respawnAttempts > 0) {
+				GameEventsHandler.InvokeBackToCheckpoint();
+			} else {
+				GameEventsHandler.InvokeResetObject();
+			}
 		}
 
-		IEnumerator ChangeMusic(AudioClip __clip) {
+		IEnumerator ChangeMusic(AudioClip __clip)
+		{
 			onMusicFade = true;
 
 			if (musicAudio.clip != null) {
@@ -500,10 +579,13 @@ namespace RobotoSkunk.PixelMan
 			onMusicFade = false;
 		}
 		
-		IEnumerator SaveSettings() {
+		IEnumerator SaveSettings()
+		{
 			yield return new WaitForSeconds(0.5f);
 
-			UniTask.Void(async () => {
+
+			UniTask.Void(async () =>
+			{
 				await Globals.settings.Save();
 
 				saveRoutine = null;
@@ -513,12 +595,13 @@ namespace RobotoSkunk.PixelMan
 
 
 
-		public void OnControlsChanged(PlayerInput obj) {
+		public void OnControlsChanged(PlayerInput obj)
+		{
 			Globals.inputType = obj.currentControlScheme switch {
 				"Gamepad" => InputType.Gamepad,
 				"Keyboard&Mouse" => InputType.KeyboardAndMouse,
 				"Touch" => InputType.Touch,
-				_ => InputType.KeyboardAndMouse,
+				_ => InputType.KeyboardAndMouse
 			};
 
 			Debug.Log(Globals.inputType);

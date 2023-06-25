@@ -4077,7 +4077,7 @@ MonoBehaviour:
       fx: 1
       master: 1
     editor:
-      undoLimit: 250
+      historialSize: 0
       lineLength: 500
   playerData:
     displayName: Player
@@ -5252,6 +5252,7 @@ MonoBehaviour:
   - {fileID: 5902443067510794806}
   - {fileID: 1751025657390226227}
   - {fileID: 2073331990218883515}
+  - {fileID: 6502847804697374765}
   optionsSliders:
   - {fileID: 5878268301281661451}
   - {fileID: 4815448278259091785}
@@ -14490,13 +14491,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4963112395768739760, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
       propertyPath: m_Name
-      value: Toggle
+      value: Debugger Toggle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
+--- !u!114 &6502847804697374765 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2321145770132717279, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}
+  m_PrefabInstance: {fileID: 8793450175818583794}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd2096cd3c5230b45b56a9a5092c2cbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &7830146375006760510 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1631104592883507404, guid: 7f426bdf44a26614ab6b4abad4d9d435, type: 3}

@@ -587,7 +587,7 @@ namespace RobotoSkunk.PixelMan
 				/// <summary>
 				/// Gets the translation of a field with arguments.
 				/// </summary>
-				public string GetField(string fieldName, string[] args)
+				public string GetField(string fieldName, params string[] args)
 				{
 					Properties _prop = properties.Find(m => m.field == fieldName);
 

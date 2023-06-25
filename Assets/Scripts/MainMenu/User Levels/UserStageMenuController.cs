@@ -16,9 +16,11 @@
 	along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-using Cysharp.Threading.Tasks;
 using System;
+using System.IO;
 using System.Collections.Generic;
+
+using Cysharp.Threading.Tasks;
 
 using UnityEngine;
 
@@ -115,7 +117,7 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu
 
 			Save();
 		}
-	
+
 		public void DeleteLevel()
 		{
 			UniTask.Void(async () =>
@@ -135,7 +137,7 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu
 				Files.DeleteFileFromZip(scene.file.FullName, Globals.Editor.currentLevel.uuid + ".json");
 			});
 		}
-	
+
 		public void MoveLevelUp()
 		{
 			if (isBusy) {
@@ -184,6 +186,13 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu
 				await SaveAsync();
 				LoadLevels();
 			});
+		}
+
+		public void DeleteStage()
+		{
+			File.Delete(Globals.Editor.currentScene.file.FullName);
+
+			userLevelsController.ForceReload();
 		}
 
 
