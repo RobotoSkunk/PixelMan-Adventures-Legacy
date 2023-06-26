@@ -26,31 +26,29 @@ using System.IO;
 using System;
 
 
-namespace RobotoSkunk {
-
-	public static class Files {
-		public static class Directories {
+namespace RobotoSkunk
+{
+	public static class Files
+	{
+		public static class Directories
+		{
 			private static string _root = null;
 
 			public static string root {
 				get {
 					if (_root != null) return _root;
 
-#if UNITY_ANDROID && !UNITY_EDITOR
-					_root "/storage/emulated/0/Games/PixelMan Adventures";
-#elif UNITY_STANDALONE_LINUX || UNITY_EDITOR_LINUX
+#if UNITY_STANDALONE_LINUX || UNITY_EDITOR_LINUX
+
 					string home = Environment.GetEnvironmentVariable("HOME");
-					_root = Path.Join(home, "/.local/share/PixelMan Adventures");
+					_root = Path.Combine(home, ".local", "share", "PixelMan Adventures");
+
+#elif UNITY_STANDALONE || UNITY_EDITOR || UNITY_EDITOR_64
+					string special = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+
+					_root = Path.Join(special, "PixelMan Adventures");
 #else
-					string folder = "/My Games/PixelMan Adventures", special = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-
-					if (special == "")
-						special = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-
-					if (special == "")
-						special = Environment.GetEnvironmentVariable("HOME") ?? Environment.GetEnvironmentVariable("HOMEPATH") ?? "";
-
-					_root = special + folder;
+					_root = Application.persistentDataPath;
 #endif
 					return _root;
 				}
