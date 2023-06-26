@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Test-room.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/LevelLoader.unity
+    path: Assets/Scenes/Sandbox.unity
     guid: fa0d725a7a814913682cdf95396d52bf
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 6006694fbd507ad4c861fe8e030053db, type: 2}

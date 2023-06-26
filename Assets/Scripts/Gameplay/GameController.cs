@@ -27,7 +27,7 @@ using RobotoSkunk.PixelMan.LevelEditor.IO;
 
 namespace RobotoSkunk.PixelMan.Gameplay
 {
-	public class GameController : MonoBehaviour
+	public class GameController : GameObjectBehaviour
 	{
 		#pragma warning disable IDE0044
 		// Excuse: The inspector can't show the variables if they are readonly.
@@ -38,7 +38,7 @@ namespace RobotoSkunk.PixelMan.Gameplay
 		#pragma warning restore IDE0044
 
 
-		private void Start()
+		private void Awake()
 		{
 			Globals.onPause = true;
 			Globals.onLoad = true;
