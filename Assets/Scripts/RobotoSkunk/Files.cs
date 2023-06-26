@@ -62,27 +62,27 @@ namespace RobotoSkunk
 			/// <summary>
 			/// Common user data like username, account ID, etc.
 			/// </summary>
-			public static readonly string userData = Path.Join(root, "/user-data.json");
+			public static readonly string userData = Path.Join(root, "user-data.json");
 
 			/// <summary>
 			/// Game settings file
 			/// </summary>
-			public static readonly string settings = Path.Join(root, "/settings.json");
+			public static readonly string settings = Path.Join(root, "settings.json");
 
 			/// <summary>
 			/// Downloaded levels
 			/// </summary>
-			public static readonly string downloads = Path.Join(root, "/downloads");
+			public static readonly string downloads = Path.Join(root, "downloads");
 
 			/// <summary>
 			/// All user's stored replays
 			/// </summary>
-			public static readonly string replays = Path.Join(root, "/replays");
+			public static readonly string replays = Path.Join(root, "replays");
 
 			/// <summary>
 			/// User's levels
 			/// </summary>
-			public static readonly string levels = Path.Join(root, "/levels");
+			public static readonly string levels = Path.Join(root, "levels");
 
 
 			public static async UniTask CreateFile (string path) {
