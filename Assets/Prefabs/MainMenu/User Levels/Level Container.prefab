@@ -1332,6 +1332,7 @@ GameObject:
   - component: {fileID: 6037862050850130468}
   - component: {fileID: 6037862050850130475}
   - component: {fileID: 6037862050850130474}
+  - component: {fileID: 405953019943438267}
   m_Layer: 0
   m_Name: Play
   m_TagString: Untagged
@@ -1441,7 +1442,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6037862050850130468}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2772014221584353271}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.UI.MainMenu.StageLevel, Assembly-CSharp
+        m_MethodName: SetCurrentLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 405953019943438267}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.Utils.SceneReferenceHandler,
+          Assembly-CSharp
+        m_MethodName: GoToScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   selectOnUp:
     useAutomatic: 0
     selectable: {fileID: 0}
@@ -1484,6 +1510,21 @@ MonoBehaviour:
     color: {r: 1, g: 1, b: 1, a: 1}
   target: {fileID: 0}
   button: {fileID: 0}
+--- !u!114 &405953019943438267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6037862050850130470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a6511a4e8fa6474da9b805cf4eaaf50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene:
+    sceneAsset: {fileID: 102900000, guid: fa0d725a7a814913682cdf95396d52bf, type: 3}
+    sceneAssetGuidHex: fa0d725a7a814913682cdf95396d52bf
 --- !u!1 &6037862050900255909
 GameObject:
   m_ObjectHideFlags: 0
@@ -2547,7 +2588,7 @@ RectTransform:
   - {fileID: 6037862050536553514}
   - {fileID: 6037862050756872676}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

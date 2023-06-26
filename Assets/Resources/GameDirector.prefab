@@ -4102,6 +4102,7 @@ MonoBehaviour:
     staticGameObject: {fileID: 8956469483171973529, guid: 3c30d859c80def246ae4e692f984aa13, type: 3}
     preview: {fileID: -1079774194, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
     category: 1
+    specialTag: 
     defaultProperties:
       id: 0
       position: {x: 0, y: 0}
@@ -4127,6 +4128,7 @@ MonoBehaviour:
     staticGameObject: {fileID: 0}
     preview: {fileID: -816284695, guid: 3ba13ba5ec508714fbdccb551061985e, type: 3}
     category: 3
+    specialTag: 
     defaultProperties:
       id: 0
       position: {x: 0, y: 0}
@@ -4152,6 +4154,7 @@ MonoBehaviour:
     staticGameObject: {fileID: 0}
     preview: {fileID: 1754850399, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
     category: 3
+    specialTag: 
     defaultProperties:
       id: 0
       position: {x: 0, y: 0}
@@ -4177,6 +4180,7 @@ MonoBehaviour:
     staticGameObject: {fileID: 0}
     preview: {fileID: 1351357549, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
     category: 3
+    specialTag: 
     defaultProperties:
       id: 0
       position: {x: 0, y: 0}
@@ -4202,6 +4206,7 @@ MonoBehaviour:
     staticGameObject: {fileID: 0}
     preview: {fileID: 1702807011, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
     category: 3
+    specialTag: 
     defaultProperties:
       id: 0
       position: {x: 0, y: 0}
@@ -4227,6 +4232,7 @@ MonoBehaviour:
     staticGameObject: {fileID: 0}
     preview: {fileID: -1216480209, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
     category: 3
+    specialTag: 
     defaultProperties:
       id: 0
       position: {x: 0, y: 0}
@@ -4252,6 +4258,7 @@ MonoBehaviour:
     staticGameObject: {fileID: 0}
     preview: {fileID: -1619722049, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
     category: 4
+    specialTag: 
     defaultProperties:
       id: 0
       position: {x: 0, y: 0}
@@ -4277,6 +4284,7 @@ MonoBehaviour:
     staticGameObject: {fileID: 0}
     preview: {fileID: 1272456788, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
     category: 4
+    specialTag: 
     defaultProperties:
       id: 0
       position: {x: 0, y: 0}
@@ -4302,6 +4310,7 @@ MonoBehaviour:
     staticGameObject: {fileID: 0}
     preview: {fileID: -1149907282, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
     category: 4
+    specialTag: 
     defaultProperties:
       id: 0
       position: {x: 0, y: 0}
@@ -4327,6 +4336,7 @@ MonoBehaviour:
     staticGameObject: {fileID: 0}
     preview: {fileID: -72321222, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
     category: 4
+    specialTag: 
     defaultProperties:
       id: 0
       position: {x: 0, y: 0}
@@ -4352,6 +4362,7 @@ MonoBehaviour:
     staticGameObject: {fileID: 0}
     preview: {fileID: 1103790712, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
     category: 1
+    specialTag: ice
     defaultProperties:
       id: 0
       position: {x: 0, y: 0}
@@ -4377,6 +4388,7 @@ MonoBehaviour:
     staticGameObject: {fileID: 0}
     preview: {fileID: 1581292004, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
     category: 1
+    specialTag: 
     defaultProperties:
       id: 0
       position: {x: 0, y: 0}
@@ -4402,6 +4414,7 @@ MonoBehaviour:
     staticGameObject: {fileID: 0}
     preview: {fileID: -972414604, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
     category: 4
+    specialTag: 
     defaultProperties:
       id: 0
       position: {x: 0, y: 0}
@@ -4427,6 +4440,7 @@ MonoBehaviour:
     staticGameObject: {fileID: 0}
     preview: {fileID: 766971812, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
     category: 3
+    specialTag: 
     defaultProperties:
       id: 0
       position: {x: 0, y: 0}
@@ -4452,6 +4466,7 @@ MonoBehaviour:
     staticGameObject: {fileID: 0}
     preview: {fileID: -194806617, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
     category: 4
+    specialTag: 
     defaultProperties:
       id: 0
       position: {x: 0, y: 0}
@@ -4477,6 +4492,7 @@ MonoBehaviour:
     staticGameObject: {fileID: 0}
     preview: {fileID: -1463061962, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
     category: 3
+    specialTag: 
     defaultProperties:
       id: 0
       position: {x: 0, y: 0}
@@ -4502,6 +4518,7 @@ MonoBehaviour:
     staticGameObject: {fileID: 0}
     preview: {fileID: -1057992796, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
     category: 4
+    specialTag: 
     defaultProperties:
       id: 0
       position: {x: 0, y: 0}
@@ -4527,6 +4544,7 @@ MonoBehaviour:
     staticGameObject: {fileID: 0}
     preview: {fileID: -799368360, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
     category: 4
+    specialTag: 
     defaultProperties:
       id: 0
       position: {x: 0, y: 0}
@@ -4552,6 +4570,7 @@ MonoBehaviour:
     staticGameObject: {fileID: 0}
     preview: {fileID: 467007493, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
     category: 3
+    specialTag: 
     defaultProperties:
       id: 0
       position: {x: 0, y: 0}

@@ -225,9 +225,11 @@ namespace RobotoSkunk.PixelMan {
 	[System.Serializable]
 	public struct InGameObject {
 		public string name;
-		public InGameObjectBehaviour gameObject, staticGameObject;
+		public InGameObjectBehaviour gameObject;
+		public InGameObjectBehaviour staticGameObject;
 		public Sprite preview;
 		public Category category;
+		public string specialTag;
 		public InGameObjectProperties defaultProperties;
 		public Options options;
 
@@ -246,8 +248,18 @@ namespace RobotoSkunk.PixelMan {
 			OBSTACLES
 		}
 
-		public InGameObjectBehaviour Instantiate(Vector2 position, Vector2 scale, float rotation, bool doStatic = true) {
-			InGameObjectBehaviour newObj = Object.Instantiate(doStatic && staticGameObject != null ? staticGameObject : gameObject);
+		public InGameObjectBehaviour Instantiate(
+			Vector2 position,
+			Vector2 scale,
+			float rotation,
+			bool doStatic = true,
+			Transform parent = null
+		) {
+			InGameObjectBehaviour newObj = Object.Instantiate(
+				doStatic && staticGameObject != null ? staticGameObject : gameObject,
+				parent
+			);
+
 			newObj.SetInternalOptions(options);
 			newObj.SetSortingOrder(defaultProperties.orderInLayer, true);
 

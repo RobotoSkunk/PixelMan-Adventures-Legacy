@@ -16,19 +16,56 @@
 	along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-using System.Collections;
+using Cysharp.Threading.Tasks;
+
 using UnityEngine;
 
-
+using RobotoSkunk.PixelMan.Utils;
 using RobotoSkunk.PixelMan.Events;
+using RobotoSkunk.PixelMan.LevelEditor.IO;
 
 
-namespace RobotoSkunk.PixelMan.Gameplay {
-	public class GameController : MonoBehaviour {
-		IEnumerator StartGame() {
-			yield return new WaitForSeconds(1f);
-			EditorEventsHandler.InvokeStartTesting();
-			GameEventsHandler.InvokeLevelReady();
+namespace RobotoSkunk.PixelMan.Gameplay
+{
+	public class GameController : MonoBehaviour
+	{
+		#pragma warning disable IDE0044
+		// Excuse: The inspector can't show the variables if they are readonly.
+
+		[SerializeField] PlayerCamera playerCamera;
+		[SerializeField] LevelIO.TransformContainers transformContainers;
+		[SerializeField] SceneReferenceHandler mainMenuSceneHandler;
+		#pragma warning restore IDE0044
+
+
+		private void Start()
+		{
+			Globals.onPause = true;
+			Globals.onLoad = true;
+			Globals.loadingText = Globals.languages.GetField("loading.load_objects");
+			Globals.musicType = GameDirector.MusicClips.Type.IN_GAME;
+
+			UniTask.Void(async () =>
+			{
+				await LevelIO.LoadLevel(false, transformContainers);
+
+				GameObject player = GameObject.FindWithTag("Player");
+
+				if (player) {
+					Rigidbody2D playerBody = player.GetComponent<Rigidbody2D>();
+					Player playerScript = player.GetComponent<Player>();
+
+					playerCamera.SetPlayer(playerBody);
+					playerScript.SetCamera(playerCamera);
+
+					PhysicsEventsHandler.GenerateCompositeGeometry();
+					GameEventsHandler.InvokeLevelReady();
+
+					Globals.onPause = false;
+				} else {
+					mainMenuSceneHandler.GoToScene();
+				}
+			});
 		}
 	}
 }

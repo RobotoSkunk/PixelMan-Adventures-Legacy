@@ -4841,7 +4841,7 @@ GameObject:
   - component: {fileID: 7892300943647491314}
   m_Layer: 6
   m_Name: Death particles
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9656,108 +9656,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!1 &7475308876641653269
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5163110361864883296}
-  - component: {fileID: 4981490791665476016}
-  - component: {fileID: 2810474812816257224}
-  m_Layer: 0
-  m_Name: Camera
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5163110361864883296
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7475308876641653269}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 0}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8009474488916196577}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!20 &4981490791665476016
-Camera:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7475308876641653269}
-  m_Enabled: 0
-  serializedVersion: 2
-  m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
-  m_projectionMatrixMode: 1
-  m_GateFitMode: 2
-  m_FOVAxisMode: 0
-  m_Iso: 200
-  m_ShutterSpeed: 0.005
-  m_Aperture: 16
-  m_FocusDistance: 10
-  m_FocalLength: 50
-  m_BladeCount: 5
-  m_Curvature: {x: 2, y: 11}
-  m_BarrelClipping: 0.25
-  m_Anamorphism: 0
-  m_SensorSize: {x: 36, y: 24}
-  m_LensShift: {x: 0, y: 0}
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
-  orthographic: 1
-  orthographic size: 5
-  m_Depth: -1
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 2147483647
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
---- !u!114 &2810474812816257224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7475308876641653269}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8c39df1dfb5b46468b82483d1211fbe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flags: 0
-  cam: {fileID: 4981490791665476016}
-  player: {fileID: 8009474488916196579}
-  orthoDefault: 5
-  maxSpeed: 10
-  look: {x: 0, y: 0}
 --- !u!1 &8009474488916196639
 GameObject:
   m_ObjectHideFlags: 0
@@ -9796,7 +9694,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8009474489757818012}
-  - {fileID: 5163110361864883296}
   - {fileID: 7464782701110707267}
   - {fileID: 918269737327961668}
   m_Father: {fileID: 0}
@@ -10218,7 +10115,7 @@ MonoBehaviour:
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
-  m_Camera: {fileID: 4981490791665476016}
+  m_Camera: {fileID: 0}
 --- !u!212 &1386140349391247303
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10283,11 +10180,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 793afdc305c85ca4f92dd9157d3e5791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flags: 0
   scripts:
   - {fileID: 8861255068588313322}
   - {fileID: 1995670383407584719}
-  - {fileID: 2810474812816257224}
   - {fileID: 665508272187798439}
   renderers:
   - {fileID: 8009474489757818013}
@@ -10338,6 +10233,7 @@ MonoBehaviour:
     reloadTime: 0
     invertGravity: 0
     spawnSaw: 0
+    isFake: 0
     direction: 0
     directionHorizontal: 0
     directionVertical: 0
@@ -10353,6 +10249,7 @@ MonoBehaviour:
     reloadTime: 0
     invertGravity: 0
     spawnSaw: 0
+    isFake: 0
     direction: 0
     directionHorizontal: 0
     directionVertical: 0
@@ -10368,7 +10265,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c60dd45671475df48a4f6e1be5599526, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flags: 0
   rigidbody: {fileID: 8009474488916196579}
   pixelManRigidbody: {fileID: 1995670383407584719}
   spriteRenderer: {fileID: 8009474489757818013}
@@ -10399,7 +10295,6 @@ MonoBehaviour:
   sounds:
   - {fileID: 8300000, guid: dd57eccf57b02904f9dfecbd3593a484, type: 3}
   - {fileID: 8300000, guid: 7121ed16253ffaf4c8046ed32f88cd83, type: 3}
-  playerCamera: {fileID: 2810474812816257224}
   lastPublicPos: {x: 0, y: 0}
 --- !u!1 &8009474489757818011
 GameObject:

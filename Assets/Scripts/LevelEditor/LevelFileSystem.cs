@@ -74,10 +74,14 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 	}
 
 
-	namespace IO {
-		public static class LevelIO {
+	namespace IO
+	{
+		public static class LevelIO
+		{
 			public static string GenerateUUID() => Guid.NewGuid().ToString();
-			public static async UniTask<bool> Save(Level level) {
+
+			public static async UniTask<bool> Save(Level level)
+			{
 				bool success = true;
 
 				try {
@@ -91,6 +95,91 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				}
 
 				return success;
+			}
+
+
+			[Serializable]
+			public class TransformContainers {
+				public Transform generic;
+
+				[Header("Blocks")]
+				public Transform untaggedBlock;
+				public Transform iceBlock;
+			}
+
+
+			public static InGameObjectBehaviour CreateObject (
+				int id,
+				Vector2 position,
+				Vector2 scale,
+				float rotation,
+				bool inEditor,
+				TransformContainers containers
+			) {
+				Transform destinatedContainer = containers.generic;
+
+				if (Globals.objects[id].category == InGameObject.Category.BLOCKS) {
+					destinatedContainer = Globals.objects[id].specialTag switch {
+						"ice" => containers.iceBlock,
+						_ => containers.untaggedBlock
+					};
+				}
+
+
+				InGameObjectBehaviour tmp = Globals.objects[id].Instantiate(
+					position,
+					scale,
+					rotation,
+					!inEditor,
+					destinatedContainer
+				);
+
+				tmp.SetInternalId((uint)id);
+				tmp.Prepare4Editor(inEditor);
+
+				return tmp;
+			}
+
+			public static async UniTask LoadLevel(
+				bool inEditor,
+				TransformContainers containers,
+				List<InGameObjectBehaviour> objects = null
+			) {
+				Level.UserMetadata metadata = Globals.Editor.currentLevel;
+				InternalUserScene scene = Globals.Editor.currentScene;	
+
+				Level level = await LevelFileSystem.GetLevel(scene.file.FullName, metadata.uuid);
+				int i = 0;
+				int chunkSize = 0;
+
+
+				foreach (InGameObjectProperties data in level.objects) {
+					int id = (int)data.id;
+
+					InGameObjectBehaviour tmp = CreateObject(
+						id,
+						data.position,
+						data.scale,
+						data.rotation,
+						inEditor,
+						containers
+					);
+
+					tmp.properties = data;
+					objects?.Add(tmp);
+
+					Globals.loadProgress = (float)i / level.objects.Count;
+					i++;
+					chunkSize++;
+
+					if (chunkSize >= Constants.chunkSize) {
+						await UniTask.Delay(100);
+						chunkSize = 0;
+					}
+				}
+
+				Globals.onLoad = false;
+				Globals.loadProgress = 0f;
 			}
 		}
 

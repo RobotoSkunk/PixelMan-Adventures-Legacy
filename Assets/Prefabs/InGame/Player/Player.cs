@@ -46,7 +46,6 @@ namespace RobotoSkunk.PixelMan.Gameplay
 		[SerializeField] float maxSpeed, maxJumpBuffer, maxHangCount;
 		[SerializeField] ContactFilter2D groundFilter;
 		[SerializeField] AudioClip[] sounds;
-		[SerializeField] PlayerCamera playerCamera;
 		#pragma warning restore IDE0044
 
 		[Header("Shared")]
@@ -82,6 +81,9 @@ namespace RobotoSkunk.PixelMan.Gameplay
 		// Lists
 		readonly List<Platforms> platforms = new();
 		readonly List<Collider2D> stuckResult = new(), groundOverlap = new();
+
+		// Others
+		PlayerCamera playerCamera;
 
 
 		// Definitions
@@ -417,7 +419,12 @@ namespace RobotoSkunk.PixelMan.Gameplay
 			}
 		}
 
-		public void LookUp(InputAction.CallbackContext context) => playerCamera.look = context.ReadValue<Vector2>();
+		public void LookUp(InputAction.CallbackContext context)
+		{
+			if (playerCamera != null) {
+				playerCamera.look = context.ReadValue<Vector2>();
+			}
+		}
 		#endregion
 
 		#region Editor methods
@@ -489,6 +496,10 @@ namespace RobotoSkunk.PixelMan.Gameplay
 
 				platforms.Add(platform);
 			}
+
+			// if (!isEditor) {
+			// 	playerCamera.cam.enabled = true;
+			// }
 		}
 
 		protected override void OnGamePlayerDeath()
@@ -523,5 +534,9 @@ namespace RobotoSkunk.PixelMan.Gameplay
 			DefaultReset(true);
 		}
 		#endregion
+
+		public void SetCamera(PlayerCamera camera) {
+			playerCamera = camera;
+		}
 	}
 }

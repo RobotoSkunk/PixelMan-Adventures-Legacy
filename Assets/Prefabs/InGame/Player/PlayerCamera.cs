@@ -18,41 +18,63 @@
 
 using UnityEngine;
 
+
 namespace RobotoSkunk.PixelMan.Gameplay {
 	public class PlayerCamera : GameObjectBehaviour {
 		[Header("Components")]
 		public Camera cam;
-		public Rigidbody2D player;
 
 		[Header("Properties")]
-		public float orthoDefault, maxSpeed;
+		public float orthoDefault;
+		public float  maxSpeed;
 
 		[Header("Shared")]
 		public Vector2 look;
 
-		Vector2 vTo, camPos, lookAt;
-		Vector3 startPos;
-		float velocity, zoom;
 
-		private void Start() {
+		Vector2 vTo;
+		Vector2 camPos;
+		Vector2  lookAt;
+
+		Vector3 startPos;
+		Rigidbody2D player;
+
+		float velocity;
+		float zoom;
+
+
+		public void SetPlayer(Rigidbody2D playerBody)
+		{
+			player = playerBody;
+		}
+
+		private void Start()
+		{
 			camPos = startPos = transform.position;
 		}
 
-		protected override void OnGameResetObject() {
+		protected override void OnGameResetObject()
+		{
 			velocity = zoom = 0f;
 			look = vTo = Vector2.zero;
 			camPos = transform.position = startPos;
 			cam.orthographicSize = orthoDefault;
 		}
 
-		private void FixedUpdate() {
-			Vector2 targetPos = player.position;
+		private void FixedUpdate()
+		{
+			if (player != null) {
+				vTo = player.position + (Vector2)(
+					RSMath.GetDirVector(RSMath.Direction(camPos, player.position)) *
+					Mathf.Min(
+						maxSpeed,
+						Vector2.Distance(camPos, player.position)
+					)
+				);
 
-			if (player) {
-				vTo = targetPos + (Vector2)(RSMath.GetDirVector(RSMath.Direction(camPos, targetPos)) * Mathf.Min(maxSpeed, Vector2.Distance(camPos, targetPos)));
-
-				if (!Globals.onPause)
+				if (!Globals.onPause) {
 					velocity = player.velocity.magnitude;
+				}
 			} else {
 				velocity = 0f;
 				look = Vector2.zero;
@@ -65,7 +87,11 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 
 			camPos += (vTo - camPos) / 30f;
 
-			transform.position = (Vector3)camPos + (1f + zoom) * ((Vector3)(Globals.shakeForce * 0.5f * Random.insideUnitCircle) + (Vector3)lookAt) + new Vector3(0f, 0f, -10f);
+			transform.position = (Vector3)(
+					camPos +
+					(1f + zoom) * ((Globals.shakeForce * 0.5f * Random.insideUnitCircle) + lookAt)
+				) +
+				new Vector3(0f, 0f, -10f);
 		}
 	}
 }

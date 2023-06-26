@@ -120,7 +120,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 		[Header("GameObject containers")]
 		public CompositeCollider2D[] composites;
-		public Transform contGeneric, contBlockUntagged, contBlockIce;
+		public LevelIO.TransformContainers containers;
 
 		[Header("Game inspector")]
 		public ScrollRect inspector;
@@ -267,35 +267,24 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			playersPos = new List<Vector3>[lineRenderers.Length];
 			for (int i = 0; i < playersPos.Length; i++) playersPos[i] = new List<Vector3>();
 
+
+			#region Load level from file
 			if (Globals.Editor.currentScene.file != null) {
-				UniTask.Void(async () => {
-					Level.UserMetadata metadata = Globals.Editor.currentLevel;
-					InternalUserScene scene = Globals.Editor.currentScene;
+				UniTask.Void(async () =>
+				{
+					await LevelIO.LoadLevel(
+						true,
+						containers,
+						objCache
+					);
 
-					Level level = await LevelFileSystem.GetLevel(scene.file.FullName, metadata.uuid);
-					int i = 0, chunkSize = 0;
-
-					foreach (InGameObjectProperties data in level.objects) {
-						int id = (int)data.id;
-						InGameObjectBehaviour tmp = CreateObject(id, data.position, data.scale, data.rotation);
-						tmp.properties = data;
-
-						Globals.loadProgress = (float)i / level.objects.Count;
-						i++; chunkSize++;
-
-						if (chunkSize >= Constants.chunkSize) {
-							await UniTask.Delay(100);
-							chunkSize = 0;
-						}
-					}
-
-					Globals.onLoad = editorIsBusy = false;
-					Globals.loadProgress = 0f;
+					editorIsBusy = false;
 				});
 			} else {
 				Globals.onLoad = editorIsBusy = false;
 				Globals.loadProgress = 0f;
 			}
+			#endregion
 		}
 
 		private void Update() {
@@ -763,30 +752,20 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			return new Bounds();
 		}
 
-		InGameObjectBehaviour CreateObject(int id, Vector2 pos, Vector2 sca, float rot) {
-			InGameObjectBehaviour newObj = Globals.objects[id].Instantiate(virtualCursor, sca, 0f, false);
+		InGameObjectBehaviour CreateObject(int id, Vector2 position, Vector2 scale, float rotation)
+		{
+			InGameObjectBehaviour newObject = LevelIO.CreateObject(
+				id,
+				position,
+				scale,
+				rotation,
+				true,
+				containers
+			);
 
-			Transform destCont = contGeneric;
+			objCache.Add(newObject);
 
-			if (Globals.objects[id].category == InGameObject.Category.BLOCKS) {
-				destCont = newObj.GetDefaultTag() switch {
-					"IceBlock" => contBlockIce,
-					_ => contBlockUntagged
-				};
-			}
-
-			newObj.transform.SetParent(destCont);
-			newObj.transform.localPosition = pos;
-			newObj.transform.localScale = (Vector3)sca + Vector3.forward;
-			newObj.transform.localRotation = Quaternion.Euler(0f, 0f, rot);
-
-			newObj.SetInternalId((uint)id);
-			newObj.Prepare4Editor(true);
-
-
-			objCache.Add(newObj);
-
-			return newObj;
+			return newObject;
 		}
 
 		void UpdateColliders(bool lazyUpdate = true) {
