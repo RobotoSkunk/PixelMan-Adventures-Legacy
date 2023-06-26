@@ -58,7 +58,6 @@ namespace RobotoSkunk.PixelMan.Gameplay
 					playerCamera.SetPlayer(playerBody);
 					playerScript.SetCamera(playerCamera);
 
-					PhysicsEventsHandler.GenerateCompositeGeometry();
 					GameEventsHandler.InvokeLevelReady();
 
 					Globals.onPause = false;

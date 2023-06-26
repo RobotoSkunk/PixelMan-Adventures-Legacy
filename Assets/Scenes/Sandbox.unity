@@ -333,6 +333,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1315686598}
     m_Modifications:
+    - target: {fileID: 1245177559034210106, guid: 6c27357b8fa542148967e7eca4522b7f, type: 3}
+      propertyPath: m_GenerationType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6396014017321481120, guid: 6c27357b8fa542148967e7eca4522b7f, type: 3}
       propertyPath: m_Name
       value: Solid blocks container
@@ -379,6 +383,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6396014017321481125, guid: 6c27357b8fa542148967e7eca4522b7f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8610096062358160595, guid: 6c27357b8fa542148967e7eca4522b7f, type: 3}
+      propertyPath: m_GenerationType
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
