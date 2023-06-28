@@ -94,6 +94,14 @@ namespace RobotoSkunk.PixelMan
 		}
 
 		/// <summary>
+		/// The reference resolution of the game.
+		/// </summary>
+		public static Vector2 referenceResolution
+		{
+			get => new(640f, 360f);
+		}
+
+		/// <summary>
 		/// A set of constants IDs.
 		/// </summary>
 		public static class InternalIDs
@@ -400,13 +408,12 @@ namespace RobotoSkunk.PixelMan
 
 				[Flags]
 				public enum Options {
-					None = 0,
 					EnableDeviceVibration = 1 << 0,
 					EnableControllerVibration = 1 << 1,
 					EnableParticles = 1 << 2,
 					EnableVSync = 1 << 3,
 					EnableFullscreen = 1 << 4,
-					DebugMode = 1 << 5
+					DebugMode = 1 << 5,
 				}
 
 
@@ -458,6 +465,50 @@ namespace RobotoSkunk.PixelMan
 				/// The maximum points for the player's path.
 				/// </summary>
 				public uint lineLength = 500;
+
+				/// <summary>
+				/// A list of options for the editor.
+				/// </summary>
+				public Options options;
+
+				/// <summary>
+				/// The user-defined UI scale.
+				/// </summary>
+				public float uiScale = 1f;
+
+				[Flags]
+				public enum Options {
+					UseCtrlToZoom = 1 << 0,
+					UseCustomUIScale = 1 << 1,
+					DisplayHelpLines = 1 << 2,
+				}
+
+				/// <summary>
+				/// If true, the editor zoom will only be enabled when the user holds the Ctrl key.
+				/// </summary>
+				public bool useCtrlToZoom
+				{
+					get => (options & Options.UseCtrlToZoom) == Options.UseCtrlToZoom;
+					set => options = (options & ~Options.UseCtrlToZoom) | (value ? Options.UseCtrlToZoom : 0);
+				}
+
+				/// <summary>
+				/// If true, the editor will use a custom UI scale instead of the system's one.
+				/// </summary>
+				public bool useCustomUIScale
+				{
+					get => (options & Options.UseCustomUIScale) == Options.UseCustomUIScale;
+					set => options = (options & ~Options.UseCustomUIScale) | (value ? Options.UseCustomUIScale : 0);
+				}
+
+				/// <summary>
+				/// If true, the editor will display help lines.
+				/// </summary>
+				public bool displayHelpLines
+				{
+					get => (options & Options.DisplayHelpLines) == Options.DisplayHelpLines;
+					set => options = (options & ~Options.DisplayHelpLines) | (value ? Options.DisplayHelpLines : 0);
+				}
 			}
 
 

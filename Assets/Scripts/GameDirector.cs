@@ -26,12 +26,14 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
+using RobotoSkunk.PixelMan.UI;
 using RobotoSkunk.PixelMan.Events;
 using RobotoSkunk.PixelMan.LevelEditor;
 
 using Eflatun.SceneReference;
 
 using TMPro;
+
 
 
 namespace RobotoSkunk.PixelMan
@@ -66,8 +68,8 @@ namespace RobotoSkunk.PixelMan
 		// Follow up the order of the components in the inspector
 		[Header("Configuration components")]
 		public TextMeshProUGUI langText;
-		public Toggle[] optionsToggles;
-		public Slider[] optionsSliders;
+		public RSToggle[] optionsToggles;
+		public RSSlider[] optionsSliders;
 		public RectTransform[] confPanels;
 		public GameObject[] confSections;
 		public ScrollRect optionsScrollRect;
@@ -227,7 +229,8 @@ namespace RobotoSkunk.PixelMan
 					Globals.settings.general.enableDeviceVibration,
 					Globals.settings.general.enableControllerVibration,
 					Globals.settings.general.enableParticles,
-					Globals.settings.general.debugMode
+					Globals.settings.general.debugMode,
+					Globals.settings.editor.useCustomUIScale
 				};
 				float[] _sliders = {
 					Globals.settings.general.shakeStrenght,
@@ -235,7 +238,8 @@ namespace RobotoSkunk.PixelMan
 					Globals.settings.volume.music,
 					Globals.settings.volume.fx,
 					Globals.settings.editor.historialSize,
-					Globals.settings.editor.lineLength
+					Globals.settings.editor.lineLength,
+					Globals.settings.editor.uiScale
 				};
 				langText.text = Globals.languages.GetCurrentLangName();
 
@@ -248,6 +252,7 @@ namespace RobotoSkunk.PixelMan
 				for (int i = 0; i < optionsSliders.Length; i++) {
 					if (i < _sliders.Length) {
 						optionsSliders[i].SetValueWithoutNotify(_sliders[i]);
+						optionsSliders[i].onLoadedValueChange.Invoke(_sliders[i]);
 					}
 				}
 			});
@@ -459,6 +464,30 @@ namespace RobotoSkunk.PixelMan
 		public void SetFxVolume(float value)
 		{
 			Globals.settings.volume.fx = value;
+			SaveSettingsMiddleware();
+		}
+
+		public void SetEditorHistoryLength(float value)
+		{
+			Globals.settings.editor.historialSize = (uint)value;
+			SaveSettingsMiddleware();
+		}
+
+		public void SetEditorPlayerPathLength(float value)
+		{
+			Globals.settings.editor.lineLength = (uint)value;
+			SaveSettingsMiddleware();
+		}
+
+		public void SetEditorUseCustomUIScale(bool value)
+		{
+			Globals.settings.editor.useCustomUIScale = value;
+			SaveSettingsMiddleware();
+		}
+
+		public void SetEditorUIScale(float value)
+		{
+			Globals.settings.editor.uiScale = value;
 			SaveSettingsMiddleware();
 		}
 

@@ -29,13 +29,26 @@ namespace RobotoSkunk.PixelMan.UI {
 	[AddComponentMenu("UI/RobotoSkunk - Slider")]
 	public class RSSlider : Slider {
 		[MinAttribute(0f)] public float snapValue = 0f;
-		public IntelliNav selectOnUp, selectOnDown, selectOnLeft, selectOnRight;
+		public IntelliNav selectOnUp;
+		public IntelliNav selectOnDown;
+		public IntelliNav selectOnLeft;
+		public IntelliNav selectOnRight;
 
-		public SliderEvent onEndValueChange = new();
+		// public SliderEvent onEndValueChange = new();
+		public SliderEvent onLoadedValueChange = new();
+
 
 		public override float value {
-			get => (snapValue > 0f) ? Mathf.Round(base.value / snapValue) * snapValue : base.value;
-			set => base.value = value;
+			get {
+				return base.value;
+			}
+			set {
+				if (snapValue > 0f) {
+					base.value = Mathf.Round(value / snapValue) * snapValue;
+				} else {
+					base.value = value;
+				}
+			}
 		}
 
 		public override Selectable FindSelectableOnUp() {
@@ -75,16 +88,22 @@ namespace RobotoSkunk.PixelMan.UI {
 	[CustomEditor(typeof(RSSlider), true)]
 	[CanEditMultipleObjects]
 	public class RSSliderEditor : SliderEditor {
-		SerializedProperty m_selectOnUp, m_selectOnDown, m_selectOnLeft, m_selectOnRight, m_snapValue;
+		SerializedProperty m_onLoadedValueChange;
+		SerializedProperty m_snapValue;
+		SerializedProperty m_selectOnUp;
+		SerializedProperty m_selectOnDown;
+		SerializedProperty m_selectOnLeft;
+		SerializedProperty m_selectOnRight;
 
 		protected override void OnEnable() {
 			base.OnEnable();
 
-			m_selectOnUp    = serializedObject.FindProperty("selectOnUp");
-			m_selectOnDown  = serializedObject.FindProperty("selectOnDown");
-			m_selectOnLeft  = serializedObject.FindProperty("selectOnLeft");
-			m_selectOnRight = serializedObject.FindProperty("selectOnRight");
-			m_snapValue     = serializedObject.FindProperty("snapValue");
+			m_onLoadedValueChange = serializedObject.FindProperty("onLoadedValueChange");
+			m_selectOnUp          = serializedObject.FindProperty("selectOnUp");
+			m_selectOnDown        = serializedObject.FindProperty("selectOnDown");
+			m_selectOnLeft        = serializedObject.FindProperty("selectOnLeft");
+			m_selectOnRight       = serializedObject.FindProperty("selectOnRight");
+			m_snapValue           = serializedObject.FindProperty("snapValue");
 		}
 
 		public override void OnInspectorGUI() {
@@ -94,6 +113,7 @@ namespace RobotoSkunk.PixelMan.UI {
 			serializedObject.Update();
 
 
+			EditorGUILayout.PropertyField(m_onLoadedValueChange);
 			EditorGUILayout.PropertyField(m_snapValue);
 			EditorGUILayout.PropertyField(m_selectOnUp);
 			EditorGUILayout.PropertyField(m_selectOnDown);

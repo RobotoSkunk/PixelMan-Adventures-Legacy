@@ -4466,8 +4466,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2097089062}
         m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
-        m_MethodName: TestButton
-        m_Mode: 5
+        m_MethodName: OpenSettings
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4991,7 +4991,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 246255751}
   m_HandleRect: {fileID: 246255749}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -16792,6 +16792,7 @@ MonoBehaviour:
   resRectArea: {fileID: 907268592}
   rotRectArea: {fileID: 1386692133}
   playerInput: {fileID: 2097089063}
+  canvasScaler: {fileID: 428423291}
   virtualCursorImg: {fileID: 1365372466}
   undoImg: {fileID: 1814505213}
   redoImg: {fileID: 2008843871}

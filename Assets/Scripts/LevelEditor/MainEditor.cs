@@ -99,6 +99,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		public PlayerInput playerInput;
 
 		[Header("UI components")]
+		public CanvasScaler canvasScaler;
 		public Image virtualCursorImg;
 		public Image undoImg, redoImg, testButtonImg;
 		public Button[] buttons;
@@ -155,7 +156,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		Rect guiRect = new(15, 15, 250, 150), msDrag, lastResArea, newResArea, rotArea;
 		Material g_Material;
 		Vector2 navSpeed, dragNavOrigin, cursorToWorld, resRefPnt;
-		float newZoom = 1f, zoomSpeed, msAlpha, rotHandle;
+		float newZoom = 1f, zoomSpeed, msAlpha, rotHandle, uiScale;
 		bool somePanelEnabled, wasMultiselecting, isOnTest, wasEditing, editorIsBusy = true;
 		uint undoIndex;
 		int sid;
@@ -195,7 +196,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			get => Globals.objects[selectedId];
 		}
 		bool userReady {
-			get => !hoverUI && curInWindow && !editorIsBusy;
+			get => !hoverUI && curInWindow && !editorIsBusy && !Globals.openSettings;
 		}
 		bool userIsDragging {
 			get => onRotate || onResize || onDrag || onMultiselection || onDragNavigation;
@@ -211,8 +212,11 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			cursorPos = Globals.screen / 2f;
 			Globals.musicType = GameDirector.MusicClips.Type.EDITOR;
 
-			foreach (PanelStruct panel in panels)
+
+
+			foreach (PanelStruct panel in panels) {
 				panel.internals.wasOpen = true;
+			}
 
 			float c = 22f;
 
@@ -289,6 +293,19 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 		private void Update() {
 			Vector2 trnsSpd = navSpeed;
+
+			// if (Globals.settings.editor.useCustomUIScale) {
+			// 	canvasScaler.uiScaleMode = CanvasScaler.ScaleMode.ConstantPixelSize;
+			// 	canvasScaler.scaleFactor = Globals.settings.editor.uiScale;
+			// }
+
+			if (uiScale != Globals.settings.editor.uiScale) {
+				float newUIScale = 2f - Mathf.Clamp(Globals.settings.editor.uiScale, 0.15f, 1.35f);
+
+				canvasScaler.referenceResolution = Constants.referenceResolution * newUIScale;
+
+				uiScale = Globals.settings.editor.uiScale;
+			}
 
 			#region Panels controller
 			for (int i = 0; i < panels.Length; i++) {
@@ -1201,6 +1218,8 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		public void TestButton(string text) => Debug.Log(text);
 
 		public void SaveLevel() => saveCoroutine ??= StartCoroutine(SaveLvlRoutine());
+
+		public void OpenSettings() => Globals.openSettings = true;
 		#endregion
 
 		#region Input System

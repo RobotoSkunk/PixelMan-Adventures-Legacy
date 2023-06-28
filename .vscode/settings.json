@@ -46,7 +46,12 @@
 		"ProjectSettings/":true,
 		"temp/":true,
 		"Temp/":true,
-		"*.csproj":true
+		"*.csproj":true,
+		"Library/":true,
+		"Logs/":true,
+		"UserSettings/":true,
+		".dccache/":true,
+		"**/*.sln":true
 	},
 	"omnisharp.autoStart": true,
 	"omnisharp.useModernNet": false
