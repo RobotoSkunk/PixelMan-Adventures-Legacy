@@ -44,7 +44,7 @@ namespace RobotoSkunk.PixelMan.Gameplay
 		[SerializeField] RectTransform[] pauseMenuPanels;
 		#pragma warning restore IDE0044
 
-		float pauseMenuDelta = 0;
+		float pauseMenuDelta = 1f;
 
 		bool pauseMenuOpen {
 			get {

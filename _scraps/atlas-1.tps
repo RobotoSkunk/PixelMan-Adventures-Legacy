@@ -4,7 +4,7 @@
         <key>fileFormatVersion</key>
         <int>6</int>
         <key>texturePackerVersion</key>
-        <string>7.0.0</string>
+        <string>7.0.3</string>
         <key>autoSDSettings</key>
         <array>
             <struct type="AutoSDSettings">
@@ -989,6 +989,7 @@
             <key type="filename">gui/generics/buttons/editor/container.png</key>
             <key type="filename">gui/generics/buttons/editor/help.png</key>
             <key type="filename">gui/generics/buttons/editor/pause.png</key>
+            <key type="filename">gui/generics/buttons/editor/save-and-play.png</key>
             <key type="filename">gui/generics/buttons/editor/save.png</key>
             <key type="filename">gui/generics/buttons/editor/settings.png</key>
             <struct type="IndividualSpriteSettings">
