@@ -339,10 +339,10 @@ namespace RobotoSkunk.PixelMan
 		{
 			get => __isDead;
 			set {
-				if (value && !__isDead) {
+				if (__isDead != value && value) {
 					GameEventsHandler.InvokePlayerDeath();
 					GeneralEventsHandler.SetShake(0.25f, 0.15f);
-					attempts++;
+					// attempts++;
 				}
 
 				__isDead = value;

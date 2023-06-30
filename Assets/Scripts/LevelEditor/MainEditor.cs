@@ -632,7 +632,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			// GUI.Box(guiRect, "");
 			// GUI.Label(guiRect, $"Instances number: {analysis.objectsNumber}\nCurrent ID: {sid}");
 		}
-		
+
 		private void OnEnable() => GameEventsHandler.PlayerDeath += OnPlayerDeathInTest;
 		private void OnDisable() => GameEventsHandler.PlayerDeath -= OnPlayerDeathInTest;
 		#endregion
@@ -829,7 +829,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			testButtonImg.sprite = sprTestBtn[enabled.ToInt()];
 			// playerInput.enabled = !enabled;
 		}
-		
+
 		void OnPlayerDeathInTest() {
 			if (!isOnTest) return;
 

@@ -559,26 +559,26 @@ namespace RobotoSkunk.PixelMan
 			Globals.shakeForce = 0f;
 		}
 
-		IEnumerator ResetObjects()
-		{
-			float time = 1f;
+		// IEnumerator ResetObjects()
+		// {
+		// 	float time = 1f;
 
-			while (time > 0) {
-				if (!Globals.onPause) {
-					time -= Time.fixedDeltaTime;
-				}
+		// 	while (time > 0) {
+		// 		if (!Globals.onPause) {
+		// 			time -= Time.fixedDeltaTime;
+		// 		}
 
-				yield return new WaitForFixedUpdate();
-			}
+		// 		yield return new WaitForFixedUpdate();
+		// 	}
 
-			Globals.isDead = false;
+		// 	Globals.isDead = false;
 
-			if (Globals.respawnAttempts > 0) {
-				GameEventsHandler.InvokeBackToCheckpoint();
-			} else {
-				GameEventsHandler.InvokeResetObject();
-			}
-		}
+		// 	if (Globals.respawnAttempts > 0) {
+		// 		GameEventsHandler.InvokeBackToCheckpoint();
+		// 	} else {
+		// 		GameEventsHandler.InvokeResetObject();
+		// 	}
+		// }
 
 		IEnumerator ChangeMusic(AudioClip __clip)
 		{

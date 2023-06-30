@@ -18,7 +18,10 @@
 
 using Cysharp.Threading.Tasks;
 
+using System.Collections;
+
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 using RobotoSkunk.PixelMan.Utils;
 using RobotoSkunk.PixelMan.Events;
@@ -32,16 +35,30 @@ namespace RobotoSkunk.PixelMan.Gameplay
 		#pragma warning disable IDE0044
 		// Excuse: The inspector can't show the variables if they are readonly.
 
+		[Header("Components")]
 		[SerializeField] PlayerCamera playerCamera;
 		[SerializeField] LevelIO.TransformContainers transformContainers;
 		[SerializeField] SceneReferenceHandler mainMenuSceneHandler;
+
+		[Header("UI")]
+		[SerializeField] RectTransform[] pauseMenuPanels;
 		#pragma warning restore IDE0044
 
+		float pauseMenuDelta = 0;
+
+		bool pauseMenuOpen {
+			get {
+				return Globals.onPause && !Globals.openSettings;
+			}
+		}
 
 		private void Awake()
 		{
 			Globals.onPause = true;
 			Globals.onLoad = true;
+			Globals.isDead = false;
+			Globals.respawnAttempts = 0;
+
 			Globals.loadingText = Globals.languages.GetField("loading.load_objects");
 			Globals.musicType = GameDirector.MusicClips.Type.IN_GAME;
 
@@ -64,7 +81,55 @@ namespace RobotoSkunk.PixelMan.Gameplay
 				} else {
 					mainMenuSceneHandler.GoToScene();
 				}
+
+				Globals.onLoad = false;
 			});
+		}
+
+		private void Update()
+		{
+			pauseMenuDelta = Mathf.Lerp(pauseMenuDelta, (!pauseMenuOpen).ToInt(), 0.2f * RSTime.delta);
+
+			pauseMenuPanels.SetActive(pauseMenuDelta < 0.99f);
+			pauseMenuPanels[0].anchoredPosition = new(-pauseMenuDelta * (pauseMenuPanels[0].rect.width + 10), 0);
+			pauseMenuPanels[1].anchoredPosition = new(pauseMenuDelta * (pauseMenuPanels[1].rect.width + 10), 0);
+		}
+
+
+		public void SetPauseState(bool state)
+		{
+			Globals.onPause = state;
+		}
+
+		public void OpenSettings()
+		{
+			Globals.openSettings = true;
+		}
+
+		public void Pause(InputAction.CallbackContext context)
+		{
+			if (context.started && !Globals.openSettings) {
+				Globals.onPause = !Globals.onPause;
+			}
+		}
+
+		protected override void OnGamePlayerDeath()
+		{
+			StartCoroutine(ResetObjects());
+		}
+
+
+		IEnumerator ResetObjects() {
+			yield return new WaitForSeconds(1f);
+
+			if (Globals.respawnAttempts > 0) {
+				GameEventsHandler.InvokeBackToCheckpoint();
+			} else {
+				Globals.attempts++;
+				GameEventsHandler.InvokeResetObject();
+			}
+
+			Globals.isDead = false;
 		}
 	}
 }
