@@ -5,7 +5,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "ee54559532c5388fc666f71f07800fbf69cbded7"
+      "hash": "d210e3d76adc0cce77f4ad2af1ade88dad6b1d5a"
     },
     "com.eflatun.scenereference": {
       "version": "git+https://github.com/starikcetin/Eflatun.SceneReference.git#upm",
@@ -15,7 +15,7 @@
         "com.unity.settings-manager": "2.0.1",
         "com.unity.nuget.newtonsoft-json": "3.0.2"
       },
-      "hash": "8d0426a222648c2173a2a2cecbdf79575d1b83de"
+      "hash": "13a17e72f085e731e24e4048c1be26b8ce0e1dd8"
     },
     "com.unity.2d.animation": {
       "version": "9.0.2",
@@ -128,7 +128,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ext.nunit": {
-      "version": "2.0.2",
+      "version": "1.0.6",
       "depth": 1,
       "source": "registry",
       "dependencies": {},
@@ -206,11 +206,11 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.test-framework": {
-      "version": "2.0.1-pre.18",
+      "version": "1.1.33",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.unity.ext.nunit": "2.0.2",
+        "com.unity.ext.nunit": "1.0.6",
         "com.unity.modules.imgui": "1.0.0",
         "com.unity.modules.jsonserialize": "1.0.0"
       },
