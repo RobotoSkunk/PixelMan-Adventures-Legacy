@@ -33,38 +33,61 @@ using RobotoSkunk.PixelMan.Gameplay;
 using RobotoSkunk.PixelMan.LevelEditor.IO;
 
 
-namespace RobotoSkunk.PixelMan.LevelEditor {
+namespace RobotoSkunk.PixelMan.LevelEditor
+{
+	[System.Obsolete("PanelStruct is deprecated, use Panel instead.")]
 	[System.Serializable]
-	public class PanelStruct {
+	public class PanelStruct
+	{
 		public CanvasGroup group;
 		public RectTransform rectTransforms;
 		public Image switchImage;
-		public Selectable defaultSelected, outSelected;
+		public Selectable defaultSelected;
+		public Selectable outSelected;
 		public List<Selectable> content;
+		// public List<Selectable> outSelected;
 		public GameObject container;
 		public float size;
 		public Internal internals;
 
-		public struct Internal {
-			public float position, nextPosition, deltaPosition;
-			public bool enabled, wasEnabled, wasOpen;
+		public struct Internal
+		{
+			public float position;
+			public float nextPosition;
+			public float deltaPosition;
+
+			public bool enabled;
+			public bool wasEnabled;
+			public bool wasOpen;
 		}
 	}
 
 	[System.Serializable]
-	public enum ResizePoints { TOP, BOTTOM, LEFT, RIGHT, TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT }
+	public enum ResizePoints {
+		TOP,
+		BOTTOM,
+		LEFT,
+		RIGHT,
+		TOP_LEFT,
+		TOP_RIGHT,
+		BOTTOM_LEFT,
+		BOTTOM_RIGHT,
+	}
 
-	public struct UndoRedo {
+	public struct UndoRedo
+	{
 		public Type type;
 		public List<GOHandler> objCache;
 
-		public enum Type {
+		public enum Type
+		{
 			Add,
 			Remove,
-			Properties
+			Properties,
 		}
 
-		public UndoRedo(Type type, List<InGameObjectBehaviour> objCache) {
+		public UndoRedo(Type type, List<InGameObjectBehaviour> objCache)
+		{
 			this.type = type;
 			List<GOHandler> _tmp = new();
 
@@ -75,11 +98,17 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			this.objCache = _tmp;
 		}
 
-		public struct GOHandler {
+		/// <summary>
+		/// Stores information about a GameObject and its properties.
+		/// </summary>
+		public struct GOHandler
+		{
 			public InGameObjectBehaviour reference;
-			public InGameObjectProperties properties, lastProperties;
+			public InGameObjectProperties properties;
+			public InGameObjectProperties lastProperties;
 
-			public static GOHandler GetGOHandler(InGameObjectBehaviour obj) => new() {
+			public static GOHandler GetGOHandler(InGameObjectBehaviour obj) => new()
+			{
 				reference = obj,
 				properties = obj.properties,
 				lastProperties = obj.lastProperties
@@ -87,21 +116,29 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		}
 	}
 
-	public class MainEditor : MonoBehaviour {
+
+
+	public class MainEditor : MonoBehaviour
+	{
 		#region Public attributes
 		[Header("Components")]
 		public Camera cam;
 		public MeshRenderer grids;
 		public InputSystemUIInputModule inputModule;
-		public SpriteRenderer objectPreview, selectionArea;
+		public SpriteRenderer objectPreview;
+		public SpriteRenderer selectionArea;
 		public Canvas dragArea;
-		public RectTransform dragAreaRect, resRectArea, rotRectArea;
+		public RectTransform dragAreaRect;
+		public RectTransform resRectArea;
+		public RectTransform rotRectArea;
 		public PlayerInput playerInput;
 
 		[Header("UI components")]
 		public CanvasScaler canvasScaler;
 		public Image virtualCursorImg;
-		public Image undoImg, redoImg, testButtonImg;
+		public Image undoImg;
+		public Image redoImg;
+		public Image testButtonImg;
 		public Button[] buttons;
 		public Image[] gamepadIndications;
 
@@ -110,10 +147,14 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 		[Header("Properties")]
 		public Vector2 zoomLimits;
-		public float defaultOrtho, navigationSpeed, cursorSpeed;
-		[Range(0f, 1f)] public float zoomSpeedGamepad, zoomSpeedKeyboard;
+		public float defaultOrtho;
+		public float navigationSpeed;
+		public float cursorSpeed;
+		[Range(0f, 1f)] public float zoomSpeedGamepad;
+		[Range(0f, 1f)] public float zoomSpeedKeyboard;
 		public ContactFilter2D contactFilter;
-		public Sprite[] panelSwitchSprite = new Sprite[2], sprTestBtn;
+		public Sprite[] panelSwitchSprite = new Sprite[2];
+		public Sprite[] sprTestBtn;
 		public Toggle[] optionsToggles;
 
 		[Space(25)]
@@ -128,7 +169,10 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		public ObjectInspector inspectorProcessor;
 		public RectTransform[] inspectorSections;
 		public ButtonSelectObject bso;
-		public RectTransform BSOGameplay, BSOBlocks, BSOObstacles, BSODecoration;
+		public RectTransform BSOGameplay;
+		public RectTransform BSOBlocks;
+		public RectTransform BSOObstacles;
+		public RectTransform BSODecoration;
 		#endregion
 
 
@@ -136,75 +180,161 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 		#region Cache and buffers
 		readonly List<RaycastResult> guiResults = new();
-		readonly List<RaycastHit2D> raycastHits = new(), msHits = new(), virtualHits = new();
+
+		readonly List<RaycastHit2D> raycastHits = new();
+		readonly List<RaycastHit2D> msHits = new();
+		readonly List<RaycastHit2D> virtualHits = new();
+
 		readonly List<UndoRedo> undoRedo = new();
-		readonly List<InGameObjectBehaviour> objCache = new(), selected = new(), multiSelected = new();
+
+		readonly List<InGameObjectBehaviour> objCache = new();
+		readonly List<InGameObjectBehaviour> selected = new();
+		readonly List<InGameObjectBehaviour> multiSelected = new();
+
 		public List<InGameObjectProperties> copiedObjCache = new();
 
-		InGameObjectBehaviour[] lastMS = new InGameObjectBehaviour[0],
-								msBuffer = new InGameObjectBehaviour[0],
-								lastSelBuffer = new InGameObjectBehaviour[0],
-								selectedBuffer = new InGameObjectBehaviour[0];
+		InGameObjectBehaviour[] lastMS = new InGameObjectBehaviour[0];
+		InGameObjectBehaviour[] msBuffer = new InGameObjectBehaviour[0];
+		InGameObjectBehaviour[] lastSelBuffer = new InGameObjectBehaviour[0];
+		InGameObjectBehaviour[] selectedBuffer = new InGameObjectBehaviour[0];
 
 		InGameObjectBehaviour draggedObject;
-		Coroutine saveCoroutine = null, collidersCoroutine = null;
+
 		List<Player> players = new();
 		List<Vector3>[] playersPos;
+
+		Coroutine saveCoroutine = null;
+		Coroutine collidersCoroutine = null;
 		#endregion
 
 		#region Temporal garbage
-		Rect guiRect = new(15, 15, 250, 150), msDrag, lastResArea, newResArea, rotArea;
+		Rect msDrag;
+		Rect lastResArea;
+		Rect newResArea;
+		Rect rotArea;
+
 		Material g_Material;
-		Vector2 navSpeed, dragNavOrigin, cursorToWorld, resRefPnt;
-		float newZoom = 1f, zoomSpeed, msAlpha, rotHandle, uiScale;
-		bool somePanelEnabled, wasMultiselecting, isOnTest, wasEditing, editorIsBusy = true;
+
+		Vector2 navSpeed;
+		Vector2 dragNavOrigin;
+		Vector2 cursorToWorld;
+		Vector2 resRefPnt;
+
+		float newZoom = 1f;
+		float zoomSpeed;
+		float msAlpha;
+		float rotHandle;
+		float uiScale;
+
+		bool somePanelEnabled;
+		bool wasMultiselecting;
+		bool isOnTest;
+		bool wasEditing;
+		bool editorIsBusy = true;
+
 		uint undoIndex;
+
 		int sid;
+
 		Coroutine inspectorCoroutine;
 		// GameObject[] players;
 		#endregion
 
-		#region Common variables
+		#region Commonly used variables
 		InputType inputType = InputType.KeyboardAndMouse;
+
 		float zoom = 1f;
-		Vector2 cursorPos, virtualCursor, mousePosition, dragOrigin, virtualPosition, testPos;
+
+		Vector2 cursorPos;
+		Vector2 virtualCursor;
+		Vector2 mousePosition;
+		Vector2 dragOrigin;
+		Vector2 virtualPosition;
+		Vector2 testPos;
+
 		Bounds selectionBounds;
 
-		bool onSubmit, onDelete;
-		bool onDragNavigation, onMultiselection, onDrag, hoverAnObject, onResize, onRotate;
-		bool hoverUI, curInWindow, allowScroll;
+		// Input events
+		bool onSubmit;
+		bool onDelete;
+
+		// Editor tools events
+		bool onDragNavigation;
+		bool onMultiselection;
+		bool onDrag;
+		bool hoverAnObject;
+		bool onResize;
+		bool onRotate;
+
+		// UI events
+		bool hoverUI;
+		bool curInWindow;
+		bool allowScroll;
+
 		bool historialAvailable = true;
 
+		/// <summary>
+		/// Stores a resume of all the information about the objects in the scene.
+		/// </summary>
 		AnalysisData analysis = new();
 		#endregion
 
 		#region Hotdog
+		/// <summary>
+		/// The actual size of the viewport in world units.
+		/// </summary>
 		Vector2 cameraSize {
 			get {
-				float h = cam.orthographicSize * 2f, w = h * cam.aspect;
+				float h = cam.orthographicSize * 2f;
+				float w = h * cam.aspect;
+
 				return new(w, h);
 			}
 		}
+
+		/// <summary>
+		/// The current selected object ID.
+		/// </summary>
 		int selectedId {
 			get => sid;
 			set => sid = Mathf.Clamp(value, 0, Globals.objects.Count - 1);
 		}
+
+		/// <summary>
+		/// The actual index of the undoRedo list.
+		/// </summary>
 		int undoDiff {
 			get => undoRedo.Count - (int)undoIndex;
 		}
+
+		/// <summary>
+		/// The current selected object.
+		/// </summary>
 		InGameObject selectedObject {
 			get => Globals.objects[selectedId];
 		}
+
+		/// <summary>
+		/// If true, the user is ready to interact with the editor.
+		/// </summary>
 		bool userReady {
 			get => !hoverUI && curInWindow && !editorIsBusy && !Globals.openSettings;
 		}
+
+		/// <summary>
+		/// If true, the user is dragging an object or the selection area.
+		/// </summary>
 		bool userIsDragging {
 			get => onRotate || onResize || onDrag || onMultiselection || onDragNavigation;
 		}
 		#endregion
 
 		#region Unity methods
-		private void Start() {
+		private void OnEnable() => GameEventsHandler.PlayerDeath += OnPlayerDeathInTest;
+		private void OnDisable() => GameEventsHandler.PlayerDeath -= OnPlayerDeathInTest;
+
+		private void Start()
+		{
 			Globals.onLoad = true;
 			Globals.loadingText = Globals.languages.GetField("loading.load_objects");
 
@@ -253,23 +383,33 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 			undoIndex = 0;
 			ChangeInspectorSection(0);
-			UpdateButtons();
+			UpdateUndoRedoButtons();
 
 			Globals.onPause = true;
 
-			bool[] vals = { Globals.Editor.snap, Globals.Editor.handleLocally };
+			bool[] vals = {
+				Globals.Editor.snap,
+				Globals.Editor.handleLocally
+			};
 
 			for (int i = 0; i < vals.Length; i++) {
-				if (i < optionsToggles.Length) optionsToggles[i].SetIsOnWithoutNotify(vals[i]);
+				if (i < optionsToggles.Length) {
+					optionsToggles[i].SetIsOnWithoutNotify(vals[i]);
+				}
 			}
 
 			GameObject[] objs = GameObject.FindGameObjectsWithTag("EditorObject");
 
-			for (int i = 0; i < objs.Length; i++)
+			for (int i = 0; i < objs.Length; i++) {
 				objCache.Add(objs[i].GetComponent<InGameObjectBehaviour>());
+			}
+
 
 			playersPos = new List<Vector3>[lineRenderers.Length];
-			for (int i = 0; i < playersPos.Length; i++) playersPos[i] = new List<Vector3>();
+
+			for (int i = 0; i < playersPos.Length; i++) {
+				playersPos[i] = new List<Vector3>();
+			}
 
 
 			#region Load level from file
@@ -291,13 +431,9 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			#endregion
 		}
 
-		private void Update() {
+		private void Update()
+		{
 			Vector2 trnsSpd = navSpeed;
-
-			// if (Globals.settings.editor.useCustomUIScale) {
-			// 	canvasScaler.uiScaleMode = CanvasScaler.ScaleMode.ConstantPixelSize;
-			// 	canvasScaler.scaleFactor = Globals.settings.editor.uiScale;
-			// }
 
 			if (uiScale != Globals.settings.editor.uiScale) {
 				float newUIScale = 2f - Mathf.Clamp(Globals.settings.editor.uiScale, 0.15f, 1.35f);
@@ -307,6 +443,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				uiScale = Globals.settings.editor.uiScale;
 			}
 
+			// TODO: Replace this with a new Panel system
 			#region Panels controller
 			for (int i = 0; i < panels.Length; i++) {
 				panels[i].internals.position = Mathf.Lerp(panels[i].internals.position, panels[i].internals.nextPosition + panels[i].internals.deltaPosition, 0.5f * RSTime.delta);
@@ -343,12 +480,15 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 					virtualCursorImg.rectTransform.position = cursorPos;
 					virtualCursorImg.enabled = !hoverUI;
 
+					// TODO: Replace this with a easier way to do it
 					#region Panels buttons
-					if (buttons[0].navigation.mode != Navigation.Mode.Automatic)
+					if (buttons[0].navigation.mode != Navigation.Mode.Automatic) {
 						buttons.SetNavigation(Navigation.Mode.Automatic);
+					}
 
-					if (buttons[0].interactable != hoverUI)
+					if (buttons[0].interactable != hoverUI) {
 						buttons.SetInteractable(hoverUI);
+					}
 
 					foreach (PanelStruct panel in panels) {
 						if (!somePanelEnabled && panel.internals.enabled) {
@@ -366,28 +506,37 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 							}
 						}
 
-						if (panel.content[0].navigation.mode != Navigation.Mode.Automatic)
+						if (panel.content[0].navigation.mode != Navigation.Mode.Automatic) {
 							panel.content.SetNavigation(Navigation.Mode.Automatic);
+						}
 					}
 
-					if (somePanelEnabled && !hoverUI) somePanelEnabled = false;
+					if (somePanelEnabled && !hoverUI) {
+						somePanelEnabled = false;
+					}
 					#endregion
 
-					if (!curInWindow) curInWindow = true;
+					if (!curInWindow) {
+						curInWindow = true;
+					}
 					break;
 				case InputType.KeyboardAndMouse:
 					cursorPos = mousePosition;
 					virtualCursorImg.enabled = false;
 
-					if (!buttons[0].interactable)
+					// TODO: Replace this with a easier way to do it... again
+					if (!buttons[0].interactable) {
 						buttons.SetInteractable(true);
+					}
 
-					if (buttons[0].navigation.mode != Navigation.Mode.None)
+					if (buttons[0].navigation.mode != Navigation.Mode.None) {
 						buttons.SetNavigation(Navigation.Mode.None);
+					}
 
 					foreach (PanelStruct panel in panels) {
-						if (panel.content[0].navigation.mode != Navigation.Mode.None)
+						if (panel.content[0].navigation.mode != Navigation.Mode.None) {
 							panel.content.SetNavigation(Navigation.Mode.None);
+						}
 					}
 
 					curInWindow = Globals.screenRect.Contains(cursorPos);
@@ -404,10 +553,12 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			}
 			#endregion
 
+			// If user finished selecting objects, move the selected objects to the perma-selected list
 			if (!onMultiselection && multiSelected.Count > 0) {
 				for (int i = 0; i < multiSelected.Count; i++) {
-					if (!selected.Contains(multiSelected[i]))
+					if (!selected.Contains(multiSelected[i])) {
 						selected.Add(multiSelected[i]);
+					}
 				}
 
 				multiSelected.Clear();
@@ -420,7 +571,8 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			}
 		}
 
-		private void LateUpdate() {
+		private void LateUpdate()
+		{
 			cursorToWorld = cam.ScreenToWorldPoint(cursorPos);
 			virtualCursor = Snapping.Snap(cursorToWorld, (Globals.Editor.snap ? 1f : Constants.pixelToUnit) * Vector2.one);
 			virtualPosition = Globals.Editor.snap ? Snapping.Snap(transform.position, Vector2.one) : transform.position;
@@ -428,7 +580,10 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			#region Preview and selection area
 			if (!isOnTest) {
 				msAlpha = Mathf.Lerp(msAlpha, onMultiselection.ToInt(), 0.15f * RSTime.delta);
-				if (onMultiselection) msDrag.size = cursorToWorld - msDrag.position;
+
+				if (onMultiselection) {
+					msDrag.size = cursorToWorld - msDrag.position;
+				}
 
 				objectPreview.transform.position = virtualCursor;
 				objectPreview.enabled = userReady && !userIsDragging;
@@ -459,26 +614,35 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			#region Selection
 			// Multiselection buffer
 			if (!onMultiselection) {
-				if (multiSelected.Count > 0) multiSelected.Clear();
-				if (lastMS.Length > 0) lastMS = new InGameObjectBehaviour[0];
+				if (multiSelected.Count > 0) {
+					multiSelected.Clear();
+				}
+				if (lastMS.Length > 0) {
+					lastMS = new InGameObjectBehaviour[0];
+				}
 
 				if (wasMultiselecting) {
 					wasMultiselecting = false;
 					analysis = AnalizeObjects(AnalysisData.Area.SELECTED);
-					ScanSelected();
+					ScanSelectedObjects();
 				}
 			}
 
 			// Dragging all
 			if (onDrag) {
-				Vector2 newPos = Snapping.Snap(cursorToWorld + draggedObject.dragOrigin, (Globals.Editor.snap ? 1f : Constants.pixelToUnit) * Vector2.one);
+				Vector2 newPos = Snapping.Snap(
+					cursorToWorld + draggedObject.dragOrigin,
+					(Globals.Editor.snap ? 1f : Constants.pixelToUnit) * Vector2.one
+				);
 				draggedObject.transform.position = newPos;
 
 				selectionBounds = GetSelectionBounds();
 
-				for (int i = 0; i < selected.Count; i++)
-					if (selected[i] != draggedObject)
+				for (int i = 0; i < selected.Count; i++) {
+					if (selected[i] != draggedObject) {
 						selected[i].SetPosition(newPos - selected[i].dist2Dragged);
+					}
+				}
 			}
 
 			// Interpreting selection area
@@ -487,11 +651,14 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				dragAreaRect.transform.position = selectionBounds.center;
 				dragAreaRect.transform.localScale = (Vector3)(zoom * Vector2.one) + Vector3.forward;
 				dragAreaRect.sizeDelta = (selectionBounds.size + new Vector3(1f, 1f, 0f)) / zoom;
-			} else dragArea.enabled = false;
+			} else {
+				dragArea.enabled = false;
+			}
 			#endregion
 		}
 
-		private void FixedUpdate() {
+		private void FixedUpdate()
+		{
 			if (isOnTest) {
 				if (players.Count > 0) {
 					Vector3 minPos = new(), maxPos = new();
@@ -499,7 +666,9 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 					bool minMaxDefined = false;
 
 					for (int i = 0; i < players.Count; i++) {
-						if (!players[i]) continue;
+						if (!players[i]) {
+							continue;
+						}
 
 						if (!minMaxDefined) {
 							minPos = players[i].transform.position;
@@ -515,7 +684,9 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 							Vector2 diff = (Vector2)players[i].transform.position - players[i].lastPublicPos;
 
 							if (diff.magnitude > 0.05f) {
-								if (playersPos[j].Count > Globals.settings.editor.lineLength) playersPos[j].RemoveAt(0);
+								if (playersPos[j].Count > Globals.settings.editor.lineLength) {
+									playersPos[j].RemoveAt(0);
+								}
 								playersPos[j].Add(players[i].transform.position);
 
 								lineRenderers[j].positionCount = playersPos[j].Count;
@@ -551,8 +722,9 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 				msBuffer = lastMS.Except(multiSelected).ToArray();
 
-				for (int i = 0; i < msBuffer.Length; i++)
+				for (int i = 0; i < msBuffer.Length; i++) {
 					msBuffer[i].color = Color.white;
+				}
 
 				lastMS = multiSelected.ToArray();
 
@@ -591,24 +763,27 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 								obj.SetActive(false);
 							}
 
-							UpdateUndoRedo(UndoRedo.Type.Remove, listBuffer);
+							UpdateUndoRedoList(UndoRedo.Type.Remove, listBuffer);
 						}
 						break;
 					case 0:
 						if (onSubmit && virtualHits.Count == 0) {
-							if (selectedId == Constants.InternalIDs.player && analysis.playersNumber >= 2) return;
+							if (selectedId == Constants.InternalIDs.player && analysis.playersNumber >= 2) {
+								return;
+							}
 
 							InGameObjectBehaviour newObj = CreateObject(selectedId, virtualCursor, Vector2.one, 0f);
 
 							wasEditing = true;
-							UpdateUndoRedo(UndoRedo.Type.Add, new List<InGameObjectBehaviour>() { newObj });
+							UpdateUndoRedoList(UndoRedo.Type.Add, newObj);
 						}
 						break;
 				}
 			}
 		}
 
-		private void OnGUI() {
+		private void OnGUI()
+		{
 			if (inputType != InputType.Gamepad) {
 				PointerEventData evData = new(EventSystem.current) {
 					position = cursorPos
@@ -632,13 +807,15 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			// GUI.Box(guiRect, "");
 			// GUI.Label(guiRect, $"Instances number: {analysis.objectsNumber}\nCurrent ID: {sid}");
 		}
-
-		private void OnEnable() => GameEventsHandler.PlayerDeath += OnPlayerDeathInTest;
-		private void OnDisable() => GameEventsHandler.PlayerDeath -= OnPlayerDeathInTest;
 		#endregion
 
 		#region Private methods
-		void PanelsTrigger(float val, int i) {
+		// TODO: Deprecate this and reemplaze it with a new Panel system
+		/// <summary>
+		/// Opens or closes a panel.
+		/// </summary>
+		void PanelsTrigger(float val, int i)
+		{
 			if (val > panelLimit && !panels[i].internals.wasEnabled) {
 				panels[i].internals.wasEnabled = true;
 				panels[i].internals.nextPosition = !panels[i].internals.enabled ? 1f : panelLimit - 0.01f;
@@ -646,28 +823,41 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			} else if (val <= panelLimit) {
 				panels[i].internals.wasEnabled = false;
 
-				if (!panels[i].internals.enabled) panels[i].internals.nextPosition = val;
+				if (!panels[i].internals.enabled) {
+					panels[i].internals.nextPosition = val;
+				}
 			}
 		}
 
-		void UpdateButtons() {
+		/// <summary>
+		/// Updates undo and redo buttons to show if there are any actions to undo or redo.
+		/// </summary>
+		void UpdateUndoRedoButtons()
+		{
 			undoImg.color = undoRedo.Count == undoIndex ? Color.grey : Color.white;
 			redoImg.color = undoIndex == 0 ? Color.grey : Color.white;
 
 			analysis = AnalizeObjects();
-			ScanSelected();
+			ScanSelectedObjects();
 		}
 
-		void UpdateUndoRedo(UndoRedo.Type type, List<InGameObjectBehaviour> objs) {
+		/// <summary>
+		/// Changes the undo/redo history adding new entries and removing old ones.
+		/// </summary>
+		void UpdateUndoRedoList(UndoRedo.Type type, List<InGameObjectBehaviour> objs)
+		{
 			UndoRedo undoBuffer = new(type, objs);
 
 			if (undoIndex > 0) {
 				List<UndoRedo> rangeBuffer = undoRedo.GetRange(undoDiff, (int)undoIndex);
 				
+
 				for (int i = 0; i < rangeBuffer.Count; i++) {
 				
 					if (rangeBuffer[i].type == UndoRedo.Type.Add) {
+
 						for (int j = 0; j < rangeBuffer[i].objCache.Count; j++) {
+
 							InGameObjectBehaviour rff = rangeBuffer[i].objCache[j].reference;
 
 							selected.Remove(rff);
@@ -679,96 +869,152 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 				}
 
+
 				undoRedo.RemoveRange(undoDiff, (int)undoIndex);
 
 				undoIndex = 0;
-			} else if (undoRedo.Count == Globals.settings.editor.historialSize) undoRedo.RemoveAt(0);
+			} else if (undoRedo.Count == Globals.settings.editor.historialSize) {
+				undoRedo.RemoveAt(0);
+			}
 
 			undoRedo.Add(undoBuffer);
-			UpdateButtons();
+			UpdateUndoRedoButtons();
 			UpdateColliders();
 		}
-		void StoreSelectedInHistorial() {
+
+		/// <summary>
+		/// Changes the undo/redo history adding a new entry and removing old ones.
+		/// </summary>
+		void UpdateUndoRedoList(UndoRedo.Type type, InGameObjectBehaviour obj)
+		{
+			UpdateUndoRedoList(type, new List<InGameObjectBehaviour>() { obj });
+		}
+
+		/// <summary>
+		/// Stores changes of the current selected objects in the undo/redo history.
+		/// </summary>
+		void StoreSelectedObjectsInUndoRedoList()
+		{
 			List<InGameObjectBehaviour> tmp = new();
 
 			for (int i = 0; i < selected.Count; i++) {
-				if (!selected[i]) continue;
-				if (!selected[i].gameObject.activeInHierarchy) continue;
+				if (!selected[i]) {
+					continue;
+				}
+				if (!selected[i].gameObject.activeInHierarchy) {
+					continue;
+				}
 
 				tmp.Add(selected[i]);
 			}
 
-			UpdateUndoRedo(UndoRedo.Type.Properties, tmp);
+			UpdateUndoRedoList(UndoRedo.Type.Properties, tmp);
 		}
 
-		void ScanSelected() {
-			for (int i = 0; i < selected.Count; i++)
-				if (selected[i])
+		/// <summary>
+		/// Scans selected objects and sends their information to the inspector.
+		/// </summary>
+		void ScanSelectedObjects()
+		{
+			// Update colors
+			for (int i = 0; i < selected.Count; i++) {
+				if (selected[i]) {
 					selected[i].color = Constants.Colors.green;
+				}
+			}
 
+			// Prepare buffer
 			selectedBuffer = lastSelBuffer.Except(selected).ToArray();
 
-			for (int i = 0; i < selectedBuffer.Length; i++)
-				if (selectedBuffer[i])
+			for (int i = 0; i < selectedBuffer.Length; i++) {
+				if (selectedBuffer[i]) {
 					selectedBuffer[i].ResetColor();
+				}
+			}
 
 
 			lastSelBuffer = selected.ToArray();
 
+			// Update selection bounds
 			selectionBounds = GetSelectionBounds();
+
+			// Send them to the inspector
 			inspectorProcessor.PrepareInspector(lastSelBuffer);
 		}
-		AnalysisData AnalizeObjects(AnalysisData.Area area = AnalysisData.Area.ALL) {
+
+		/// <summary>
+		/// Analizes all the objects in the scene and returns a resume of the information.
+		/// </summary>
+		AnalysisData AnalizeObjects(AnalysisData.Area area = AnalysisData.Area.ALL)
+		{
 			AnalysisData analysis = new();
 
 			for (int i = 0; i < objCache.Count; i++) {
-				if (!objCache[i]) continue;
-				if (!objCache[i].gameObject.activeInHierarchy) continue;
+				if (!objCache[i]) {
+					continue;
+				}
+				if (!objCache[i].gameObject.activeInHierarchy) {
+					continue;
+				}
 
 
-				if ((area & AnalysisData.Area.OBJECTS) != 0)
+				if ((area & AnalysisData.Area.OBJECTS) != 0) {
 					analysis.objectsNumber++;
+				}
 
 
-				if ((area & AnalysisData.Area.PLAYERS) != 0)
-					if (objCache[i].properties.id == Constants.InternalIDs.player) analysis.playersNumber++;
+				if (
+					(area & AnalysisData.Area.PLAYERS) != 0 &&
+					objCache[i].properties.id == Constants.InternalIDs.player
+				) {
+					analysis.playersNumber++;
+				}
 
 
-				if ((area & AnalysisData.Area.SELECTED) != 0)
-					if (selected.Contains(objCache[i])) analysis.selectedNumber++;
+				if (
+					(area & AnalysisData.Area.SELECTED) != 0 &&
+					selected.Contains(objCache[i])
+				) {
+					analysis.selectedNumber++;
+				}
 			}
 
 			return analysis;
 		}
 
-		Bounds GetSelectionBounds() {
+		/// <summary>
+		/// Scans all selected objects and updates the selection bounds.
+		/// </summary>
+		Bounds GetSelectionBounds()
+		{
 			if (selected.Count > 0) {
-				int i = 0;
-				Bounds bounds = new();
+				Bounds? bounds = null;
 
-				// First bound
-				for ( ; i < selected.Count; i++) {
-					if (!selected[i]) continue;
-					if (!selected[i].gameObject.activeInHierarchy) continue;
+				for (int i = 0; i < selected.Count; i++) {
+					if (!selected[i]) {
+						continue;
+					}
+					if (!selected[i].gameObject.activeInHierarchy) {
+						continue;
+					}
 
-					bounds = selected[i].bounds;
-					break;
+
+					if (!bounds.HasValue) {
+						bounds = selected[i].bounds;
+					} else {
+						bounds?.Encapsulate(selected[i].bounds);
+					}
 				}
 
-				// The rest of the bounds
-				for ( ; i < selected.Count; i++) {
-					if (!selected[i]) continue;
-					if (!selected[i].gameObject.activeInHierarchy) continue;
-
-					bounds.Encapsulate(selected[i].bounds);
-				}
-
-				return bounds;
+				return bounds ?? new Bounds();
 			}
 
 			return new Bounds();
 		}
 
+		/// <summary>
+		/// Creates a new game object in the scene.
+		/// </summary>
 		InGameObjectBehaviour CreateObject(int id, Vector2 position, Vector2 scale, float rotation)
 		{
 			InGameObjectBehaviour newObject = LevelIO.CreateObject(
@@ -785,24 +1031,37 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			return newObject;
 		}
 
-		void UpdateColliders(bool lazyUpdate = true) {
+		/// <summary>
+		/// Updates colliders composite geometry.
+		/// </summary>
+		void UpdateColliders(bool lazyUpdate = true)
+		{
 			if (lazyUpdate) {
-				if (collidersCoroutine != null) StopCoroutine(collidersCoroutine);
+				if (collidersCoroutine != null) {
+					StopCoroutine(collidersCoroutine);
+				}
 				collidersCoroutine = StartCoroutine(LazyUpdateColliders());
-
-			} else PhysicsEventsHandler.GenerateCompositeGeometry();
+			} else {
+				PhysicsEventsHandler.GenerateCompositeGeometry();
+			}
 		}
 
-		void SetUpTestingState(bool enabled) {
+		/// <summary>
+		/// Starts or stops the test mode.
+		/// </summary>
+		void SetUpTestingState(bool enabled)
+		{
 			Globals.onPause = !enabled;
 			Globals.isDead = false;
 			Globals.respawnAttempts = 0;
+
 
 			for (int i = 0; i < panels.Length; i++) {
 				panels[i].group.interactable = !enabled;
 				panels[i].group.blocksRaycasts = !enabled;
 				panels[i].group.alpha = (!enabled).ToInt();
 			}
+
 
 			if (enabled) {
 				UpdateColliders(false);
@@ -814,11 +1073,17 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				testPos = transform.position;
 
 				GameObject[] plyrs = GameObject.FindGameObjectsWithTag("Player");
-				for (int i = 0; i < plyrs.Length; i++)
-					players.Add(plyrs[i].GetComponent<Player>());
 
-				for (int i = 0; i < lineRenderers.Length; i++) lineRenderers[i].positionCount = 0;
-				for (int i = 0; i < playersPos.Length; i++) playersPos[i].Clear();
+				for (int i = 0; i < plyrs.Length; i++) {
+					players.Add(plyrs[i].GetComponent<Player>());
+				}
+
+				for (int i = 0; i < lineRenderers.Length; i++) {
+					lineRenderers[i].positionCount = 0;
+				}
+				for (int i = 0; i < playersPos.Length; i++) {
+					playersPos[i].Clear();
+				}
 			} else {
 				GameEventsHandler.InvokeResetObject();
 				EditorEventsHandler.InvokeEndTesting();
@@ -830,24 +1095,45 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			// playerInput.enabled = !enabled;
 		}
 
-		void OnPlayerDeathInTest() {
-			if (!isOnTest) return;
+		/// <summary>
+		/// Is triggered when the player dies in test mode.
+		/// </summary>
+		void OnPlayerDeathInTest()
+		{
+			if (!isOnTest) {
+				return;
+			}
 
 			StartCoroutine(ResetTestObjects());
 		}
 
-		InGameObjectBehaviour HoverFindNotSelected() {
+		/// <summary>
+		/// Returns an object that has not been selected yet under raycastHits.
+		/// </summary>
+		InGameObjectBehaviour FindNotSelectedHoveredObject()
+		{
 			for (int i = 0; i < raycastHits.Count; i++) {
 				InGameObjectBehaviour tmp = raycastHits[i].collider.GetComponent<InGameObjectBehaviour>();
 
-				if (!selected.Contains(tmp)) return tmp;
+				if (!selected.Contains(tmp)) {
+					return tmp;
+				}
 			}
 
 			return null;
 		}
-		bool HoverSelected() {
+
+		/// <summary>
+		/// Returns true if the user is hovering an object that has been selected.
+		/// </summary>
+		bool IsHoverSelectedObject()
+		{
 			for (int i = 0; i < raycastHits.Count; i++) {
-				if (selected.Contains(raycastHits[i].collider.GetComponent<InGameObjectBehaviour>())) return true;
+				InGameObjectBehaviour tmp = raycastHits[i].collider.GetComponent<InGameObjectBehaviour>();
+
+				if (selected.Contains(tmp)) {
+					return true;
+				}
 			}
 
 			return false;
@@ -855,42 +1141,94 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		#endregion
 
 		#region Public methods
-		public void ButtonResetZoom() => newZoom = 1f;
-		public void ButtonChangeZoom(float x) => newZoom += x;
-		public void SwitchPanel(int i) {
-			if (isOnTest) return;
+		public void ButtonResetZoom()
+		{
+			newZoom = 1f;
+		}
+
+		public void ButtonChangeZoom(float toAdd)
+		{
+			newZoom += toAdd;
+		}
+
+		public void SwitchPanel(int i)
+		{
+			if (isOnTest) {
+				return;
+			}
 
 			panels[i].internals.nextPosition = (!panels[i].internals.enabled).ToInt();
 			panels[i].internals.deltaPosition = 0f;
 		}
-		public void ClosePanel(int i) => panels[i].internals.nextPosition = 0f;
-		public void OpenPanel(int i) { if (isOnTest) return; panels[i].internals.nextPosition = 1f; }
-		public void SetObjectId(int i) => selectedId = i;
 
-		public void SwitchPointerEnter(int i) { if (inputType != InputType.Gamepad) panels[i].internals.deltaPosition = panels[i].internals.enabled ? -0.05f : 0.05f; }
-		public void SwitchPointerExit(int i) => panels[i].internals.deltaPosition = 0f;
 
-		public void ChangeInspectorSection(int i) {
+		public void ClosePanel(int i)
+		{
+			panels[i].internals.nextPosition = 0f;
+		}
+
+		public void OpenPanel(int i)
+		{
+			if (isOnTest) {
+				return;
+			}
+
+			panels[i].internals.nextPosition = 1f;
+		}
+
+
+		public void SetObjectId(int i)
+		{
+			selectedId = i;
+		}
+
+		public void SwitchPointerEnter(int i)
+		{
+			if (inputType != InputType.Gamepad) {
+				panels[i].internals.deltaPosition = panels[i].internals.enabled ? -0.05f : 0.05f;
+			}
+		}
+
+		public void SwitchPointerExit(int i)
+		{
+			panels[i].internals.deltaPosition = 0f;
+		}
+
+		public void ChangeInspectorSection(int i)
+		{
 			for (int a = 0; a < inspectorSections.Length; a++) {
 				inspectorSections[a].gameObject.SetActive(a == i);
 
-				if (a == i) inspector.content = inspectorSections[a];
+				if (a == i) {
+					inspector.content = inspectorSections[a];
+				}
 			}
 		}
-		public void HandleInspectorChanges(ObjectInspector.Section section, ObjectInspector.Section.PropertyField field) {
+
+		public void HandleInspectorChanges(ObjectInspector.Section section, ObjectInspector.Section.PropertyField field)
+		{
 			bool storeLast = inspectorCoroutine == null;
 
-			if (inspectorCoroutine != null) StopCoroutine(inspectorCoroutine);
+			if (inspectorCoroutine != null) {
+				StopCoroutine(inspectorCoroutine);
+			}
+
 			inspectorCoroutine = StartCoroutine(Inspector2Historial());
+
 
 			historialAvailable = false;
 
 			for (int i = 0; i < selected.Count; i++) {
-				if (!selected[i]) continue;
-				if (!selected[i].gameObject.activeInHierarchy) continue;
+				if (!selected[i]) {
+					continue;
+				}
+				if (!selected[i].gameObject.activeInHierarchy) {
+					continue;
+				}
 
-				if (storeLast)
+				if (storeLast) {
 					selected[i].SetLastProperties();
+				}
 
 				InGameObjectProperties prop = selected[i].properties;
 
@@ -900,25 +1238,47 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 						switch (section.purpose) {
 							case PropertiesEnum.Position:
-								if (isX) prop.position.x = field.GetFloat();
-								else prop.position.y = field.GetFloat();
-
+								if (isX) {
+									prop.position.x = field.GetFloat();
+								} else {
+									prop.position.y = field.GetFloat();
+								}
 								break;
 							case PropertiesEnum.FreeScale:
-								if (isX) prop.scale.x = field.GetFloat();
-								else prop.scale.y = field.GetFloat();
-
+								if (isX) {
+									prop.scale.x = field.GetFloat();
+								} else {
+									prop.scale.y = field.GetFloat();
+								}
 								break;
+
+							// No default
 						}
 						break;
 
 					case ObjectInspector.Section.DataType.Float:
 						switch (section.purpose) {
-							case PropertiesEnum.Scale: prop.scale = field.GetFloat() * Vector2.one; break;
-							case PropertiesEnum.Rotation: prop.rotation = field.GetFloat(); break;
-							case PropertiesEnum.wakeTime: prop.wakeTime = field.GetFloat(); break;
-							case PropertiesEnum.ReloadTime: prop.reloadTime = field.GetFloat(); break;
-							case PropertiesEnum.Speed: prop.speed = field.GetFloat(); break;
+							case PropertiesEnum.Scale:
+								prop.scale = field.GetFloat() * Vector2.one;
+								break;
+
+							case PropertiesEnum.Rotation:
+								prop.rotation = field.GetFloat();
+								break;
+
+							case PropertiesEnum.wakeTime:
+								prop.wakeTime = field.GetFloat();
+								break;
+
+							case PropertiesEnum.ReloadTime:
+								prop.reloadTime = field.GetFloat();
+								break;
+
+							case PropertiesEnum.Speed:
+								prop.speed = field.GetFloat();
+								break;
+
+							// No default
 						}
 						break;
 
@@ -928,81 +1288,130 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 					case ObjectInspector.Section.DataType.Boolean:
 						switch (section.purpose) {
-							case PropertiesEnum.InvertGravity: prop.invertGravity = field.GetBool(); break;
-							case PropertiesEnum.SpawnSaw: prop.spawnSaw = field.GetBool(); break;
+							case PropertiesEnum.InvertGravity:
+								prop.invertGravity = field.GetBool();
+								break;
+							case PropertiesEnum.SpawnSaw:
+								prop.spawnSaw = field.GetBool();
+								break;
+
+							// No default
 						}
 						break;
+
+					// No default
 				}
 
 				selected[i].properties = prop;
 			}
 
-			ScanSelected();
+			ScanSelectedObjects();
 		}
 
 
-		public void Undo() {
-			if (undoRedo.Count == undoIndex || !historialAvailable || isOnTest) return;
+		public void Undo()
+		{
+			if (undoRedo.Count == undoIndex || !historialAvailable || isOnTest) {
+				return;
+			}
 			UndoRedo undoBuffer = undoRedo[undoDiff - 1];
 
 			foreach (UndoRedo.GOHandler obj in undoBuffer.objCache) {
 				switch (undoBuffer.type) {
-					case UndoRedo.Type.Add: obj.reference.gameObject.SetActive(false); break;
-					case UndoRedo.Type.Remove: obj.reference.gameObject.SetActive(true); break;
-					case UndoRedo.Type.Properties: obj.reference.properties = obj.lastProperties; break;
+					case UndoRedo.Type.Add:
+						obj.reference.gameObject.SetActive(false);
+						break;
+
+					case UndoRedo.Type.Remove:
+						obj.reference.gameObject.SetActive(true);
+						break;
+
+					case UndoRedo.Type.Properties:
+						obj.reference.properties = obj.lastProperties;
+						break;
+
+					// No default
 				}
 			}
 
 			undoIndex++;
-			UpdateButtons();
+			UpdateUndoRedoButtons();
 			UpdateColliders();
 		}
-		public void Redo() {
-			if (undoIndex == 0 || !historialAvailable || isOnTest) return;
+
+		public void Redo()
+		{
+			if (undoIndex == 0 || !historialAvailable || isOnTest) {
+				return;
+			}
 			UndoRedo undoBuffer = undoRedo[undoDiff];
 
 			foreach (UndoRedo.GOHandler obj in undoBuffer.objCache) {
 				switch (undoBuffer.type) {
-					case UndoRedo.Type.Add: obj.reference.gameObject.SetActive(true); break;
-					case UndoRedo.Type.Remove: obj.reference.gameObject.SetActive(false); break;
-					case UndoRedo.Type.Properties: obj.reference.properties = obj.properties; break;
+					case UndoRedo.Type.Add:
+						obj.reference.gameObject.SetActive(true);
+						break;
+
+					case UndoRedo.Type.Remove:
+						obj.reference.gameObject.SetActive(false);
+						break;
+
+					case UndoRedo.Type.Properties:
+						obj.reference.properties = obj.properties;
+						break;
+
+					// No default
 				}
 			}
 
 			undoIndex--;
-			UpdateButtons();
+			UpdateUndoRedoButtons();
 			UpdateColliders();
 		}
 
-		public void DeselectAll() {
-			if (selected.Count == 0) return;
+
+		public void DeselectAll()
+		{
+			if (selected.Count == 0) {
+				return;
+			}
 			selected.Clear();
 
-			ScanSelected();
+			ScanSelectedObjects();
 
 			analysis.selectedNumber = 0;
 		}
-		public void DeleteSelected() {
-			if (selected.Count == 0) return;
+
+		public void DeleteSelected()
+		{
+			if (selected.Count == 0) {
+				return;
+			}
 
 			List<InGameObjectBehaviour> listBuffer = new();
 
 			for (int i = 0; i < selected.Count; i++) {
-				if (!selected[i]) continue;
-				if (!selected[i].gameObject.activeInHierarchy) continue;
+				if (!selected[i]) {
+					continue;
+				}
+				if (!selected[i].gameObject.activeInHierarchy) {
+					continue;
+				}
 
 				listBuffer.Add(selected[i]);
 				selected[i].gameObject.SetActive(false);
 			}
 
 			selected.Clear();
-			ScanSelected();
+			ScanSelectedObjects();
 
 			analysis = AnalizeObjects();
-			UpdateUndoRedo(UndoRedo.Type.Remove, listBuffer);
+			UpdateUndoRedoList(UndoRedo.Type.Remove, listBuffer);
 		}
 
-		public void StartResizing(EditorDragArea handler) {
+
+		public void StartResizing(EditorDragArea handler)
+		{
 			onResize = true;
 			rotRectArea.gameObject.SetActive(false);
 
@@ -1023,22 +1432,32 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			};
 
 			for (int i = 0; i < selected.Count; i++) {
-				if (!selected[i]) continue;
-				if (!selected[i].gameObject.activeInHierarchy) continue;
+				if (!selected[i]) {
+					continue;
+				}
+				if (!selected[i].gameObject.activeInHierarchy) {
+					continue;
+				}
 
 				selected[i].SetLastProperties();
 				selected[i].dist2Dragged = newResArea.center - (Vector2)selected[i].transform.position;
 			}
 		}
-		public void UpdateResizing(EditorDragArea handler) {
+
+		public void UpdateResizing(EditorDragArea handler)
+		{
 			Vector4 a = newResArea.MinMaxToVec4();
 			Vector2 B = virtualCursor + new Vector2(
 				virtualCursor.x < resRefPnt.x ? 0.5f : -0.5f,
 				virtualCursor.y < resRefPnt.y ? 0.5f : -0.5f
 			);
 
-			if (Mathf.Abs(virtualCursor.x - resRefPnt.x) <= 0.5f) B.x = resRefPnt.x;
-			if (Mathf.Abs(virtualCursor.y - resRefPnt.y) <= 0.5f) B.y = resRefPnt.y;
+			if (Mathf.Abs(virtualCursor.x - resRefPnt.x) <= 0.5f) {
+				B.x = resRefPnt.x;
+			}
+			if (Mathf.Abs(virtualCursor.y - resRefPnt.y) <= 0.5f) {
+				B.y = resRefPnt.y;
+			}
 
 
 			// Hola, soy RobotoSkunk del 2022, y ahora que veo esta reverenda porquería, comienzo a replantear si mi intelecto es el suficiente para continuar con esto.
@@ -1069,27 +1488,36 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			);
 
 			for (int i = 0; i < selected.Count; i++) {
-				if (!selected[i]) continue;
-				if (!selected[i].gameObject.activeInHierarchy) continue;
+				if (!selected[i]) {
+					continue;
+				}
+				if (!selected[i].gameObject.activeInHierarchy) {
+					continue;
+				}
 
 
 				selected[i].SetScale(RSMath.Abs(selected[i].lastProperties.scale * fixedScale));
 
-				if (!Globals.Editor.handleLocally)
+				if (!Globals.Editor.handleLocally) {
 					selected[i].SetPosition(newResArea.center - selected[i].dist2Dragged * fixedScale);
+				}
 			}
 		}
-		public void EndResizing() {
+
+		public void EndResizing()
+		{
 			onResize = false;
 			rotRectArea.gameObject.SetActive(true);
 
-			StoreSelectedInHistorial();
+			StoreSelectedObjectsInUndoRedoList();
 
 			selectionBounds = GetSelectionBounds();
 			UpdateColliders();
 		}
 
-		public void StartRotating() {
+
+		public void StartRotating()
+		{
 			onRotate = true;
 			resRectArea.gameObject.SetActive(false);
 
@@ -1098,57 +1526,84 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			rotHandle = RSMath.Direction(rotArea.center, cursorToWorld) * Mathf.Rad2Deg;
 
 			for (int i = 0; i < selected.Count; i++) {
-				if (!selected[i]) continue;
-				if (!selected[i].gameObject.activeInHierarchy) continue;
+				if (!selected[i]) {
+					continue;
+				}
+				if (!selected[i].gameObject.activeInHierarchy) {
+					continue;
+				}
 
 				selected[i].SetLastProperties();
 				selected[i].dist2Dragged = rotArea.center - (Vector2)selected[i].transform.position;
 			}
 		}
-		public void UpdateRotating() {
-			float newRot = Snapping.Snap(rotHandle - RSMath.Direction(rotArea.center, cursorToWorld) * Mathf.Rad2Deg, Globals.Editor.snap ? 15f : 0f),
-				alpha = -newRot * Mathf.Deg2Rad;
+
+		public void UpdateRotating()
+		{
+			float newRot = Snapping.Snap(
+				rotHandle - RSMath.Direction(rotArea.center, cursorToWorld) * Mathf.Rad2Deg,
+				Globals.Editor.snap ? 15f : 0f
+			);
+			float alpha = -newRot * Mathf.Deg2Rad;
 
 			for (int i = 0; i < selected.Count; i++) {
-				if (!selected[i]) continue;
-				if (!selected[i].gameObject.activeInHierarchy) continue;
+				if (!selected[i]) {
+					continue;
+				}
+				if (!selected[i].gameObject.activeInHierarchy) {
+					continue;
+				}
 
 				selected[i].SetRotation(selected[i].lastProperties.rotation - newRot);
 
-				if (!Globals.Editor.handleLocally)
+				if (!Globals.Editor.handleLocally) {
 					selected[i].SetPosition(rotArea.center - RSMath.Rotate(selected[i].dist2Dragged, alpha));
+				}
 			}
 
 			rotRectArea.transform.eulerAngles = new Vector3(0f, 0f, -newRot);
 		}
-		public void EndRotating() {
+
+		public void EndRotating()
+		{
 			resRectArea.gameObject.SetActive(true);
 			rotRectArea.transform.eulerAngles = Vector3.zero;
 
 			onRotate = false;
-			StoreSelectedInHistorial();
+			StoreSelectedObjectsInUndoRedoList();
 
 			selectionBounds = GetSelectionBounds();
 			UpdateColliders();
 		}
 
 
-		public void CopySelection() {
-			if (selected.Count == 0 || isOnTest) return;
+		public void CopySelection()
+		{
+			if (selected.Count == 0 || isOnTest) {
+				return;
+			}
 			copiedObjCache.Clear();
-			
+
 			for (int i = 0; i < selected.Count; i++) {
-				if (!selected[i]) continue;
-				if (!selected[i].gameObject.activeInHierarchy) continue;
+				if (!selected[i]) {
+					continue;
+				}
+				if (!selected[i].gameObject.activeInHierarchy) {
+					continue;
+				}
 
 				InGameObjectProperties __tmp = selected[i].properties;
 				__tmp.position -= (Vector2)selectionBounds.center;
-	
+
 				copiedObjCache.Add(__tmp);
 			}
 		}
-		public void PasteSelection() {
-			if (copiedObjCache.Count == 0 || isOnTest) return;
+
+		public void PasteSelection()
+		{
+			if (copiedObjCache.Count == 0 || isOnTest) {
+				return;
+			}
 			List<InGameObjectBehaviour> tmpCache = new();
 
 			for (int i = 0; i < copiedObjCache.Count; i++) {
@@ -1160,18 +1615,26 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 			selected.Clear();
 			selected.AddRange(tmpCache);
-			ScanSelected();
+			ScanSelectedObjects();
 			
 			analysis = AnalizeObjects();
-			UpdateUndoRedo(UndoRedo.Type.Add, tmpCache);
+			UpdateUndoRedoList(UndoRedo.Type.Add, tmpCache);
 		}
-		public void DuplicateSelection() {
-			if (selected.Count == 0 || isOnTest) return;
+
+		public void DuplicateSelection()
+		{
+			if (selected.Count == 0 || isOnTest) {
+				return;
+			}
 			List<InGameObjectBehaviour> tmpCache = new();
 
 			for (int i = 0; i < selected.Count; i++) {
-				if (!selected[i]) continue;
-				if (!selected[i].gameObject.activeInHierarchy) continue;
+				if (!selected[i]) {
+					continue;
+				}
+				if (!selected[i].gameObject.activeInHierarchy) {
+					continue;
+				}
 
 				InGameObjectProperties __tmp = selected[i].properties;
 				tmpCache.Add(CreateObject((int)__tmp.id, __tmp.position, __tmp.scale, __tmp.rotation));
@@ -1179,20 +1642,28 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 			selected.Clear();
 			selected.AddRange(tmpCache);
-			ScanSelected();
+			ScanSelectedObjects();
 			
 			analysis = AnalizeObjects();
-			UpdateUndoRedo(UndoRedo.Type.Add, tmpCache);
+			UpdateUndoRedoList(UndoRedo.Type.Add, tmpCache);
 		}
-		public void CutSelection() {
-			if (selected.Count == 0 || isOnTest) return;
+
+		public void CutSelection()
+		{
+			if (selected.Count == 0 || isOnTest) {
+				return;
+			}
 
 			copiedObjCache.Clear();
 			List<InGameObjectBehaviour> tmpCache = new();
 
 			for (int i = 0; i < selected.Count; i++) {
-				if (!selected[i]) continue;
-				if (!selected[i].gameObject.activeInHierarchy) continue;
+				if (!selected[i]) {
+					continue;
+				}
+				if (!selected[i].gameObject.activeInHierarchy) {
+					continue;
+				}
 
 				InGameObjectProperties __tmp = selected[i].properties;
 				__tmp.position -= (Vector2)selectionBounds.center;
@@ -1203,179 +1674,326 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			}
 
 			selected.Clear();
-			ScanSelected();
+			ScanSelectedObjects();
 			
 			analysis = AnalizeObjects();
-			UpdateUndoRedo(UndoRedo.Type.Remove, tmpCache);
+			UpdateUndoRedoList(UndoRedo.Type.Remove, tmpCache);
 		}
 
 
-		public void ToggleTestingState() {
+		public void ToggleTestingState()
+		{
 			isOnTest = !isOnTest;
-
 			SetUpTestingState(isOnTest);
 		}
-		public void TestButton(string text) => Debug.Log(text);
 
-		public void SaveLevel() => saveCoroutine ??= StartCoroutine(SaveLvlRoutine());
+		public void TestButton(string text)
+		{
+			Debug.Log(text);
+		}
 
-		public void OpenSettings() => Globals.openSettings = true;
+		public void SaveLevel()
+		{
+			saveCoroutine ??= StartCoroutine(SaveLvlRoutine());
+		}
+
+		public void OpenSettings()
+		{
+			Globals.openSettings = true;
+		}
 		#endregion
 
 		#region Input System
-		public void OnMousePosition(InputAction.CallbackContext context) {
+		public void OnMousePosition(InputAction.CallbackContext context)
+		{
 			Vector2 val = context.ReadValue<Vector2>();
 
 			switch (inputType) {
-				case InputType.Gamepad: if (!hoverUI) navSpeed = val; break;
+				case InputType.Gamepad:
+					if (!hoverUI) {
+						navSpeed = val;
+					}
+					break;
+
 				case InputType.KeyboardAndMouse:
 					mousePosition = val;
 
-					if (onDragNavigation) transform.position = (Vector3)dragNavOrigin - ((Vector3)cursorToWorld - transform.position) + 10f * Vector3.back;
+					if (onDragNavigation) {
+						transform.position =
+							(Vector3)dragNavOrigin -
+							((Vector3)cursorToWorld - transform.position) + 10f * Vector3.back;
+					}
 					break;
+
+				// No default
 			}
 		}
 
-		public void OnNavigation(InputAction.CallbackContext context) {
-			if (Keyboard.current?.ctrlKey.isPressed ?? false) return;
+		public void OnNavigation(InputAction.CallbackContext context)
+		{
+			if (Keyboard.current?.ctrlKey.isPressed ?? false) {
+				return;
+			}
 
 			navSpeed = Globals.onEditField ? Vector2.zero : context.ReadValue<Vector2>();
 		}
 
-		public void OnDragNavigation(InputAction.CallbackContext context) {
-			if (isOnTest) return;
+		public void OnDragNavigation(InputAction.CallbackContext context)
+		{
+			if (isOnTest) {
+				return;
+			}
 
 			if (onDragNavigation || (!hoverUI && !onDragNavigation)) {
 				onDragNavigation = context.ReadValue<float>() != 0f;
 
-				if (onDragNavigation) dragNavOrigin = cursorToWorld;
+				if (onDragNavigation) {
+					dragNavOrigin = cursorToWorld;
+				}
 			}
 		}
 
-		public void OnZoom(InputAction.CallbackContext context) {
-			if (!allowScroll) return;
+		public void OnZoom(InputAction.CallbackContext context)
+		{
+			if (!allowScroll) {
+				return;
+			}
 
 			float val = -context.ReadValue<Vector2>().y;
 
 			zoomSpeed = val > 0f ? 1f : (val < 0f ? -1f : 0f);
 
 			switch (inputType) {
-				case InputType.Gamepad: zoomSpeed *= zoomSpeedGamepad; break;
-				case InputType.KeyboardAndMouse: zoomSpeed *= zoomSpeedKeyboard; break;
+				case InputType.Gamepad:
+					zoomSpeed *= zoomSpeedGamepad;
+					break;
+
+				case InputType.KeyboardAndMouse:
+					zoomSpeed *= zoomSpeedKeyboard;
+					break;
+
+				// No default
 			}
 		}
 
-		public void OnShowLeftPanel(InputAction.CallbackContext context) => PanelsTrigger(context.ReadValue<float>(), 0);
-		public void OnShowRightPanel(InputAction.CallbackContext context) => PanelsTrigger(context.ReadValue<float>(), 1);
 
-		public void SubmitEditor(InputAction.CallbackContext context) {
-			if (isOnTest || editorIsBusy) return;
+		public void OnShowLeftPanel(InputAction.CallbackContext context)
+		{
+			PanelsTrigger(context.ReadValue<float>(), 0);
+		}
+
+		public void OnShowRightPanel(InputAction.CallbackContext context)
+		{
+			PanelsTrigger(context.ReadValue<float>(), 1);
+		}
+
+
+		public void SubmitEditor(InputAction.CallbackContext context)
+		{
+			if (isOnTest || editorIsBusy) {
+				return;
+			}
+
 			bool isTrue = context.ReadValue<float>() > 0.5f;
 
 			onSubmit = isTrue && userReady && context.action.phase == InputActionPhase.Performed;
 
 			if (isTrue && userReady && raycastHits.Count > 0 && context.action.phase == InputActionPhase.Started) {
-				if (HoverSelected()) dragOrigin = cursorToWorld;
+				if (IsHoverSelectedObject()) {
+					dragOrigin = cursorToWorld;
+				}
+
 				hoverAnObject = true;
 			}
 
+
 			if (!isTrue) {
 				if (onDrag) {
-					onDrag = false;
-					StoreSelectedInHistorial();
-					UpdateColliders();
-				} else if (!wasEditing && userReady) {
-					InGameObjectBehaviour tmp = HoverFindNotSelected();
 
-					if (!HoverSelected() && tmp != null) {
+					onDrag = false;
+					StoreSelectedObjectsInUndoRedoList();
+					UpdateColliders();
+
+				} else if (!wasEditing && userReady) {
+
+					InGameObjectBehaviour tmp = FindNotSelectedHoveredObject();
+
+					if (!IsHoverSelectedObject() && tmp != null) {
 						DeselectAll();
 						selected.Add(tmp);
 
 						analysis.selectedNumber = 1;
-						ScanSelected();
+						ScanSelectedObjects();
 					}
 				}
 
 				wasEditing = false;
 			}
 		}
-		public void DeleteEditor(InputAction.CallbackContext context) {
-			if (isOnTest) return;
+
+		public void DeleteEditor(InputAction.CallbackContext context)
+		{
+			if (isOnTest) {
+				return;
+			}
+
 			onDelete = context.ReadValue<float>() > 0.5f && userReady && context.action.phase == InputActionPhase.Performed;
 		}
-		public void OnMultiselection(InputAction.CallbackContext context) {
-			if (isOnTest) return;
+
+		public void OnMultiselection(InputAction.CallbackContext context)
+		{
+			if (isOnTest) {
+				return;
+			}
+
 			if (onMultiselection || (userReady && !userIsDragging)) {
 				onMultiselection = context.ReadValue<float>() != 0f;
 
 				if (onMultiselection) {
 					msDrag.position = cursorToWorld;
-					if (!wasMultiselecting) wasMultiselecting = true;
+
+					if (!wasMultiselecting) {
+						wasMultiselecting = true;
+					}
 				}
 			}
 		}
 
 
-		public void UndoAction(InputAction.CallbackContext context) {
-			if (isOnTest || editorIsBusy) return;
-			if (Globals.onEditField || context.action.phase != InputActionPhase.Started) return;
+		public void UndoAction(InputAction.CallbackContext context)
+		{
+			if (
+				isOnTest ||
+				editorIsBusy ||
+				Globals.onEditField ||
+				context.action.phase != InputActionPhase.Started
+			) {
+				return;
+			}
 
 			Undo();
 		}
-		public void RedoAction(InputAction.CallbackContext context) {
-			if (isOnTest || editorIsBusy) return;
-			if (Globals.onEditField || context.action.phase != InputActionPhase.Started) return;
+
+		public void RedoAction(InputAction.CallbackContext context)
+		{
+			if (
+				isOnTest ||
+				editorIsBusy ||
+				Globals.onEditField ||
+				context.action.phase != InputActionPhase.Started
+			) {
+				return;
+			}
 
 			Redo();
 		}
-		public void DeselectAllAction(InputAction.CallbackContext context) {
-			if (Globals.onEditField || context.action.phase != InputActionPhase.Started) return;
+
+		public void DeselectAllAction(InputAction.CallbackContext context)
+		{
+			if (
+				Globals.onEditField ||
+				context.action.phase != InputActionPhase.Started
+			) {
+				return;
+			}
 
 			DeselectAll();
 		}
-		public void DeleteSelectedAction(InputAction.CallbackContext context) {
-			if (isOnTest || editorIsBusy) return;
-			if (Globals.onEditField || context.action.phase != InputActionPhase.Started) return;
+
+		public void DeleteSelectedAction(InputAction.CallbackContext context)
+		{
+			if (
+				isOnTest ||
+				editorIsBusy ||
+				Globals.onEditField ||
+				context.action.phase != InputActionPhase.Started
+			) {
+				return;
+			}
 
 			DeleteSelected();
 		}
-		public void SetSnap(bool value) => Globals.Editor.snap = value;
-		public void SetHandleLocally(bool value) => Globals.Editor.handleLocally = value;
-		public void SaveAction(InputAction.CallbackContext context) {
-			if (isOnTest || editorIsBusy) return;
-			if (Globals.onEditField || context.action.phase != InputActionPhase.Started) return;
+
+		public void SetSnap(bool value)
+		{
+			Globals.Editor.snap = value;
+		}
+
+		public void SetHandleLocally(bool value)
+		{
+			Globals.Editor.handleLocally = value;
+		}
+
+
+		public void SaveAction(InputAction.CallbackContext context)
+		{
+			if (
+				isOnTest ||
+				editorIsBusy ||
+				Globals.onEditField ||
+				context.action.phase != InputActionPhase.Started
+			) {
+				return;
+			}
 
 			SaveLevel();
 		}
 
-
-		public void CopyAction(InputAction.CallbackContext context) {
-			if (isOnTest) return;
-			if (Globals.onEditField || context.action.phase != InputActionPhase.Started) return;
+		public void CopyAction(InputAction.CallbackContext context)
+		{
+			if (
+				isOnTest ||
+				Globals.onEditField ||
+				context.action.phase != InputActionPhase.Started
+			) {
+				return;
+			}
 
 			CopySelection();
 		}
-		public void PasteAction(InputAction.CallbackContext context) {
-			if (isOnTest) return;
-			if (Globals.onEditField || context.action.phase != InputActionPhase.Started) return;
+
+		public void PasteAction(InputAction.CallbackContext context)
+		{
+			if (
+				isOnTest ||
+				Globals.onEditField ||
+				context.action.phase != InputActionPhase.Started
+			) {
+				return;
+			}
 
 			PasteSelection();
 		}
-		public void DuplicateAction(InputAction.CallbackContext context) {
-			if (isOnTest) return;
-			if (Globals.onEditField || context.action.phase != InputActionPhase.Started) return;
+
+		public void DuplicateAction(InputAction.CallbackContext context)
+		{
+			if (
+				isOnTest ||
+				Globals.onEditField ||
+				context.action.phase != InputActionPhase.Started
+			) {
+				return;
+			}
 
 			DuplicateSelection();
 		}
-		public void CutAction(InputAction.CallbackContext context) {
-			if (isOnTest) return;
-			if (Globals.onEditField || context.action.phase != InputActionPhase.Started) return;
+
+		public void CutAction(InputAction.CallbackContext context)
+		{
+			if (
+				isOnTest ||
+				Globals.onEditField ||
+				context.action.phase != InputActionPhase.Started
+			) {
+				return;
+			}
 
 			CutSelection();
 		}
 
 
-		public void OnControlsChanged(PlayerInput input) {
+		public void OnControlsChanged(PlayerInput input)
+		{
 			inputType = input.currentControlScheme switch {
 				"Gamepad" => InputType.Gamepad,
 				"Keyboard&Mouse" => InputType.KeyboardAndMouse,
@@ -1392,7 +2010,10 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			}
 
 			if (inputType != InputType.KeyboardAndMouse) {
-				if (onDragNavigation) onDragNavigation = false;
+				if (onDragNavigation) {
+					onDragNavigation = false;
+				}
+
 				panels[0].internals.deltaPosition = panels[1].internals.deltaPosition = 0f;
 			}
 
@@ -1405,15 +2026,18 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		#endregion
 
 		#region Coroutines
-		IEnumerator Inspector2Historial() {
+		IEnumerator Inspector2Historial()
+		{
 			yield return new WaitForSeconds(0.5f);
 
-			StoreSelectedInHistorial();
+			StoreSelectedObjectsInUndoRedoList();
 
 			inspectorCoroutine = null;
 			historialAvailable = true;
 		}
-		IEnumerator SaveLvlRoutine() {
+
+		IEnumerator SaveLvlRoutine()
+		{
 			Globals.onLoad = true;
 			Globals.loadProgress = 0f;
 			Globals.loadingText = Globals.languages.GetField("loading.saving_level");
@@ -1427,8 +2051,14 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			int chunkIndex = 0;
 
 			for (int i = 0; i < objCache.Count; i++) {
-				if (!objCache[i]) continue;
-				if (!objCache[i].gameObject.activeInHierarchy) continue;
+				if (!objCache[i]) {
+					continue;
+				}
+
+				if (!objCache[i].gameObject.activeInHierarchy) {
+					continue;
+				}
+
 
 				level.objects.Add(objCache[i].properties);
 				chunkIndex++;
@@ -1456,13 +2086,17 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 			yield return null;
 		}
-		IEnumerator LazyUpdateColliders() {
+
+		IEnumerator LazyUpdateColliders()
+		{
 			yield return new WaitForSeconds(0.5f);
 
 			PhysicsEventsHandler.GenerateCompositeGeometry();
 			collidersCoroutine = null;
 		}
-		IEnumerator ResetTestObjects() {
+
+		IEnumerator ResetTestObjects()
+		{
 			yield return new WaitForSeconds(1f);
 
 			if (Globals.respawnAttempts > 0) {
@@ -1472,15 +2106,18 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		}
 		#endregion
 
-		struct AnalysisData {
-			public int playersNumber, objectsNumber, selectedNumber;
+		struct AnalysisData
+		{
+			public int playersNumber;
+			public int objectsNumber;
+			public int selectedNumber;
 
 			public enum Area {
 				ALL = 0x7,
 
 				PLAYERS = 0x1,
 				OBJECTS = 0x2,
-				SELECTED = 0x4
+				SELECTED = 0x4,
 			}
 		}
 	}
