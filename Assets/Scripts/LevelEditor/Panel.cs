@@ -89,7 +89,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor
 
 		private void Update()
 		{
-			newDelta = Mathf.Lerp(newDelta, delta, 0.3f);
+			newDelta = Mathf.Lerp(newDelta, delta, 0.3f * RSTime.delta);
 			rectTransform.anchoredPosition = DeltaToPosition(newDelta);
 
 
