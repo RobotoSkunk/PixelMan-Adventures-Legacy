@@ -24,16 +24,17 @@ using UnityEngine.UI;
 
 namespace RobotoSkunk.PixelMan.LevelEditor
 {
+	[System.Serializable]
 	public sealed class Panel : MonoBehaviour
-	{
-		
+	{		
 		#pragma warning disable IDE0044
 		// Excuse: The inspector can't show the variables if they are readonly.
 
 		[Header("Components")]
+		[SerializeField] Image[] buttonSwitchImages;
 		[SerializeField] CanvasGroup canvasGroup;
-		[SerializeField] Image buttonSwitchImage;
 		[SerializeField] GameObject container;
+		[SerializeField] Sprite[] switchSprites = new Sprite[2];
 
 		[Header("Properties")]
 		[SerializeField] Vector2 openPanelPosition;
@@ -48,32 +49,92 @@ namespace RobotoSkunk.PixelMan.LevelEditor
 		float delta;
 
 		/// <summary>
-		/// The last delta panel phase.
+		/// The next delta panel phase.
 		/// </summary>
-		float lastDelta;
+		float newDelta;
 
 		/// <summary>
-		/// The panel's position based on the delta.
+		/// Returns true if the panel is open.
 		/// </summary>
-		Vector2 deltaPosition {
+		bool _isOpen = false;
+
+		/// <summary>
+		/// Returns true if the panel is open.
+		/// </summary>
+		bool isOpen {
 			get {
-				return Vector2.Lerp(openPanelPosition, closedPanelPosition, delta);
+				return _isOpen;
+			}
+			set {
+				if (value) {
+					delta = 1f;
+				} else {
+					delta = 0f;
+				}
+
+				_isOpen = value;
 			}
 		}
 
+		/// <summary>
+		/// The rect transform of the panel.
+		/// </summary>
 		RectTransform rectTransform;
 
 
-		private void Awake() {
+		private void Awake()
+		{
 			rectTransform = GetComponent<RectTransform>();
 		}
 
+		private void Update()
+		{
+			newDelta = Mathf.Lerp(newDelta, delta, 0.3f);
+			rectTransform.anchoredPosition = DeltaToPosition(newDelta);
 
-		private void Update() {
-			if (lastDelta != delta) {
-				lastDelta = delta;
-				rectTransform.anchoredPosition = deltaPosition;
+
+			bool needsToBeActive = newDelta >= 0.05f;
+
+			container.SetActive(needsToBeActive);
+			canvasGroup.interactable = needsToBeActive;
+			canvasGroup.blocksRaycasts = needsToBeActive;
+
+			Sprite sprite = switchSprites[needsToBeActive.ToInt()];
+
+			if (buttonSwitchImages.Length > 0 && buttonSwitchImages[0].sprite != sprite) {
+
+				foreach (Image image in buttonSwitchImages) {
+					image.sprite = sprite;
+				}
 			}
+		}
+
+
+		public void SetOpen(bool open)
+		{
+			isOpen = open;
+		}
+
+		public void ToggleOpen()
+		{
+			SetOpen(!isOpen);
+		}
+
+		public void SetDeltaValue(float value, bool instant = false)
+		{
+			if (instant) {
+				delta = value;
+				newDelta = value;
+				return;
+			}
+
+			delta = value;
+		}
+
+
+		Vector2 DeltaToPosition(float delta)
+		{
+			return Vector2.Lerp(closedPanelPosition, openPanelPosition, delta);
 		}
 	}
 }

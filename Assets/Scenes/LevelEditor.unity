@@ -1212,6 +1212,7 @@ GameObject:
   m_Component:
   - component: {fileID: 96988149}
   - component: {fileID: 96988150}
+  - component: {fileID: 96988151}
   m_Layer: 0
   m_Name: Menu right
   m_TagString: Untagged
@@ -1228,8 +1229,8 @@ RectTransform:
   m_GameObject: {fileID: 96988148}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.99770594, y: 0.99770594, z: 0.99770594}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 148509442}
   - {fileID: 211920535}
@@ -1241,7 +1242,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 180, y: 0.7963867}
+  m_SizeDelta: {x: 180, y: 0}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!225 &96988150
 CanvasGroup:
@@ -1255,6 +1256,27 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &96988151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96988148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50e06b3dc840b05ff8ee934de05131de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonSwitchImages:
+  - {fileID: 1048733654}
+  canvasGroup: {fileID: 525997185}
+  container: {fileID: 685840935}
+  switchSprites:
+  - {fileID: 434883368, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
+  - {fileID: 519071301, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
+  openPanelPosition: {x: 0, y: 0}
+  closedPanelPosition: {x: 120.5, y: 0}
 --- !u!1 &123969733
 GameObject:
   m_ObjectHideFlags: 0
@@ -3811,6 +3833,7 @@ GameObject:
   - component: {fileID: 525997184}
   - component: {fileID: 525997183}
   - component: {fileID: 525997182}
+  - component: {fileID: 525997185}
   m_Layer: 0
   m_Name: Container
   m_TagString: Untagged
@@ -3908,6 +3931,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 525997180}
   m_CullTransparentMesh: 1
+--- !u!225 &525997185
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525997180}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &551019281
 GameObject:
   m_ObjectHideFlags: 0
@@ -4963,7 +4998,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 246255751}
   m_HandleRect: {fileID: 246255749}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -6637,6 +6672,7 @@ GameObject:
   - component: {fileID: 823431205}
   - component: {fileID: 823431207}
   - component: {fileID: 823431206}
+  - component: {fileID: 823431208}
   m_Layer: 0
   m_Name: Common buttons
   m_TagString: Untagged
@@ -6709,6 +6745,18 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!225 &823431208
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823431204}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &832288321
 GameObject:
   m_ObjectHideFlags: 0
@@ -7238,17 +7286,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2097089062}
-        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
-        m_MethodName: SwitchPanel
-        m_Mode: 3
+      - m_Target: {fileID: 1471569972}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.Panel, Assembly-CSharp
+        m_MethodName: ToggleOpen
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &893862007
 MonoBehaviour:
@@ -7551,17 +7599,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2097089062}
-        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
-        m_MethodName: OpenPanel
-        m_Mode: 3
+      - m_Target: {fileID: 96988151}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.Panel, Assembly-CSharp
+        m_MethodName: SetOpen
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
   selectOnUp:
     useAutomatic: 0
@@ -8716,17 +8764,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2097089062}
-        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
-        m_MethodName: SwitchPanel
-        m_Mode: 3
+      - m_Target: {fileID: 96988151}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.Panel, Assembly-CSharp
+        m_MethodName: ToggleOpen
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1048733657
 MonoBehaviour:
@@ -10342,11 +10390,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1311125418}
   m_CullTransparentMesh: 1
---- !u!66 &1328240251 stripped
-CompositeCollider2D:
-  m_CorrespondingSourceObject: {fileID: 1245177559034210106, guid: 6c27357b8fa542148967e7eca4522b7f, type: 3}
-  m_PrefabInstance: {fileID: 1734740476}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1330341853
 GameObject:
   m_ObjectHideFlags: 0
@@ -11485,17 +11528,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2097089062}
-        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
-        m_MethodName: OpenPanel
-        m_Mode: 3
+      - m_Target: {fileID: 96988151}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.Panel, Assembly-CSharp
+        m_MethodName: SetOpen
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
   selectOnUp:
     useAutomatic: 0
@@ -11932,6 +11975,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1471569970}
   - component: {fileID: 1471569971}
+  - component: {fileID: 1471569972}
   m_Layer: 0
   m_Name: Menu left
   m_TagString: Untagged
@@ -11975,6 +12019,27 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1471569972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471569969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50e06b3dc840b05ff8ee934de05131de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonSwitchImages:
+  - {fileID: 893862004}
+  canvasGroup: {fileID: 823431208}
+  container: {fileID: 823431204}
+  switchSprites:
+  - {fileID: 434883368, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
+  - {fileID: 519071301, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
+  openPanelPosition: {x: 0, y: 0}
+  closedPanelPosition: {x: -43.5, y: 0}
 --- !u!1 &1477100995
 GameObject:
   m_ObjectHideFlags: 0
@@ -14416,11 +14481,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1741208526}
   m_CullTransparentMesh: 1
---- !u!66 &1759963302 stripped
-CompositeCollider2D:
-  m_CorrespondingSourceObject: {fileID: 8610096062358160595, guid: 6c27357b8fa542148967e7eca4522b7f, type: 3}
-  m_PrefabInstance: {fileID: 1734740476}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1764666993
 GameObject:
   m_ObjectHideFlags: 0
@@ -15399,17 +15459,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2097089062}
-        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
-        m_MethodName: OpenPanel
-        m_Mode: 3
+      - m_Target: {fileID: 96988151}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.Panel, Assembly-CSharp
+        m_MethodName: SetOpen
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
   selectOnUp:
     useAutomatic: 0
@@ -17340,7 +17400,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 2097089060}
   grids: {fileID: 1956316223}
-  inputModule: {fileID: 1578483458}
   objectPreview: {fileID: 27391221}
   selectionArea: {fileID: 1504661932}
   dragArea: {fileID: 1534143617}
@@ -17348,6 +17407,8 @@ MonoBehaviour:
   resRectArea: {fileID: 907268592}
   rotRectArea: {fileID: 1386692133}
   playerInput: {fileID: 2097089063}
+  inputModule: {fileID: 1578483458}
+  inputActions: {fileID: -944628639613478452, guid: cbe55d12365f236478f2fc6f9dd722f9, type: 3}
   canvasScaler: {fileID: 428423291}
   virtualCursorImg: {fileID: 1365372466}
   undoImg: {fileID: 1814505213}
@@ -17366,6 +17427,9 @@ MonoBehaviour:
   gamepadIndications:
   - {fileID: 69044195}
   - {fileID: 264495308}
+  panels:
+  - {fileID: 1471569972}
+  - {fileID: 96988151}
   lineRenderers:
   - {fileID: 69484893}
   - {fileID: 727035283}
@@ -17389,43 +17453,12 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
-  panelSwitchSprite:
-  - {fileID: 519071301, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
-  - {fileID: 434883368, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
   sprTestBtn:
   - {fileID: -250386631, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
   - {fileID: 762406547, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
   optionsToggles:
   - {fileID: 195293620424292648}
   - {fileID: 1142540615}
-  panels:
-  - group: {fileID: 1471569971}
-    rectTransforms: {fileID: 1471569970}
-    switchImage: {fileID: 893862004}
-    defaultSelected: {fileID: 130395817}
-    outSelected: {fileID: 1335368532}
-    content:
-    - {fileID: 130395817}
-    - {fileID: 1405707553}
-    - {fileID: 561347633}
-    - {fileID: 486870003}
-    container: {fileID: 823431204}
-    size: 43
-  - group: {fileID: 96988150}
-    rectTransforms: {fileID: 96988149}
-    switchImage: {fileID: 1048733654}
-    defaultSelected: {fileID: 1437775083}
-    outSelected: {fileID: 1437775083}
-    content:
-    - {fileID: 195293620424292648}
-    - {fileID: 15893026}
-    - {fileID: 362926275}
-    - {fileID: 1142540615}
-    container: {fileID: 525997180}
-    size: -121
-  composites:
-  - {fileID: 1328240251}
-  - {fileID: 1759963302}
   containers:
     generic: {fileID: 2063365112}
     untaggedBlock: {fileID: 307837989}
