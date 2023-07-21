@@ -317,12 +317,12 @@ namespace RobotoSkunk.PixelMan.Gameplay
 				return;
 			}
 
-			if (
-				fellFromTheWorld &&
-				(Globals.levelData.options & Level.Options.KillPlayerWhenFallingOutOfLevel) != 0
-			) {
+
+			bool killWhenFalling = Globals.levelData.IsOptionSet(Level.Options.KillPlayerWhenFallingOutOfLevel);
+
+			if (fellFromTheWorld && killWhenFalling) {
 				Globals.isDead = true;
-			} else if (outOfBounds) {
+			} else if (outOfBounds && !killWhenFalling) {
 				float YPosition = transform.position.y;
 
 				if (YPosition < Globals.levelData.bounds.yMin + 0.5f) {

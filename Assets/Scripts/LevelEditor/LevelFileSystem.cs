@@ -36,6 +36,19 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 		public List<InGameObjectProperties> objects;
 
 
+		public bool IsOptionSet(Options option) {
+			return (options & option) == option;
+		}
+
+		public void SetOption(Options option, bool value) {
+			if (value) {
+				options |= option;
+			} else {
+				options &= ~option;
+			}
+		}
+
+
 		[Serializable]
 		public struct Metadata {
 			public string uuid;

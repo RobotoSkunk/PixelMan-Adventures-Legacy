@@ -36,33 +36,6 @@ using RobotoSkunk.PixelMan.LevelEditor.IO;
 
 namespace RobotoSkunk.PixelMan.LevelEditor
 {
-	// [System.Obsolete("PanelStruct is deprecated, use Panel instead.")]
-	// [System.Serializable]
-	// public class PanelStruct
-	// {
-	// 	public CanvasGroup group;
-	// 	public RectTransform rectTransforms;
-	// 	public Image switchImage;
-	// 	public Selectable defaultSelected;
-	// 	public Selectable outSelected;
-	// 	public List<Selectable> content;
-	// 	// public List<Selectable> outSelected;
-	// 	public GameObject container;
-	// 	public float size;
-	// 	public Internal internals;
-
-	// 	public struct Internal
-	// 	{
-	// 		public float position;
-	// 		public float nextPosition;
-	// 		public float deltaPosition;
-
-	// 		public bool enabled;
-	// 		public bool wasEnabled;
-	// 		public bool wasOpen;
-	// 	}
-	// }
-
 	[System.Serializable]
 	public enum ResizePoints {
 		TOP,
@@ -455,10 +428,14 @@ namespace RobotoSkunk.PixelMan.LevelEditor
 					editorIsBusy = false;
 
 					levelBounds.SetRect(Globals.levelData.bounds);
+					EditorEventsHandler.InvokeOnReady();
 				});
 			} else {
 				Globals.onLoad = editorIsBusy = false;
 				Globals.loadProgress = 0f;
+				Globals.levelData = new Level();
+
+				EditorEventsHandler.InvokeOnReady();
 			}
 			#endregion
 		}
