@@ -22,6 +22,7 @@ using UnityEngine.InputSystem;
 
 using RobotoSkunk.PixelMan.Physics;
 using RobotoSkunk.PixelMan.Events;
+using RobotoSkunk.PixelMan.LevelEditor;
 
 
 namespace RobotoSkunk.PixelMan.Gameplay
@@ -101,6 +102,25 @@ namespace RobotoSkunk.PixelMan.Gameplay
 			FALLING,
 		}
 
+		bool fellFromTheWorld {
+			get
+			{
+				if (!invertedGravity) {
+					return transform.position.y < Globals.levelData.bounds.yMin + 0.5f;
+				} else {
+					return transform.position.y > Globals.levelData.bounds.yMax - 0.5f;
+				}
+			}
+		}
+
+		bool outOfBounds {
+			get
+			{
+				return transform.position.y < Globals.levelData.bounds.yMin - 0.5f
+					|| transform.position.y > Globals.levelData.bounds.yMax + 0.5f;
+			}
+		}
+
 
 
 		// Start of Unity methods
@@ -176,6 +196,8 @@ namespace RobotoSkunk.PixelMan.Gameplay
 			);
 
 			if (stuckBuffer != 0) {
+				Debug.Log("Stuck! :(");
+
 				foreach (Collider2D stuck in stuckResult) {
 					if (!stuck.CompareTag("Platform") && !stuck.CompareTag("Ignore")) {
 						Globals.isDead = true;
@@ -288,6 +310,31 @@ namespace RobotoSkunk.PixelMan.Gameplay
 			lastPos = transform.position;
 			lastVelocity = rigidbody.velocity;
 		}
+
+		private void Update()
+		{
+			if (Globals.isDead) {
+				return;
+			}
+
+			if (
+				fellFromTheWorld &&
+				(Globals.levelData.options & Level.Options.KillPlayerWhenFallingOutOfLevel) != 0
+			) {
+				Globals.isDead = true;
+			} else if (outOfBounds) {
+				float YPosition = transform.position.y;
+
+				if (YPosition < Globals.levelData.bounds.yMin + 0.5f) {
+					YPosition = Globals.levelData.bounds.yMax + 0.5f;
+				} else if (YPosition > Globals.levelData.bounds.yMax - 0.5f) {
+					YPosition = Globals.levelData.bounds.yMin - 0.5f;
+				}
+
+				transform.position = new Vector2(transform.position.x, YPosition);
+			}
+		}
+
 
 		#region Triggers
 		private void OnTriggerEnter2D(Collider2D collision)

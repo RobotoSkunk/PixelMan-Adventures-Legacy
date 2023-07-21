@@ -284,6 +284,11 @@ namespace RobotoSkunk.PixelMan
 		/// All the available languages in the game.
 		/// </summary>
 		public static Settings.Languages languages;
+
+		/// <summary>
+		/// The current level's data (without game objects).
+		/// </summary>
+		public static Level levelData;
 		#endregion
 
 

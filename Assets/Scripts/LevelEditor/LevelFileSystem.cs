@@ -29,8 +29,12 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 	[Serializable]
 	public class Level {
 		[SerializeField]
-		public List<InGameObjectProperties> objects;
 		public Rect bounds;
+		public Options options;
+		public int timeToWin;
+		public int recommendedTimeToFinish;
+		public List<InGameObjectProperties> objects;
+
 
 		[Serializable]
 		public struct Metadata {
@@ -49,6 +53,13 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			public long createdAt;
 			public long lastModified;
 			public long timeSpent;
+		}
+
+		[Flags]
+		[Serializable]
+		public enum Options {
+			KillPlayerWhenFallingOutOfLevel = 1 << 0,
+			TimeTrial = 1 << 1,
 		}
 	}
 
@@ -151,7 +162,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				return tmp;
 			}
 
-			public static async UniTask<Level> LoadLevel(
+			public static async UniTask LoadLevel(
 				bool inEditor,
 				TransformContainers containers,
 				List<InGameObjectBehaviour> objects = null
@@ -159,12 +170,12 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				Level.UserMetadata metadata = Globals.Editor.currentLevel;
 				InternalUserScene scene = Globals.Editor.currentScene;	
 
-				Level levelData = await LevelFileSystem.GetLevel(scene.file.FullName, metadata.uuid);
+				Globals.levelData = await LevelFileSystem.GetLevel(scene.file.FullName, metadata.uuid);
 
 				int i = 0;
 				int chunkSize = 0;
 
-				foreach (InGameObjectProperties data in levelData.objects) {
+				foreach (InGameObjectProperties data in Globals.levelData.objects) {
 					int id = (int)data.id;
 
 					InGameObjectBehaviour tmp = CreateObject(
@@ -179,7 +190,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 					tmp.properties = data;
 					objects?.Add(tmp);
 
-					Globals.loadProgress = (float)i / levelData.objects.Count;
+					Globals.loadProgress = (float)i / Globals.levelData.objects.Count;
 					i++;
 					chunkSize++;
 
@@ -191,8 +202,6 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 				Globals.onLoad = false;
 				Globals.loadProgress = 0f;
-
-				return levelData;
 			}
 		}
 

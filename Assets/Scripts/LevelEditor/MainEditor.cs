@@ -216,8 +216,6 @@ namespace RobotoSkunk.PixelMan.LevelEditor
 
 		Coroutine saveCoroutine = null;
 		Coroutine collidersCoroutine = null;
-
-		Level levelData;
 		#endregion
 
 		#region Temporal garbage
@@ -448,7 +446,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor
 			if (Globals.Editor.currentScene.file != null) {
 				UniTask.Void(async () =>
 				{
-					levelData = await LevelIO.LoadLevel(
+					await LevelIO.LoadLevel(
 						true,
 						containers,
 						objCache
@@ -456,7 +454,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor
 
 					editorIsBusy = false;
 
-					levelBounds.SetRect(levelData.bounds);
+					levelBounds.SetRect(Globals.levelData.bounds);
 				});
 			} else {
 				Globals.onLoad = editorIsBusy = false;
@@ -1120,8 +1118,9 @@ namespace RobotoSkunk.PixelMan.LevelEditor
 
 
 			if (enabled) {
+				Globals.levelData.bounds = levelBounds.rect;
 				UpdateColliders(false);
-				
+
 				foreach (Panel panel in panels) {
 					panel.SetOpen(false);
 				}
@@ -2065,13 +2064,8 @@ namespace RobotoSkunk.PixelMan.LevelEditor
 			Globals.loadingText = Globals.languages.GetField("loading.saving_level");
 			editorIsBusy = true;
 
-			// Level level = new () {
-			// 	objects = new(),
-			// 	bounds = levelBounds.rect
-			// };
-
-			levelData.objects.Clear();
-			levelData.bounds = levelBounds.rect;
+			Globals.levelData.objects.Clear();
+			Globals.levelData.bounds = levelBounds.rect;
 
 			int chunkIndex = 0;
 
@@ -2085,7 +2079,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor
 				}
 
 
-				levelData.objects.Add(objCache[i].properties);
+				Globals.levelData.objects.Add(objCache[i].properties);
 				chunkIndex++;
 
 				if (chunkIndex >= Constants.chunkSize) {
@@ -2100,7 +2094,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor
 				Globals.loadProgress = 0f;
 				Globals.loadingText = Globals.languages.GetField("loading.almost_done");
 
-				bool success = await LevelIO.Save(levelData);
+				bool success = await LevelIO.Save(Globals.levelData);
 
 				await UniTask.Delay(1000);
 

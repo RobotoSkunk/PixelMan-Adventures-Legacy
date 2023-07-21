@@ -54,8 +54,6 @@ namespace RobotoSkunk.PixelMan.Gameplay
 			}
 		}
 
-		Level levelData;
-
 
 		private void Awake()
 		{
@@ -69,10 +67,10 @@ namespace RobotoSkunk.PixelMan.Gameplay
 
 			UniTask.Void(async () =>
 			{
-				levelData = await LevelIO.LoadLevel(false, transformContainers);
+				await LevelIO.LoadLevel(false, transformContainers);
 
-				levelBounds.sizeDelta = levelData.bounds.size;
-				levelBounds.transform.position = levelData.bounds.center;
+				levelBounds.sizeDelta = Globals.levelData.bounds.size;
+				levelBounds.transform.position = Globals.levelData.bounds.center;
 
 
 				GameObject player = GameObject.FindWithTag("Player");
