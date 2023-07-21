@@ -30,6 +30,7 @@ using System.Linq;
 
 using RobotoSkunk.PixelMan.Events;
 using RobotoSkunk.PixelMan.Gameplay;
+using RobootSkunk.PixelMan.LevelEditor;
 using RobotoSkunk.PixelMan.LevelEditor.IO;
 
 
@@ -134,6 +135,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor
 		public RectTransform resRectArea;
 		public RectTransform rotRectArea;
 		public PlayerInput playerInput;
+		public DragBoxResizer levelBounds;
 
 		[Header("Input system")]
 		[SerializeField] InputSystemUIInputModule inputModule;
@@ -149,7 +151,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor
 		public Image[] gamepadIndications;
 		public Panel[] panels;
 
-		[Header("I don't know which name should I use")]
+		[Header("I don't know what name should I use")]
 		public LineRenderer[] lineRenderers;
 
 		[Header("Properties")]
@@ -214,6 +216,8 @@ namespace RobotoSkunk.PixelMan.LevelEditor
 
 		Coroutine saveCoroutine = null;
 		Coroutine collidersCoroutine = null;
+
+		Level levelData;
 		#endregion
 
 		#region Temporal garbage
@@ -255,7 +259,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor
 		float zoom = 1f;
 
 		Vector2 cursorPosition;
-		Vector2 virtualCursor;
+		// Vector2 Globals.Editor.virtualMousePosition;
 		Vector2 mousePosition;
 		Vector2 dragOrigin;
 		Vector2 virtualPosition;
@@ -444,13 +448,15 @@ namespace RobotoSkunk.PixelMan.LevelEditor
 			if (Globals.Editor.currentScene.file != null) {
 				UniTask.Void(async () =>
 				{
-					await LevelIO.LoadLevel(
+					levelData = await LevelIO.LoadLevel(
 						true,
 						containers,
 						objCache
 					);
 
 					editorIsBusy = false;
+
+					levelBounds.SetRect(levelData.bounds);
 				});
 			} else {
 				Globals.onLoad = editorIsBusy = false;
@@ -623,7 +629,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor
 		private void LateUpdate()
 		{
 			cursorToWorld = cam.ScreenToWorldPoint(cursorPosition);
-			virtualCursor = Snapping.Snap(cursorToWorld, (Globals.Editor.snap ? 1f : Constants.pixelToUnit) * Vector2.one);
+			Globals.Editor.virtualMousePosition = Snapping.Snap(cursorToWorld, (Globals.Editor.snap ? 1f : Constants.pixelToUnit) * Vector2.one);
 			virtualPosition = Globals.Editor.snap ? Snapping.Snap(transform.position, Vector2.one) : transform.position;
 
 			#region Preview and selection area
@@ -634,7 +640,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor
 					msDrag.size = cursorToWorld - msDrag.position;
 				}
 
-				objectPreview.transform.position = virtualCursor;
+				objectPreview.transform.position = Globals.Editor.virtualMousePosition;
 				objectPreview.enabled = userReady && !userIsDragging;
 				objectPreview.sprite = selectedObject.preview;
 
@@ -780,7 +786,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor
 
 			} else if (userReady && !userIsDragging) {
 				int nmb = Physics2D.Raycast(cursorToWorld, Vector2.zero, contactFilter, raycastHits, 1f);
-				Physics2D.Raycast(virtualCursor, Vector2.zero, contactFilter, virtualHits, 1f);
+				Physics2D.Raycast(Globals.Editor.virtualMousePosition, Vector2.zero, contactFilter, virtualHits, 1f);
 
 
 				switch (nmb) {
@@ -821,7 +827,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor
 								return;
 							}
 
-							InGameObjectBehaviour newObj = CreateObject(selectedId, virtualCursor, Vector2.one, 0f);
+							InGameObjectBehaviour newObj = CreateObject(selectedId, Globals.Editor.virtualMousePosition, Vector2.one, 0f);
 
 							wasEditing = true;
 							UpdateUndoRedoList(UndoRedo.Type.Add, newObj);
@@ -1463,15 +1469,15 @@ namespace RobotoSkunk.PixelMan.LevelEditor
 		public void UpdateResizing(EditorDragArea handler)
 		{
 			Vector4 a = newResArea.MinMaxToVec4();
-			Vector2 B = virtualCursor + new Vector2(
-				virtualCursor.x < resRefPnt.x ? 0.5f : -0.5f,
-				virtualCursor.y < resRefPnt.y ? 0.5f : -0.5f
+			Vector2 B = Globals.Editor.virtualMousePosition + new Vector2(
+				Globals.Editor.virtualMousePosition.x < resRefPnt.x ? 0.5f : -0.5f,
+				Globals.Editor.virtualMousePosition.y < resRefPnt.y ? 0.5f : -0.5f
 			);
 
-			if (Mathf.Abs(virtualCursor.x - resRefPnt.x) <= 0.5f) {
+			if (Mathf.Abs(Globals.Editor.virtualMousePosition.x - resRefPnt.x) <= 0.5f) {
 				B.x = resRefPnt.x;
 			}
-			if (Mathf.Abs(virtualCursor.y - resRefPnt.y) <= 0.5f) {
+			if (Mathf.Abs(Globals.Editor.virtualMousePosition.y - resRefPnt.y) <= 0.5f) {
 				B.y = resRefPnt.y;
 			}
 
@@ -2059,10 +2065,13 @@ namespace RobotoSkunk.PixelMan.LevelEditor
 			Globals.loadingText = Globals.languages.GetField("loading.saving_level");
 			editorIsBusy = true;
 
-			Level level = new () {
-				objects = new(),
-				size = 5f * Vector2.one
-			};
+			// Level level = new () {
+			// 	objects = new(),
+			// 	bounds = levelBounds.rect
+			// };
+
+			levelData.objects.Clear();
+			levelData.bounds = levelBounds.rect;
 
 			int chunkIndex = 0;
 
@@ -2076,7 +2085,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor
 				}
 
 
-				level.objects.Add(objCache[i].properties);
+				levelData.objects.Add(objCache[i].properties);
 				chunkIndex++;
 
 				if (chunkIndex >= Constants.chunkSize) {
@@ -2090,7 +2099,8 @@ namespace RobotoSkunk.PixelMan.LevelEditor
 			UniTask.Void(async () => {
 				Globals.loadProgress = 0f;
 				Globals.loadingText = Globals.languages.GetField("loading.almost_done");
-				bool success = await LevelIO.Save(level);
+
+				bool success = await LevelIO.Save(levelData);
 
 				await UniTask.Delay(1000);
 

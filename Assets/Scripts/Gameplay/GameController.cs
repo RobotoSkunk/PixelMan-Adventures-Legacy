@@ -25,6 +25,7 @@ using UnityEngine.InputSystem;
 
 using RobotoSkunk.PixelMan.Utils;
 using RobotoSkunk.PixelMan.Events;
+using RobotoSkunk.PixelMan.LevelEditor;
 using RobotoSkunk.PixelMan.LevelEditor.IO;
 
 
@@ -39,6 +40,7 @@ namespace RobotoSkunk.PixelMan.Gameplay
 		[SerializeField] PlayerCamera playerCamera;
 		[SerializeField] LevelIO.TransformContainers transformContainers;
 		[SerializeField] SceneReferenceHandler mainMenuSceneHandler;
+		[SerializeField] RectTransform levelBounds;
 
 		[Header("UI")]
 		[SerializeField] RectTransform[] pauseMenuPanels;
@@ -52,6 +54,9 @@ namespace RobotoSkunk.PixelMan.Gameplay
 			}
 		}
 
+		Level levelData;
+
+
 		private void Awake()
 		{
 			Globals.onPause = true;
@@ -64,7 +69,11 @@ namespace RobotoSkunk.PixelMan.Gameplay
 
 			UniTask.Void(async () =>
 			{
-				await LevelIO.LoadLevel(false, transformContainers);
+				levelData = await LevelIO.LoadLevel(false, transformContainers);
+
+				levelBounds.sizeDelta = levelData.bounds.size;
+				levelBounds.transform.position = levelData.bounds.center;
+
 
 				GameObject player = GameObject.FindWithTag("Player");
 

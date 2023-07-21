@@ -26,7 +26,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor
 {
 	[System.Serializable]
 	public sealed class Panel : MonoBehaviour
-	{		
+	{
 		#pragma warning disable IDE0044
 		// Excuse: The inspector can't show the variables if they are readonly.
 

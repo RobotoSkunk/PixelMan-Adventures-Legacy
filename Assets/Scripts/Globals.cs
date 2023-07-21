@@ -102,6 +102,14 @@ namespace RobotoSkunk.PixelMan
 		}
 
 		/// <summary>
+		/// The default size of a level.
+		/// </summary>
+		public static Vector2 levelDefaultSize
+		{
+			get => new(21, 11);
+		}
+
+		/// <summary>
 		/// A set of constants IDs.
 		/// </summary>
 		public static class InternalIDs
@@ -303,6 +311,11 @@ namespace RobotoSkunk.PixelMan
 			/// The current's level metadata.
 			/// </summary>
 			public static Level.UserMetadata currentLevel;
+
+			/// <summary>
+			/// The current's virtual mouse position.
+			/// </summary>
+			public static Vector2 virtualMousePosition;
 		}
 		#endregion
 

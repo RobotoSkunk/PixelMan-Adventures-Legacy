@@ -24,35 +24,45 @@ using System;
 using UnityEngine;
 using Eflatun.SceneReference;
 
+
 namespace RobotoSkunk.PixelMan.LevelEditor {
 	[Serializable]
-	public struct Level {
+	public class Level {
 		[SerializeField]
 		public List<InGameObjectProperties> objects;
-		public Vector2 size;
+		public Rect bounds;
 
 		[Serializable]
 		public struct Metadata {
-			public string uuid, name;
+			public string uuid;
+			public string name;
 			public TextAsset levelData;
 		}
 
 		[Serializable]
 		public struct UserMetadata {
-			public string uuid, name;
+			public string uuid;
+			public string name;
+
 			public float version;
-			public long createdAt, lastModified, timeSpent;
+
+			public long createdAt;
+			public long lastModified;
+			public long timeSpent;
 		}
 	}
 
 	[Serializable]
 	public struct UserScene {
-		public long id, cloudId;
-		public string name, description;
+		public long id;
+		public long cloudId;
+		public string name;
+		public string description;
 		public string author;
 		public string[] contributors;
 		public List<Level.UserMetadata> levels;
-		public long createdAt, lastModified;
+		public long createdAt;
+		public long lastModified;
 	}
 
 	public struct InternalUserScene {
@@ -62,7 +72,8 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 	[Serializable]
 	public sealed class Worlds {
-		public string name, uuid;
+		public string name;
+		public string uuid;
 		public SceneReference bossScene;
 		public GameScene[] scenes;
 
@@ -140,7 +151,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				return tmp;
 			}
 
-			public static async UniTask LoadLevel(
+			public static async UniTask<Level> LoadLevel(
 				bool inEditor,
 				TransformContainers containers,
 				List<InGameObjectBehaviour> objects = null
@@ -148,12 +159,12 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				Level.UserMetadata metadata = Globals.Editor.currentLevel;
 				InternalUserScene scene = Globals.Editor.currentScene;	
 
-				Level level = await LevelFileSystem.GetLevel(scene.file.FullName, metadata.uuid);
+				Level levelData = await LevelFileSystem.GetLevel(scene.file.FullName, metadata.uuid);
+
 				int i = 0;
 				int chunkSize = 0;
 
-
-				foreach (InGameObjectProperties data in level.objects) {
+				foreach (InGameObjectProperties data in levelData.objects) {
 					int id = (int)data.id;
 
 					InGameObjectBehaviour tmp = CreateObject(
@@ -168,7 +179,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 					tmp.properties = data;
 					objects?.Add(tmp);
 
-					Globals.loadProgress = (float)i / level.objects.Count;
+					Globals.loadProgress = (float)i / levelData.objects.Count;
 					i++;
 					chunkSize++;
 
@@ -180,6 +191,8 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 
 				Globals.onLoad = false;
 				Globals.loadProgress = 0f;
+
+				return levelData;
 			}
 		}
 

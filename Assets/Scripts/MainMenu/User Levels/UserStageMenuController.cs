@@ -244,7 +244,7 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu
 
 			Level level = new() {
 				objects = new(),
-				size = new(50, 30)
+				bounds = new(-Constants.levelDefaultSize / 2f, Constants.levelDefaultSize)
 			};
 
 			scene.data.levels.Add(metadata);
