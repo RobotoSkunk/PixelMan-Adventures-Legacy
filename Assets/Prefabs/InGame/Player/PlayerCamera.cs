@@ -26,21 +26,53 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 
 		[Header("Properties")]
 		public float orthoDefault;
-		public float  maxSpeed;
+		public float maxSpeed;
 
 		[Header("Shared")]
 		public Vector2 look;
 
 
-		Vector2 vTo;
-		Vector2 camPos;
-		Vector2  lookAt;
+		Vector2 rawDestination;
+		Vector2 cameraPosition;
+		Vector2 playerLookAtStick;
 
 		Vector3 startPos;
 		Rigidbody2D player;
 
-		float velocity;
+		float playerVelocity;
 		float zoom;
+
+
+		/// <summary>
+		/// The actual size of the viewport in world units.
+		/// </summary>
+		Vector2 cameraSize {
+			get {
+				float h = orthoDefault * 2f;
+				float w = h * cam.aspect;
+
+				return new(w, h);
+			}
+		}
+
+		Rect levelBounds {
+			get {
+				if (Globals.levelData == null) {
+					return new Rect(
+						Constants.levelDefaultSize / -2f,
+						Constants.levelDefaultSize
+					);
+				}
+
+				Rect bounds = Globals.levelData.bounds;
+
+				bounds.min += cameraSize / 2f;
+				bounds.max -= cameraSize / 2f;
+
+				return bounds;
+			}
+		}
+
 
 
 		public void SetPlayer(Rigidbody2D playerBody)
@@ -50,46 +82,74 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 
 		private void Start()
 		{
-			camPos = startPos = transform.position;
+			cameraPosition = startPos = transform.position;
 		}
 
 		protected override void OnGameResetObject()
 		{
-			velocity = zoom = 0f;
-			look = vTo = Vector2.zero;
-			camPos = transform.position = startPos;
+			playerVelocity = 0f;
+			zoom = 0f;
+
+			look = Vector2.zero;
+			rawDestination = Vector2.zero;
+
+			cameraPosition = startPos;
+			transform.position = startPos;
+
 			cam.orthographicSize = orthoDefault;
 		}
 
 		private void FixedUpdate()
 		{
-			if (player != null) {
-				vTo = player.position + (Vector2)(
-					RSMath.GetDirVector(RSMath.Direction(camPos, player.position)) *
-					Mathf.Min(
-						maxSpeed,
-						Vector2.Distance(camPos, player.position)
-					)
-				);
+			if (Globals.onPause) {
+				return;
+			}
 
-				if (!Globals.onPause) {
-					velocity = player.velocity.magnitude;
-				}
+			if (player != null) {
+				//+ (Vector2)(
+				// 	RSMath.GetDirVector(RSMath.Direction(cameraPosition, player.position)) *
+				// 	Mathf.Min(
+				// 		maxSpeed,
+				// 		Vector2.Distance(cameraPosition, player.position)
+				// 	)
+				// );
+
+				playerVelocity = player.velocity.magnitude;
+
+				rawDestination = player.position + new Vector2(player.velocity.x, 0f);
 			} else {
-				velocity = 0f;
+				playerVelocity = 0f;
 				look = Vector2.zero;
 			}
 
-			lookAt = Vector2.Lerp(lookAt, 2f * look, 0.25f);
+			playerLookAtStick = Vector2.Lerp(playerLookAtStick, 2f * look, 0.25f);
 
-			zoom = Mathf.Lerp(zoom, velocity / Constants.maxVelocity, 0.01f);
-			cam.orthographicSize = orthoDefault + zoom * orthoDefault;
+			zoom = Mathf.Lerp(zoom, playerVelocity / Constants.maxVelocity, 0.01f);
+			cam.orthographicSize = orthoDefault + orthoDefault * zoom;
 
-			camPos += (vTo - camPos) / 30f;
+
+			#region Camera Bounds
+			// Debug.Log($"{Globals.levelData.bounds} | {levelBounds}");
+
+			if (cameraSize.x > levelBounds.width) {
+				rawDestination.x = Globals.levelData.bounds.center.x;
+			} else {
+				rawDestination.x = Mathf.Clamp(rawDestination.x, levelBounds.xMin, levelBounds.xMax);
+			}
+
+			if (cameraSize.y > levelBounds.height) {
+				rawDestination.y = Globals.levelData.bounds.center.y;
+			} else {
+				rawDestination.y = Mathf.Clamp(rawDestination.y, levelBounds.yMin, levelBounds.yMax);
+			}
+			#endregion
+
+			cameraPosition += (rawDestination - cameraPosition) / 30f;
+
 
 			transform.position = (Vector3)(
-					camPos +
-					(1f + zoom) * ((Globals.shakeForce * 0.5f * Random.insideUnitCircle) + lookAt)
+					cameraPosition +
+					(1f + zoom) * ((Globals.shakeForce * 0.5f * Random.insideUnitCircle) + playerLookAtStick)
 				) +
 				new Vector3(0f, 0f, -10f);
 		}

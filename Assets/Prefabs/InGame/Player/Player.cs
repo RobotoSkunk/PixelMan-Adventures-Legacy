@@ -81,7 +81,8 @@ namespace RobotoSkunk.PixelMan.Gameplay
 
 		// Lists
 		readonly List<Platforms> platforms = new();
-		readonly List<Collider2D> stuckResult = new(), groundOverlap = new();
+		readonly List<Collider2D> groundOverlap = new();
+		// readonly List<Collider2D> stuckResult = new();
 
 		// Others
 		PlayerCamera playerCamera;
@@ -186,25 +187,26 @@ namespace RobotoSkunk.PixelMan.Gameplay
 
 			Vector2 spd = new Vector2(transform.position.x, transform.position.y) - lastPos;
 
-			#region Is player stuck?
-			int stuckBuffer = Physics2D.OverlapBox(
-				transform.position,
-				boxCollider.size - new Vector2(0.05f, 0.05f),
-				0f,
-				groundFilter,
-				stuckResult
-			);
+			// #region Is player stuck?
+			// int stuckBuffer = Physics2D.OverlapBox(
+			// 	transform.position,
+			// 	boxCollider.size - new Vector2(0.05f, 0.05f),
+			// 	0f,
+			// 	groundFilter,
+			// 	stuckResult
+			// );
 
-			if (stuckBuffer != 0) {
-				Debug.Log("Stuck! :(");
-
-				foreach (Collider2D stuck in stuckResult) {
-					if (!stuck.CompareTag("Platform") && !stuck.CompareTag("Ignore")) {
-						Globals.isDead = true;
-					}
-				}
-			}
-			#endregion
+			// if (stuckBuffer != 0) {
+			// 	foreach (Collider2D collider in stuckResult) {
+			// 		if (
+			// 			!collider.gameObject.CompareTag("Platform") &&
+			// 			!collider.gameObject.CompareTag("Ignore")
+			// 		) {
+			// 			Globals.isDead = true;
+			// 		}
+			// 	}
+			// }
+			// #endregion
 
 			#region Jump buffers
 			int groundBuffer = Physics2D.OverlapBox(

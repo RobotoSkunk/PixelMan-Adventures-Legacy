@@ -65,32 +65,19 @@ namespace RobotoSkunk.PixelMan.Gameplay
 			Globals.loadingText = Globals.languages.GetField("loading.load_objects");
 			Globals.musicType = GameDirector.MusicClips.Type.IN_GAME;
 
-			UniTask.Void(async () =>
-			{
-				await LevelIO.LoadLevel(false, transformContainers);
+			if (Globals.Editor.currentScene.file != null) {
+				UniTask.Void(async () =>
+				{
+					await LevelIO.LoadLevel(false, transformContainers);
 
-				levelBounds.sizeDelta = Globals.levelData.bounds.size;
-				levelBounds.transform.position = Globals.levelData.bounds.center;
+					levelBounds.sizeDelta = Globals.levelData.bounds.size;
+					levelBounds.transform.position = Globals.levelData.bounds.center;
 
-
-				GameObject player = GameObject.FindWithTag("Player");
-
-				if (player) {
-					Rigidbody2D playerBody = player.GetComponent<Rigidbody2D>();
-					Player playerScript = player.GetComponent<Player>();
-
-					playerCamera.SetPlayer(playerBody);
-					playerScript.SetCamera(playerCamera);
-
-					GameEventsHandler.InvokeLevelReady();
-
-					Globals.onPause = false;
-				} else {
-					mainMenuSceneHandler.GoToScene();
-				}
-
-				Globals.onLoad = false;
-			});
+					PrepareLevel();
+				});
+			} else {
+				PrepareLevel();
+			}
 		}
 
 		private void Update()
@@ -100,6 +87,32 @@ namespace RobotoSkunk.PixelMan.Gameplay
 			pauseMenuPanels.SetActive(pauseMenuDelta < 0.99f);
 			pauseMenuPanels[0].anchoredPosition = new(-pauseMenuDelta * (pauseMenuPanels[0].rect.width + 10), 0);
 			pauseMenuPanels[1].anchoredPosition = new(pauseMenuDelta * (pauseMenuPanels[1].rect.width + 10), 0);
+		}
+
+
+		/// <summary>
+		/// Prepares the level setting up the last details.
+		/// </summary>
+		/// <returns>True if the level is ready to be played.</returns>
+		void PrepareLevel()
+		{
+			GameObject player = GameObject.FindWithTag("Player");
+
+			if (player) {
+				Rigidbody2D playerBody = player.GetComponent<Rigidbody2D>();
+				Player playerScript = player.GetComponent<Player>();
+
+				playerCamera.SetPlayer(playerBody);
+				playerScript.SetCamera(playerCamera);
+
+				GameEventsHandler.InvokeLevelReady();
+				Globals.onPause = false;
+			} else {
+				mainMenuSceneHandler.GoToScene();
+			}
+
+
+			Globals.onLoad = false;
 		}
 
 
@@ -113,6 +126,12 @@ namespace RobotoSkunk.PixelMan.Gameplay
 			Globals.openSettings = true;
 		}
 
+		public void RestartLevel()
+		{
+			ResetObjects(true);
+			SetPauseState(false);
+		}
+
 		public void Pause(InputAction.CallbackContext context)
 		{
 			if (context.started && !Globals.openSettings) {
@@ -122,14 +141,12 @@ namespace RobotoSkunk.PixelMan.Gameplay
 
 		protected override void OnGamePlayerDeath()
 		{
-			StartCoroutine(ResetObjects());
+			StartCoroutine(ResetObjectsCoroutine());
 		}
 
-
-		IEnumerator ResetObjects() {
-			yield return new WaitForSeconds(1f);
-
-			if (Globals.respawnAttempts > 0) {
+		void ResetObjects(bool wholeLevel = false)
+		{
+			if (Globals.respawnAttempts > 0 && !wholeLevel) {
 				GameEventsHandler.InvokeBackToCheckpoint();
 			} else {
 				Globals.attempts++;
@@ -137,6 +154,13 @@ namespace RobotoSkunk.PixelMan.Gameplay
 			}
 
 			Globals.isDead = false;
+		}
+
+
+		IEnumerator ResetObjectsCoroutine() {
+			yield return new WaitForSeconds(1f);
+
+			ResetObjects(false);
 		}
 	}
 }
