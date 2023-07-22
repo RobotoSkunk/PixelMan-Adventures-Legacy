@@ -73,6 +73,22 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 			}
 		}
 
+		Vector2 missingSize {
+			get {
+				return new Vector2(
+					1f - cameraSize.x / (Globals.levelData.bounds.width + 2f),
+					1f - cameraSize.y / (Globals.levelData.bounds.height + 2f)
+				);
+			}
+		}
+
+		enum AdjustZoomTo {
+			None,
+			Width = 1 << 0,
+			Height = 1 << 1,
+			Both = Width | Height
+		}
+
 
 
 		public void SetPlayer(Rigidbody2D playerBody)
@@ -96,7 +112,7 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 			cameraPosition = startPos;
 			transform.position = startPos;
 
-			cam.orthographicSize = orthoDefault;
+			// cam.orthographicSize = orthoDefault;
 		}
 
 		private void FixedUpdate()
@@ -106,14 +122,6 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 			}
 
 			if (player != null) {
-				//+ (Vector2)(
-				// 	RSMath.GetDirVector(RSMath.Direction(cameraPosition, player.position)) *
-				// 	Mathf.Min(
-				// 		maxSpeed,
-				// 		Vector2.Distance(cameraPosition, player.position)
-				// 	)
-				// );
-
 				playerVelocity = player.velocity.magnitude;
 
 				rawDestination = player.position + new Vector2(player.velocity.x, 0f);
@@ -124,26 +132,53 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 
 			playerLookAtStick = Vector2.Lerp(playerLookAtStick, 2f * look, 0.25f);
 
-			zoom = Mathf.Lerp(zoom, playerVelocity / Constants.maxVelocity, 0.01f);
-			cam.orthographicSize = orthoDefault + orthoDefault * zoom;
-
 
 			#region Camera Bounds
-			// Debug.Log($"{Globals.levelData.bounds} | {levelBounds}");
+			AdjustZoomTo adjustZoomTo = AdjustZoomTo.None;
 
 			if (cameraSize.x > levelBounds.width) {
 				rawDestination.x = Globals.levelData.bounds.center.x;
+				
+				adjustZoomTo |= AdjustZoomTo.Width;
 			} else {
 				rawDestination.x = Mathf.Clamp(rawDestination.x, levelBounds.xMin, levelBounds.xMax);
 			}
 
 			if (cameraSize.y > levelBounds.height) {
 				rawDestination.y = Globals.levelData.bounds.center.y;
+
+				adjustZoomTo |= AdjustZoomTo.Height;
 			} else {
 				rawDestination.y = Mathf.Clamp(rawDestination.y, levelBounds.yMin, levelBounds.yMax);
 			}
 			#endregion
 
+
+			switch (adjustZoomTo) {
+				case AdjustZoomTo.Both:
+					if (cameraSize.x > cameraSize.y) {
+						zoom = missingSize.x;
+					} else {
+						zoom = missingSize.y;
+					}
+					break;
+
+				case AdjustZoomTo.Width:
+					zoom = missingSize.x;
+					break;
+
+				case AdjustZoomTo.Height:
+					zoom = missingSize.y;
+					break;
+
+				default:
+					zoom = Mathf.Lerp(zoom, playerVelocity / Constants.maxVelocity, 0.01f);
+					break;
+			}
+
+			Debug.Log(zoom);
+
+			cam.orthographicSize = orthoDefault + orthoDefault * zoom;
 			cameraPosition += (rawDestination - cameraPosition) / 30f;
 
 
