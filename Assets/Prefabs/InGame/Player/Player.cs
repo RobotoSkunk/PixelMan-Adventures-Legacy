@@ -358,11 +358,11 @@ namespace RobotoSkunk.PixelMan.Gameplay
 
 				case "GravitySwitch": invertedGravity = !invertedGravity;break;
 				case "Finish": Debug.Log("Won!"); break;
-				default:
-					if (collision.gameObject.layer == LayerMask.NameToLayer("Killzone")) {
-						Globals.isDead = true;
-					}
-					break;
+				// default:
+				// 	if (collision.gameObject.layer == LayerMask.NameToLayer("Killzone")) {
+				// 		Globals.isDead = true;
+				// 	}
+				// 	break;
 			}
 		}
 
