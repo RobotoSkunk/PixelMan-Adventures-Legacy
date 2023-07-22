@@ -59,7 +59,7 @@ namespace RobotoSkunk.PixelMan
 		/// <summary>
 		/// The impulse force of trampolines.
 		/// </summary>
-		public const float trampolineForce = 25f;
+		public const float trampolineForce = 27f;
 
 		/// <summary>
 		/// The maximum velocity of the player.

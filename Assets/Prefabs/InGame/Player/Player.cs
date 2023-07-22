@@ -107,9 +107,9 @@ namespace RobotoSkunk.PixelMan.Gameplay
 			get
 			{
 				if (!invertedGravity) {
-					return transform.position.y < Globals.levelData.bounds.yMin + 0.5f;
+					return transform.position.y < Globals.levelData.bounds.yMin - 0.5f;
 				} else {
-					return transform.position.y > Globals.levelData.bounds.yMax - 0.5f;
+					return transform.position.y > Globals.levelData.bounds.yMax + 0.5f;
 				}
 			}
 		}
@@ -117,8 +117,8 @@ namespace RobotoSkunk.PixelMan.Gameplay
 		bool outOfBounds {
 			get
 			{
-				return transform.position.y < Globals.levelData.bounds.yMin - 1f
-					|| transform.position.y > Globals.levelData.bounds.yMax + 1f;
+				return transform.position.y < Globals.levelData.bounds.yMin - 0.5f
+					|| transform.position.y > Globals.levelData.bounds.yMax + 0.5f;
 			}
 		}
 

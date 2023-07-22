@@ -10375,7 +10375,7 @@ MonoBehaviour:
   speed: {x: 9, y: 20}
   maxSpeed: 40
   maxJumpBuffer: 0.16
-  maxHangCount: 0.16
+  maxHangCount: 0.1
   groundFilter:
     useTriggers: 0
     useLayerMask: 1

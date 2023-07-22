@@ -176,8 +176,6 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 					break;
 			}
 
-			Debug.Log(zoom);
-
 			cam.orthographicSize = orthoDefault + orthoDefault * zoom;
 			cameraPosition += (rawDestination - cameraPosition) / 30f;
 
