@@ -1019,7 +1019,9 @@ namespace RobotoSkunk.PixelMan.LevelEditor
 		Bounds GetSelectionBounds()
 		{
 			if (selected.Count > 0) {
-				Bounds? bounds = null;
+				Bounds bounds = new();
+				bool isVariableAssigned = false; // Unity Technologies eats crayons
+
 
 				for (int i = 0; i < selected.Count; i++) {
 					if (!selected[i]) {
@@ -1030,14 +1032,16 @@ namespace RobotoSkunk.PixelMan.LevelEditor
 					}
 
 
-					if (!bounds.HasValue) {
+					if (!isVariableAssigned) {
 						bounds = selected[i].bounds;
+
+						isVariableAssigned = true;
 					} else {
-						bounds?.Encapsulate(selected[i].bounds);
+						bounds.Encapsulate(selected[i].bounds);
 					}
 				}
 
-				return bounds ?? new Bounds();
+				return bounds;
 			}
 
 			return new Bounds();

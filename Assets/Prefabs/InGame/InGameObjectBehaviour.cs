@@ -38,11 +38,14 @@ namespace RobotoSkunk.PixelMan {
 		}
 		public Bounds bounds {
 			get {
-				if (renderers.Length == 0) return new Bounds();
+				if (renderers.Length == 0) {
+					return new Bounds();
+				}
 				Bounds tmp = renderers[0].bounds;
 
-				for (int i = 1; i < renderers.Length; i++)
+				for (int i = 1; i < renderers.Length; i++) {
 					tmp.Encapsulate(renderers[i].bounds);
+				}
 
 				return tmp;
 			}
