@@ -32,9 +32,15 @@ namespace RobotoSkunk.PixelMan.LevelEditor
 
 		[Header("Components")]
 		[SerializeField] Image[] buttonSwitchImages;
-		[SerializeField] CanvasGroup canvasGroup;
 		[SerializeField] GameObject container;
 		[SerializeField] Sprite[] switchSprites = new Sprite[2];
+
+		[SerializeField] [Tooltip("The canvas group of the panel content.")]
+		CanvasGroup contentGroup;
+		
+		[SerializeField] [Tooltip("The canvas group of the whole panel.")]
+		CanvasGroup _canvasGroup;
+
 
 		[Header("Properties")]
 		[SerializeField] Vector2 openPanelPosition;
@@ -82,6 +88,16 @@ namespace RobotoSkunk.PixelMan.LevelEditor
 		RectTransform rectTransform;
 
 
+		/// <summary>
+		/// The canvas group of the panel.
+		/// </summary>
+		public CanvasGroup canvasGroup {
+			get {
+				return _canvasGroup;
+			}
+		}
+
+
 		private void Awake()
 		{
 			rectTransform = GetComponent<RectTransform>();
@@ -96,8 +112,8 @@ namespace RobotoSkunk.PixelMan.LevelEditor
 			bool needsToBeActive = newDelta >= 0.05f;
 
 			container.SetActive(needsToBeActive);
-			canvasGroup.interactable = needsToBeActive;
-			canvasGroup.blocksRaycasts = needsToBeActive;
+			contentGroup.interactable = needsToBeActive;
+			contentGroup.blocksRaycasts = needsToBeActive;
 
 			Sprite sprite = switchSprites[needsToBeActive.ToInt()];
 

@@ -1495,11 +1495,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonSwitchImages:
   - {fileID: 1048733654}
-  canvasGroup: {fileID: 525997185}
   container: {fileID: 685840935}
   switchSprites:
   - {fileID: 434883368, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
   - {fileID: 519071301, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
+  contentGroup: {fileID: 525997185}
+  _canvasGroup: {fileID: 96988150}
   openPanelPosition: {x: 0, y: 0}
   closedPanelPosition: {x: 120.5, y: 0}
 --- !u!1 &118293329
@@ -14181,11 +14182,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonSwitchImages:
   - {fileID: 893862004}
-  canvasGroup: {fileID: 823431208}
   container: {fileID: 823431204}
   switchSprites:
   - {fileID: 434883368, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
   - {fileID: 519071301, guid: 4eb0c0502dfa80e44a4990914b03ab76, type: 3}
+  contentGroup: {fileID: 823431208}
+  _canvasGroup: {fileID: 1471569971}
   openPanelPosition: {x: 0, y: 0}
   closedPanelPosition: {x: -43.5, y: 0}
 --- !u!1 &1477100995

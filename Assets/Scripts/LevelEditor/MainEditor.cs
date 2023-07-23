@@ -1091,11 +1091,11 @@ namespace RobotoSkunk.PixelMan.LevelEditor
 			Globals.respawnAttempts = 0;
 
 
-			// for (int i = 0; i < panels.Length; i++) {
-			// 	panels[i].group.interactable = !enabled;
-			// 	panels[i].group.blocksRaycasts = !enabled;
-			// 	panels[i].group.alpha = (!enabled).ToInt();
-			// }
+			for (int i = 0; i < panels.Length; i++) {
+				panels[i].canvasGroup.interactable = !enabled;
+				panels[i].canvasGroup.blocksRaycasts = !enabled;
+				panels[i].canvasGroup.alpha = (!enabled).ToInt();
+			}
 
 
 			if (enabled) {
