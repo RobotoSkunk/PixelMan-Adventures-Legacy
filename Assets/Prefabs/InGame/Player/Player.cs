@@ -107,9 +107,9 @@ namespace RobotoSkunk.PixelMan.Gameplay
 			get
 			{
 				if (!invertedGravity) {
-					return transform.position.y < Globals.levelData.bounds.yMin - 0.5f;
+					return transform.position.y < Globals.levelData.bounds.yMin - 1f;
 				} else {
-					return transform.position.y > Globals.levelData.bounds.yMax + 0.5f;
+					return transform.position.y > Globals.levelData.bounds.yMax + 1f;
 				}
 			}
 		}
@@ -117,8 +117,8 @@ namespace RobotoSkunk.PixelMan.Gameplay
 		bool outOfBounds {
 			get
 			{
-				return transform.position.y < Globals.levelData.bounds.yMin - 0.5f
-					|| transform.position.y > Globals.levelData.bounds.yMax + 0.5f;
+				return transform.position.y < Globals.levelData.bounds.yMin - 1f
+					|| transform.position.y > Globals.levelData.bounds.yMax + 1f;
 			}
 		}
 
@@ -187,31 +187,10 @@ namespace RobotoSkunk.PixelMan.Gameplay
 
 			Vector2 spd = new Vector2(transform.position.x, transform.position.y) - lastPos;
 
-			// #region Is player stuck?
-			// int stuckBuffer = Physics2D.OverlapBox(
-			// 	transform.position,
-			// 	boxCollider.size - new Vector2(0.05f, 0.05f),
-			// 	0f,
-			// 	groundFilter,
-			// 	stuckResult
-			// );
-
-			// if (stuckBuffer != 0) {
-			// 	foreach (Collider2D collider in stuckResult) {
-			// 		if (
-			// 			!collider.gameObject.CompareTag("Platform") &&
-			// 			!collider.gameObject.CompareTag("Ignore")
-			// 		) {
-			// 			Globals.isDead = true;
-			// 		}
-			// 	}
-			// }
-			// #endregion
-
 			#region Jump buffers
 			int groundBuffer = Physics2D.OverlapBox(
 				transform.position - new Vector3(0f, boxCollider.size.y / 2f) * rigidbody.gravityScale,
-				new Vector2(0.3f, 0.1f),
+				new Vector2(boxCollider.size.x + Constants.pixelToUnit, 0.1f),
 				0f,
 				groundFilter,
 				groundOverlap
