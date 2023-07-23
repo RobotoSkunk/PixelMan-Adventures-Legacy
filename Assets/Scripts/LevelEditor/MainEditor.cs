@@ -711,7 +711,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor
 
 
 						if (j < lineRenderers.Length) {
-							Vector2 diff = (Vector2)players[i].transform.position - players[i].lastPublicPos;
+							Vector2 diff = (Vector2)players[i].transform.position - players[i].lastPublicPosition;
 
 							if (diff.magnitude > 0.05f) {
 								if (playersLineRenderers[j].Count > Globals.settings.editor.lineLength) {
@@ -724,7 +724,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor
 							}
 
 							j++;
-							players[i].lastPublicPos = players[i].transform.position;
+							players[i].lastPublicPosition = players[i].transform.position;
 						}
 					}
 

@@ -36,7 +36,7 @@ namespace RobotoSkunk.PixelMan.Gameplay
 
 		private void OnTriggerEnter2D(Collider2D collision)
 		{
-			if ((collision.gameObject.layer & layerMask) != 0) {
+			if ((1 << collision.gameObject.layer & layerMask.value) != 0) {
 				Impulse();
 			}
 		}

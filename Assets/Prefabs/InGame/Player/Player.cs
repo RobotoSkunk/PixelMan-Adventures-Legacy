@@ -29,6 +29,7 @@ namespace RobotoSkunk.PixelMan.Gameplay
 {
 	public class Player : GameObjectBehaviour
 	{
+		#region Inspector variables
 		#pragma warning disable IDE0044
 		// Excuse: The inspector can't show the variables if they are readonly.
 
@@ -39,41 +40,96 @@ namespace RobotoSkunk.PixelMan.Gameplay
 		[SerializeField] BoxCollider2D boxCollider;
 		[SerializeField] AudioSource audioSource;
 		[SerializeField] Animator animator;
-		[SerializeField] ParticleSystem deathParticles, runParticles;
+		[SerializeField] ParticleSystem deathParticles;
+		[SerializeField] ParticleSystem runParticles;
 		[SerializeField] InGameObjectBehaviour playerBehaviour;
 
 		[Header("Properties")]
 		[SerializeField] Vector2 speed;
-		[SerializeField] float maxSpeed, maxJumpBuffer, maxHangCount;
+		[SerializeField] float maxSpeed;
+		[SerializeField] float maxJumpBufferTime;
+		[SerializeField] float maxHangCount;
 		[SerializeField] ContactFilter2D groundFilter;
 		[SerializeField] AudioClip[] sounds;
 		#pragma warning restore IDE0044
+		#endregion
 
-		[Header("Shared")]
-		public Vector2 lastPublicPos; // TODO: Change this to lastPublicPosition
+		// Public variables that are hidden in the inspector
+		[HideInInspector] public Vector2 lastPublicPosition;
 
+		#region Private variables
+		/// <summary>
+		/// The horizontal input axis.
+		/// </summary>
+		float horizontalAxis = 0f;
 
-		// Floats
-		float axis = 0f;
-		float jumpBuffer = 0f;
+		/// <summary>
+		/// The time before the player can jump.
+		/// </summary>
+		float jumpBufferTime = 0f;
+
+		/// <summary>
+		/// The time that the player can hang on the air.
+		/// </summary>
 		float hangCount = 0f;
+
+		/// <summary>
+		/// The horizontal speed of the player.
+		/// </summary>
 		float horizontalSpeed = 0f;
+
+		/// <summary>
+		/// The speed of the platform.
+		/// </summary>
 		float platformSpeed = 0f;
+
+		/// <summary>
+		/// The speed delay of the player to run.
+		/// </summary>
 		float speedFactor = 0.4f;
 
-		// Booleans
+
+		/// <summary>
+		/// If the player is on the ground.
+		/// </summary>
 		bool onGround = false;
+
+		/// <summary>
+		/// If the player can control the jump in the air.
+		/// </summary>
 		bool canControlJump = false;
+
+		/// <summary>
+		/// If the player can jump.
+		/// </summary>
 		bool canJump = true;
+
+		/// <summary>
+		/// If the player is over a platform.
+		/// </summary>
 		bool isOverPlatform = false;
+
+		/// <summary>
+		/// If the player's gravity is inverted.
+		/// </summary>
 		bool invertedGravity = false;
+
+		/// <summary>
+		/// If the game was on pause.
+		/// </summary>
 		bool wasOnPause = false;
+
+		/// <summary>
+		/// If the player's gravity was inverted before reaching the last checkpoint.
+		/// </summary>
 		bool respawnGravity;
 
-		// Bidimensional vectors
-		Vector2 startPos;
-		Vector2 lastPos;
-		Vector2 lastVelocity;
+
+		// Positions
+		// I don't think I have to explain this.
+		Vector2 startPosition;
+		Vector2 lastPosition;
+		Vector2 lastRigidbodyVelocity;
 
 		// Player states
 		State currentPlayerState = State.IDLE;
@@ -82,13 +138,13 @@ namespace RobotoSkunk.PixelMan.Gameplay
 		// Lists
 		readonly List<Platforms> platforms = new();
 		readonly List<Collider2D> groundOverlap = new();
-		// readonly List<Collider2D> stuckResult = new();
 
 		// Others
 		PlayerCamera playerCamera;
+		#endregion
 
 
-		// Definitions
+		#region Definitions
 		protected class Platforms
 		{
 			public GameObject gameObject;
@@ -103,6 +159,9 @@ namespace RobotoSkunk.PixelMan.Gameplay
 			FALLING,
 		}
 
+		/// <summary>
+		/// Has the player fell from the world?
+		/// </summary>
 		bool fellFromTheWorld {
 			get
 			{
@@ -114,6 +173,9 @@ namespace RobotoSkunk.PixelMan.Gameplay
 			}
 		}
 
+		/// <summary>
+		/// Is the player out of level bounds? (vertical only)
+		/// </summary>
 		bool outOfBounds {
 			get
 			{
@@ -122,33 +184,61 @@ namespace RobotoSkunk.PixelMan.Gameplay
 			}
 		}
 
+		/// <summary>
+		/// Is the player going up?
+		/// </summary>
+		bool goesUp {
+			get
+			{
+				return !invertedGravity ? rigidbody.velocity.y > 0f : rigidbody.velocity.y < 0f;
+			}
+		}
+
+		/// <summary>
+		/// The gravity multiplier.
+		/// </summary>
+		float gravityMultiplier {
+			get
+			{
+				return invertedGravity ? -1f : 1f;
+			}
+		}
+
+		/// <summary>
+		/// The actual speed of the player ignoring the Rigidbody.
+		/// </summary>
+		Vector2 actualSpeed {
+			get
+			{
+				return new Vector2(transform.position.x, transform.position.y) - lastPosition;
+			}
+		}
+		#endregion
 
 
-		// Start of Unity methods
+		#region Unity Methods
 
 		private void Awake()
 		{
-			// Globals.playerData.Color.a = 1f;
 			spriteRenderer.color = Globals.playerData.Color;
 
-			Globals.PlayerCharacters ps = Globals.playerCharacters.ClampIndex((int)Globals.playerData.skinIndex);
-			spriteRenderer.sprite = ps.display;
-			animator.runtimeAnimatorController = ps.controller;
+			Globals.PlayerCharacters playerData = Globals.playerCharacters.ClampIndex(
+																			(int)Globals.playerData.skinIndex);
+			spriteRenderer.sprite = playerData.display;
+			animator.runtimeAnimatorController = playerData.controller;
+
 
 			ParticleSystem.MainModule particleMain = deathParticles.main;
 			particleMain.startColor = Globals.playerData.Color;
 
-			rigidbody.velocity = Vector2.zero;
-			rigidbody.gravityScale = 0f;
-			rigidbody.bodyType = RigidbodyType2D.Static;
+			FreezeRigidbody(true);
 		}
 
 		private void FixedUpdate()
 		{
 			#region On pause
 			if (Globals.onPause) {
-				rigidbody.velocity = Vector2.zero;
-				rigidbody.gravityScale = 0f;
+				FreezeRigidbody(true);
 				wasOnPause = true;
 				animator.speed = 0;
 
@@ -166,7 +256,7 @@ namespace RobotoSkunk.PixelMan.Gameplay
 				animator.speed = 1;
 
 				if (!Globals.isDead) {
-					rigidbody.velocity = lastVelocity;
+					FreezeRigidbody(false);
 				}
 
 				if (runParticles.isPaused) {
@@ -179,117 +269,159 @@ namespace RobotoSkunk.PixelMan.Gameplay
 			#endregion
 
 			if (Globals.isDead) {
-				rigidbody.velocity = Vector2.zero;
+				FreezeRigidbody(true);
 				return;
 			}
 
-			rigidbody.gravityScale = invertedGravity ? -1f : 1f;
-
-			Vector2 spd = new Vector2(transform.position.x, transform.position.y) - lastPos;
+			rigidbody.gravityScale = gravityMultiplier;
 
 			#region Jump buffers
+
+			// Imaginary box to check if the player is on the ground.
 			int groundBuffer = Physics2D.OverlapBox(
-				transform.position - new Vector3(0f, boxCollider.size.y / 2f) * rigidbody.gravityScale,
+				transform.position - new Vector3(0f, boxCollider.size.y / 2f) * gravityMultiplier,
 				new Vector2(boxCollider.size.x + Constants.pixelToUnit, 0.1f),
 				0f,
 				groundFilter,
 				groundOverlap
 			);
+
 			onGround = false;
 
 
+			// Check if the player is on the ground or not.
 			if (groundBuffer != 0) {
 				onGround = true;
 				speedFactor = 0.4f;
 
 				switch (groundOverlap[0].tag) {
-					case "Ignore": onGround = false; break;
-					case "IceBlock": speedFactor = 0.025f; break;
-					case "Platform": onGround = isOverPlatform; break;
+					case "Ignore":
+						onGround = false;
+						break;
+
+					case "IceBlock":
+						speedFactor = 0.025f;
+						break;
+
+					case "Platform":
+						onGround = isOverPlatform;
+						break;
+
+					// No default
 				}
 			}
 
 
-			if (jumpBuffer > 0f) {
-				jumpBuffer -= Time.fixedDeltaTime;
+			if (jumpBufferTime > 0f) {
+				jumpBufferTime -= Time.fixedDeltaTime;
 			}
 
 			if (onGround) {
 				canJump = true;
 				canControlJump = true;
 				hangCount = maxHangCount;
+
 				if (Globals.settings.general.enableParticles) {
-					if (spd.x != 0f && axis != 0f) {
+
+					if (actualSpeed.x != 0f && horizontalAxis != 0f) {
+
 						if (!runParticles.isPlaying) {
 							runParticles.Play();
 						}
+
 					} else if (runParticles.isPlaying) {
 						runParticles.Stop();
 					}
+
 				}
 			} else {
 				if (hangCount > 0f) {
 					hangCount -= Time.fixedDeltaTime;
 				}
+
 				if (runParticles.isPlaying) {
 					runParticles.Stop();
 				}
 			}
 
-			if (jumpBuffer > 0f && hangCount > 0f && !Globals.isDead) {
+
+			// Apply the jump buffer.
+			if (jumpBufferTime > 0f && hangCount > 0f && !Globals.isDead) {
+
 				rigidbody.velocity = new Vector2(rigidbody.velocity.x, 0f);
-				rigidbody.AddForce(new Vector2(0f, speed.y) * rigidbody.gravityScale, ForceMode2D.Impulse);
+
+				rigidbody.AddForce(
+					new Vector2(0f, speed.y) * gravityMultiplier,
+					ForceMode2D.Impulse
+				);
+
 
 				audioSource.PlayOneShot(sounds[0]);
 
 				hangCount = -1f;
-				jumpBuffer = -1f;
+				jumpBufferTime = -1f;
 			}
 			#endregion
 
-			horizontalSpeed = Mathf.Lerp(horizontalSpeed, axis * speed.x, speedFactor);
 
+			// Apply the horizontal speed.
+			horizontalSpeed = Mathf.Lerp(horizontalSpeed, horizontalAxis * speed.x, speedFactor);
+
+			// Minor changes to renderers and particles.
 			spriteRenderer.flipY = invertedGravity;
-			runParticles.transform.localScale = new Vector3(1f, rigidbody.gravityScale, 1f);
-			if (axis != 0f) spriteRenderer.flipX = axis < 0f;
+			runParticles.transform.localScale = new Vector3(1f, gravityMultiplier, 1f);
+
+			if (horizontalAxis != 0f) {
+				spriteRenderer.flipX = horizontalAxis < 0f;
+			}
 
 			pixelManRigidbody.horizontalSpeed = horizontalSpeed + platformSpeed;
 
+
 			#region Animation processing
-			// I prefer doing all this by code than using Unity animatior transitions manually.
+			// I prefer doing all this by code than using Unity animator transitions manually.
 
-			float animSpeed = Mathf.Abs(horizontalSpeed) > 0f && Mathf.Abs(spd.x) >= 0.05f
-							? Mathf.Abs(horizontalSpeed) / speed.x : 0f;
+			float animationSpeed = Mathf.Abs(horizontalSpeed) > 0f && Mathf.Abs(actualSpeed.x) >= 0.05f
+								 ? Mathf.Abs(horizontalSpeed) / speed.x : 0f;
 
-			float velocityYAxis = rigidbody.gravityScale * rigidbody.velocity.y;
+			float velocityYhorizontalAxis = rigidbody.gravityScale * rigidbody.velocity.y;
 
-
-			if (animSpeed <= 0.2f) {
-				animSpeed = 0.2f;
+			if (animationSpeed <= 0.2f) {
+				animationSpeed = 0.2f;
 			}
 
 
-			// Styling excuse: It's not too readable if I follow the style guide.
+			if (onGround && (Mathf.Abs(horizontalAxis) == 0f || actualSpeed.x == 0f)) {
+				currentPlayerState = State.IDLE;
 
-			if (onGround && (Mathf.Abs(axis) == 0f || spd.x == 0f)) currentPlayerState = State.IDLE;
-			else if (onGround && Mathf.Abs(axis) > 0f) currentPlayerState = State.RUNNING;
-			else if (!onGround && velocityYAxis > 0f) currentPlayerState = State.JUMPING;
-			else if (!onGround && velocityYAxis < 0f) currentPlayerState = State.FALLING;
-			else currentPlayerState = State.IDLE;
+			} else if (onGround && Mathf.Abs(horizontalAxis) > 0f) {
+				currentPlayerState = State.RUNNING;
+
+			} else if (!onGround && velocityYhorizontalAxis > 0f) {
+				currentPlayerState = State.JUMPING;
+
+			} else if (!onGround && velocityYhorizontalAxis < 0f) {
+				currentPlayerState = State.FALLING;
+
+			} else {
+				currentPlayerState = State.IDLE;
+			}
+
 
 			// End of styling excuse.
 
 			if (currentPlayerState != lastState) {
 				animator.Play("Default", 0, 0f);
 			}
-			lastState = currentPlayerState;
 
 			animator.SetFloat("State", (float)currentPlayerState);
-			animator.SetFloat("Speed", currentPlayerState == State.RUNNING ? animSpeed : 1f);
+			animator.SetFloat("Speed", currentPlayerState == State.RUNNING ? animationSpeed : 1f);
 			#endregion
 
-			lastPos = transform.position;
-			lastVelocity = rigidbody.velocity;
+
+			lastState = currentPlayerState;
+			lastPosition = transform.position;
+			lastRigidbodyVelocity = rigidbody.velocity;
 		}
 
 		private void Update()
@@ -303,11 +435,13 @@ namespace RobotoSkunk.PixelMan.Gameplay
 
 			if (fellFromTheWorld && killWhenFalling) {
 				Globals.isDead = true;
+
 			} else if (outOfBounds && !killWhenFalling) {
 				float YPosition = transform.position.y;
 
 				if (YPosition < Globals.levelData.bounds.yMin + 0.5f) {
 					YPosition = Globals.levelData.bounds.yMax + 0.5f;
+
 				} else if (YPosition > Globals.levelData.bounds.yMax - 0.5f) {
 					YPosition = Globals.levelData.bounds.yMin - 0.5f;
 				}
@@ -320,29 +454,25 @@ namespace RobotoSkunk.PixelMan.Gameplay
 		#region Triggers
 		private void OnTriggerEnter2D(Collider2D collision)
 		{
-			switch (collision.tag) {
-				case "Trampoline":
-					pixelManRigidbody.ResetSpeed();
+			if (collision.CompareTag("Trampoline")) {
+				pixelManRigidbody.ResetSpeed();
 
-					pixelManRigidbody.AddForce(
-						RSMath.GetDirVector(
-							(collision.transform.eulerAngles.z + 90f) * Mathf.Deg2Rad
-						) * Constants.trampolineForce,
-						ForceMode2D.Impulse
-					);
+				pixelManRigidbody.AddForce(
+					RSMath.GetDirVector(
+						(collision.transform.eulerAngles.z + 90f) * Mathf.Deg2Rad
+					) * Constants.trampolineForce,
+					ForceMode2D.Impulse
+				);
 
-					lastVelocity = rigidbody.velocity;
-					canJump = false;
-					canControlJump = false;
-					break;
+				lastRigidbodyVelocity = rigidbody.velocity;
+				canJump = false;
+				canControlJump = false;
+			
+			} else if (collision.CompareTag("GravitySwitch")) {
+				invertedGravity = !invertedGravity;
 
-				case "GravitySwitch": invertedGravity = !invertedGravity;break;
-				case "Finish": Debug.Log("Won!"); break;
-				// default:
-				// 	if (collision.gameObject.layer == LayerMask.NameToLayer("Killzone")) {
-				// 		Globals.isDead = true;
-				// 	}
-				// 	break;
+			} else if (collision.CompareTag("Finish")) {
+				Debug.Log("Won!");
 			}
 		}
 
@@ -352,22 +482,21 @@ namespace RobotoSkunk.PixelMan.Gameplay
 				return;
 			}
 
-			switch (collision.tag) {
-				case "Trampoline":
-					canJump = false;
-					break;
+			if (collision.CompareTag("Trampoline")) {
+				canControlJump = false;
+				canJump = false;
 			}
 		}
 
 		private void OnTriggerExit2D(Collider2D collision)
 		{
-			switch (collision.tag) {
-				case "Trampoline":
-					canJump = false;
-					break;
+			if (collision.CompareTag("Trampoline")) {
+				canControlJump = false;
+				canJump = false;
 			}
 		}
 		#endregion
+
 
 		#region Collisions
 		private void OnCollisionStay2D(Collision2D collision)
@@ -376,72 +505,74 @@ namespace RobotoSkunk.PixelMan.Gameplay
 				return;
 			}
 
-			switch (collision.collider.tag) {
-				case "Platform":
-					Platforms platform = platforms.Find(m => m.gameObject == collision.gameObject);
+			if (collision.collider.CompareTag("Platform")) {
+				Platforms platform = platforms.Find(m => m.gameObject == collision.gameObject);
 
-					float platformTop = collision.transform.position.y + 0.27f;
-					float platformBottom = collision.transform.position.y - 0.27f;
-					float selfTop = transform.position.y + boxCollider.size.y / 2f;
-					float selfBottom = transform.position.y - boxCollider.size.y / 2f;
+				float platformTop = collision.transform.position.y + 0.27f;
+				float platformBottom = collision.transform.position.y - 0.27f;
+				float selfTop = transform.position.y + boxCollider.size.y / 2f;
+				float selfBottom = transform.position.y - boxCollider.size.y / 2f;
 
-					isOverPlatform = false;
+				isOverPlatform = false;
 
 
-					if (
-						platform != null && ((platformTop < selfBottom && !invertedGravity)
-						||
-						(platformBottom > selfTop && invertedGravity))
-					) {
-						platformSpeed = (collision.transform.position.x - platform.code.lastPosition.x) / Time.fixedDeltaTime;
-						platform.wasCollided = true;
-						isOverPlatform = true;
-					}
-					break;
+				if (
+					platform != null && ((platformTop < selfBottom && !invertedGravity)
+					||
+					(platformBottom > selfTop && invertedGravity))
+				) {
+					platformSpeed = (collision.transform.position.x - platform.code.lastPosition.x)
+									/ Time.fixedDeltaTime;
+					platform.wasCollided = true;
+					isOverPlatform = true;
+				}
 			}
 		}
 
 		private void OnCollisionExit2D(Collision2D collision)
 		{
-			switch (collision.collider.tag) {
-				case "Platform":
-					Platforms platform = platforms.Find(m => m.gameObject == collision.gameObject);
+			if (collision.collider.CompareTag("Platform")) {
+				Platforms platform = platforms.Find(m => m.gameObject == collision.gameObject);
 
-					if (platform != null) {
-						if (platform.wasCollided) {
-							pixelManRigidbody.AddForce(new Vector2(platformSpeed, 0f), ForceMode2D.Impulse);
-							platformSpeed = 0f;
+				if (platform != null) {
+					if (platform.wasCollided) {
+						pixelManRigidbody.AddForce(new Vector2(platformSpeed, 0f), ForceMode2D.Impulse);
+						platformSpeed = 0f;
 
-							platform.wasCollided = false;
-							isOverPlatform = false;
-						}
+						platform.wasCollided = false;
+						isOverPlatform = false;
 					}
-					break;
+				}
 			}
 		}
 		#endregion
 
+
+		#endregion
+
+
 		#region New input system
 		public void HorizontalMovement(InputAction.CallbackContext context)
 		{
-			axis = context.ReadValue<Vector2>().x;
-
 			if (Globals.isDead) {
 				return;
 			}
+
+			horizontalAxis = context.ReadValue<Vector2>().x;
 		}
 
 		public void JumpMovement(InputAction.CallbackContext context)
 		{
-			bool onJump = context.ReadValue<float>() > 0f;
-			bool goesUp = !invertedGravity ? rigidbody.velocity.y > 0f : rigidbody.velocity.y < 0f;
-
-			if (Globals.isDead) {
+			if (Globals.isDead || Globals.onPause) {
 				return;
 			}
 
+			bool onJump = context.ReadValue<float>() > 0f;
+
+
 			if (onJump && canJump) {
-				jumpBuffer = maxJumpBuffer;
+				jumpBufferTime = maxJumpBufferTime;
+
 			} else if (!onJump && goesUp && canControlJump) {
 				rigidbody.velocity *= new Vector2(1f, 0.5f);
 				canControlJump = false;
@@ -450,6 +581,10 @@ namespace RobotoSkunk.PixelMan.Gameplay
 
 		public void LookUp(InputAction.CallbackContext context)
 		{
+			if (Globals.onPause) {
+				return;
+			}
+
 			if (playerCamera != null) {
 				playerCamera.look = context.ReadValue<Vector2>();
 			}
@@ -459,7 +594,7 @@ namespace RobotoSkunk.PixelMan.Gameplay
 		#region Editor methods
 		public void SetUpStartupVars()
 		{
-			startPos = transform.position;
+			startPosition = transform.position;
 			invertedGravity = playerBehaviour.properties.invertGravity;
 			rigidbody.bodyType = RigidbodyType2D.Dynamic;
 		}
@@ -478,8 +613,8 @@ namespace RobotoSkunk.PixelMan.Gameplay
 			if (runParticles.isPlaying) {
 				runParticles.Stop();
 			}
-			animator.Play("Default", 0, 0f);
 
+			animator.Play("Default", 0, 0f);
 			animator.SetFloat("State", (float)State.IDLE);
 			animator.SetFloat("Speed", 0f);
 
@@ -490,16 +625,27 @@ namespace RobotoSkunk.PixelMan.Gameplay
 		#region Custom events
 		void DefaultReset(bool trigger)
 		{
-			boxCollider.enabled = spriteRenderer.enabled = pixelManRigidbody.enabled = trigger;
-			rigidbody.velocity = lastVelocity = Vector2.zero;
-			hangCount = jumpBuffer = -1f;
+			boxCollider.enabled = trigger;
+			spriteRenderer.enabled = trigger;
+			pixelManRigidbody.enabled = trigger;
+
+			rigidbody.velocity = Vector2.zero;
+			lastRigidbodyVelocity = Vector2.zero;
+
+			hangCount = -1f;
+			jumpBufferTime = -1f;
+
 			pixelManRigidbody.ResetSpeed();
 			pixelManRigidbody.horizontalSpeed = 0f;
 			horizontalSpeed = 0f;
 			rigidbody.gravityScale = 0f;
 
+
 			if (trigger) {
-				if (deathParticles.isPlaying) deathParticles.Stop();
+				if (deathParticles.isPlaying) {
+					deathParticles.Stop();
+				}
+
 				deathParticles.Clear();
 			}
 
@@ -525,10 +671,6 @@ namespace RobotoSkunk.PixelMan.Gameplay
 
 				platforms.Add(platform);
 			}
-
-			// if (!isEditor) {
-			// 	playerCamera.cam.enabled = true;
-			// }
 		}
 
 		protected override void OnGamePlayerDeath()
@@ -539,6 +681,7 @@ namespace RobotoSkunk.PixelMan.Gameplay
 			if (Globals.settings.general.enableParticles) {
 				deathParticles.Play();
 			}
+
 			if (runParticles.isPlaying) {
 				runParticles.Stop();
 			}
@@ -546,7 +689,7 @@ namespace RobotoSkunk.PixelMan.Gameplay
 
 		protected override void OnGameResetObject()
 		{
-			transform.position = startPos;
+			transform.position = startPosition;
 			invertedGravity = playerBehaviour.properties.invertGravity;
 			DefaultReset(true);
 		}
@@ -564,7 +707,17 @@ namespace RobotoSkunk.PixelMan.Gameplay
 		}
 		#endregion
 
-		public void SetCamera(PlayerCamera camera) {
+
+		void FreezeRigidbody(bool freeze)
+		{
+			rigidbody.velocity = freeze ? Vector2.zero : lastRigidbodyVelocity;
+			rigidbody.gravityScale = freeze ? 0f : gravityMultiplier;
+			rigidbody.bodyType = freeze ? RigidbodyType2D.Static : RigidbodyType2D.Dynamic;
+		}
+
+
+		public void SetCamera(PlayerCamera camera)
+		{
 			playerCamera = camera;
 		}
 	}
