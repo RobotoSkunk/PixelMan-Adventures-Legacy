@@ -25,8 +25,6 @@ using UnityEngine.UI;
 
 namespace RobotoSkunk {
 	public static class Extensions {
-		public static bool CompareLayers(this GameObject gameObject, LayerMask layerMask) => layerMask == (layerMask | (1 << gameObject.layer));
-		
 		public static T ClampIndex<T>(this T[] array, int x) => array[x < 0 ? 0 : (x >= array.Length ? array.Length : x)];
 
 		public static void SetInteractable(this List<Selectable> list, bool enabled) {

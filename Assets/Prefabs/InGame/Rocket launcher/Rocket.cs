@@ -21,8 +21,11 @@ using UnityEngine;
 
 using RobotoSkunk.PixelMan.Events;
 
-namespace RobotoSkunk.PixelMan.Gameplay {
-	public class Rocket : GameObjectBehaviour {
+
+namespace RobotoSkunk.PixelMan.Gameplay
+{
+	public class Rocket : GameObjectBehaviour
+	{
 		[Header("Components")]
 		public Rigidbody2D rb;
 		public Animator animator;
@@ -33,30 +36,42 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 		[Header("Properties")]
 		[Range(0f, 25f)] public float factor = 5f;
 		[Range(0f, 25f)] public float velocity = 5f;
-		public LayerMask layerMask, importantLayers;
+		public LayerMask layerMask;
+		public LayerMask importantLayers;
 		public AudioClip audioClip;
 		public List<string> tags;
 
 		[Header("Shared")]
 		public GameObject target;
 
-		float ang, newAng;
+		float ang;
+		float newAng;
 		Vector2 speed;
+
 
 		private void Start() => ang = transform.eulerAngles.z;
 
-		private void FixedUpdate() {
+		private void FixedUpdate()
+		{
 			if (Globals.onPause) {
 				rb.velocity = Vector2.zero;
 				animator.speed = 0;
-				if (audioSource.isPlaying) audioSource.Pause();
+				if (audioSource.isPlaying) {
+					audioSource.Pause();
+				}
+
 				return;
 			}
-			animator.speed = 1;
-			if (!audioSource.isPlaying) audioSource.UnPause();
 
-			if (target && !Globals.isDead)
+			animator.speed = 1;
+			if (!audioSource.isPlaying) {
+				audioSource.UnPause();
+			}
+
+
+			if (target && !Globals.isDead) {
 				newAng = RSMath.Direction(transform.position, target.transform.position) * Mathf.Rad2Deg;
+			}
 	
 			ang += Mathf.Sin((newAng - ang) * Mathf.Deg2Rad) * factor;
 
@@ -66,9 +81,10 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 			rb.velocity = speed;
 		}
 
-		private void OnTriggerEnter2D(Collider2D collision) {
-			if (explosionParticles && collision.gameObject.CompareLayers(layerMask)) {
-				if (collision.gameObject.CompareLayers(importantLayers) || tags.Contains(collision.tag)) {
+		private void OnTriggerEnter2D(Collider2D collision)
+		{
+			if (explosionParticles && (collision.gameObject.layer & layerMask) != 0) {
+				if ((collision.gameObject.layer & importantLayers) != 0 || tags.Contains(collision.tag)) {
 					explosionParticles.transform.parent = null;
 					explosionParticles.Play();
 
@@ -86,7 +102,8 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 
 		protected override void OnGameResetObject() => DestroyMyself();
 
-		void DestroyMyself() {
+		void DestroyMyself()
+		{
 			rb.velocity = Vector2.zero;
 			Destroy(gameObject, Time.fixedDeltaTime);
 		}

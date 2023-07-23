@@ -23,11 +23,19 @@ using UnityEngine;
 using RobotoSkunk.PixelMan.Events;
 
 
-namespace RobotoSkunk.PixelMan.Gameplay {
-	public class LaserGun : GameObjectBehaviour {
+namespace RobotoSkunk.PixelMan.Gameplay
+{
+	public class LaserGun : GameObjectBehaviour
+	{
 		[Header("Components")]
 		public AudioSource audioSource;
-		public SpriteRenderer gun, dotedLine, normalLine, laser, outline;
+
+		public SpriteRenderer gun;
+		public SpriteRenderer dotedLine;
+		public SpriteRenderer normalLine;
+		public SpriteRenderer laser;
+		public SpriteRenderer outline;
+
 		public BoxCollider2D laserCollider;
 		public InGameObjectBehaviour laserBehaviour;
 
@@ -37,17 +45,30 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 		public AudioClip detectedClip, shootClip;
 		public Sprite[] laserSprites, gunSprites, dotedLineSprites;
 
+
 		readonly List<RaycastHit2D> hits = new();
 		readonly float laserHeight = 0.4375f;
 
-		enum LaserState { None, Detected, Shoot, Reload }
+		enum LaserState {
+			None,
+			Detected,
+			Shoot,
+			Reload,
+		}
 
 		bool onReset = false;
-		float lineSize, reload = 0f, dotedLineTime = 0f;
-		int laserFrame = 0, outlineFrame = 0;
+
+		float lineSize;
+		float reload = 0f;
+		float dotedLineTime = 0f;
+
+		int laserFrame = 0;
+		int outlineFrame = 0;
+
 		LaserState laserState = LaserState.None;
 
-		private void Awake() {
+		private void Awake()
+		{
 			laserCollider.enabled = false;
 			laser.size = new Vector2(0f, 0f);
 			normalLine.enabled = false;
@@ -56,7 +77,8 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 		}
 
 
-		protected override void OnGameResetObject() {
+		protected override void OnGameResetObject()
+		{
 			audioSource.Stop();
 			onReset = true;
 			reload = 0f;
@@ -64,8 +86,11 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 			Awake();
 		}
 
-		private void FixedUpdate() {
-			if (Globals.onPause) return;
+		private void FixedUpdate()
+		{
+			if (Globals.onPause) {
+				return;
+			}
 
 			#region Evaluate line distance and detect player
 			if (!onReset) {
@@ -77,11 +102,17 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 					float playerDistance = lineSize + 1f;
 
 					foreach (RaycastHit2D hit in hits) {
-						if (hit.collider.CompareTag("Player") && hit.distance < playerDistance) playerDistance = hit.distance;
-						else if (hit.collider.gameObject.CompareLayers(solidLayer) && hit.distance < lineSize) lineSize = hit.distance;
+						if (hit.collider.CompareTag("Player") && hit.distance < playerDistance) {
+							playerDistance = hit.distance;
+
+						} else if ((hit.collider.gameObject.layer & solidLayer) != 0 && hit.distance < lineSize) {
+							lineSize = hit.distance;
+						}
 					}
 
-					if (laserState == LaserState.None && playerDistance <= lineSize) laserState = LaserState.Detected;
+					if (laserState == LaserState.None && playerDistance <= lineSize) {
+						laserState = LaserState.Detected;
+					}
 				}
 			} else onReset = false;
 
@@ -95,17 +126,24 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 					laserCollider.enabled = false;
 					gun.sprite = gunSprites[^1];
 
+					dotedLine.enabled = true;
 					outline.enabled = false;
 					normalLine.enabled = false;
-					dotedLine.enabled = true;
 					laser.enabled = false;
 
 					if (dotedLine.isVisible) {
 						dotedLineTime += Time.fixedDeltaTime * 2f;
-						dotedLine.sprite = dotedLineSprites[(int) (dotedLineTime * dotedLineSprites.Length) % dotedLineSprites.Length];
-						if (dotedLineTime >= 1f) dotedLineTime = 0f;
+
+						dotedLine.sprite = dotedLineSprites[
+							(int) (dotedLineTime * dotedLineSprites.Length) % dotedLineSprites.Length
+						];
+
+						if (dotedLineTime >= 1f) {
+							dotedLineTime = 0f;
+						}
 					}
 					break;
+
 				case LaserState.Detected:
 					if (!audioSource.isPlaying && audioSource.clip != detectedClip) {
 						audioSource.clip = detectedClip;
@@ -136,6 +174,7 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 						normalLine.color = new Color(1f, 1f, 1f, 0.5f);
 					}
 					break;
+
 				case LaserState.Shoot:
 					float currentHeight = laser.size.y;
 					laser.enabled = true;
@@ -145,19 +184,23 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 						laser.size = new(lineSize, currentHeight);
 
 						laserCollider.enabled = laser.size.y >= laserHeight / 2f;
-					} else laserState = LaserState.Reload;
+					} else {
+						laserState = LaserState.Reload;
+					}
 
 					if (RSTime.fixedFrameCount % 3 == 0 && laser.isVisible) {
 						laserFrame = laserFrame == 1 ? 0 : 1;
 						laser.sprite = laserSprites[laserFrame];
 					}
 					break;
+
 				case LaserState.Reload:
 					reload += Time.fixedDeltaTime / laserBehaviour.properties.safeReloadTime;
 					laser.enabled = false;
 
-					if (gun.isVisible)
+					if (gun.isVisible) {
 						gun.sprite = gunSprites[(int) (reload * gunSprites.Length) % gunSprites.Length];
+					}
 
 					if (reload >= 1f) {
 						reload = 0f;
@@ -169,9 +212,19 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 			#endregion
 		}
 
-		private int GetRaycastCount() => Physics2D.Raycast(transform.position, RSMath.GetDirVector(transform.eulerAngles.z * Mathf.Deg2Rad), contactFilter, hits, Constants.worldHypotenuse);
+		private int GetRaycastCount()
+		{
+			return Physics2D.Raycast(
+				transform.position,
+				RSMath.GetDirVector(transform.eulerAngles.z * Mathf.Deg2Rad),
+				contactFilter,
+				hits,
+				Constants.worldHypotenuse
+			);
+		}
 
-		public void SetUpTesting(bool isTesting) {
+		public void SetUpTesting(bool isTesting)
+		{
 			if (!isTesting) {
 				dotedLine.size = normalLine.size = new(0f, dotedLine.size.y);
 				laser.size = new(0f, laser.size.y);
