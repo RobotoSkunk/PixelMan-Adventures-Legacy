@@ -41,5 +41,15 @@ If you want to contribute to the project, please follow the
 We love contributions! So, feel free to contribute to the project as
 much as you want. Let's make the best platformer game ever!
 
+### Note for Windows users
+If you're using Windows, please make sure to use the same line endings
+that the project uses. You can do this by configuring git to use
+`lf` line endings by default. You can do this by running the following
+command in the terminal:
+
+```bash
+git config --global core.autocrlf input
+```
+
 ## License
 This project is licensed under the [GNU Affero General Public License v3.0](LICENSE).
