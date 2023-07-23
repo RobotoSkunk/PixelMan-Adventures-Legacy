@@ -333,6 +333,7 @@ namespace RobotoSkunk.PixelMan.Gameplay
 
 					lastVelocity = rigidbody.velocity;
 					canJump = false;
+					canControlJump = false;
 					break;
 
 				case "GravitySwitch": invertedGravity = !invertedGravity;break;

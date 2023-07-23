@@ -36,14 +36,14 @@ namespace RobotoSkunk.PixelMan.Gameplay
 
 		private void OnTriggerEnter2D(Collider2D collision)
 		{
-			if (collision.gameObject.CompareLayers(layerMask)) {
+			if ((collision.gameObject.layer & layerMask) != 0) {
 				Impulse();
 			}
 		}
 
 		private void OnParticleCollision(GameObject other)
 		{
-			if (other.CompareLayers(layerMask)) {
+			if ((other.layer & layerMask) != 0) {
 				Impulse(other.GetComponent<Rigidbody>());
 			}
 
