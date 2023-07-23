@@ -105,7 +105,7 @@ namespace RobotoSkunk.PixelMan.Gameplay
 						if (hit.collider.CompareTag("Player") && hit.distance < playerDistance) {
 							playerDistance = hit.distance;
 
-						} else if ((hit.collider.gameObject.layer & solidLayer) != 0 && hit.distance < lineSize) {
+						} else if (1 << (hit.collider.gameObject.layer & solidLayer) != 0 && hit.distance < lineSize) {
 							lineSize = hit.distance;
 						}
 					}

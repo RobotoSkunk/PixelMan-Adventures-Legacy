@@ -83,8 +83,8 @@ namespace RobotoSkunk.PixelMan.Gameplay
 
 		private void OnTriggerEnter2D(Collider2D collision)
 		{
-			if (explosionParticles && (collision.gameObject.layer & layerMask) != 0) {
-				if ((collision.gameObject.layer & importantLayers) != 0 || tags.Contains(collision.tag)) {
+			if (explosionParticles && (1 << collision.gameObject.layer & layerMask) != 0) {
+				if ((1 << collision.gameObject.layer & importantLayers) != 0 || tags.Contains(collision.tag)) {
 					explosionParticles.transform.parent = null;
 					explosionParticles.Play();
 
