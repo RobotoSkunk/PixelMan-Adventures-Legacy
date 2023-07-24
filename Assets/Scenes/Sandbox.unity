@@ -1014,6 +1014,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 630843924}
+  - component: {fileID: 630843926}
+  - component: {fileID: 630843925}
   - component: {fileID: 630843923}
   m_Layer: 0
   m_Name: GameController
@@ -1063,6 +1065,220 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &630843925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630843922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: cbe55d12365f236478f2fc6f9dd722f9, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: cd1a27a9-395c-4af9-a09d-b88dd772e61d
+    m_ActionName: Player/Move[/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2f2da8f8-3373-4642-80b2-34e783714602
+    m_ActionName: Player/Look[/Keyboard/numpad8,/Keyboard/numpad5,/Keyboard/numpad4,/Keyboard/numpad6]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3fa12b5a-b83e-472d-a6b0-0782e364ecd4
+    m_ActionName: Player/Jump[/Keyboard/upArrow,/Keyboard/w]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6ba9ce0f-7043-426b-a429-978505002be0
+    m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6dd318c1-2895-40c3-8214-9a37f3897d22
+    m_ActionName: UI/Submit[/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6951f58c-e6ed-4487-8942-7ac2b6e8b128
+    m_ActionName: UI/Cancel[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b8e20753-2113-4e3d-9f14-c0585a9ee613
+    m_ActionName: UI/Point[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 71a8d68b-6971-4c8a-b093-e29331d6b589
+    m_ActionName: UI/Click[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 154bec8a-f54a-4dac-98f7-5107276430bd
+    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d702da99-fc1e-4e77-87b7-4b93301498e0
+    m_ActionName: UI/MiddleClick[/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0a49d5ef-6ab0-4caa-9c8e-59d0f1bb5a5e
+    m_ActionName: UI/RightClick[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 718b8fea-57b8-4a66-8dc6-ded93cad791d
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: cdf18c2d-f92b-4f40-98b8-264a37499e87
+    m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5f620efa-88f0-4a2d-a4f4-8b7102650296
+    m_ActionName: LevelEditor/MousePosition[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 829ac1d2-e61e-4e29-8b8b-4b8c700c8211
+    m_ActionName: LevelEditor/Navigation[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a85ef0b1-646e-455a-a025-7424e3fa2c78
+    m_ActionName: LevelEditor/DragNavigation[/Mouse/middleButton,/Keyboard/space,/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 89122cc5-0477-4d64-b774-0c67b1feb271
+    m_ActionName: LevelEditor/Zoom[/Mouse/scroll,/Keyboard/numpadPlus,/Keyboard/numpadMinus]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: dd062698-9fb4-4c9c-9bd1-66260feaffb1
+    m_ActionName: LevelEditor/ShowLeftPanel
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7872aaba-ee7e-4aca-8d2f-0a8b7b5c467a
+    m_ActionName: LevelEditor/ShowRightPanel
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7982e825-cc9b-42c0-bd44-7abe18643aad
+    m_ActionName: LevelEditor/SubmitAction[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 35fb3f9c-cbe8-4624-8a85-bfd1cfc80731
+    m_ActionName: LevelEditor/DeleteAction[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: fad5fac0-c1eb-407a-be6a-8576ea13bd77
+    m_ActionName: LevelEditor/Undo[/Keyboard/ctrl,/Keyboard/z,/Mouse/backButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 84c57f27-f04b-4d7f-9c0b-7e47b96595f9
+    m_ActionName: LevelEditor/Redo[/Keyboard/ctrl,/Keyboard/y,/Mouse/forwardButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a16770c2-904d-46e4-98ff-3606cc1dec2c
+    m_ActionName: LevelEditor/MultiselectAction[/Keyboard/shift,/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: eabf379a-96b9-40fd-b3a6-51cb4e215f62
+    m_ActionName: LevelEditor/DeselectAll[/Keyboard/ctrl,/Keyboard/f]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6a4aff3a-e9a8-4f09-adb0-3aaa4abf66a2
+    m_ActionName: LevelEditor/DeleteSelected[/Keyboard/delete,/Keyboard/backspace]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 817ee61c-1f11-46aa-9ee6-72b17e58cc8d
+    m_ActionName: LevelEditor/Copy[/Keyboard/ctrl,/Keyboard/c]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c6c53d66-3df7-4ac7-88e9-60f6b090242b
+    m_ActionName: LevelEditor/Paste[/Keyboard/ctrl,/Keyboard/v]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2910be36-fdff-423d-8b4a-d62f81b6677f
+    m_ActionName: LevelEditor/Duplicate[/Keyboard/ctrl,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 395b0bf7-24fa-4b1d-bfec-972b89013ea1
+    m_ActionName: LevelEditor/Cut[/Keyboard/ctrl,/Keyboard/x]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d2500111-5433-4e1e-b362-94242bff4c2b
+    m_ActionName: LevelEditor/Save[/Keyboard/ctrl,/Keyboard/s]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 630843923}
+        m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.Gameplay.GameController, Assembly-CSharp
+        m_MethodName: Pause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 19c2cd9b-6b00-4bc3-8559-4f0391aafb56
+    m_ActionName: Sandbox UI/Pause[/Keyboard/escape]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: UI
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &630843926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630843922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 621567455fd1c4ceb811cc8a00b6a1a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NotificationBehavior: 0
+  m_MaxPlayerCount: -1
+  m_AllowJoining: 0
+  m_JoinBehavior: 2
+  m_PlayerJoinedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_PlayerLeftEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_JoinAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: 
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  m_PlayerPrefab: {fileID: 0}
+  m_SplitScreen: 0
+  m_MaintainAspectRatioInSplitScreen: 0
+  m_FixedNumberOfSplitScreens: -1
+  m_SplitScreenRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
 --- !u!1 &683756436
 GameObject:
   m_ObjectHideFlags: 0

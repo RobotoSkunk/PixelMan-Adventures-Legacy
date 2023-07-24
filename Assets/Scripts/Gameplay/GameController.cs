@@ -25,7 +25,6 @@ using UnityEngine.InputSystem;
 
 using RobotoSkunk.PixelMan.Utils;
 using RobotoSkunk.PixelMan.Events;
-using RobotoSkunk.PixelMan.LevelEditor;
 using RobotoSkunk.PixelMan.LevelEditor.IO;
 
 

@@ -136,7 +136,7 @@
                 {
                     "name": "down",
                     "id": "e95e00cd-90a5-41d9-a40b-a6f1751af7df",
-                    "path": "<Keyboard>/numpad5",
+                    "path": "<Keyboard>/numpad2",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -1533,6 +1533,45 @@
                     "action": "Save",
                     "isComposite": false,
                     "isPartOfComposite": true
+                }
+            ]
+        },
+        {
+            "name": "Sandbox UI",
+            "id": "0a24c418-5572-4bce-999d-d26599584b29",
+            "actions": [
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "19c2cd9b-6b00-4bc3-8559-4f0391aafb56",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "299594f0-186f-4660-a3e2-760b95ff2116",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "22f23902-f334-4f7b-8211-fa9328a5d6a0",
+                    "path": "<Gamepad>/select",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

@@ -124,6 +124,11 @@ namespace RobotoSkunk.PixelMan.Gameplay
 		/// </summary>
 		bool respawnGravity;
 
+		/// <summary>
+		/// If the player was frozen.
+		/// </summary>
+		bool wasFrozen = false;
+
 
 		// Positions
 		// I don't think I have to explain this.
@@ -268,12 +273,13 @@ namespace RobotoSkunk.PixelMan.Gameplay
 			}
 			#endregion
 
+			FreezeRigidbody(Globals.isDead);
+
 			if (Globals.isDead) {
-				FreezeRigidbody(true);
 				return;
 			}
 
-			rigidbody.gravityScale = gravityMultiplier;
+			// rigidbody.gravityScale = gravityMultiplier;
 
 			#region Jump buffers
 
@@ -375,7 +381,14 @@ namespace RobotoSkunk.PixelMan.Gameplay
 				spriteRenderer.flipX = horizontalAxis < 0f;
 			}
 
-			pixelManRigidbody.horizontalSpeed = horizontalSpeed + platformSpeed;
+			if (rigidbody.bodyType == RigidbodyType2D.Dynamic) {
+				pixelManRigidbody.horizontalSpeed = horizontalSpeed + platformSpeed;
+
+				// if (Mathf.Abs(rigidbody.velocity.x) < )
+
+
+				lastRigidbodyVelocity = rigidbody.velocity;
+			}
 
 
 			#region Animation processing
@@ -421,7 +434,6 @@ namespace RobotoSkunk.PixelMan.Gameplay
 
 			lastState = currentPlayerState;
 			lastPosition = transform.position;
-			lastRigidbodyVelocity = rigidbody.velocity;
 		}
 
 		private void Update()
@@ -710,9 +722,16 @@ namespace RobotoSkunk.PixelMan.Gameplay
 
 		void FreezeRigidbody(bool freeze)
 		{
-			rigidbody.velocity = freeze ? Vector2.zero : lastRigidbodyVelocity;
-			rigidbody.gravityScale = freeze ? 0f : gravityMultiplier;
-			rigidbody.bodyType = freeze ? RigidbodyType2D.Static : RigidbodyType2D.Dynamic;
+			if (freeze != wasFrozen) {
+				rigidbody.bodyType = freeze ? RigidbodyType2D.Static : RigidbodyType2D.Dynamic;
+				rigidbody.gravityScale = freeze ? 0f : gravityMultiplier;
+
+				// if (!freeze) {
+				// 	rigidbody.velocity = lastRigidbodyVelocity;
+				// }
+			}
+
+			wasFrozen = freeze;
 		}
 
 
