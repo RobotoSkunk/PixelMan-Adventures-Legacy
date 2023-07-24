@@ -33,33 +33,39 @@ namespace RobotoSkunk.PixelMan.Gameplay
 		private void Awake() => animator.Play("Default", 0, 5f);
 		private void Update() => animator.speed = Globals.onPause ? 0 : 1;
 
+		int colliderID = -1;
+		Rigidbody2D otherRigidbody;
+
 
 		private void OnTriggerEnter2D(Collider2D collision)
 		{
 			if ((1 << collision.gameObject.layer & layerMask.value) != 0) {
-				Impulse();
+
+				if (collision.GetInstanceID() != colliderID) {
+					colliderID = collision.GetInstanceID();
+					otherRigidbody = collision.attachedRigidbody;
+				}
+
+
+				Impulse(otherRigidbody);
 			}
 		}
 
-		private void OnParticleCollision(GameObject other)
-		{
-			if ((other.layer & layerMask) != 0) {
-				Impulse(other.GetComponent<Rigidbody>());
-			}
 
-			Debug.Log("Collision");
-		}
-
-
-		void Impulse(Rigidbody rigidbody = null)
+		void Impulse(Rigidbody2D rigidbody = null)
 		{
 			audioSource.Play();
 			animator.Play("Default", 0, 0f);
 
 			if (rigidbody) {
+				float direction = (transform.eulerAngles.z + 90f) * Mathf.Deg2Rad;
+				Vector2 directionVector = (Vector2)RSMath.GetDirVector(direction);
+
+				rigidbody.velocity *= Vector2.one - RSMath.Abs(directionVector);
+
 				rigidbody.AddForce(
-					RSMath.GetDirVector((transform.eulerAngles.z + 90f) * Mathf.Deg2Rad)
-					* Constants.trampolineForce, ForceMode.Impulse
+					RSMath.GetDirVector(direction) * Constants.trampolineForce,
+					ForceMode2D.Impulse
 				);
 			}
 		}

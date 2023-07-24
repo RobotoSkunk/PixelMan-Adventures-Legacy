@@ -517,15 +517,6 @@ namespace RobotoSkunk.PixelMan.Gameplay
 		private void OnTriggerEnter2D(Collider2D collision)
 		{
 			if (collision.CompareTag("Trampoline")) {
-				rigidbody.velocity = Vector2.zero;
-
-				rigidbody.AddForce(
-					RSMath.GetDirVector(
-						(collision.transform.eulerAngles.z + 90f) * Mathf.Deg2Rad
-					) * Constants.trampolineForce,
-					ForceMode2D.Impulse
-				);
-
 				lastRigidbodyVelocity = rigidbody.velocity;
 				canJump = false;
 				canControlJump = false;
