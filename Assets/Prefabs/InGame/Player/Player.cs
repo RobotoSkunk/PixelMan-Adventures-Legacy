@@ -35,7 +35,7 @@ namespace RobotoSkunk.PixelMan.Gameplay
 
 		[Header("Components")]
 		[SerializeField] new Rigidbody2D rigidbody;
-		[SerializeField] PMRigidbody pixelManRigidbody;
+		// [SerializeField] PMRigidbody pixelManRigidbody;
 		[SerializeField] SpriteRenderer spriteRenderer;
 		[SerializeField] BoxCollider2D boxCollider;
 		[SerializeField] AudioSource audioSource;
@@ -51,6 +51,11 @@ namespace RobotoSkunk.PixelMan.Gameplay
 		[SerializeField] float maxHangCount;
 		[SerializeField] ContactFilter2D groundFilter;
 		[SerializeField] AudioClip[] sounds;
+
+		[Header("Variables")]
+		[SerializeField] PhysicsMaterial2D defaultPhysicsMaterial;
+		[SerializeField] PhysicsMaterial2D runningPhysicsMaterial;
+
 		#pragma warning restore IDE0044
 		#endregion
 
@@ -76,17 +81,17 @@ namespace RobotoSkunk.PixelMan.Gameplay
 		/// <summary>
 		/// The horizontal speed of the player.
 		/// </summary>
-		float horizontalSpeed = 0f;
+		// float horizontalSpeed = 0f;
 
 		/// <summary>
 		/// The speed of the platform.
 		/// </summary>
-		float platformSpeed = 0f;
+		// float platformSpeed = 0f;
 
 		/// <summary>
-		/// The speed delay of the player to run.
+		/// The horizontal acceleration of the player.
 		/// </summary>
-		float speedFactor = 0.4f;
+		float acceleration = 1f;
 
 
 		/// <summary>
@@ -107,7 +112,7 @@ namespace RobotoSkunk.PixelMan.Gameplay
 		/// <summary>
 		/// If the player is over a platform.
 		/// </summary>
-		bool isOverPlatform = false;
+		// bool isOverPlatform = false;
 
 		/// <summary>
 		/// If the player's gravity is inverted.
@@ -141,7 +146,7 @@ namespace RobotoSkunk.PixelMan.Gameplay
 		State lastState = State.IDLE;
 
 		// Lists
-		readonly List<Platforms> platforms = new();
+		// readonly List<Platforms> platforms = new();
 		readonly List<Collider2D> groundOverlap = new();
 
 		// Others
@@ -150,12 +155,12 @@ namespace RobotoSkunk.PixelMan.Gameplay
 
 
 		#region Definitions
-		protected class Platforms
-		{
-			public GameObject gameObject;
-			public bool wasCollided;
-			public Platform code;
-		}
+		// protected class Platforms
+		// {
+		// 	public GameObject gameObject;
+		// 	public bool wasCollided;
+		// 	public Platform code;
+		// }
 
 		public enum State {
 			IDLE,
@@ -216,6 +221,17 @@ namespace RobotoSkunk.PixelMan.Gameplay
 			get
 			{
 				return new Vector2(transform.position.x, transform.position.y) - lastPosition;
+			}
+		}
+
+
+		/// <summary>
+		/// The wanted horizontal speed of the player.
+		/// </summary>
+		float wantedHorizontalSpeed {
+			get
+			{
+				return horizontalAxis * speed.x;
 			}
 		}
 		#endregion
@@ -279,7 +295,6 @@ namespace RobotoSkunk.PixelMan.Gameplay
 				return;
 			}
 
-			// rigidbody.gravityScale = gravityMultiplier;
 
 			#region Jump buffers
 
@@ -298,23 +313,31 @@ namespace RobotoSkunk.PixelMan.Gameplay
 			// Check if the player is on the ground or not.
 			if (groundBuffer != 0) {
 				onGround = true;
-				speedFactor = 0.4f;
+				acceleration = 1f;
 
-				switch (groundOverlap[0].tag) {
-					case "Ignore":
-						onGround = false;
-						break;
 
-					case "IceBlock":
-						speedFactor = 0.025f;
-						break;
+				if (groundOverlap[0].CompareTag("Ignore")) {
+					onGround = false;
 
-					case "Platform":
-						onGround = isOverPlatform;
-						break;
-
-					// No default
+				} else if (groundOverlap[0].CompareTag("IceBlock")) {
+					acceleration = 0.15f;
 				}
+
+				// switch (groundOverlap[0].tag) {
+				// 	case "Ignore":
+				// 		onGround = false;
+				// 		break;
+
+				// 	case "IceBlock":
+				// 		speedFactor = 0.025f;
+				// 		break;
+
+				// 	case "Platform":
+				// 		onGround = isOverPlatform;
+				// 		break;
+
+				// 	// No default
+				// }
 			}
 
 
@@ -371,7 +394,7 @@ namespace RobotoSkunk.PixelMan.Gameplay
 
 
 			// Apply the horizontal speed.
-			horizontalSpeed = Mathf.Lerp(horizontalSpeed, horizontalAxis * speed.x, speedFactor);
+			// horizontalSpeed = Mathf.Lerp(horizontalSpeed, horizontalAxis * speed.x, speedFactor);
 
 			// Minor changes to renderers and particles.
 			spriteRenderer.flipY = invertedGravity;
@@ -379,13 +402,40 @@ namespace RobotoSkunk.PixelMan.Gameplay
 
 			if (horizontalAxis != 0f) {
 				spriteRenderer.flipX = horizontalAxis < 0f;
+
+				if (boxCollider.sharedMaterial != runningPhysicsMaterial) {
+					boxCollider.sharedMaterial = runningPhysicsMaterial;
+				}
+			} else if (boxCollider.sharedMaterial != defaultPhysicsMaterial) {
+				boxCollider.sharedMaterial = defaultPhysicsMaterial;
 			}
 
+
 			if (rigidbody.bodyType == RigidbodyType2D.Dynamic) {
-				pixelManRigidbody.horizontalSpeed = horizontalSpeed + platformSpeed;
+				// pixelManRigidbody.horizontalSpeed = horizontalSpeed + platformSpeed;
 
-				// if (Mathf.Abs(rigidbody.velocity.x) < )
 
+				if (
+					wantedHorizontalSpeed > 0f ?
+					rigidbody.velocity.x < wantedHorizontalSpeed :
+					rigidbody.velocity.x > wantedHorizontalSpeed
+				) {
+					float fix = Mathf.Sign(wantedHorizontalSpeed);
+
+
+					rigidbody.AddForce(
+						new Vector2(
+							acceleration * Mathf.Pow(wantedHorizontalSpeed, 2f) * fix,
+							0f
+						),
+						ForceMode2D.Force
+					);
+				}
+
+
+				rigidbody.velocity = RSMath.Clamp(rigidbody.velocity,
+												  -Constants.maxVelocity * Vector2.one,
+												  Constants.maxVelocity * Vector2.one);
 
 				lastRigidbodyVelocity = rigidbody.velocity;
 			}
@@ -394,8 +444,8 @@ namespace RobotoSkunk.PixelMan.Gameplay
 			#region Animation processing
 			// I prefer doing all this by code than using Unity animator transitions manually.
 
-			float animationSpeed = Mathf.Abs(horizontalSpeed) > 0f && Mathf.Abs(actualSpeed.x) >= 0.05f
-								 ? Mathf.Abs(horizontalSpeed) / speed.x : 0f;
+			float animationSpeed = Mathf.Abs(rigidbody.velocity.x) > 0f && Mathf.Abs(actualSpeed.x) >= 0.05f
+								 ? Mathf.Abs(rigidbody.velocity.x) / speed.x : 0f;
 
 			float velocityYhorizontalAxis = rigidbody.gravityScale * rigidbody.velocity.y;
 
@@ -467,9 +517,9 @@ namespace RobotoSkunk.PixelMan.Gameplay
 		private void OnTriggerEnter2D(Collider2D collision)
 		{
 			if (collision.CompareTag("Trampoline")) {
-				pixelManRigidbody.ResetSpeed();
+				rigidbody.velocity = Vector2.zero;
 
-				pixelManRigidbody.AddForce(
+				rigidbody.AddForce(
 					RSMath.GetDirVector(
 						(collision.transform.eulerAngles.z + 90f) * Mathf.Deg2Rad
 					) * Constants.trampolineForce,
@@ -479,7 +529,7 @@ namespace RobotoSkunk.PixelMan.Gameplay
 				lastRigidbodyVelocity = rigidbody.velocity;
 				canJump = false;
 				canControlJump = false;
-			
+
 			} else if (collision.CompareTag("GravitySwitch")) {
 				invertedGravity = !invertedGravity;
 
@@ -511,52 +561,52 @@ namespace RobotoSkunk.PixelMan.Gameplay
 
 
 		#region Collisions
-		private void OnCollisionStay2D(Collision2D collision)
-		{
-			if (Globals.onPause) {
-				return;
-			}
+		// private void OnCollisionStay2D(Collision2D collision)
+		// {
+		// 	if (Globals.onPause) {
+		// 		return;
+		// 	}
 
-			if (collision.collider.CompareTag("Platform")) {
-				Platforms platform = platforms.Find(m => m.gameObject == collision.gameObject);
+		// 	if (collision.collider.CompareTag("Platform")) {
+		// 		Platforms platform = platforms.Find(m => m.gameObject == collision.gameObject);
 
-				float platformTop = collision.transform.position.y + 0.27f;
-				float platformBottom = collision.transform.position.y - 0.27f;
-				float selfTop = transform.position.y + boxCollider.size.y / 2f;
-				float selfBottom = transform.position.y - boxCollider.size.y / 2f;
+		// 		float platformTop = collision.transform.position.y + 0.27f;
+		// 		float platformBottom = collision.transform.position.y - 0.27f;
+		// 		float selfTop = transform.position.y + boxCollider.size.y / 2f;
+		// 		float selfBottom = transform.position.y - boxCollider.size.y / 2f;
 
-				isOverPlatform = false;
+		// 		isOverPlatform = false;
 
 
-				if (
-					platform != null && ((platformTop < selfBottom && !invertedGravity)
-					||
-					(platformBottom > selfTop && invertedGravity))
-				) {
-					platformSpeed = (collision.transform.position.x - platform.code.lastPosition.x)
-									/ Time.fixedDeltaTime;
-					platform.wasCollided = true;
-					isOverPlatform = true;
-				}
-			}
-		}
+		// 		if (
+		// 			platform != null && ((platformTop < selfBottom && !invertedGravity)
+		// 			||
+		// 			(platformBottom > selfTop && invertedGravity))
+		// 		) {
+		// 			platformSpeed = (collision.transform.position.x - platform.code.lastPosition.x)
+		// 							/ Time.fixedDeltaTime;
+		// 			platform.wasCollided = true;
+		// 			isOverPlatform = true;
+		// 		}
+		// 	}
+		// }
 
-		private void OnCollisionExit2D(Collision2D collision)
-		{
-			if (collision.collider.CompareTag("Platform")) {
-				Platforms platform = platforms.Find(m => m.gameObject == collision.gameObject);
+		// private void OnCollisionExit2D(Collision2D collision)
+		// {
+		// 	if (collision.collider.CompareTag("Platform")) {
+		// 		Platforms platform = platforms.Find(m => m.gameObject == collision.gameObject);
 
-				if (platform != null) {
-					if (platform.wasCollided) {
-						pixelManRigidbody.AddForce(new Vector2(platformSpeed, 0f), ForceMode2D.Impulse);
-						platformSpeed = 0f;
+		// 		if (platform != null) {
+		// 			if (platform.wasCollided) {
+		// 				// pixelManRigidbody.AddForce(new Vector2(platformSpeed, 0f), ForceMode2D.Impulse);
+		// 				platformSpeed = 0f;
 
-						platform.wasCollided = false;
-						isOverPlatform = false;
-					}
-				}
-			}
-		}
+		// 				platform.wasCollided = false;
+		// 				isOverPlatform = false;
+		// 			}
+		// 		}
+		// 	}
+		// }
 		#endregion
 
 
@@ -566,10 +616,6 @@ namespace RobotoSkunk.PixelMan.Gameplay
 		#region New input system
 		public void HorizontalMovement(InputAction.CallbackContext context)
 		{
-			if (Globals.isDead) {
-				return;
-			}
-
 			horizontalAxis = context.ReadValue<Vector2>().x;
 		}
 
@@ -639,17 +685,17 @@ namespace RobotoSkunk.PixelMan.Gameplay
 		{
 			boxCollider.enabled = trigger;
 			spriteRenderer.enabled = trigger;
-			pixelManRigidbody.enabled = trigger;
+			// pixelManRigidbody.enabled = trigger;
 
-			rigidbody.velocity = Vector2.zero;
+			// rigidbody.velocity = Vector2.zero;
 			lastRigidbodyVelocity = Vector2.zero;
 
 			hangCount = -1f;
 			jumpBufferTime = -1f;
 
-			pixelManRigidbody.ResetSpeed();
-			pixelManRigidbody.horizontalSpeed = 0f;
-			horizontalSpeed = 0f;
+			// pixelManRigidbody.ResetSpeed();
+			// pixelManRigidbody.horizontalSpeed = 0f;
+			// horizontalSpeed = 0f;
 			rigidbody.gravityScale = 0f;
 
 
@@ -661,29 +707,29 @@ namespace RobotoSkunk.PixelMan.Gameplay
 				deathParticles.Clear();
 			}
 
-			for (int i = 0; i < platforms.Count; i++) {
-				platforms[i].wasCollided = false;
-			}
+			// for (int i = 0; i < platforms.Count; i++) {
+			// 	platforms[i].wasCollided = false;
+			// }
 
-			isOverPlatform = false;
-			platformSpeed = 0f;
+			// isOverPlatform = false;
+			// platformSpeed = 0f;
 			spriteRenderer.flipY = playerBehaviour.properties.invertGravity;
 		}
 
-		protected override void OnGameReady()
-		{
-			GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Platform");
-			platforms.Clear();
+		// protected override void OnGameReady()
+		// {
+		// 	GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Platform");
+		// 	platforms.Clear();
 
-			foreach (GameObject g in gameObjects) {
-				Platforms platform = new() {
-					gameObject = g,
-					code = g.GetComponent<Platform>()
-				};
+		// 	foreach (GameObject g in gameObjects) {
+		// 		Platforms platform = new() {
+		// 			gameObject = g,
+		// 			code = g.GetComponent<Platform>()
+		// 		};
 
-				platforms.Add(platform);
-			}
-		}
+		// 		platforms.Add(platform);
+		// 	}
+		// }
 
 		protected override void OnGamePlayerDeath()
 		{

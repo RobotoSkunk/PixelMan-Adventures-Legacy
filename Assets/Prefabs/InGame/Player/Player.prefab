@@ -94,8 +94,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 264
   ignoreTags:
-  - ignore
-  - platform
+  - Ignore
+  - Platform
 --- !u!1 &6444227299158519765
 GameObject:
   m_ObjectHideFlags: 0
@@ -9765,7 +9765,6 @@ GameObject:
   - component: {fileID: 8009474488916196578}
   - component: {fileID: 8009474488916196579}
   - component: {fileID: 2145347875039296668}
-  - component: {fileID: 1995670383407584719}
   - component: {fileID: 665508272187798439}
   - component: {fileID: 1386140349391247303}
   - component: {fileID: 2795602898338667627}
@@ -9901,7 +9900,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 8009474488916196639}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 88522370ebfa29f4ea0e192c0b1fa008, type: 2}
+  m_Material: {fileID: 6200000, guid: 5f36a7e8be490b44785ef3c6da9d2074, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -10009,20 +10008,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1995670383407584719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8009474488916196639}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f49c54d0aa2288944ad2da7e6161d916, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 8009474488916196579}
-  horizontalSpeed: 0
 --- !u!114 &665508272187798439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10208,6 +10193,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: d2500111-5433-4e1e-b362-94242bff4c2b
     m_ActionName: LevelEditor/Save[/Keyboard/ctrl,/Keyboard/s]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 19c2cd9b-6b00-4bc3-8559-4f0391aafb56
+    m_ActionName: Sandbox UI/Pause[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -10279,7 +10268,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scripts:
   - {fileID: 8861255068588313322}
-  - {fileID: 1995670383407584719}
   - {fileID: 665508272187798439}
   - {fileID: 8943228588860591815}
   renderers:
@@ -10364,7 +10352,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 8009474488916196579}
-  pixelManRigidbody: {fileID: 1995670383407584719}
   spriteRenderer: {fileID: 8009474489757818013}
   boxCollider: {fileID: 8009474488916196578}
   audioSource: {fileID: 1812400675351063183}
@@ -10393,7 +10380,9 @@ MonoBehaviour:
   sounds:
   - {fileID: 8300000, guid: dd57eccf57b02904f9dfecbd3593a484, type: 3}
   - {fileID: 8300000, guid: 7121ed16253ffaf4c8046ed32f88cd83, type: 3}
-  lastPublicPos: {x: 0, y: 0}
+  defaultPhysicsMaterial: {fileID: 6200000, guid: 5f36a7e8be490b44785ef3c6da9d2074, type: 2}
+  runningPhysicsMaterial: {fileID: 6200000, guid: 0a7202fb14b59c387ac82cdaa41167f1, type: 2}
+  lastPublicPosition: {x: 0, y: 0}
 --- !u!1 &8009474489757818011
 GameObject:
   m_ObjectHideFlags: 0

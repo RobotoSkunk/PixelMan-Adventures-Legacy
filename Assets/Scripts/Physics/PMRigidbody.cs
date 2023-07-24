@@ -18,7 +18,10 @@
 
 using UnityEngine;
 
+
 namespace RobotoSkunk.PixelMan.Physics {
+
+	[System.Obsolete("Use Rigidbody2D itself instead.")]
 	public class PMRigidbody : MonoBehaviour {
 		public Rigidbody2D rb;
 

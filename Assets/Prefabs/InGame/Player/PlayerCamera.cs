@@ -26,11 +26,10 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 
 		[Header("Properties")]
 		public float orthoDefault;
-		public float maxSpeed;
+		public float horizontalOffset;
 
-		[Header("Shared")]
-		public Vector2 look;
 
+		[HideInInspector] public Vector2 look;
 
 		Vector2 rawDestination;
 		Vector2 cameraPosition;
@@ -39,8 +38,11 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 		Vector3 startPos;
 		Rigidbody2D player;
 
-		float playerVelocity;
-		float zoom;
+		float playerVelocity = 0f;
+		float playerDirection = 0f;
+		float zoom = 0f;
+		float horizontalOffsetToAdd = 0f;
+
 
 
 		/// <summary>
@@ -124,7 +126,15 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 			if (player != null) {
 				playerVelocity = player.velocity.magnitude;
 
-				rawDestination = player.position + new Vector2(player.velocity.x, 0f);
+
+				if (Mathf.Abs(player.velocity.x) > 0.1f) {
+					playerDirection = Mathf.Sign(player.velocity.x);
+				}
+
+				horizontalOffsetToAdd = Mathf.Lerp(horizontalOffsetToAdd, playerDirection * horizontalOffset, 0.07f);
+
+
+				rawDestination = player.position + new Vector2(horizontalOffsetToAdd, 0f);
 			} else {
 				playerVelocity = 0f;
 				look = Vector2.zero;

@@ -97,7 +97,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 860559822730323684}
-  player: {fileID: 0}
   orthoDefault: 5
-  maxSpeed: 10
+  horizontalOffset: 6
   look: {x: 0, y: 0}
