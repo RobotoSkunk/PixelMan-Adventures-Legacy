@@ -18,67 +18,116 @@
 
 using UnityEngine;
 
-namespace RobotoSkunk.PixelMan.Gameplay {
-	public class Platform : GameObjectBehaviour {
+
+namespace RobotoSkunk.PixelMan.Gameplay
+{
+	public class Platform : GameObjectBehaviour
+	{
+		#region Inspector variables
+		#pragma warning disable IDE0044
+		// Excuse: The inspector can't show the variables if they are readonly.
+
 		[Header("Properties")]
-		public Rigidbody2D rb;
-		public BoxCollider2D col;
-		public LayerMask layer;
-		public InGameObjectBehaviour platformBehaviour;
+		[SerializeField] Rigidbody2D rigidbody2d;
+		[SerializeField] InGameObjectBehaviour platformBehaviour;
 
-		[HideInInspector] public Vector2 lastPosition;
+		// [HideInInspector] public Vector2 lastPublicPosition;
 
-		float time = 0f;
-		bool goPosStart, goPositive;
-		Vector2 lastPos, startPos, velocity;
-		Direction dir;
+		#pragma warning restore IDE0044
+		#endregion
 
-		public enum Direction { HORIZONTAL, VERTICAL }
 
-		override protected void OnGameReady() {
-			InGameObjectProperties.Direction direction = platformBehaviour.properties.direction;
-			dir = direction == InGameObjectProperties.Direction.Left || direction == InGameObjectProperties.Direction.Right ? Direction.HORIZONTAL : Direction.VERTICAL;
+		float delayToMove = 0f;
 
-			rb.constraints = (dir == Direction.VERTICAL ? RigidbodyConstraints2D.FreezePositionX : RigidbodyConstraints2D.FreezePositionY) | RigidbodyConstraints2D.FreezeRotation;
-			goPositive = direction == InGameObjectProperties.Direction.Right || direction == InGameObjectProperties.Direction.Up;
+		bool goToPositiveStartValue;
+		bool goToPositive;
 
-			startPos = transform.position;
-			goPosStart = goPositive;
+		Vector2 lastPosition;
+		Vector2 startPosition;
+
+		Direction direction;
+
+		public enum Direction {
+			HORIZONTAL,
+			VERTICAL,
 		}
 
-		private void FixedUpdate() {
+
+		Vector2 directionVector {
+			get {
+				if (direction == Direction.HORIZONTAL) {
+					return Vector2.right;
+				}
+
+				return Vector2.up;
+			}
+		}
+
+
+
+		override protected void OnGameReady()
+		{
+			InGameObjectProperties.Direction _direction = platformBehaviour.properties.direction;
+
+			if (
+				_direction == InGameObjectProperties.Direction.Left ||
+				_direction == InGameObjectProperties.Direction.Right
+			) {
+				direction = Direction.HORIZONTAL;
+			} else {
+				direction = Direction.VERTICAL;
+			}
+
+
+			if (direction == Direction.VERTICAL) {
+				rigidbody2d.constraints = RigidbodyConstraints2D.FreezePositionX;
+			} else {
+				rigidbody2d.constraints = RigidbodyConstraints2D.FreezePositionY;
+			}
+
+			rigidbody2d.constraints |= RigidbodyConstraints2D.FreezeRotation;
+
+
+			goToPositive = _direction == InGameObjectProperties.Direction.Right
+						|| _direction == InGameObjectProperties.Direction.Up;
+
+
+			startPosition = transform.position;
+			goToPositiveStartValue = goToPositive;
+		}
+
+		private void FixedUpdate()
+		{
 			if (Globals.onPause) {
-				rb.velocity = Vector2.zero;
+				rigidbody2d.velocity = Vector2.zero;
 				return;
 			}
 
-			if (time > 0f) {
-				time -= Time.fixedDeltaTime;
-				velocity = Vector2.zero;
 
-				lastPos += Vector2.one;
+			if (delayToMove > 0f) {
+				delayToMove -= Time.fixedDeltaTime;
+				rigidbody2d.velocity = Vector2.zero;
+
+				lastPosition = Mathf.Infinity * Vector2.one;
 			} else {
-				if (dir == Direction.HORIZONTAL)
-					velocity = new Vector2(platformBehaviour.properties.speed * (goPositive ? 1f : -1f), 0f);
-				else
-					velocity = new Vector2(0f, platformBehaviour.properties.speed * (goPositive ? 1f : -1f));
+				rigidbody2d.velocity = platformBehaviour.properties.speed * (goToPositive ? 1f : -1f) * directionVector;
 
-				if (Vector2.Distance(transform.position, lastPos) < 0.05f) {
-					goPositive = !goPositive;
-					time = 0.25f;
+				if (Vector2.Distance(transform.position, lastPosition) < 0.05f) {
+					goToPositive = !goToPositive;
+					delayToMove = 0.25f;
 				}
 
-				lastPos = transform.position;
+				lastPosition = transform.position;
 			}
-
-			rb.velocity = velocity;
-			lastPosition = transform.position;
 		}
 
-		protected override void OnGameResetObject() {
-			transform.position = startPos;
-			goPositive = goPosStart;
-			rb.velocity = velocity = Vector2.zero;
+		protected override void OnGameResetObject()
+		{
+			transform.position = startPosition;
+
+			goToPositive = goToPositiveStartValue;
+
+			rigidbody2d.velocity = Vector2.zero;
 		}
 	}
 }

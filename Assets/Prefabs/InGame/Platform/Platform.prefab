@@ -350,13 +350,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b3cc37e929d28d489a55dd4f43fe2ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 4583148359874492352}
-  col: {fileID: 9163865026915138991}
-  layer:
-    serializedVersion: 2
-    m_Bits: 8
+  rigidbody2d: {fileID: 4583148359874492352}
   platformBehaviour: {fileID: 6704700425601252943}
-  lastPosition: {x: 0, y: 0}
 --- !u!61 &3174423604319376839
 BoxCollider2D:
   m_ObjectHideFlags: 0
