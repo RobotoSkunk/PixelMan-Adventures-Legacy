@@ -104,6 +104,11 @@ namespace RobotoSkunk.PixelMan.Gameplay
 		bool canControlJump = false;
 
 		/// <summary>
+		/// If the player can control the horizontal velocity in the air.
+		/// </summary>
+		bool canControlHorizontalVelocity = false;
+
+		/// <summary>
 		/// If the player can jump.
 		/// </summary>
 		bool canJump = true;
@@ -324,6 +329,7 @@ namespace RobotoSkunk.PixelMan.Gameplay
 			if (onGround) {
 				canJump = true;
 				canControlJump = true;
+				canControlHorizontalVelocity = true;
 				hangCount = maxHangCount;
 
 				if (Globals.settings.general.enableParticles) {
@@ -386,17 +392,28 @@ namespace RobotoSkunk.PixelMan.Gameplay
 
 
 			if (rigidbody.bodyType == RigidbodyType2D.Dynamic) {
-				if (
-					wantedHorizontalSpeed > 0f ?
-					rigidbody.velocity.x < wantedHorizontalSpeed :
-					rigidbody.velocity.x > wantedHorizontalSpeed
-				) {
-					float fix = Mathf.Sign(wantedHorizontalSpeed);
+
+				if (horizontalAxis != 0f) {
+					if (
+						wantedHorizontalSpeed > 0f ?
+						rigidbody.velocity.x < wantedHorizontalSpeed :
+						rigidbody.velocity.x > wantedHorizontalSpeed
+					) {
+						float fix = Mathf.Sign(wantedHorizontalSpeed);
 
 
+						rigidbody.AddForce(
+							new Vector2(
+								acceleration * Mathf.Pow(wantedHorizontalSpeed, 2f) * fix,
+								0f
+							),
+							ForceMode2D.Force
+						);
+					}
+				} else if (canControlHorizontalVelocity && !onGround) {
 					rigidbody.AddForce(
 						new Vector2(
-							acceleration * Mathf.Pow(wantedHorizontalSpeed, 2f) * fix,
+							acceleration * Mathf.Pow(rigidbody.velocity.x, 2f) * -Mathf.Sign(rigidbody.velocity.x),
 							0f
 						),
 						ForceMode2D.Force
@@ -492,6 +509,7 @@ namespace RobotoSkunk.PixelMan.Gameplay
 				lastRigidbodyVelocity = rigidbody.velocity;
 				canJump = false;
 				canControlJump = false;
+				canControlHorizontalVelocity = false;
 
 			} else if (collision.CompareTag("GravitySwitch")) {
 				invertedGravity = !invertedGravity;
@@ -508,16 +526,18 @@ namespace RobotoSkunk.PixelMan.Gameplay
 			}
 
 			if (collision.CompareTag("Trampoline")) {
-				canControlJump = false;
 				canJump = false;
+				canControlJump = false;
+				canControlHorizontalVelocity = false;
 			}
 		}
 
 		private void OnTriggerExit2D(Collider2D collision)
 		{
 			if (collision.CompareTag("Trampoline")) {
-				canControlJump = false;
 				canJump = false;
+				canControlJump = false;
+				canControlHorizontalVelocity = false;
 			}
 		}
 		#endregion
