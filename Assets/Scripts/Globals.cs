@@ -292,6 +292,15 @@ namespace RobotoSkunk.PixelMan
 		#endregion
 
 
+		public static Level GetDefaultLevelData() {
+			return new() {
+				objects = new(),
+				bounds = new(-Constants.levelDefaultSize / 2f, Constants.levelDefaultSize),
+				options = Level.Options.KillPlayerWhenFallingOutOfLevel
+			};
+		}
+
+
 		/// <summary>
 		/// Editor's only variables.
 		/// </summary>

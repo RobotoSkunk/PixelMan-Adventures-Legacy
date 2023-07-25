@@ -242,10 +242,7 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu
 				timeSpent = 0
 			};
 
-			Level level = new() {
-				objects = new(),
-				bounds = new(-Constants.levelDefaultSize / 2f, Constants.levelDefaultSize)
-			};
+			Level level = Globals.GetDefaultLevelData();
 
 			scene.data.levels.Add(metadata);
 			LoadLevels();

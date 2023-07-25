@@ -433,7 +433,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor
 			} else {
 				Globals.onLoad = editorIsBusy = false;
 				Globals.loadProgress = 0f;
-				Globals.levelData = new Level();
+				Globals.levelData = Globals.GetDefaultLevelData();
 
 				EditorEventsHandler.InvokeOnReady();
 			}
