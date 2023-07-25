@@ -108,8 +108,8 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 			playerVelocity = 0f;
 			zoom = 0f;
 
-			look = Vector2.zero;
-			rawDestination = Vector2.zero;
+			// look = Vector2.zero;
+			// rawDestination = Vector2.zero;
 
 			cameraPosition = startPos;
 			transform.position = startPos;
@@ -187,7 +187,7 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 			}
 
 			cam.orthographicSize = orthoDefault + orthoDefault * zoom;
-			cameraPosition += (rawDestination - cameraPosition) / 30f;
+			cameraPosition += (rawDestination - cameraPosition) / 15f;
 
 
 			transform.position = (Vector3)(

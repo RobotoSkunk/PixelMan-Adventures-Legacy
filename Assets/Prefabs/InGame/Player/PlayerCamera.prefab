@@ -98,5 +98,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 860559822730323684}
   orthoDefault: 5
-  horizontalOffset: 6
+  horizontalOffset: 4
   look: {x: 0, y: 0}
