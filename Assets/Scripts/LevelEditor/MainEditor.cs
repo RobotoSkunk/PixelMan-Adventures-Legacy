@@ -798,7 +798,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor
 						break;
 					case 0:
 						if (onSubmit && virtualHits.Count == 0) {
-							if (selectedId == Constants.InternalIDs.player && analysis.playersNumber >= 2) {
+							if (selectedId == Constants.InternalIDs.player && analysis.playersNumber >= 1) {
 								return;
 							}
 
@@ -1609,8 +1609,12 @@ namespace RobotoSkunk.PixelMan.LevelEditor
 			List<InGameObjectBehaviour> tmpCache = new();
 
 			for (int i = 0; i < copiedObjCache.Count; i++) {
+				if ((int)copiedObjCache[i].id == Constants.InternalIDs.player) {
+					continue;
+				}
+
 				InGameObjectProperties __tmp = copiedObjCache[i];
-				__tmp.position += (Vector2)virtualPosition;
+				__tmp.position += virtualPosition;
 
 				tmpCache.Add(CreateObject((int)__tmp.id, __tmp.position, __tmp.scale, __tmp.rotation));
 			}
@@ -1637,6 +1641,11 @@ namespace RobotoSkunk.PixelMan.LevelEditor
 				if (!selected[i].gameObject.activeInHierarchy) {
 					continue;
 				}
+
+				if ((int)selected[i].properties.id == Constants.InternalIDs.player) {
+					continue;
+				}
+
 
 				InGameObjectProperties __tmp = selected[i].properties;
 				tmpCache.Add(CreateObject((int)__tmp.id, __tmp.position, __tmp.scale, __tmp.rotation));

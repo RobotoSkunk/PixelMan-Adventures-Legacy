@@ -180,10 +180,10 @@ namespace RobotoSkunk.PixelMan
 		#endregion
 
 		#region Unsigned integer variables
-		/// <summary>
-		/// The attempt counter.
-		/// </summary>
-		public static uint attempts = 0u;
+		// /// <summary>
+		// /// The attempt counter.
+		// /// </summary>
+		// public static uint attempts = 0u;
 
 		/// <summary>
 		/// The respawn attempt counter.

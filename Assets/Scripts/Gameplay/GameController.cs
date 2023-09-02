@@ -58,6 +58,7 @@ namespace RobotoSkunk.PixelMan.Gameplay
 
 		float pauseMenuDelta = 1f;
 		bool victoryPanelOpen = false;
+		uint attempts = 0u;
 
 
 		Coroutine victoryPanelCoroutine;
@@ -174,7 +175,7 @@ namespace RobotoSkunk.PixelMan.Gameplay
 			}
 
 			if (fromScratch) {
-				Globals.attempts = 0;
+				attempts = 0u;
 			}
 		}
 
@@ -204,7 +205,7 @@ namespace RobotoSkunk.PixelMan.Gameplay
 			if (Globals.respawnAttempts > 0 && !wholeLevel) {
 				GameEventsHandler.InvokeBackToCheckpoint();
 			} else {
-				Globals.attempts++;
+				attempts++;
 				GameEventsHandler.InvokeResetObject();
 
 				// This looks redundant, but it's not.
@@ -244,13 +245,13 @@ namespace RobotoSkunk.PixelMan.Gameplay
 				"I'm lazy to translate this, I'll do it later!",
 			};
 
-			if (Globals.attempts == 0) {
+			if (attempts == 0) {
 				phrases = new() {
 					"At first try!",
 					"Well, that was easy!",
 					"Wow, you're good!",
 				};
-			} else if (Globals.attempts > 10) {
+			} else if (attempts > 10) {
 				phrases = new() {
 					"Uhm... sure...",
 					"Maybe you should try another game?",
@@ -262,7 +263,7 @@ namespace RobotoSkunk.PixelMan.Gameplay
 			}
 
 			victoryPhrase.text = phrases[Random.Range(0, phrases.Count)];
-			attemptsText.text = "x" + Globals.attempts.ToString();
+			attemptsText.text = "x" + attempts.ToString();
 			timeText.text = timer.ToString();
 
 			victoryUI.SetActive(true);
