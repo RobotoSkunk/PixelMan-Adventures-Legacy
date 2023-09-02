@@ -301,6 +301,25 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -413,6 +432,25 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -460,6 +498,7 @@ MonoBehaviour:
     reloadTime: 0
     invertGravity: 0
     spawnSaw: 0
+    isFake: 0
     direction: 0
     directionHorizontal: 0
     directionVertical: 0
@@ -475,6 +514,7 @@ MonoBehaviour:
     reloadTime: 0
     invertGravity: 0
     spawnSaw: 0
+    isFake: 0
     direction: 0
     directionHorizontal: 0
     directionVertical: 0
@@ -490,11 +530,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db3fb110e4d662e41bd66ba97dae0715, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  col: {fileID: 5051202574385544841}
-  sprParticles: {fileID: 7812796714201804713}
-  loadSprite: {fileID: 3739546504761386038}
-  aud: {fileID: 5687911824954863207}
+  circleCollider: {fileID: 5051202574385544841}
+  spriteParticles: {fileID: 7812796714201804713}
+  loadingSprite: {fileID: 3739546504761386038}
+  audioSource: {fileID: 5687911824954863207}
   gravityBehaviour: {fileID: 8641227703468952032}
-  tags:
-  - Player
-  maxSize: 1.25

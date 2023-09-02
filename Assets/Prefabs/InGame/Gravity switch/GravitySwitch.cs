@@ -16,54 +16,93 @@
 	along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace RobotoSkunk.PixelMan.Gameplay {
-	public class GravitySwitch : GameObjectBehaviour {
+
+namespace RobotoSkunk.PixelMan.Gameplay
+{
+	public class GravitySwitch : GameObjectBehaviour
+	{
 		[Header("Components")]
-		public CircleCollider2D col;
-		public SpriteRenderer sprParticles, loadSprite;
-		public AudioSource aud;
+		public CircleCollider2D circleCollider;
+		public SpriteRenderer spriteParticles;
+		public SpriteRenderer loadingSprite;
+		public AudioSource audioSource;
 		public InGameObjectBehaviour gravityBehaviour;
 
-		[Header("Configuration")]
-		public List<string> tags;
-		public float maxSize = 1.25f;
+		float ang;
+		float time;
+		float rotFactor;
 
-		float ang, time, rotFactor;
+		readonly float maxSize = 1.25f;
 
-		private void Start() => rotFactor = RSRandom.UnionRange(-8f, -5f, 5f, 8f);
 
-		protected override void OnGameResetObject() {
+		private void Start()
+		{
+			rotFactor = RSRandom.UnionRange(-8f, -5f, 5f, 8f);
+		}
+
+		protected override void OnGameResetObject()
+		{
 			time = ang = 0f;
-			sprParticles.gameObject.transform.rotation = default;
-			loadSprite.size = maxSize * Vector2.one;
-			loadSprite.transform.localPosition = default;
-			sprParticles.enabled = true;
+			spriteParticles.gameObject.transform.rotation = default;
+			loadingSprite.size = maxSize * Vector2.one;
+			loadingSprite.transform.localPosition = default;
+			spriteParticles.enabled = true;
 		}
 
-		private void Update() {
-			if (Globals.onPause) return;
 
-			if (sprParticles.isVisible) {
+		private void Update()
+		{
+			if (Globals.onPause) {
+				return;
+			}
+
+			if (spriteParticles.isVisible) {
 				ang += rotFactor * RSTime.delta;
-				sprParticles.gameObject.transform.rotation = Quaternion.Euler(0, 0, ang);
-			}
-			if (loadSprite.isVisible) {
-				loadSprite.size = maxSize * new Vector2(1f, Mathf.Clamp01((gravityBehaviour.properties.safeReloadTime - time) / gravityBehaviour.properties.safeReloadTime));
-				loadSprite.transform.localPosition = maxSize / 2f * (time / gravityBehaviour.properties.safeReloadTime) * Vector2.down;
+				spriteParticles.gameObject.transform.rotation = Quaternion.Euler(0, 0, ang);
 			}
 
-			if (time > 0f) time -= Time.deltaTime;
+			if (loadingSprite.isVisible) {
+				loadingSprite.size = maxSize * new Vector2(
+					1f,
+					Mathf.Clamp01(
+						(gravityBehaviour.properties.safeReloadTime - time) /
+						gravityBehaviour.properties.safeReloadTime
+					)
+				);
 
-			col.enabled = sprParticles.enabled = time <= 0f;
+				loadingSprite.transform.localPosition = maxSize / 2f *
+														(time / gravityBehaviour.properties.safeReloadTime) *
+														Vector2.down;
+			}
+
+			if (time > 0f) {
+				time -= Time.deltaTime;
+			}
+
+			circleCollider.enabled = spriteParticles.enabled = time <= 0f;
 		}
 
-		private void OnTriggerEnter2D(Collider2D collision) {
-			if (tags.Contains(collision.tag) && time <= 0f) {
+		private void OnTriggerEnter2D(Collider2D collision)
+		{
+			if (time > 0) {
+				return;
+			}
+
+			bool effectsApplied = false;
+
+			if (collision.CompareTag("Player")) {
+				Player player = collision.GetComponent<Player>();
+				player.InvertGravity();
+
+				effectsApplied = true;
+			}
+
+
+			if (effectsApplied) {
 				time = gravityBehaviour.properties.safeReloadTime;
-				aud.Play();
+				audioSource.Play();
 			}
 		}
 	}

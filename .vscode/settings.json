@@ -54,5 +54,6 @@
 		"**/*.sln":true
 	},
 	"omnisharp.autoStart": true,
-	"omnisharp.useModernNet": false
+	"omnisharp.useModernNet": false,
+	"dotnet.server.useOmnisharp": true
 }

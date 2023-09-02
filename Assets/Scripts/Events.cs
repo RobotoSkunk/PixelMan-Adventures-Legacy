@@ -34,6 +34,7 @@ namespace RobotoSkunk.PixelMan {
 			public static event GameEvent SwitchTouched = delegate { };
 			public static event GameEvent NewCheckpoint = delegate { };
 			public static event GameEvent BackToCheckpoint = delegate { };
+			public static event GameEvent PlayerWon = delegate { };
 
 			public static void InvokeResetObject() => ResetObject();
 			public static void InvokePlayerDeath() => PlayerDeath();
@@ -41,6 +42,7 @@ namespace RobotoSkunk.PixelMan {
 			public static void InvokeSwitchTouched() => SwitchTouched();
 			public static void InvokeNewCheckpoint() => NewCheckpoint();
 			public static void InvokeBackToCheckpoint() => BackToCheckpoint();
+			public static void InvokePlayerWon() => PlayerWon();
 		}
 
 		public static class EditorEventsHandler {
@@ -99,6 +101,7 @@ namespace RobotoSkunk.PixelMan {
 				Events.GameEventsHandler.SwitchTouched += OnGameSwitchTouched;
 				Events.GameEventsHandler.NewCheckpoint += OnGameCheckpointEnabled;
 				Events.GameEventsHandler.BackToCheckpoint += OnGameCheckpointRespawn;
+				Events.GameEventsHandler.PlayerWon += OnGamePlayerWon;
 			} else {
 				Events.GameEventsHandler.ResetObject -= OnGameResetObject;
 				Events.GameEventsHandler.PlayerDeath -= OnGamePlayerDeath;
@@ -106,6 +109,7 @@ namespace RobotoSkunk.PixelMan {
 				Events.GameEventsHandler.SwitchTouched -= OnGameSwitchTouched;
 				Events.GameEventsHandler.NewCheckpoint -= OnGameCheckpointEnabled;
 				Events.GameEventsHandler.BackToCheckpoint -= OnGameCheckpointRespawn;
+				Events.GameEventsHandler.PlayerWon -= OnGamePlayerWon;
 			}
 		}
 
@@ -138,6 +142,11 @@ namespace RobotoSkunk.PixelMan {
 		/// Is called when the player dies and can back to some checkpoint.
 		/// </summary>
 		protected virtual void OnGameCheckpointRespawn() { }
+
+		/// <summary>
+		/// Is called when the player wins the level.
+		/// </summary>
+		protected virtual void OnGamePlayerWon() { }
 	}
 
 	public class GameObjectBehaviourExtended : GameObjectBehaviour {

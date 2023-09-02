@@ -273,9 +273,9 @@ namespace RobotoSkunk.PixelMan.Gameplay
 				wasOnPause = false;
 				animator.speed = 1;
 
-				if (!Globals.isDead) {
-					FreezeRigidbody(false);
-				}
+				// if (!Globals.isDead) {
+				// 	FreezeRigidbody(false);
+				// }
 
 				if (runParticles.isPaused) {
 					runParticles.Play();
@@ -291,6 +291,8 @@ namespace RobotoSkunk.PixelMan.Gameplay
 			if (Globals.isDead) {
 				return;
 			}
+
+			rigidbody.gravityScale = gravityMultiplier;
 
 
 			#region Jump buffers
@@ -511,11 +513,8 @@ namespace RobotoSkunk.PixelMan.Gameplay
 				canControlJump = false;
 				canControlHorizontalVelocity = false;
 
-			} else if (collision.CompareTag("GravitySwitch")) {
-				invertedGravity = !invertedGravity;
-
 			} else if (collision.CompareTag("Finish")) {
-				Debug.Log("Won!");
+				GameEventsHandler.InvokePlayerWon();
 			}
 		}
 
@@ -690,6 +689,11 @@ namespace RobotoSkunk.PixelMan.Gameplay
 		public void SetCamera(PlayerCamera camera)
 		{
 			playerCamera = camera;
+		}
+
+		public void InvertGravity()
+		{
+			invertedGravity = !invertedGravity;
 		}
 	}
 }

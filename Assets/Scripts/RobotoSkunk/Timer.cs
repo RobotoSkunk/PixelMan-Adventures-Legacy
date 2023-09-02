@@ -19,47 +19,90 @@
 using UnityEngine;
 
 
-namespace RobotoSkunk {
-	public class Timer {
-		private double __timer, __timerBuffer, __lastTime;
-		private bool __onTick;
+namespace RobotoSkunk
+{
+	public class Timer
+	{
+		private double timerBuffer;
+		private double lastTime;
 
+		private bool onTick;
+
+
+		/// <summary>
+		/// The time in seconds.
+		/// </summary>
 		public double time {
 			get {
-				if (isActive) __timer = __timerBuffer + Time.time - __lastTime;
+				if (isActive) {
+					return timerBuffer + Time.time - lastTime;
+				}
 
-				return __timer;
+				return timerBuffer;
 			}
+
 			set {
-				__timerBuffer = value;
-				__lastTime = Time.time;
+				timerBuffer = value;
+				lastTime = Time.time;
 			}
 		}
+
 		public bool isActive {
 			get {
-				return __onTick;
+				return onTick;
 			}
 		}
 
-		public Timer() {
-			__onTick = false;
-			__timer = __timerBuffer = __lastTime = 0d;
+
+		public Timer()
+		{
+			onTick = false;
+			timerBuffer = lastTime = 0d;
 		}
 
-		public void Start() {
-			if (!__onTick) {
-				__lastTime = Time.time;
-				__onTick = true;
+		public void Start()
+		{
+			if (!onTick) {
+				lastTime = Time.time;
+				onTick = true;
 			}
 		}
 
-		public void Stop() {
-			if (__onTick) {
-				__timerBuffer = __timer;
-				__onTick = false;
+		public void Stop()
+		{
+			if (onTick) {
+				timerBuffer = time;
+				onTick = false;
 			}
 		}
 
-		public void Reset() => time = 0d;
+		public void Reset()
+		{
+			time = 0d;
+		}
+
+		public void SetActive(bool active)
+		{
+			if (active) {
+				Start();
+			} else {
+				Stop();
+			}
+		}
+
+
+		public override string ToString()
+		{
+			double hours = time / 3600d;
+			double minutes = time % 3600d / 60d;
+			double seconds = time % 60d;
+
+
+			if (hours < 1d) {
+				return minutes.ToString("00") + ":" + seconds.ToString("00");
+			}
+
+			return hours.ToString("00") + ":" + minutes.ToString("00") + ":" + seconds.ToString("00");
+		}
 	}
 }
