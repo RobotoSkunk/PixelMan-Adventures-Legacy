@@ -51,6 +51,7 @@ namespace RobotoSkunk.PixelMan.Gameplay
 			collected = false;
 			Globals.gotCoin = false;
 
+			animator.speed = 1;
 			UpdateCoin(true);
 		}
 
@@ -73,11 +74,11 @@ namespace RobotoSkunk.PixelMan.Gameplay
 
 		void UpdateCoin(bool force = false)
 		{
+			animator.SetBool("Collected", collected);
+
 			if (collected) {
 				delta += Time.deltaTime;
 				delta = Mathf.Clamp01(delta);
-
-				animator.SetBool("Collected", true);
 
 				if (delta >= 0.5f && !particles.isStopped) {
 					particles.Stop();
@@ -89,12 +90,9 @@ namespace RobotoSkunk.PixelMan.Gameplay
 				return;
 			}
 
-			spriteRenderer.color = Color.white;
-			animator.speed = 1f;
 			delta = 0f;
 			particles.Play();
-			animator.SetBool("Collected", false);
-			animator.Play("Coin", 0, 0f);
+			// animator.Play("Coin", 0, 0f);
 		}
 	}
 }

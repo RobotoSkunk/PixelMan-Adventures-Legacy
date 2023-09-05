@@ -22,6 +22,7 @@ using System.Collections.Generic;
 using System.Collections;
 
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
 using RobotoSkunk.PixelMan.Utils;
@@ -29,6 +30,7 @@ using RobotoSkunk.PixelMan.Events;
 using RobotoSkunk.PixelMan.LevelEditor.IO;
 
 using TMPro;
+
 
 namespace RobotoSkunk.PixelMan.Gameplay
 {
@@ -52,13 +54,14 @@ namespace RobotoSkunk.PixelMan.Gameplay
 		[SerializeField] TextMeshProUGUI victoryPhrase;
 		[SerializeField] TextMeshProUGUI attemptsText;
 		[SerializeField] TextMeshProUGUI timeText;
+		[SerializeField] Image[] achievement = new Image[3];
 		#pragma warning restore IDE0044
 
 		readonly Timer timer = new();
 
 		float pauseMenuDelta = 1f;
 		bool victoryPanelOpen = false;
-		uint attempts = 0u;
+		uint attempts = 1u;
 
 
 		Coroutine victoryPanelCoroutine;
@@ -175,7 +178,7 @@ namespace RobotoSkunk.PixelMan.Gameplay
 			}
 
 			if (fromScratch) {
-				attempts = 0u;
+				attempts = 1u;
 			}
 		}
 
@@ -245,7 +248,7 @@ namespace RobotoSkunk.PixelMan.Gameplay
 				"I'm lazy to translate this, I'll do it later!",
 			};
 
-			if (attempts == 0) {
+			if (attempts == 1) {
 				phrases = new() {
 					"At first try!",
 					"Well, that was easy!",
@@ -265,6 +268,13 @@ namespace RobotoSkunk.PixelMan.Gameplay
 			victoryPhrase.text = phrases[Random.Range(0, phrases.Count)];
 			attemptsText.text = "x" + attempts.ToString();
 			timeText.text = timer.ToString();
+
+
+			// Achievements
+			achievement[0].color = attempts == 1 ? Color.white : Color.gray;
+			achievement[1].color = Globals.gotCoin ? Color.white : Color.gray;
+			achievement[2].color = Color.white;
+
 
 			victoryUI.SetActive(true);
 

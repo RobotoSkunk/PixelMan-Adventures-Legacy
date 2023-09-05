@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 104840625}
   - component: {fileID: 104840624}
   m_Layer: 0
-  m_Name: Coin Template.0002
+  m_Name: Time Achievement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1673,6 +1673,10 @@ MonoBehaviour:
   victoryPhrase: {fileID: 1010678314}
   attemptsText: {fileID: 1341133683}
   timeText: {fileID: 290035274}
+  achievement:
+  - {fileID: 1274280742}
+  - {fileID: 1167313343}
+  - {fileID: 104840624}
 --- !u!4 &630843924
 Transform:
   m_ObjectHideFlags: 0
@@ -2841,7 +2845,7 @@ GameObject:
   - component: {fileID: 1167313344}
   - component: {fileID: 1167313343}
   m_Layer: 0
-  m_Name: Coin Template
+  m_Name: Coin Achievement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2917,7 +2921,7 @@ GameObject:
   - component: {fileID: 1274280743}
   - component: {fileID: 1274280742}
   m_Layer: 0
-  m_Name: Coin Template.0001
+  m_Name: Attempts Achievement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3313,7 +3317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.79607844}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.8509804}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 0
@@ -3366,8 +3370,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1167313342}
   - {fileID: 1274280741}
+  - {fileID: 1167313342}
   - {fileID: 104840623}
   - {fileID: 1341133682}
   - {fileID: 290035273}
