@@ -127,6 +127,8 @@ namespace RobotoSkunk.PixelMan
 			Globals.settings = settings;
 			Globals.settings.general.lang = Diagnostics.systemLanguage;
 
+			Globals.worlds = worlds;
+
 			#region Parse Credits.txt
 			Globals.creditsText = Globals.creditsText.Replace("\r", "");
 			string[] _lines = Globals.creditsText.Split("\n");
@@ -265,10 +267,11 @@ namespace RobotoSkunk.PixelMan
 			playerCharacters = null;
 			languages = null;
 			settings = null;
+			worlds = null;
 			Globals.creditsText = null;
 
 
-			#region Suscribe events
+			#region Subscribe events
 			GeneralEventsHandler.PlayOnBG += (AudioClip clip) => bgAudio.PlayOneShot(clip);
 
 			GeneralEventsHandler.ChgMusic += (MusicClips.Type type) =>
@@ -318,14 +321,6 @@ namespace RobotoSkunk.PixelMan
 				});
 			};
 
-
-			// Application.logMessageReceived += (string condition, string stackTrace, LogType type) => {
-			// 	if (!Globals.settings.general.debugMode) return;
-
-			// 	if (type == LogType.Error || type == LogType.Exception) {
-					
-			// 	}
-			// };
 			#endregion
 		}
 
@@ -558,27 +553,6 @@ namespace RobotoSkunk.PixelMan
 			SetVibration(0f, 0f);
 			Globals.shakeForce = 0f;
 		}
-
-		// IEnumerator ResetObjects()
-		// {
-		// 	float time = 1f;
-
-		// 	while (time > 0) {
-		// 		if (!Globals.onPause) {
-		// 			time -= Time.fixedDeltaTime;
-		// 		}
-
-		// 		yield return new WaitForFixedUpdate();
-		// 	}
-
-		// 	Globals.isDead = false;
-
-		// 	if (Globals.respawnAttempts > 0) {
-		// 		GameEventsHandler.InvokeBackToCheckpoint();
-		// 	} else {
-		// 		GameEventsHandler.InvokeResetObject();
-		// 	}
-		// }
 
 		IEnumerator ChangeMusic(AudioClip __clip)
 		{

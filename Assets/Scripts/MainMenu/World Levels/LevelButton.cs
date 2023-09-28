@@ -19,6 +19,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 using Cysharp.Threading.Tasks;
+using Eflatun.SceneReference;
+using RobotoSkunk.PixelMan.Events;
+using RobotoSkunk.PixelMan.UI;
 
 
 namespace RobotoSkunk.PixelMan.Utils {
@@ -26,7 +29,17 @@ namespace RobotoSkunk.PixelMan.Utils {
 		[Header("Components")]
 		public Image preview;
 		public Image[] symbols = new Image[3];
-		public bool won, insideTimeLimit, coin;
+		public RSButton button;
+
+		[Header("Properties")]
+		public bool won;
+		public bool insideTimeLimit;
+		public bool coin;
+		public SceneReference sandboxScene;
+
+		[Header("Indexes")]
+		public int stageIndex;
+		public int levelIndex;
 
 
 		Texture2D __texture;
@@ -55,6 +68,13 @@ namespace RobotoSkunk.PixelMan.Utils {
 			symbols[0].color = won ? Color.white : default;
 			symbols[1].color = insideTimeLimit ? Color.white : default;
 			symbols[2].color = coin ? Color.white : default;
+		}
+
+		public void GoToScene() {
+			Globals.stageIndex = stageIndex;
+			Globals.levelIndex = levelIndex;
+
+			GeneralEventsHandler.ChangeScene(sandboxScene);
 		}
 	}
 }

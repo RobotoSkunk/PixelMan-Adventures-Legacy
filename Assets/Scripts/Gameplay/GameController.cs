@@ -31,7 +31,8 @@ using RobotoSkunk.PixelMan.LevelEditor.IO;
 
 using TMPro;
 using Eflatun.SceneReference;
-
+using System.Linq;
+using RobotoSkunk.PixelMan.LevelEditor;
 
 namespace RobotoSkunk.PixelMan.Gameplay
 {
@@ -65,12 +66,14 @@ namespace RobotoSkunk.PixelMan.Gameplay
 		[Header("Properties")]
 		[SerializeField] SceneReference selfScene;
 		[SerializeField] SceneReference levelEditorScene;
+		[SerializeField] SceneReference menuScene;
 		#pragma warning restore IDE0044
 
 		readonly Timer timer = new();
 
 		float pauseMenuDelta = 1f;
 		bool victoryPanelOpen = false;
+		bool loadingNextLevel = false;
 		uint attempts = 1u;
 
 
@@ -94,14 +97,16 @@ namespace RobotoSkunk.PixelMan.Gameplay
 			victoryUI.SetActive(false);
 			goToEditorButton.SetActive(!Globals.levelIsBuiltIn);
 
-			nextLevelImage.gameObject.SetActive(!Globals.levelIsBuiltIn);
-			goToEditorImage.gameObject.SetActive(Globals.levelIsBuiltIn);
+			nextLevelImage.gameObject.SetActive(Globals.levelIsBuiltIn);
+			goToEditorImage.gameObject.SetActive(!Globals.levelIsBuiltIn);
 
 
 			Globals.loadingText = Globals.languages.GetField("loading.load_objects");
 			Globals.musicType = GameDirector.MusicClips.Type.IN_GAME;
 
-			if (Globals.Editor.currentScene.file != null) {
+
+			// Load level
+			if (Globals.Editor.currentScene.file != null || Globals.levelIsBuiltIn) {
 				UniTask.Void(async () =>
 				{
 					await LevelIO.LoadLevel(false, transformContainers);
@@ -206,10 +211,20 @@ namespace RobotoSkunk.PixelMan.Gameplay
 
 		public void GoToNext()
 		{
-			if (Globals.levelIsBuiltIn) {
-				
-
+			if (loadingNextLevel) {
 				return;
+			}
+
+			loadingNextLevel = true;
+
+			if (Globals.levelIsBuiltIn) {
+				Globals.levelIndex++;
+
+				if (Globals.levelIndex >= Globals.currentGameScene.levels.Count())
+				{
+					GeneralEventsHandler.ChangeScene(menuScene);
+					return;
+				}
 			}
 
 			GeneralEventsHandler.ChangeScene(Globals.levelIsBuiltIn ? selfScene : levelEditorScene);

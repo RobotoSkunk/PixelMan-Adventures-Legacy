@@ -18,23 +18,52 @@
 
 using UnityEngine;
 
-using RobotoSkunk.PixelMan.UI;
+using TMPro;
 
 
-namespace RobotoSkunk.PixelMan.Utils {
-	public class LevelsSceneManager : MonoBehaviour {
+namespace RobotoSkunk.PixelMan.Utils
+{
+	public class LevelsSceneManager : MonoBehaviour
+	{
 		public bool isLocked;
 		public GameObject lockedPanel;
-		public RSButton[] buttons;
+		public LevelButton[] buttons;
+
+		public TextMeshProUGUI stageNameText;
+
+		public string stageName;
+		public int stageIndex;
 
 		bool __locked;
 
-		private void Update() {
+
+		void Start()
+		{
+			stageNameText.text = stageName;
+
+			int countLevels = Globals.currentWorld.scenes[stageIndex].levels.Length;
+
+			for (int i = 0; i < buttons.Length; i++) {
+				if (i < countLevels) {
+					buttons[i].levelIndex = i;
+					buttons[i].stageIndex = stageIndex;
+				} else {
+					buttons[i].gameObject.SetActive(false);
+				}
+			}
+		}
+
+
+		private void Update()
+		{
 			if (isLocked != __locked) {
 				__locked = isLocked;
 				
 				lockedPanel.SetActive(__locked);
-				buttons.SetInteractable(!__locked);
+
+				for (int i = 0; i < buttons.Length; i++) {
+					buttons[i].button.interactable = !__locked;
+				}
 			}
 		}
 	}

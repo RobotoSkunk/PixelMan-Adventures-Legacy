@@ -232,6 +232,16 @@ namespace RobotoSkunk.PixelMan
 		/// The index of the main menu active section.
 		/// </summary>
 		public static int mainMenuSection = 0;
+
+		/// <summary>
+		/// The index of the current active built-in scene.
+		/// </summary>
+		public static int stageIndex = 0;
+
+		/// <summary>
+		/// The index of the current active built-in level.
+		/// </summary>
+		public static int levelIndex = 0;
 		#endregion
 
 		#region String variables
@@ -294,6 +304,16 @@ namespace RobotoSkunk.PixelMan
 		/// The current level's data (without game objects).
 		/// </summary>
 		public static Level levelData;
+
+		/// <summary>
+		/// The current world's data.
+		/// </summary>
+		public static Worlds currentWorld;
+
+		/// <summary>
+		/// All built-in worlds.
+		/// </summary>
+		public static Worlds[] worlds;
 		#endregion
 
 
@@ -343,6 +363,15 @@ namespace RobotoSkunk.PixelMan
 		static bool __filesReady = false;
 
 		static GameDirector.MusicClips.Type __musicType = GameDirector.MusicClips.Type.NONE;
+
+
+		/// <summary>
+		/// The current active built-in scene.
+		/// </summary>
+		public static Worlds.GameScene currentGameScene
+		{
+			get => currentWorld.scenes[stageIndex];
+		}
 
 
 		/// <summary>

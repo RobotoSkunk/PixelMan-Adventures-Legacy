@@ -180,10 +180,15 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 				TransformContainers containers,
 				List<InGameObjectBehaviour> objects = null
 			) {
-				Level.UserMetadata metadata = Globals.Editor.currentLevel;
 				InternalUserScene scene = Globals.Editor.currentScene;	
 
-				Globals.levelData = await LevelFileSystem.GetLevel(scene.file.FullName, metadata.uuid);
+				if (Globals.levelIsBuiltIn) {
+					string data = Globals.currentGameScene.levels[Globals.levelIndex].levelData.text;
+					Globals.levelData = await Files.FromJson<Level>(data);
+				} else {
+					Level.UserMetadata metadata = Globals.Editor.currentLevel;
+					Globals.levelData = await LevelFileSystem.GetLevel(scene.file.FullName, metadata.uuid);
+				}
 
 				int i = 0;
 				int chunkSize = 0;
@@ -196,7 +201,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 						data.position,
 						data.scale,
 						data.rotation,
-						inEditor,
+						inEditor && !Globals.levelIsBuiltIn,
 						containers
 					);
 

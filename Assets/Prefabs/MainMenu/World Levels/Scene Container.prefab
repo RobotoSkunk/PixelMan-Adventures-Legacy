@@ -488,7 +488,7 @@ RectTransform:
   - {fileID: 4427272480002882662}
   - {fileID: 4427272480440019758}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -548,11 +548,14 @@ MonoBehaviour:
   isLocked: 0
   lockedPanel: {fileID: 4427272480440019753}
   buttons:
-  - {fileID: 4774612321081517875}
-  - {fileID: 5960879231338669300}
-  - {fileID: 7807498721624259231}
-  - {fileID: 2095421358223474485}
-  - {fileID: 5784204369336900003}
+  - {fileID: 8926351376614019495}
+  - {fileID: 7717865498826789472}
+  - {fileID: 6195791364032777227}
+  - {fileID: 2645441795966405025}
+  - {fileID: 7631225228264681271}
+  stageNameText: {fileID: 4427272479475503172}
+  stageName: 
+  stageIndex: 0
 --- !u!1 &4427272481240304165
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,8 +629,49 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 4427272481240304170}
     m_Modifications:
+    - target: {fileID: 1941153377397022395, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: button
+      value: 
+      objectReference: {fileID: 2095421358223474485}
+    - target: {fileID: 1941153377397022395, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: sandboxScene.guid
+      value: fa0d725a7a814913682cdf95396d52bf
+      objectReference: {fileID: 0}
+    - target: {fileID: 1941153377397022395, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: sandboxScene.asset
+      value: 
+      objectReference: {fileID: 102900000, guid: fa0d725a7a814913682cdf95396d52bf, type: 3}
+    - target: {fileID: 2545181839353260079, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2545181839353260079, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2645441795966405025}
+    - target: {fileID: 2545181839353260079, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoToScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 2545181839353260079, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RobotoSkunk.PixelMan.Utils.LevelButton, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2545181839353260079, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718442591004862531, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: scene.guid
+      value: fa0d725a7a814913682cdf95396d52bf
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718442591004862531, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: scene.asset
+      value: 
+      objectReference: {fileID: 102900000, guid: fa0d725a7a814913682cdf95396d52bf, type: 3}
     - target: {fileID: 6656405062023294778, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -764,7 +808,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4718442591004862531, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
 --- !u!114 &2095421358223474485 stripped
 MonoBehaviour:
@@ -777,6 +825,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d33be8d750c109c479798ed498dbc805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2645441795966405025 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1941153377397022395, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+  m_PrefabInstance: {fileID: 4487313636724840218}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bac28db48ec53740b771e2fffadcdbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &7072462143802141439 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6656405063994015205, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
@@ -787,8 +846,49 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 4427272481240304170}
     m_Modifications:
+    - target: {fileID: 1941153377397022395, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: button
+      value: 
+      objectReference: {fileID: 7807498721624259231}
+    - target: {fileID: 1941153377397022395, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: sandboxScene.guid
+      value: fa0d725a7a814913682cdf95396d52bf
+      objectReference: {fileID: 0}
+    - target: {fileID: 1941153377397022395, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: sandboxScene.asset
+      value: 
+      objectReference: {fileID: 102900000, guid: fa0d725a7a814913682cdf95396d52bf, type: 3}
+    - target: {fileID: 2545181839353260079, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2545181839353260079, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6195791364032777227}
+    - target: {fileID: 2545181839353260079, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoToScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 2545181839353260079, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RobotoSkunk.PixelMan.Utils.LevelButton, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2545181839353260079, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718442591004862531, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: scene.guid
+      value: fa0d725a7a814913682cdf95396d52bf
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718442591004862531, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: scene.asset
+      value: 
+      objectReference: {fileID: 102900000, guid: fa0d725a7a814913682cdf95396d52bf, type: 3}
     - target: {fileID: 6656405062023294778, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -925,13 +1025,28 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4718442591004862531, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
 --- !u!224 &1399439699708129109 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6656405063994015205, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
   m_PrefabInstance: {fileID: 5695791140861104816}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6195791364032777227 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1941153377397022395, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+  m_PrefabInstance: {fileID: 5695791140861104816}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bac28db48ec53740b771e2fffadcdbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7807498721624259231 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2545181839353260079, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
@@ -948,8 +1063,49 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 4427272481240304170}
     m_Modifications:
+    - target: {fileID: 1941153377397022395, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: button
+      value: 
+      objectReference: {fileID: 4774612321081517875}
+    - target: {fileID: 1941153377397022395, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: sandboxScene.guid
+      value: fa0d725a7a814913682cdf95396d52bf
+      objectReference: {fileID: 0}
+    - target: {fileID: 1941153377397022395, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: sandboxScene.asset
+      value: 
+      objectReference: {fileID: 102900000, guid: fa0d725a7a814913682cdf95396d52bf, type: 3}
+    - target: {fileID: 2545181839353260079, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2545181839353260079, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8926351376614019495}
+    - target: {fileID: 2545181839353260079, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoToScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 2545181839353260079, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RobotoSkunk.PixelMan.Utils.LevelButton, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2545181839353260079, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718442591004862531, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: scene.guid
+      value: fa0d725a7a814913682cdf95396d52bf
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718442591004862531, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: scene.asset
+      value: 
+      objectReference: {fileID: 102900000, guid: fa0d725a7a814913682cdf95396d52bf, type: 3}
     - target: {fileID: 6656405062023294778, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1086,7 +1242,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4718442591004862531, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
 --- !u!224 &4427272480655160057 stripped
 RectTransform:
@@ -1104,13 +1264,65 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d33be8d750c109c479798ed498dbc805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8926351376614019495 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1941153377397022395, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+  m_PrefabInstance: {fileID: 6994259538399022876}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bac28db48ec53740b771e2fffadcdbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8208656334742932699
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 4427272481240304170}
     m_Modifications:
+    - target: {fileID: 1941153377397022395, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: button
+      value: 
+      objectReference: {fileID: 5960879231338669300}
+    - target: {fileID: 1941153377397022395, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: sandboxScene.guid
+      value: fa0d725a7a814913682cdf95396d52bf
+      objectReference: {fileID: 0}
+    - target: {fileID: 1941153377397022395, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: sandboxScene.asset
+      value: 
+      objectReference: {fileID: 102900000, guid: fa0d725a7a814913682cdf95396d52bf, type: 3}
+    - target: {fileID: 2545181839353260079, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2545181839353260079, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7717865498826789472}
+    - target: {fileID: 2545181839353260079, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoToScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 2545181839353260079, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RobotoSkunk.PixelMan.Utils.LevelButton, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2545181839353260079, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718442591004862531, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: scene.guid
+      value: fa0d725a7a814913682cdf95396d52bf
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718442591004862531, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: scene.asset
+      value: 
+      objectReference: {fileID: 102900000, guid: fa0d725a7a814913682cdf95396d52bf, type: 3}
     - target: {fileID: 6656405062023294778, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1247,7 +1459,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4718442591004862531, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
 --- !u!224 &3281800670887653694 stripped
 RectTransform:
@@ -1265,13 +1481,65 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d33be8d750c109c479798ed498dbc805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7717865498826789472 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1941153377397022395, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+  m_PrefabInstance: {fileID: 8208656334742932699}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bac28db48ec53740b771e2fffadcdbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8293328546604757388
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 4427272481240304170}
     m_Modifications:
+    - target: {fileID: 1941153377397022395, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: button
+      value: 
+      objectReference: {fileID: 5784204369336900003}
+    - target: {fileID: 1941153377397022395, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: sandboxScene.guid
+      value: fa0d725a7a814913682cdf95396d52bf
+      objectReference: {fileID: 0}
+    - target: {fileID: 1941153377397022395, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: sandboxScene.asset
+      value: 
+      objectReference: {fileID: 102900000, guid: fa0d725a7a814913682cdf95396d52bf, type: 3}
+    - target: {fileID: 2545181839353260079, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2545181839353260079, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7631225228264681271}
+    - target: {fileID: 2545181839353260079, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoToScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 2545181839353260079, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RobotoSkunk.PixelMan.Utils.LevelButton, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2545181839353260079, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718442591004862531, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: scene.guid
+      value: fa0d725a7a814913682cdf95396d52bf
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718442591004862531, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+      propertyPath: scene.asset
+      value: 
+      objectReference: {fileID: 102900000, guid: fa0d725a7a814913682cdf95396d52bf, type: 3}
     - target: {fileID: 6656405062023294778, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1408,7 +1676,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4718442591004862531, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
 --- !u!224 &3420377800987823209 stripped
 RectTransform:
@@ -1424,5 +1696,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d33be8d750c109c479798ed498dbc805, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7631225228264681271 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1941153377397022395, guid: c83d0efb7cbaa4c4d8973edfc4a1819e, type: 3}
+  m_PrefabInstance: {fileID: 8293328546604757388}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bac28db48ec53740b771e2fffadcdbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
