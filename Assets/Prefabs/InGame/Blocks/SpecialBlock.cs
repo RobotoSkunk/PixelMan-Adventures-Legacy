@@ -27,6 +27,7 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 	public class SpecialBlock : GameObjectBehaviour {
 		[Header("Components")]
 		public BoxCollider2D box;
+		public BoxCollider2D killzoneBox;
 		public SpriteRenderer spriteRenderer;
 
 		[Header("Properties")]
@@ -45,7 +46,10 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 			destroy = false;
 			sprIndx = 0;
 			spriteRenderer.sprite = sprites[0];
+
 			box.enabled = true;
+			killzoneBox.enabled = true;
+
 			spriteRenderer.enabled = true;
 			PhysicsEventsHandler.GenerateCompositeGeometry();
 		}
@@ -75,6 +79,8 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 					}
 				} else if (box.enabled) {
 					box.enabled = false;
+					killzoneBox.enabled = false;
+
 					spriteRenderer.enabled = false;
 					PhysicsEventsHandler.GenerateCompositeGeometry();
 				}
