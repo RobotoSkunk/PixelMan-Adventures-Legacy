@@ -607,7 +607,7 @@ namespace RobotoSkunk.PixelMan
 
 			onMusicFade = false;
 		}
-		
+
 		IEnumerator SaveSettings()
 		{
 			yield return new WaitForSeconds(0.5f);

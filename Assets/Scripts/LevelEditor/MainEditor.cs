@@ -466,7 +466,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor
 			// #endregion
 
 			#region Zoom
-			newZoom += zoomSpeed * RSTime.delta;
+			newZoom += zoomSpeed;
 
 			newZoom = Mathf.Clamp(newZoom, zoomLimits.x, zoomLimits.y);
 			zoom = Mathf.Lerp(zoom, newZoom, 0.3f * RSTime.delta);

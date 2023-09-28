@@ -544,7 +544,7 @@ namespace RobotoSkunk.PixelMan
 			/// </summary>
 			public async UniTask Save()
 			{
-				string json = await AsyncJson.ToJson(settings);
+				string json = await AsyncJson.ToJson(this);
 				await Files.WriteFile(Files.Directories.settings, json);
 			}
 
