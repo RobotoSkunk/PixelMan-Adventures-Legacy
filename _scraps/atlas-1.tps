@@ -177,6 +177,7 @@
             <key type="filename">blocks/cobblestone/0.png</key>
             <key type="filename">blocks/dirt/0.png</key>
             <key type="filename">gui/generics/buttons/info.png</key>
+            <key type="filename">gui/generics/symbols/next_level.png</key>
             <key type="filename">gui/generics/symbols/settings.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -993,6 +994,9 @@
             <key type="filename">gui/generics/buttons/editor/save-and-play.png</key>
             <key type="filename">gui/generics/buttons/editor/save.png</key>
             <key type="filename">gui/generics/buttons/editor/settings.png</key>
+            <key type="filename">gui/generics/symbols/target_attempts.png</key>
+            <key type="filename">gui/generics/symbols/target_coin.png</key>
+            <key type="filename">gui/generics/symbols/target_time.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -1592,6 +1596,21 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">gui/generics/symbols/main_menu.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>6,5,11,9</rect>
+                <key>scale9Paddings</key>
+                <rect>6,5,11,9</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">gui/generics/symbols/online.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -1604,6 +1623,25 @@
                 <rect>9,9,18,18</rect>
                 <key>scale9Paddings</key>
                 <rect>9,9,18,18</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">gui/generics/symbols/restart_level.png</key>
+            <key type="filename">gui/generics/xbox/button-east.png</key>
+            <key type="filename">gui/generics/xbox/button-north.png</key>
+            <key type="filename">gui/generics/xbox/button-south.png</key>
+            <key type="filename">gui/generics/xbox/button-weast.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>6,6,11,11</rect>
+                <key>scale9Paddings</key>
+                <rect>6,6,11,11</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -1649,24 +1687,6 @@
                 <rect>0,0,128,32</rect>
                 <key>scale9Paddings</key>
                 <rect>32,8,64,16</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">gui/generics/xbox/button-east.png</key>
-            <key type="filename">gui/generics/xbox/button-north.png</key>
-            <key type="filename">gui/generics/xbox/button-south.png</key>
-            <key type="filename">gui/generics/xbox/button-weast.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>6,6,11,11</rect>
-                <key>scale9Paddings</key>
-                <rect>6,6,11,11</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>

@@ -833,7 +833,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "BETA P\xDABLICA"
+  m_text: "BETA P\xDABLICA (LEGACY)"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8876cdca0b0370240965edd52a63b391, type: 2}
   m_sharedMaterial: {fileID: -2416292779871800766, guid: 8876cdca0b0370240965edd52a63b391, type: 2}
@@ -1246,7 +1246,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: -50}
-  m_SizeDelta: {x: 370, y: 160}
+  m_SizeDelta: {x: 370, y: 200}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2101288071
 MonoBehaviour:
@@ -1268,9 +1268,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Este juego sigue en etapa de desarrollo y puede contener bugs de todo
-    tipo.\n\nSi quieres apoyar en la resoluci\xF3n de bugs, por favor, reporta todos
-    los bugs que encuentres."
+  m_text: "Este juego es una versi\xF3n temprana de una versi\xF3n creada en Unity,
+    sin embargo, debido a varios descontentos con Unity desde el 2021, el juego ser\xE1
+    desarrollado en Godot Engine.\n\nEsta versi\xF3n ser\xE1 abandonada y puede contener
+    errores."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a0b71d77356bfe34ea0d0f7c58c003f5, type: 2}
   m_sharedMaterial: {fileID: -1604501450647317460, guid: a0b71d77356bfe34ea0d0f7c58c003f5, type: 2}
@@ -1297,8 +1298,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 7.5
