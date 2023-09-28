@@ -5644,7 +5644,22 @@ MonoBehaviour:
       guid: 00000000000000000000000000000000
     scenes:
     - name: First steps
-      levels: []
+      levels:
+      - uuid: 
+        name: Level 1
+        levelData: {fileID: 4900000, guid: fc4877fa656cdb3e2b314e56d1f7933e, type: 3}
+      - uuid: 
+        name: Level 2
+        levelData: {fileID: 4900000, guid: 94ecb70f66929fdf8aec7c8ba3f8e209, type: 3}
+      - uuid: 
+        name: Level 3
+        levelData: {fileID: 4900000, guid: 0f2190ebe4eaf8a89b38bbc0bca8808e, type: 3}
+      - uuid: 
+        name: Level 4
+        levelData: {fileID: 4900000, guid: 8ab906e14fbba69ebaf48193194cae59, type: 3}
+      - uuid: 
+        name: Level 5
+        levelData: {fileID: 4900000, guid: f50bd4f895f04433d8b7ad8cb40e7db0, type: 3}
     - name: Going deep
       levels: []
     - name: Deeper and deeper

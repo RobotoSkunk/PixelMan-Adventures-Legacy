@@ -30,6 +30,7 @@ using RobotoSkunk.PixelMan.Events;
 using RobotoSkunk.PixelMan.LevelEditor.IO;
 
 using TMPro;
+using Eflatun.SceneReference;
 
 
 namespace RobotoSkunk.PixelMan.Gameplay
@@ -55,6 +56,15 @@ namespace RobotoSkunk.PixelMan.Gameplay
 		[SerializeField] TextMeshProUGUI attemptsText;
 		[SerializeField] TextMeshProUGUI timeText;
 		[SerializeField] Image[] achievement = new Image[3];
+
+		[Header("Level Editor")]
+		[SerializeField] GameObject goToEditorButton;
+		[SerializeField] Image nextLevelImage;
+		[SerializeField] Image goToEditorImage;
+
+		[Header("Properties")]
+		[SerializeField] SceneReference selfScene;
+		[SerializeField] SceneReference levelEditorScene;
 		#pragma warning restore IDE0044
 
 		readonly Timer timer = new();
@@ -82,6 +92,11 @@ namespace RobotoSkunk.PixelMan.Gameplay
 			Globals.respawnAttempts = 0;
 
 			victoryUI.SetActive(false);
+			goToEditorButton.SetActive(!Globals.levelIsBuiltIn);
+
+			nextLevelImage.gameObject.SetActive(!Globals.levelIsBuiltIn);
+			goToEditorImage.gameObject.SetActive(Globals.levelIsBuiltIn);
+
 
 			Globals.loadingText = Globals.languages.GetField("loading.load_objects");
 			Globals.musicType = GameDirector.MusicClips.Type.IN_GAME;
@@ -187,6 +202,17 @@ namespace RobotoSkunk.PixelMan.Gameplay
 			if (context.started && !Globals.openSettings) {
 				Globals.onPause = !Globals.onPause;
 			}
+		}
+
+		public void GoToNext()
+		{
+			if (Globals.levelIsBuiltIn) {
+				
+
+				return;
+			}
+
+			GeneralEventsHandler.ChangeScene(Globals.levelIsBuiltIn ? selfScene : levelEditorScene);
 		}
 
 		protected override void OnGamePlayerDeath()

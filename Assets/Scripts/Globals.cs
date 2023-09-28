@@ -177,6 +177,11 @@ namespace RobotoSkunk.PixelMan
 		/// The player has got the coin?
 		/// </summary>
 		public static bool gotCoin = false;
+
+		/// <summary>
+		/// If true, the game is loading a built-in level.
+		/// </summary>
+		public static bool levelIsBuiltIn = false;
 		#endregion
 
 		#region Unsigned integer variables
