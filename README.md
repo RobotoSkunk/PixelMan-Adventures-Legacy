@@ -1,55 +1,19 @@
-<p style="text-align: center">
-	<img width="788" height="196" alt="PixelMan Title" src="_resources/title.png" style="max-width: 90%; height: auto">
-</p>
+# LEGACY VERSION, NO LONGER MAINTAINED
+This is a legacy version of PixelMan Adventures, it's no longer maintained and
+it's here just for historical reasons. If you want to see the new version, go
+to the [Godot version repository](https://github.com/RobotoSkunk/PixelMan-Adventures).
 
-# PixelMan Adventures
-A simple open source platformer game about going from point A to point B without dying.
+## Do you want to revive this project?
+I'm not working on this project anymore in favor of the new
+[Godot version](https://github.com/RobotoSkunk/PixelMan-Adventures), but if you
+want to revive it, feel free to do so. I'll be happy to see what you can do
+with it.
 
-
-## Development
-The game is still in development and in a very early stage, so,
-if you want to help, you can do it by contributing to the project.
-You can also help by reporting bugs or suggesting new features,
-but please understand that our focus is on completing the game
-first, so we may not be able to implement your suggestions right away.
-
-A few resources are available to getting involved and understanding the project:
-- There's a detailed [change log](CHANGELOG.md) available to see what's
-new in each version.
-- You can also check the [project roadmap](ROADMAP.md) to see what's coming next.
-- If you want to contribute, you can check the
-[contribution guidelines](CONTRIBUTING.md) to see how to do it.
-
-Just a note: the game is still in early development, so the code is
-not very well organized and there are a lot of things that need to
-be improved. If you want to contribute, please keep that in mind.
-
-Also, the game itself it's coded using[Unity](https://unity3d.com/download).
-Please mantain the same version that Unity Hub uses to open the project.
-
-
-## Compilation
-The game is compiled using `IL2CPP`. If you're not familiar with IL2CPP,
-you can read the [documentation](https://docs.unity3d.com/Manual/IL2CPP.html)
-to learn more about it.
-
-
-## Contributing
-If you want to contribute to the project, please follow the
-[coding style](CODING_STYLE.md) and the [code of conduct](CODE_OF_CONDUCT.md).
-
-We love contributions! So, feel free to contribute to the project as
-much as you want. Let's make the best platformer game ever!
-
-### Note for Windows users
-If you're using Windows, please make sure to use the same line endings
-that the project uses. You can do this by configuring git to use
-`lf` line endings by default. You can do this by running the following
-command in the terminal:
-
-```bash
-git config --global core.autocrlf input
-```
 
 ## License
-This project is licensed under the [GNU Affero General Public License v3.0](LICENSE).
+This project is licensed under the AGPLv3 license - see the [LICENSE](LICENSE)
+for details.
+
+All of the resources used in this project (music, sound effects, sprites, etc.)
+are licensed under a different license, you can find them in the new
+[Godot version repository](https://github.com/RobotoSkunk/PixelMan-Adventures).
