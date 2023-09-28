@@ -34,7 +34,7 @@ namespace RobotoSkunk.PixelMan.UI.MainMenu {
 		private void Start() => content.anchoredPosition = new Vector2(0f, -viewport.rect.height);
 
 		private void Update() {
-			if (!dragging) content.anchoredPosition += new Vector2(0f, speed);
+			if (!dragging) content.anchoredPosition += new Vector2(0f, speed * RSTime.delta);
 			float pos = content.anchoredPosition.y;
 
 			if (pos > content.rect.height) content.anchoredPosition = new(0f, -viewport.rect.height);
