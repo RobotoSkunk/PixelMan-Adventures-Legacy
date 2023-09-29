@@ -182,6 +182,8 @@ namespace RobotoSkunk.PixelMan.LevelEditor {
 			) {
 				InternalUserScene scene = Globals.Editor.currentScene;	
 
+				Globals.levelData = null;
+
 				if (Globals.levelIsBuiltIn) {
 					string data = Globals.currentGameScene.levels[Globals.levelIndex].levelData.text;
 					Globals.levelData = await Files.FromJson<Level>(data);

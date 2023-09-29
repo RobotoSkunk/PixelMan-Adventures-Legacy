@@ -323,6 +323,8 @@ namespace RobotoSkunk.PixelMan.LevelEditor
 			#region Reset global variables and set panels default states
 			Globals.onLoad = true;
 			Globals.onPause = true;
+			Globals.levelIsBuiltIn = false;
+			Globals.isDead = false;
 
 			Globals.loadingText = Globals.languages.GetField("loading.load_objects");
 
