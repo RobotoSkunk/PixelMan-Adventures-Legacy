@@ -5661,7 +5661,22 @@ MonoBehaviour:
         name: Level 5
         levelData: {fileID: 4900000, guid: f50bd4f895f04433d8b7ad8cb40e7db0, type: 3}
     - name: Going deep
-      levels: []
+      levels:
+      - uuid: 
+        name: Level 1
+        levelData: {fileID: 4900000, guid: 404dde9f8aef3cbf79153bb2af4e3802, type: 3}
+      - uuid: 
+        name: Level 2
+        levelData: {fileID: 4900000, guid: a195957b7e7cb8358af1102e6e39a9dd, type: 3}
+      - uuid: 
+        name: Level 3
+        levelData: {fileID: 4900000, guid: 6c09670a0dfcfcdae9f7fd740e1d3de4, type: 3}
+      - uuid: 
+        name: Level 4
+        levelData: {fileID: 4900000, guid: c58873a558d75598eb6ccc536fd4045e, type: 3}
+      - uuid: 
+        name: Level 5
+        levelData: {fileID: 4900000, guid: a6c43d300c0a84121ad64e276f1bc259, type: 3}
     - name: Deeper and deeper
       levels: []
   - name: Wild Jungle
