@@ -5678,7 +5678,22 @@ MonoBehaviour:
         name: Level 5
         levelData: {fileID: 4900000, guid: a6c43d300c0a84121ad64e276f1bc259, type: 3}
     - name: Deeper and deeper
-      levels: []
+      levels:
+      - uuid: 
+        name: Level 1
+        levelData: {fileID: 4900000, guid: d07e8388a0ad70e29863245e36fa3ea3, type: 3}
+      - uuid: 
+        name: Level 2
+        levelData: {fileID: 4900000, guid: db72ca578847b656292fb619b6fc4d6b, type: 3}
+      - uuid: 
+        name: Level 3
+        levelData: {fileID: 4900000, guid: 3c78152a53860ac9196e1925ff4de224, type: 3}
+      - uuid: 
+        name: Level 4
+        levelData: {fileID: 4900000, guid: 6ec2f6c6e900113f383df6e2dd372da1, type: 3}
+      - uuid: 
+        name: Level 5
+        levelData: {fileID: 4900000, guid: d746fcf0ae081a476b4b00420b765cda, type: 3}
   - name: Wild Jungle
     uuid: 
     bossScene:

@@ -41,7 +41,7 @@ namespace RobotoSkunk
 #if UNITY_STANDALONE_LINUX || UNITY_EDITOR_LINUX
 
 					string home = Environment.GetEnvironmentVariable("HOME");
-					_root = Path.Combine(home, ".local", "share", "PixelMan Adventures");
+					_root = Path.Combine(home, ".local", "share", "PixelMan Adventures (Legacy)");
 
 #elif UNITY_STANDALONE || UNITY_EDITOR || UNITY_EDITOR_64
 					string special = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
