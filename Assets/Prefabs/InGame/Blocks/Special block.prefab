@@ -328,6 +328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   box: {fileID: 5484160955873567304}
+  killzoneBox: {fileID: 6365058778736662339}
   spriteRenderer: {fileID: 5484160955873567414}
   contactFilter:
     useTriggers: 1
