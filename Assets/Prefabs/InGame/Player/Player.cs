@@ -221,7 +221,6 @@ namespace RobotoSkunk.PixelMan.Gameplay
 			}
 		}
 
-
 		/// <summary>
 		/// The wanted horizontal speed of the player.
 		/// </summary>
@@ -229,6 +228,25 @@ namespace RobotoSkunk.PixelMan.Gameplay
 			get
 			{
 				return horizontalAxis * speed.x;
+			}
+		}
+
+		/// <summary>
+		/// The initial position of the player.
+		/// </summary>
+		public Vector2 initialPosition
+		{
+			get
+			{
+				return startPosition;
+			}
+		}
+
+		public Rigidbody2D playerRigidbody
+		{
+			get
+			{
+				return rigidbody;
 			}
 		}
 		#endregion

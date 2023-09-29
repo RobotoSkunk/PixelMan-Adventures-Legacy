@@ -35,8 +35,7 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 		Vector2 cameraPosition;
 		Vector2 playerLookAtStick;
 
-		Vector3 startPos;
-		Rigidbody2D player;
+		Player player;
 
 		float playerVelocity = 0f;
 		float playerDirection = 0f;
@@ -93,14 +92,14 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 
 
 
-		public void SetPlayer(Rigidbody2D playerBody)
+		public void SetPlayer(Player player)
 		{
-			player = playerBody;
+			this.player = player;
 		}
 
 		private void Start()
 		{
-			cameraPosition = startPos = transform.position;
+			cameraPosition = transform.position;
 		}
 
 		protected override void OnGameResetObject()
@@ -108,13 +107,14 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 			playerVelocity = 0f;
 			zoom = 0f;
 
-			// look = Vector2.zero;
-			// rawDestination = Vector2.zero;
+			Vector2 initialPosition = Random.insideUnitCircle;
+			
+			if (player != null) {
+				initialPosition = player.initialPosition + Random.insideUnitCircle;
+			}
 
-			cameraPosition = startPos;
-			transform.position = startPos;
-
-			// cam.orthographicSize = orthoDefault;
+			cameraPosition = initialPosition;
+			transform.position = initialPosition;
 		}
 
 		private void FixedUpdate()
@@ -124,17 +124,16 @@ namespace RobotoSkunk.PixelMan.Gameplay {
 			}
 
 			if (player != null) {
-				playerVelocity = player.velocity.magnitude;
+				playerVelocity = player.playerRigidbody.velocity.magnitude;
 
-
-				if (Mathf.Abs(player.velocity.x) > 0.1f) {
-					playerDirection = Mathf.Sign(player.velocity.x);
+				if (Mathf.Abs(player.playerRigidbody.velocity.x) > 0.1f) {
+					playerDirection = Mathf.Sign(player.playerRigidbody.velocity.x);
 				}
 
 				horizontalOffsetToAdd = Mathf.Lerp(horizontalOffsetToAdd, playerDirection * horizontalOffset, 0.07f);
 
 
-				rawDestination = player.position + new Vector2(horizontalOffsetToAdd, 0f);
+				rawDestination = player.playerRigidbody.position + new Vector2(horizontalOffsetToAdd, 0f);
 			} else {
 				playerVelocity = 0f;
 				look = Vector2.zero;

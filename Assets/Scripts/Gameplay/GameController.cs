@@ -156,10 +156,9 @@ namespace RobotoSkunk.PixelMan.Gameplay
 			GameObject player = GameObject.FindWithTag("Player");
 
 			if (player) {
-				Rigidbody2D playerBody = player.GetComponent<Rigidbody2D>();
 				Player playerScript = player.GetComponent<Player>();
 
-				playerCamera.SetPlayer(playerBody);
+				playerCamera.SetPlayer(playerScript);
 				playerScript.SetCamera(playerCamera);
 
 				GameEventsHandler.InvokeLevelReady();
