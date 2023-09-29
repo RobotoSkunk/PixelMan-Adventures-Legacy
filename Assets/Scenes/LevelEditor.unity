@@ -16575,7 +16575,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2097089062}
         m_TargetAssemblyTypeName: RobotoSkunk.PixelMan.LevelEditor.MainEditor, Assembly-CSharp
-        m_MethodName: SaveLevel
+        m_MethodName: SaveAndPlay
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -20293,6 +20293,9 @@ MonoBehaviour:
   optionsToggles:
   - {fileID: 195293620424292648}
   - {fileID: 1142540615}
+  sandboxScene:
+    asset: {fileID: 102900000, guid: fa0d725a7a814913682cdf95396d52bf, type: 3}
+    guid: fa0d725a7a814913682cdf95396d52bf
   containers:
     generic: {fileID: 2063365112}
     untaggedBlock: {fileID: 307837989}

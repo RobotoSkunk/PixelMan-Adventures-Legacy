@@ -32,7 +32,7 @@ using RobotoSkunk.PixelMan.Events;
 using RobotoSkunk.PixelMan.Gameplay;
 using RobootSkunk.PixelMan.LevelEditor;
 using RobotoSkunk.PixelMan.LevelEditor.IO;
-
+using Eflatun.SceneReference;
 
 namespace RobotoSkunk.PixelMan.LevelEditor
 {
@@ -138,6 +138,7 @@ namespace RobotoSkunk.PixelMan.LevelEditor
 		// public Sprite[] panelSwitchSprite = new Sprite[2];
 		public Sprite[] sprTestBtn;
 		public Toggle[] optionsToggles;
+		public SceneReference sandboxScene;
 
 		// [Space(25)]
 		// public PanelStruct[] panels;
@@ -210,11 +211,12 @@ namespace RobotoSkunk.PixelMan.LevelEditor
 		float rotHandle;
 		float uiScale;
 
-		bool somePanelEnabled;
+		// bool somePanelEnabled;
 		bool wasMultiselecting;
 		bool isOnTest;
 		bool wasEditing;
 		bool editorIsBusy = true;
+		bool goToScene = false;
 
 		uint undoIndex;
 
@@ -1707,13 +1709,28 @@ namespace RobotoSkunk.PixelMan.LevelEditor
 
 		public void SaveLevel()
 		{
-			saveCoroutine ??= StartCoroutine(SaveLvlRoutine());
+			// Shut up C#
+			#pragma warning disable IDE0074
+
+			if (saveCoroutine == null) {
+				saveCoroutine = StartCoroutine(SaveLvlRoutine());
+			}
+
+			#pragma warning restore IDE0074
 		}
 
 		public void OpenSettings()
 		{
 			Globals.openSettings = true;
 		}
+
+
+		public void SaveAndPlay()
+		{
+			goToScene = true;
+			SaveLevel();
+		}
+
 		#endregion
 
 		#region Input System
@@ -2088,12 +2105,19 @@ namespace RobotoSkunk.PixelMan.LevelEditor
 
 				bool success = await LevelIO.Save(Globals.levelData);
 
-				await UniTask.Delay(1000);
+				if (!goToScene) {
+					// Little delay to prevent people from thinking that the level is not saved
+					await UniTask.Delay(1000);
+				}
 
 				saveCoroutine = null;
 
 				Globals.onLoad = false;
 				editorIsBusy = false;
+
+				if (goToScene) {
+					GeneralEventsHandler.ChangeScene(sandboxScene);
+				}
 			});
 
 			yield return null;
