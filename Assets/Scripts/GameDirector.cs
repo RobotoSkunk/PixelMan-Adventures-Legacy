@@ -208,10 +208,18 @@ namespace RobotoSkunk.PixelMan
 				string userDataJson = await Files.ReadFile(Files.Directories.userData);
 
 				if (!string.IsNullOrEmpty(settingsJson)) {
+					// Clear memory
+					Globals.settings = null;
+
+					// Set values
 					Globals.settings = await AsyncJson.FromJson<Globals.Settings>(settingsJson);
 				}
 
 				if (!string.IsNullOrEmpty(userDataJson)) {
+					// Clear memory
+					Globals.playerData = null;
+
+					// Set values
 					Globals.playerData = await AsyncJson.FromJson<Globals.PlayerData>(userDataJson);
 				}
 

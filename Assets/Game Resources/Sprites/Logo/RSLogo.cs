@@ -5,9 +5,6 @@ using Cysharp.Threading.Tasks;
 using Eflatun.SceneReference;
 
 
-using RobotoSkunk.PixelMan.Events;
-
-
 namespace RobotoSkunk.PixelMan {
 	public class RSLogo : MonoBehaviour {
 		[Header("Components")]

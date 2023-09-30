@@ -46,7 +46,7 @@ namespace RobotoSkunk
 #elif UNITY_STANDALONE || UNITY_EDITOR || UNITY_EDITOR_64
 					string special = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
-					_root = Path.Join(special, "PixelMan Adventures");
+					_root = Path.Join(special, "PixelMan Adventures (Legacy)");
 #else
 					_root = Application.persistentDataPath;
 #endif
