@@ -378,7 +378,7 @@ namespace RobotoSkunk.PixelMan
 
 		private void OnGUI()
 		{
-			if (!Globals.settings.general.debugMode) {
+			if (Globals.settings == null || !Globals.settings.general.debugMode) {
 				return;
 			}
 
@@ -417,6 +417,7 @@ namespace RobotoSkunk.PixelMan
 
 		public void SetVSync(bool value)
 		{
+			Globals.settings.general.enableVSync = value;
 			SetVSyncInternal(value);
 			SaveSettingsMiddleware();
 		}
