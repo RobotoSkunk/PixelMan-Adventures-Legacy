@@ -10394,6 +10394,7 @@ GameObject:
   - component: {fileID: 8009474489757818012}
   - component: {fileID: 8009474489757818013}
   - component: {fileID: 5182439856068789001}
+  - component: {fileID: 1567579994759327065}
   m_Layer: 0
   m_Name: Render
   m_TagString: Untagged
@@ -10436,7 +10437,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 38861bea2a46d214bb774101a73cd127, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10489,3 +10490,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1567579994759327065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8009474489757818011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bca5d2d03545d6345bcd786758fe0037, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 8009474489757818013}
+  outlineSize: 1
+  sensitivity: 0.5
+  customOutlineColor: 0
+  outlineColor: {r: 0, g: 0, b: 0, a: 1}

@@ -92,6 +92,7 @@ namespace RobotoSkunk.PixelMan.Gameplay
 			Globals.onPause = true;
 			Globals.onLoad = true;
 			Globals.isDead = false;
+			Globals.gotCoin = false;
 			Globals.respawnAttempts = 0;
 
 			victoryUI.SetActive(false);
@@ -128,6 +129,11 @@ namespace RobotoSkunk.PixelMan.Gameplay
 			pauseMenuPanels.SetActive(pauseMenuDelta < 0.99f);
 			pauseMenuPanels[0].anchoredPosition = new(-pauseMenuDelta * (pauseMenuPanels[0].rect.width + 10), 0);
 			pauseMenuPanels[1].anchoredPosition = new(pauseMenuDelta * (pauseMenuPanels[1].rect.width + 10), 0);
+
+
+			if (Keyboard.current?.escapeKey.wasPressedThisFrame == true && !Globals.openSettings) {
+				Globals.onPause = !Globals.onPause;
+			}
 
 
 			if (victoryPanelCoroutine == null) {
@@ -313,7 +319,7 @@ namespace RobotoSkunk.PixelMan.Gameplay
 			// Achievements
 			achievement[0].color = attempts == 1 ? Color.white : Color.gray;
 			achievement[1].color = Globals.gotCoin ? Color.white : Color.gray;
-			achievement[2].color = Color.white;
+			achievement[2].color = timer.time < 60 ? Color.white : Color.gray;
 
 
 			victoryUI.SetActive(true);
