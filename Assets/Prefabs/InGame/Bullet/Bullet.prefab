@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6298774159726725548}
   - component: {fileID: 3421911174462285116}
   - component: {fileID: 168236591396666953}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4856,7 +4856,7 @@ GameObject:
   - component: {fileID: 605243547112026933}
   - component: {fileID: 588853127616103566}
   - component: {fileID: 6708733427911933524}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -5033,3 +5033,4 @@ MonoBehaviour:
   - Bullet
   - IntelligentRocket
   - Laser
+  - Player
